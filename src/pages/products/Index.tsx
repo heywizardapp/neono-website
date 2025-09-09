@@ -1,0 +1,280 @@
+import { Hero } from '@/components/Hero';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const products = [
+  {
+    icon: Calendar,
+    name: 'Appointments & Calendar',
+    description: 'Smart scheduling for busy teams—walk-ins, rebook, chair/room views.',
+    href: '/products/appointments',
+    color: 'text-primary',
+    features: ['Real-time availability', 'Staff scheduling', 'Room management', 'Walk-in queues']
+  },
+  {
+    icon: CreditCard,
+    name: 'POS & Payments',
+    description: 'Tap, split tips, instant payouts. No tip commission.',
+    href: '/products/pos',
+    color: 'text-accent',
+    features: ['Contactless payments', 'Tip splitting', 'Same-day payouts', 'Inventory tracking']
+  },
+  {
+    icon: Mail,
+    name: 'Marketing & Reviews',
+    description: 'SMS and email campaigns that fill your calendar.',
+    href: '/products/marketing',
+    color: 'text-mint',
+    features: ['Automated campaigns', 'Review management', 'Customer segmentation', 'A/B testing']
+  },
+  {
+    icon: Globe,
+    name: 'Online Booking',
+    description: 'Marketplace exposure and seamless booking experience.',
+    href: '/products/booking',
+    color: 'text-lavender',
+    features: ['Marketplace listing', 'Real-time booking', 'Service packages', 'Gift cards']
+  },
+  {
+    icon: Smartphone,
+    name: 'Website & Link-in-Bio',
+    description: 'Launch a clean site and link-in-bio—free.',
+    href: '/products/website',
+    color: 'text-primary',
+    features: ['Drag & drop builder', 'Mobile optimized', 'SEO ready', 'Social integration']
+  },
+  {
+    icon: BarChart3,
+    name: 'Analytics & AI',
+    description: 'Role-based insights and automations for owners and teams.',
+    href: '/products/analytics',
+    color: 'text-accent',
+    features: ['Revenue analytics', 'Staff performance', 'Predictive insights', 'Custom reports']
+  },
+];
+
+const integrations = [
+  { name: 'QuickBooks', logo: 'QB' },
+  { name: 'Stripe', logo: 'ST' },
+  { name: 'Square', logo: 'SQ' },
+  { name: 'Google', logo: 'GO' },
+  { name: 'Facebook', logo: 'FB' },
+  { name: 'Instagram', logo: 'IG' },
+  { name: 'Mailchimp', logo: 'MC' },
+  { name: 'Klaviyo', logo: 'KL' },
+];
+
+const benefits = [
+  {
+    icon: Users,
+    title: 'Built for Teams',
+    description: 'Role-based permissions, staff scheduling, and team performance tracking.'
+  },
+  {
+    icon: Zap,
+    title: 'Lightning Fast',
+    description: 'Cloud-native infrastructure ensures your business never slows down.'
+  },
+  {
+    icon: Shield,
+    title: 'Enterprise Security',
+    description: 'Bank-level encryption, PCI compliance, and regular security audits.'
+  },
+];
+
+export default function ProductsIndex() {
+  return (
+    <div className="min-h-screen">
+      <Hero
+        title="One platform. Endless possibilities."
+        subtitle="Everything you need to run a modern beauty and wellness business. From booking to analytics, all integrated seamlessly."
+        primaryCta={{ text: "Start Free Trial", href: "/signup" }}
+        secondaryCta={{ text: "Watch Demo", href: "/demo" }}
+        showStats={false}
+      />
+
+      {/* Products Grid */}
+      <section className="py-20 lg:py-32">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              Powerful tools, beautiful design
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Each product is thoughtfully designed to work together, giving you a complete business management solution.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {products.map((product, index) => (
+              <Card key={product.name} className="feature-card group" style={{ animationDelay: `${index * 100}ms` }}>
+                <CardHeader>
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card mb-4 ${product.color}`}>
+                    <product.icon className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors">
+                    {product.name}
+                  </CardTitle>
+                  <CardDescription className="text-base">
+                    {product.description}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    {product.features.map((feature) => (
+                      <li key={feature} className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Button variant="ghost" className="w-full group/btn" asChild>
+                    <Link to={product.href}>
+                      Learn more
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section className="py-20 lg:py-32 bg-gradient-subtle">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              How it works
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Get up and running in minutes with our simple 3-step process.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="text-center space-y-4">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-hero text-white font-bold text-xl">
+                1
+              </div>
+              <h3 className="text-xl font-semibold">Set up your business</h3>
+              <p className="text-muted-foreground">
+                Add your services, staff, and availability. Our setup wizard guides you through everything in under 10 minutes.
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-hero text-white font-bold text-xl">
+                2
+              </div>
+              <h3 className="text-xl font-semibold">Connect your tools</h3>
+              <p className="text-muted-foreground">
+                Sync with your existing payment processor, accounting software, and marketing tools. Everything works together.
+              </p>
+            </div>
+
+            <div className="text-center space-y-4">
+              <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-hero text-white font-bold text-xl">
+                3
+              </div>
+              <h3 className="text-xl font-semibold">Start taking bookings</h3>
+              <p className="text-muted-foreground">
+                Share your booking link, launch your website, and watch your business grow with automated marketing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Integrations */}
+      <section className="py-20 lg:py-32">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              Integrates with your favorite tools
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Connect NeonO with the apps you already use to create a seamless workflow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-6">
+            {integrations.map((integration) => (
+              <div key={integration.name} className="flex flex-col items-center space-y-2">
+                <div className="h-16 w-16 rounded-xl bg-gradient-card border border-border/40 flex items-center justify-center font-bold text-primary">
+                  {integration.logo}
+                </div>
+                <span className="text-xs text-muted-foreground text-center">{integration.name}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" asChild>
+              <Link to="/integrations">
+                View all integrations
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-20 lg:py-32 bg-gradient-subtle">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              Why businesses choose NeonO
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {benefits.map((benefit, index) => (
+              <div key={benefit.title} className="text-center space-y-4" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${index === 0 ? 'text-primary' : index === 1 ? 'text-accent' : 'text-mint'} bg-gradient-card`}>
+                  <benefit.icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 lg:py-32">
+        <div className="container text-center">
+          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+            Ready to transform your business?
+          </h2>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join thousands of beauty and wellness businesses already using NeonO to grow faster and work smarter.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="btn-hero-primary" asChild>
+              <Link to="/signup">
+                Start Free Trial
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/demo">
+                Watch Demo
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

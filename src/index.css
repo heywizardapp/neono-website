@@ -1,42 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* NeonO Design System - All colors, gradients, fonts, animations defined here */
 
 @layer base {
   :root {
+    /* NeonO Brand Colors */
+    --ink: 215 85% 8%;           /* #0B1220 - Primary dark */
+    --slate-50: 210 20% 98%;
+    --slate-100: 210 20% 95%;
+    --slate-200: 213 20% 88%;
+    --slate-300: 213 15% 75%;
+    --slate-400: 215 15% 55%;
+    --slate-500: 215 20% 40%;
+    --slate-600: 215 25% 30%;
+    --slate-700: 215 30% 20%;
+    --slate-800: 215 35% 15%;
+    --slate-900: 215 40% 10%;
+    
+    --lavender: 240 89% 73%;     /* #7C7CF2 - Accent purple */
+    --lavender-light: 240 89% 85%;
+    --lavender-dark: 240 89% 65%;
+    
+    --mint: 165 82% 49%;         /* #22D3A9 - Accent green */
+    --mint-light: 165 82% 65%;
+    --mint-dark: 165 82% 35%;
+    
+    /* Semantic Design System Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: var(--ink);
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: var(--ink);
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: var(--ink);
+    
+    --primary: var(--lavender);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--slate-100);
+    --secondary-foreground: var(--ink);
+    
+    --muted: var(--slate-100);
+    --muted-foreground: var(--slate-500);
+    
+    --accent: var(--mint);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: var(--slate-200);
+    --input: var(--slate-200);
+    --ring: var(--lavender);
+    
+    --radius: 1rem;
+    
+    /* Brand Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--lavender)) 0%, hsl(var(--mint)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(var(--slate-50)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8) 0%, hsl(var(--slate-50) / 0.6) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(var(--slate-500) / 0.1), 0 2px 4px -2px hsl(var(--slate-500) / 0.1);
+    --shadow-medium: 0 10px 15px -3px hsl(var(--slate-500) / 0.1), 0 4px 6px -4px hsl(var(--slate-500) / 0.1);
+    --shadow-large: 0 25px 50px -12px hsl(var(--slate-500) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.15);
+    
+    /* Animations */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +94,39 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark mode overrides */
+    --background: var(--slate-900);
+    --foreground: var(--slate-50);
+    
+    --card: var(--slate-800);
+    --card-foreground: var(--slate-50);
+    
+    --popover: var(--slate-800);
+    --popover-foreground: var(--slate-50);
+    
+    --primary: var(--lavender);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--slate-800);
+    --secondary-foreground: var(--slate-100);
+    
+    --muted: var(--slate-800);
+    --muted-foreground: var(--slate-400);
+    
+    --accent: var(--mint);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: var(--slate-700);
+    --input: var(--slate-700);
+    --ring: var(--lavender);
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--lavender)) 0%, hsl(var(--mint)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--slate-900)) 0%, hsl(var(--slate-800)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--slate-800) / 0.8) 0%, hsl(var(--slate-700) / 0.6) 100%);
   }
 }
 
@@ -100,6 +136,100 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-white font-semibold px-8 py-4 rounded-2xl shadow-glow hover:shadow-large transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .btn-hero-secondary {
+    @apply bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  /* Feature Cards */
+  .feature-card {
+    @apply bg-gradient-card rounded-2xl p-8 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm;
+  }
+  
+  /* Glass Effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-md border border-slate-700/50;
+  }
+  
+  /* Hover Animations */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-medium;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  
+  /* Text Gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  /* Custom shadows using design tokens */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .shadow-large {
+    box-shadow: var(--shadow-large);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Custom gradients */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* Motion utilities */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }

@@ -13,7 +13,37 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Geist", "system-ui", "sans-serif"],
+      },
       colors: {
+        // NeonO Brand Colors
+        ink: "hsl(var(--ink))",
+        slate: {
+          50: "hsl(var(--slate-50))",
+          100: "hsl(var(--slate-100))",
+          200: "hsl(var(--slate-200))",
+          300: "hsl(var(--slate-300))",
+          400: "hsl(var(--slate-400))",
+          500: "hsl(var(--slate-500))",
+          600: "hsl(var(--slate-600))",
+          700: "hsl(var(--slate-700))",
+          800: "hsl(var(--slate-800))",
+          900: "hsl(var(--slate-900))",
+        },
+        lavender: {
+          DEFAULT: "hsl(var(--lavender))",
+          light: "hsl(var(--lavender-light))",
+          dark: "hsl(var(--lavender-dark))",
+        },
+        mint: {
+          DEFAULT: "hsl(var(--mint))",
+          light: "hsl(var(--mint-light))",
+          dark: "hsl(var(--mint-dark))",
+        },
+        
+        // Semantic colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -47,16 +77,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +100,53 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          }
+        },
+        "slide-up": {
+          "0%": {
+            transform: "translateY(20px)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1"
+          }
+        },
+        "scale-in": {
+          "0%": {
+            transform: "scale(0.9)",
+            opacity: "0"
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1"
+          }
+        },
+        "marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" }
+        },
+        "marquee2": {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" }
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out",
+        "slide-up": "slide-up 0.5s ease-out",
+        "scale-in": "scale-in 0.3s ease-out",
+        "marquee": "marquee 25s linear infinite",
+        "marquee2": "marquee2 25s linear infinite",
       },
     },
   },
