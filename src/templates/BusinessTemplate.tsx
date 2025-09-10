@@ -11,7 +11,23 @@ import { FaqAccordion } from '@/components/FaqAccordion';
 import { FinalCta } from '@/components/FinalCta';
 import { BusinessTemplateConfig } from './types';
 
-export default function BusinessTemplate(config: BusinessTemplateConfig) {
+interface BusinessTemplateProps {
+  config?: BusinessTemplateConfig;
+  industry?: string;
+  hero?: any;
+  snapshot?: any;
+  sections?: any;
+  beforeAfter?: any;
+  testimonials?: any;
+  integrations?: any;
+  pricing?: any;
+  faqs?: any;
+}
+
+export default function BusinessTemplate(props: BusinessTemplateConfig | BusinessTemplateProps) {
+  // Handle both config object and spread props
+  const config = 'config' in props ? props.config! : props as BusinessTemplateConfig;
+  
   useEffect(() => {
     document.title = `${config.industry} Software | NeonO`;
   }, [config.industry]);
