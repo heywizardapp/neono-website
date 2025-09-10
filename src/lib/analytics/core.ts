@@ -307,9 +307,9 @@ class AnalyticsCore {
 
     // Send events in parallel with rate limiting
     const promises = batch.map((event, index) => {
-      return new Promise(resolve => {
+      return new Promise<void>(resolve => {
         setTimeout(() => {
-          this.sendEvent(event).finally(resolve);
+          this.sendEvent(event).finally(() => resolve());
         }, index * 10); // 10ms stagger to avoid overwhelming
       });
     });

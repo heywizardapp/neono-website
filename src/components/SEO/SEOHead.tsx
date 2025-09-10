@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta } from '@/lib/seo/meta';
+import { Meta } from '@/lib/seo/meta.tsx';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { generatePreloadLinks } from '@/lib/seo/prerender';
 
@@ -58,10 +58,7 @@ export function SEOHead({
 
       {/* Structured Data */}
       {structuredData.map((schema, index) => {
-        let jsonLdData = null;
-
-        jsonLdData = schema.data;
-
+        const jsonLdData = schema.data;
         return jsonLdData ? <JsonLd key={index} data={jsonLdData} /> : null;
       })}
 
@@ -161,12 +158,12 @@ export const SEO_PRESETS = {
 
 // Hook for dynamic SEO data
 export function useSEO(presetKey?: keyof typeof SEO_PRESETS) {
-  const [seoData, setSeoData] = React.useState(
+  const [seoData, setSeoData] = React.useState<Partial<SEOHeadProps> | null>(
     presetKey ? SEO_PRESETS[presetKey] : null
   );
 
   const updateSEO = React.useCallback((newData: Partial<SEOHeadProps>) => {
-    setSeoData(current => ({ ...current, ...newData }));
+    setSeoData(current => current ? { ...current, ...newData } : newData);
   }, []);
 
   return { seoData, updateSEO };
