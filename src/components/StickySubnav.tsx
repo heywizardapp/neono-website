@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { useScrollSpy } from '@/lib/useInView';
 
 interface StickySubnavProps {
   sections: { id: string; label: string }[];
 }
 
 export function StickySubnav({ sections }: StickySubnavProps) {
-  const [activeSection, setActiveSection] = useState('');
   const [isSticky, setIsSticky] = useState(false);
+  const sectionIds = sections.map(s => s.id);
+  const activeSection = useScrollSpy(sectionIds, 100);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,28 +18,13 @@ export function StickySubnav({ sections }: StickySubnavProps) {
         const heroBottom = hero.getBoundingClientRect().bottom;
         setIsSticky(heroBottom <= 80);
       }
-
-      // Find active section
-      const sectionElements = sections.map(section => 
-        document.getElementById(section.id)
-      ).filter(Boolean);
-
-      const scrollPosition = window.scrollY + 120;
-      
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const element = sectionElements[i];
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i].id);
-          break;
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections]);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -55,28 +42,31 @@ export function StickySubnav({ sections }: StickySubnavProps) {
     <nav 
       className={cn(
         "transition-all duration-300 bg-background/95 backdrop-blur-sm border-b border-border/40 z-40",
-        isSticky ? "fixed top-0 left-0 right-0 shadow-sm" : "relative"
+        isSticky ? "fixed top-14 left-0 right-0 shadow-sm" : "relative"
       )}
     >
       <div className="container">
-        <div className="flex items-center justify-center py-4">
-          <div className="flex items-center space-x-1 md:space-x-2 overflow-x-auto scrollbar-hide">
+        <div className="py-2">
+          <ul className="flex gap-2 overflow-x-auto scrollbar-hide px-4 snap-x">
             {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={cn(
-                  "whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
-                  "hover:bg-accent/50 hover:text-accent-foreground",
-                  activeSection === section.id
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground"
-                )}
-              >
-                {section.label}
-              </button>
+              <li key={section.id} className="snap-center">
+                <button
+                  onClick={() => scrollToSection(section.id)}
+                  className={cn(
+                    "whitespace-nowrap min-h-[44px] min-w-[44px] px-4 py-3 rounded-full text-sm font-medium transition-all duration-200",
+                    "hover:bg-accent/50 hover:text-accent-foreground",
+                    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                    activeSection === section.id
+                      ? "bg-primary text-primary-foreground shadow-sm font-bold underline"
+                      : "text-muted-foreground"
+                  )}
+                  aria-current={activeSection === section.id ? 'page' : undefined}
+                >
+                  {section.label}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </nav>

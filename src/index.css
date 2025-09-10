@@ -232,4 +232,25 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Scrollbar hiding utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Touch target utilities */
+  .touch-44 {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
 }

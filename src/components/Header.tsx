@@ -1,16 +1,7 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
+import * as React from 'react'
+import { NavLink, Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
 
 const productLinks = [
   { name: 'Appointments & Calendar', href: '/products/appointments', description: 'Smart scheduling for busy teams' },
@@ -30,159 +21,157 @@ const solutionLinks = [
 ];
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = React.useState(false)
+  
+  React.useEffect(() => {
+    function onEsc(e: KeyboardEvent) { 
+      if (e.key === 'Escape') setOpen(false) 
+    }
+    document.addEventListener('keydown', onEsc)
+    return () => document.removeEventListener('keydown', onEsc)
+  }, [])
+
+  // Lock scroll when mobile menu is open
+  React.useEffect(() => { 
+    document.documentElement.style.overflow = open ? 'hidden' : '' 
+  }, [open])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-hero">
-            <span className="text-lg font-bold text-white">N</span>
-          </div>
-          <span className="text-xl font-display font-bold text-foreground">NeonO</span>
+    <header className="sticky top-0 z-50 bg-background/75 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
+        <Link 
+          to="/" 
+          className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >
+          <div className="h-8 w-8 rounded-xl bg-gradient-hero text-white grid place-items-center font-bold">N</div>
+          <span className="font-display font-bold text-foreground">NeonO</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <NavigationMenu className="hidden lg:flex">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid w-[600px] gap-3 p-6 md:grid-cols-2">
-                  {productLinks.map((item) => (
-                    <NavigationMenuLink key={item.name} asChild>
-                      <Link
-                        to={item.href}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="text-sm font-medium leading-none">{item.name}</div>
-                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </Link>
-                    </NavigationMenuLink>
-                  ))}
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base" aria-label="Primary">
+          <TopNav to="/products">Products</TopNav>
+          <TopNav to="/solutions/salons">Solutions</TopNav>
+          <TopNav to="/pricing">Pricing</TopNav>
+          <TopNav to="/customers">Customers</TopNav>
+          <TopNav to="/blog">Resources</TopNav>
+        </nav>
 
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid w-[300px] gap-3 p-6">
-                  {solutionLinks.map((item) => (
-                    <NavigationMenuLink key={item.name} asChild>
-                      <Link
-                        to={item.href}
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                      >
-                        <div className="text-sm font-medium leading-none">{item.name}</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  ))}
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/pricing" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Pricing
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/customers" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Customers
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/blog" className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
-                  Resources
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center space-x-4">
-          <Button variant="ghost" asChild>
-            <Link to="/login">Sign In</Link>
-          </Button>
-          <Button variant="default" asChild>
+        <div className="hidden md:flex items-center gap-3">
+          <Link 
+            to="/login" 
+            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center"
+          >
+            Sign in
+          </Link>
+          <Button asChild size="default" className="min-h-[44px] min-w-[44px]">
             <Link to="/signup">Start Free Trial</Link>
           </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button variant="ghost" size="sm">
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right" className="w-[300px]">
-            <div className="flex flex-col space-y-4 mt-6">
-              <div className="space-y-2">
-                <h3 className="font-semibold">Products</h3>
-                {productLinks.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="font-semibold">Solutions</h3>
-                {solutionLinks.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="space-y-2">
-                <Link to="/pricing" className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                  Pricing
-                </Link>
-                <Link to="/customers" className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                  Customers
-                </Link>
-                <Link to="/blog" className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-                  Resources
-                </Link>
-              </div>
-
-              <div className="flex flex-col space-y-2 pt-4 border-t">
-                <Button variant="ghost" asChild>
-                  <Link to="/login" onClick={() => setIsMobileMenuOpen(false)}>Sign In</Link>
-                </Button>
-                <Button variant="default" asChild>
-                  <Link to="/signup" onClick={() => setIsMobileMenuOpen(false)}>Start Free Trial</Link>
-                </Button>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden inline-flex items-center justify-center rounded-lg border min-h-[44px] min-w-[44px] p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X className="h-5 w-5"/> : <Menu className="h-5 w-5"/>}
+        </button>
       </div>
+
+      <MobileDrawer open={open} onClose={() => setOpen(false)} />
     </header>
-  );
+  )
+}
+
+function TopNav({ to, children }: React.PropsWithChildren<{ to: string }>) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) => `hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${isActive ? 'text-foreground font-medium' : 'text-muted-foreground'}`}
+    >
+      {children}
+    </NavLink>
+  )
+}
+
+function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+  return (
+    <div
+      className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+      aria-hidden={!open}
+    >
+      {/* backdrop */}
+      <div
+        className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm"
+        onClick={onClose}
+      />
+
+      {/* panel */}
+      <div
+        className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-background shadow-xl border-l p-4 flex flex-col gap-2 transition-transform duration-300 ${open ? 'translate-x-0' : 'translate-x-full'}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation"
+      >
+        <div className="flex items-center gap-2 mb-4 pb-4 border-b">
+          <div className="h-8 w-8 rounded-xl bg-gradient-hero text-white grid place-items-center font-bold">N</div>
+          <span className="font-display font-bold">NeonO</span>
+        </div>
+        
+        <div className="space-y-1">
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">PRODUCTS</h3>
+          {productLinks.map((item) => (
+            <MobileLink key={item.name} to={item.href} onClose={onClose}>
+              {item.name}
+            </MobileLink>
+          ))}
+        </div>
+        
+        <div className="space-y-1">
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">SOLUTIONS</h3>
+          {solutionLinks.map((item) => (
+            <MobileLink key={item.name} to={item.href} onClose={onClose}>
+              {item.name}
+            </MobileLink>
+          ))}
+        </div>
+
+        <div className="space-y-1">
+          <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
+          <MobileLink to="/customers" onClose={onClose}>Customers</MobileLink>
+          <MobileLink to="/blog" onClose={onClose}>Resources</MobileLink>
+        </div>
+
+        <div className="flex flex-col gap-3 pt-4 mt-auto border-t">
+          <Link 
+            to="/login" 
+            onClick={onClose} 
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] px-4 py-3 inline-flex items-center justify-center"
+          >
+            Sign in
+          </Link>
+          <Link 
+            to="/signup" 
+            onClick={onClose} 
+            className="inline-flex items-center justify-center rounded-lg min-h-[44px] px-4 py-3 bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
+          >
+            Start Free Trial
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MobileLink({ to, children, onClose }: React.PropsWithChildren<{ to: string; onClose: () => void }>) {
+  return (
+    <NavLink
+      to={to}
+      onClick={onClose}
+      className={({ isActive }) => `block rounded-lg px-3 py-3 min-h-[44px] text-sm transition-colors ${isActive ? 'bg-accent text-accent-foreground font-medium' : 'text-foreground hover:bg-accent/50'}`}
+    >
+      {children}
+    </NavLink>
+  )
 }
