@@ -34,6 +34,7 @@ export default function App() {
 
                 {/* Pricing */}
                 <Route path="/pricing" element={<Pricing />} />
+                <Route path="/roi" element={<div>ROI Calculator - coming soon</div>} />
 
                 {/* Products */}
                 <Route path="/products" element={<ProductsIndex />} />
