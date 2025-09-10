@@ -5,14 +5,25 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/consent/CookieBanner";
+import { InstallPrompt, registerServiceWorker } from "@/components/pwa/InstallPrompt";
 
 import Index from "@/pages/Index";
 import Pricing from "@/pages/Pricing";
 import ProductsIndex from "@/pages/products/Index";
 import SalonsPage from "@/pages/solutions/Salons";
+import RoiPage from "@/pages/Roi";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
+
+// Initialize analytics and PWA features
+if (typeof window !== 'undefined') {
+  import('@/lib/analytics/heatmap');
+  import('@/lib/analytics/scroll');
+  import('@/lib/analytics/forms');
+  registerServiceWorker();
+}
 
 export default function App() {
   return (
@@ -34,7 +45,7 @@ export default function App() {
 
                 {/* Pricing */}
                 <Route path="/pricing" element={<Pricing />} />
-                <Route path="/roi" element={<div>ROI Calculator - coming soon</div>} />
+                <Route path="/roi" element={<RoiPage />} />
 
                 {/* Products */}
                 <Route path="/products" element={<ProductsIndex />} />
@@ -49,6 +60,8 @@ export default function App() {
               </Routes>
             </main>
             <Footer />
+            <CookieBanner />
+            <InstallPrompt />
           </div>
         </BrowserRouter>
       </TooltipProvider>
