@@ -268,13 +268,20 @@ const Index = () => {
 
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground mb-4">
-              Additional seats: $9.99/seat/month
+              Additional seats: $9.99/seat/month • No commission on tips
             </p>
-            <Button variant="ghost" asChild>
-              <Link to="/pricing">
-                See full pricing details <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button variant="ghost" asChild>
+                <Link to="/pricing">
+                  See full pricing details <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link to="/roi">
+                  Calculate your savings <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

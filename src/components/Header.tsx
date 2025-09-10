@@ -54,7 +54,7 @@ export function Header() {
           <TopNav to="/products">Products</TopNav>
           <TopNav to="/solutions/salons">Solutions</TopNav>
           <TopNav to="/pricing">Pricing</TopNav>
-          <TopNav to="/customers">Customers</TopNav>
+          <TopNav to="/roi">ROI Calculator</TopNav>
           <TopNav to="/blog">Resources</TopNav>
         </nav>
 
@@ -149,7 +149,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
 
         <div className="space-y-1">
           <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
-          <MobileLink to="/customers" onClose={onClose}>Customers</MobileLink>
+          <MobileLink to="/roi" onClose={onClose}>ROI Calculator</MobileLink>
           <MobileLink to="/blog" onClose={onClose}>Resources</MobileLink>
         </div>
 
