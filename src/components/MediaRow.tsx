@@ -4,28 +4,23 @@ import { Button } from '@/components/ui/button';
 interface MediaRowProps {
   id: string;
   title: string;
-  description?: string;
+  eyebrow?: string;
   bullets: string[];
-  media?: {
-    type: 'image' | 'video';
+  media: {
     src: string;
     alt: string;
+    variant?: 'image' | 'video';
   };
   reverse?: boolean;
-  cta?: {
-    label: string;
-    href: string;
-  };
 }
 
 export function MediaRow({ 
   id, 
   title, 
-  description, 
+  eyebrow,
   bullets, 
   media, 
-  reverse = false, 
-  cta 
+  reverse = false
 }: MediaRowProps) {
   return (
     <section id={id} className="py-20 lg:py-32">
@@ -33,14 +28,14 @@ export function MediaRow({
         <div className={`grid gap-12 lg:grid-cols-2 lg:gap-16 items-center ${reverse ? 'lg:grid-flow-col-dense' : ''}`}>
           <div className={`space-y-8 ${reverse ? 'lg:col-start-2' : ''}`}>
             <div className="space-y-4">
+              {eyebrow && (
+                <div className="text-sm font-medium text-primary uppercase tracking-wide">
+                  {eyebrow}
+                </div>
+              )}
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
                 {title}
               </h2>
-              {description && (
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  {description}
-                </p>
-              )}
             </div>
             
             <ul className="space-y-4">
@@ -52,14 +47,6 @@ export function MediaRow({
               ))}
             </ul>
 
-            {cta && (
-              <Button className="group" asChild>
-                <a href={cta.href}>
-                  {cta.label}
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </a>
-              </Button>
-            )}
           </div>
 
           <div className={`relative ${reverse ? 'lg:col-start-1' : ''}`}>

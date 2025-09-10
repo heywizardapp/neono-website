@@ -6,20 +6,16 @@ interface BeforeAfterItem {
 }
 
 interface BeforeAfterGridProps {
-  title?: string;
   items: BeforeAfterItem[];
 }
 
-export function BeforeAfterGrid({ 
-  title = "Before & After NeonO",
-  items 
-}: BeforeAfterGridProps) {
+export function BeforeAfterGrid({ items }: BeforeAfterGridProps) {
   return (
     <section className="py-20 lg:py-32 bg-accent/5">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            {title}
+            Before & After NeonO
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             See how NeonO transforms everyday business operations

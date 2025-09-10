@@ -1,15 +1,17 @@
-import { LucideIcon } from 'lucide-react';
-
-interface ValueSnapshotItem {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  color?: string;
-}
+import { CheckCircle, Clock, CreditCard, Globe } from 'lucide-react';
+import { SnapshotCard } from '@/templates/types';
 
 interface ValueSnapshotProps {
-  items: ValueSnapshotItem[];
+  items: SnapshotCard[];
 }
+
+const getIcon = (title: string) => {
+  if (title.toLowerCase().includes('no-show')) return CheckCircle;
+  if (title.toLowerCase().includes('slow') || title.toLowerCase().includes('hour')) return Clock;
+  if (title.toLowerCase().includes('checkout') || title.toLowerCase().includes('payment')) return CreditCard;
+  if (title.toLowerCase().includes('website')) return Globe;
+  return CheckCircle;
+};
 
 export function ValueSnapshot({ items }: ValueSnapshotProps) {
   return (
@@ -23,11 +25,14 @@ export function ValueSnapshot({ items }: ValueSnapshotProps) {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card mx-auto ${item.color || 'text-primary'}`}>
-                <item.icon className="h-6 w-6" />
+                {(() => {
+                  const Icon = getIcon(item.title);
+                  return <Icon className="h-6 w-6" />;
+                })()}
               </div>
               <div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}

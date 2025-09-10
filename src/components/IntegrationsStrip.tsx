@@ -1,28 +1,24 @@
+import { IntegrationLogo } from '@/templates/types';
+
 interface Integration {
-  name: string;
-  logo?: string;
+  label: string;
+  src?: string;
 }
 
 interface IntegrationsStripProps {
-  title?: string;
-  subtitle?: string;
-  integrations: Integration[];
+  integrations: IntegrationLogo[];
 }
 
-export function IntegrationsStrip({ 
-  title = "Integrates with your favorite tools",
-  subtitle = "Connect NeonO with the tools you already use",
-  integrations 
-}: IntegrationsStripProps) {
+export function IntegrationsStrip({ integrations }: IntegrationsStripProps) {
   return (
     <section className="py-20 lg:py-32 bg-accent/5">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            {title}
+            Integrates with your favorite tools
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {subtitle}
+            Connect NeonO with the tools you already use
           </p>
         </div>
 
@@ -35,7 +31,7 @@ export function IntegrationsStrip({
             >
               <div className="w-16 h-16 bg-gradient-hero/10 rounded-lg flex items-center justify-center">
                 <span className="text-sm font-semibold text-muted-foreground">
-                  {integration.name.substring(0, 2).toUpperCase()}
+                  {integration.label.substring(0, 2).toUpperCase()}
                 </span>
               </div>
             </div>

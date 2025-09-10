@@ -9,106 +9,42 @@ import { IntegrationsStrip } from '@/components/IntegrationsStrip';
 import { PricingRibbon } from '@/components/PricingRibbon';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { FinalCta } from '@/components/FinalCta';
+import { BusinessTemplateConfig } from './types';
 
-export interface BusinessTemplateConfig {
-  industry: string;
-  hero: {
-    title: string;
-    subtitle: string;
-    primaryCta: { label: string; href: string };
-    secondaryCta: { label: string; href: string };
-    chips: string[];
-    image?: string;
-  };
-  valueSnapshot: Array<{
-    icon: any;
-    title: string;
-    description: string;
-    color?: string;
-  }>;
-  sections: Array<{
-    id: string;
-    title: string;
-    description?: string;
-    bullets: string[];
-    reverse?: boolean;
-    cta?: { label: string; href: string };
-  }>;
-  beforeAfter: {
-    title?: string;
-    items: Array<{
-      before: string;
-      after: string;
-    }>;
-  };
-  testimonials: {
-    title?: string;
-    items: Array<{
-      quote: string;
-      author: string;
-      business: string;
-      rating: number;
-    }>;
-  };
-  integrations: {
-    title?: string;
-    subtitle?: string;
-    items: Array<{ name: string; logo?: string }>;
-  };
-  pricing: {
-    title?: string;
-    plans: string;
-    features: string;
-    ctaLabel?: string;
-    ctaHref?: string;
-  };
-  faq: {
-    title?: string;
-    subtitle?: string;
-    items: Array<{
-      question: string;
-      answer: string;
-    }>;
-  };
-  finalCta: {
-    title: string;
-    subtitle?: string;
-    primaryCta: { label: string; href: string };
-    secondaryCta?: { label: string; href: string };
-  };
-}
-
-interface BusinessTemplateProps {
-  config: BusinessTemplateConfig;
-}
-
-const sections = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'appointments', label: 'Appointments' },
-  { id: 'pos', label: 'POS/Payments' },
-  { id: 'marketing', label: 'Marketing' },
-  { id: 'booking', label: 'Online Booking' },
-  { id: 'team', label: 'Team & Payroll' },
-  { id: 'reports', label: 'Reports & AI' },
-  { id: 'pricing', label: 'Pricing' },
-  { id: 'faq', label: 'FAQ' },
-];
-
-export default function BusinessTemplate({ config }: BusinessTemplateProps) {
+export default function BusinessTemplate(config: BusinessTemplateConfig) {
   useEffect(() => {
     document.title = `${config.industry} Software | NeonO`;
   }, [config.industry]);
 
+  const sections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'appointments', label: 'Appointments' },
+    { id: 'pos', label: 'POS/Payments' },
+    { id: 'marketing', label: 'Marketing' },
+    { id: 'booking', label: 'Online Booking' },
+    { id: 'team', label: 'Team & Payroll' },
+    { id: 'reports', label: 'Reports & AI' },
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'faq', label: 'FAQ' },
+  ];
+
   return (
     <div className="min-h-screen">
       <div data-hero>
-        <IndustryHero {...config.hero} />
+        <IndustryHero 
+          title={config.hero.title}
+          subtitle={config.hero.subtitle}
+          primaryCta={config.hero.primary}
+          secondaryCta={config.hero.secondary}
+          chips={config.hero.chips || []}
+          image={config.hero.image}
+        />
       </div>
       
       <StickySubnav sections={sections} />
       
       <div id="overview">
-        <ValueSnapshot items={config.valueSnapshot} />
+        <ValueSnapshot items={config.snapshot} />
       </div>
 
       {config.sections.map((section, index) => (
@@ -116,35 +52,29 @@ export default function BusinessTemplate({ config }: BusinessTemplateProps) {
           key={section.id}
           id={section.id}
           title={section.title}
-          description={section.description}
+          eyebrow={section.eyebrow}
           bullets={section.bullets}
-          reverse={index % 2 === 1}
-          cta={section.cta}
+          media={section.media}
+          reverse={section.reversed || index % 2 === 1}
         />
       ))}
 
-      <BeforeAfterGrid {...config.beforeAfter} />
+      <BeforeAfterGrid items={config.beforeAfter} />
       
-      <TestimonialsCarousel 
-        title={config.testimonials.title}
-        testimonials={config.testimonials.items} 
+      <TestimonialsCarousel testimonials={config.testimonials} />
+      
+      <IntegrationsStrip integrations={config.integrations} />
+      
+      <PricingRibbon config={config.pricing} />
+      
+      <FaqAccordion faqs={config.faqs} />
+      
+      <FinalCta 
+        title="Ready to transform your business?"
+        subtitle="Join thousands who've streamlined their operations with NeonO."
+        primaryCta={{ label: "Start free trial", href: "/signup" }}
+        secondaryCta={{ label: "Book a demo", href: "/demo" }}
       />
-      
-      <IntegrationsStrip 
-        title={config.integrations.title}
-        subtitle={config.integrations.subtitle}
-        integrations={config.integrations.items}
-      />
-      
-      <PricingRibbon {...config.pricing} />
-      
-      <FaqAccordion 
-        title={config.faq.title}
-        subtitle={config.faq.subtitle}
-        faqs={config.faq.items}
-      />
-      
-      <FinalCta {...config.finalCta} />
     </div>
   );
 }

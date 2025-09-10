@@ -3,23 +3,13 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-interface Testimonial {
-  quote: string;
-  author: string;
-  business: string;
-  rating: number;
-  avatar?: string;
-}
+import { Testimonial } from '@/templates/types';
 
 interface TestimonialsCarouselProps {
-  title?: string;
   testimonials: Testimonial[];
 }
 
-export function TestimonialsCarousel({ 
-  title = "What our customers say",
-  testimonials 
-}: TestimonialsCarouselProps) {
+export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -39,7 +29,7 @@ export function TestimonialsCarousel({
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            {title}
+            What our customers say
           </h2>
         </div>
 
@@ -73,10 +63,15 @@ export function TestimonialsCarousel({
                     </blockquote>
 
                     {/* Author */}
-                    <div className="space-y-2">
-                      <div className="font-semibold text-lg">{testimonial.author}</div>
-                      <div className="text-muted-foreground">{testimonial.business}</div>
-                    </div>
+                     <div className="space-y-2">
+                       <div className="font-semibold text-lg">{testimonial.author}</div>
+                       {testimonial.business && (
+                         <div className="text-muted-foreground">{testimonial.business}</div>
+                       )}
+                       {testimonial.stat && (
+                         <div className="text-sm text-primary font-medium">{testimonial.stat}</div>
+                       )}
+                     </div>
                   </div>
                 </div>
               ))}

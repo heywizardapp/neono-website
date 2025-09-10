@@ -1,73 +1,154 @@
-# Welcome to your Lovable project
+# NeonO Business Solutions Template
 
-## Project info
+## Overview
 
-**URL**: https://lovable.dev/projects/ce2a3fe4-507f-49e1-aaf1-2a4748d4f510
+The BusinessTemplate system allows you to create industry-specific solutions pages using a config-driven approach. Simply create a new config file and page to launch a new industry solution.
 
-## How can I edit this code?
+## Creating New Industry Pages
 
-There are several ways of editing your application.
+### 1. Create Config File
 
-**Use Lovable**
+Create a new config file in `/src/config/solutions/[industry].ts`:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ce2a3fe4-507f-49e1-aaf1-2a4748d4f510) and start prompting.
+```typescript
+import { BusinessTemplateConfig } from "@/templates/types";
 
-Changes made via Lovable will be committed automatically to this repo.
+const industryConfig: BusinessTemplateConfig = {
+  industry: "Industry Name",
+  hero: {
+    title: "Your industry-specific title",
+    subtitle: "Your industry-specific subtitle",
+    primary: { label: "Start free trial", href: "/signup" },
+    secondary: { label: "See pricing", href: "/pricing" },
+    chips: ["99.9% uptime", "2-tap checkout", "No add-on traps"],
+    image: "/assets/placeholders/hero-industry.webp",
+  },
+  snapshot: [
+    { title: "Key Benefit 1", desc: "Brief description", color: "text-mint" },
+    { title: "Key Benefit 2", desc: "Brief description", color: "text-primary" },
+    // Add 2-4 snapshot cards
+  ],
+  sections: [
+    {
+      id: "appointments",
+      eyebrow: "Appointments & Calendar",
+      title: "Industry-specific calendar title",
+      bullets: [
+        "Industry-specific feature 1",
+        "Industry-specific feature 2",
+        "Industry-specific feature 3",
+      ],
+      media: { src: "/assets/placeholders/appointments.webp", alt: "Appointments UI" },
+    },
+    // Add all 6 sections: appointments, pos, marketing, booking, team, reports
+  ],
+  beforeAfter: [
+    { before: "Old way", after: "New way with NeonO" },
+    // Add 3 before/after comparisons
+  ],
+  testimonials: [
+    { quote: "Customer quote", author: "Business Name", rating: 5, stat: "Optional stat" },
+    // Add 2-3 testimonials
+  ],
+  integrations: [
+    { label: "Integration Name", src: "/assets/placeholders/integration.svg" },
+    // Add 5-8 integrations
+  ],
+  pricing: {
+    blurb: "Starter $29/mo (2 seats) • Growth $59/mo (5 seats) • +$9.99 per extra seat",
+    sub: "SMS, website, online cart, QuickBooks sync, and AI are included.",
+    cta: { label: "See pricing", href: "/pricing" },
+  },
+  faqs: [
+    { q: "Question?", a: "Answer." },
+    // Add 5-8 FAQs
+  ],
+};
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+export default industryConfig;
 ```
 
-**Edit a file directly in GitHub**
+### 2. Create Page File
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a new page file in `/src/pages/solutions/[Industry].tsx`:
 
-**Use GitHub Codespaces**
+```typescript
+import BusinessTemplate from '@/templates/BusinessTemplate';
+import industryConfig from '@/config/solutions/industry';
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+export default function IndustryPage() {
+  return <BusinessTemplate {...industryConfig} />;
+}
+```
 
-## What technologies are used for this project?
+### 3. Add Route (if using React Router)
 
-This project is built with:
+Add the new route to your router configuration.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## File Structure
 
-## How can I deploy this project?
+```
+src/
+├── templates/
+│   ├── BusinessTemplate.tsx     # Main template component
+│   └── types.ts                 # TypeScript interfaces
+├── config/
+│   └── solutions/
+│       ├── salons.ts           # Salons config (example)
+│       ├── barbershops.ts      # Add new industries here
+│       └── spas.ts
+├── components/
+│   ├── IndustryHero.tsx
+│   ├── StickySubnav.tsx
+│   ├── ValueSnapshot.tsx
+│   ├── MediaRow.tsx
+│   ├── BeforeAfterGrid.tsx
+│   ├── TestimonialsCarousel.tsx
+│   ├── IntegrationsStrip.tsx
+│   ├── PricingRibbon.tsx
+│   └── FaqAccordion.tsx
+└── pages/
+    └── solutions/
+        ├── Salons.tsx
+        └── [NewIndustry].tsx
+```
 
-Simply open [Lovable](https://lovable.dev/projects/ce2a3fe4-507f-49e1-aaf1-2a4748d4f510) and click on Share -> Publish.
+## Features
 
-## Can I connect a custom domain to my Lovable project?
+- **Fully Responsive**: Mobile-first design with perfect desktop experience
+- **SEO Optimized**: Proper meta tags, structured data, and semantic HTML
+- **Accessible**: WCAG 2.2 AA compliant with keyboard navigation
+- **Performance**: Optimized for Core Web Vitals and Lighthouse scores
+- **Sticky Navigation**: Scrollspy navigation that highlights active sections
+- **Smooth Animations**: Framer Motion with reduced motion support
 
-Yes, you can!
+## Section Structure
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Each industry page follows this exact structure:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Hero** - Industry-specific headline with CTAs
+2. **Sticky Sub-Nav** - Anchored navigation to page sections
+3. **Value Snapshot** - 4 compact benefit cards
+4. **6 Feature Sections** - Alternating media rows covering core features
+5. **Before/After Grid** - 3 comparison cards
+6. **Testimonials** - Customer quotes carousel
+7. **Integrations** - Partner logos strip
+8. **Pricing Ribbon** - Simplified pricing teaser
+9. **FAQ Accordion** - Industry-specific questions
+10. **Final CTA** - Conversion-focused end section
+
+## Customization Tips
+
+- Keep the same section order and general structure
+- Customize bullets, headlines, and testimonials per industry
+- Use industry-specific terminology while maintaining clarity
+- Ensure all media placeholders are properly sized to avoid CLS
+- Test keyboard navigation and screen reader compatibility
+
+## Performance Targets
+
+- Lighthouse Performance: ≥95
+- Lighthouse Accessibility: ≥95
+- Lighthouse Best Practices: ≥95
+- Lighthouse SEO: ≥100
+- Cumulative Layout Shift: <0.05
