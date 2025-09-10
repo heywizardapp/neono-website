@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Pricing from "./pages/Pricing";
 import ProductsIndex from "./pages/products/Index";
 import NotFound from "./pages/NotFound";
+import SalonsPage from "./pages/solutions/Salons";
 
 const queryClient = new QueryClient();
 
@@ -33,7 +34,7 @@ const App = () => (
               <Route path="/products/website" element={<div className="p-8">Website product page - coming soon</div>} />
               <Route path="/products/analytics" element={<div className="p-8">Analytics product page - coming soon</div>} />
               {/* Solutions */}
-              <Route path="/solutions/salons" element={<div className="p-8">Salons solution page - coming soon</div>} />
+              <Route path="/solutions/salons" element={<SalonsPage />} />
               <Route path="/solutions/barbershops" element={<div className="p-8">Barbershops solution page - coming soon</div>} />
               <Route path="/solutions/spas" element={<div className="p-8">Spas solution page - coming soon</div>} />
               <Route path="/solutions/aesthetics" element={<div className="p-8">Aesthetics solution page - coming soon</div>} />
