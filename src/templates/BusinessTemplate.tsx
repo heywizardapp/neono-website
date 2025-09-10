@@ -9,6 +9,9 @@ import { IntegrationsStrip } from '@/components/IntegrationsStrip';
 import { PricingRibbon } from '@/components/PricingRibbon';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { FinalCta } from '@/components/FinalCta';
+import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
+import { RelatedSolutions } from '@/components/navigation/RelatedSolutions';
+import { StickyCompare } from '@/components/compare/StickyCompare';
 import { BusinessTemplateConfig } from './types';
 
 interface BusinessTemplateProps {
@@ -44,8 +47,16 @@ export default function BusinessTemplate(props: BusinessTemplateConfig | Busines
     { id: 'faq', label: 'FAQ' },
   ];
 
+  const breadcrumbs = [
+    { label: 'Home', href: '/' },
+    { label: 'Solutions', href: '/solutions' },
+    { label: config.industry, href: `/solutions/${config.industry.toLowerCase()}` }
+  ];
+
   return (
     <div className="min-h-screen">
+      <Breadcrumbs customCrumbs={breadcrumbs} />
+      
       <div data-hero>
         <IndustryHero 
           title={config.hero.title}
@@ -85,12 +96,16 @@ export default function BusinessTemplate(props: BusinessTemplateConfig | Busines
       
       <FaqAccordion faqs={config.faqs} />
       
+      <RelatedSolutions currentIndustry={config.industry} />
+      
       <FinalCta 
         title="Ready to transform your business?"
         subtitle="Join thousands who've streamlined their operations with NeonO."
         primaryCta={{ label: "Start free trial", href: "/signup" }}
         secondaryCta={{ label: "Book a demo", href: "/demo" }}
       />
+      
+      <StickyCompare />
     </div>
   );
 }

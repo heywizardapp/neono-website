@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Search } from 'lucide-react'
+import { GlobalSearch } from '@/components/search/GlobalSearch'
 
 const productLinks = [
   { name: 'Appointments & Calendar', href: '/products/appointments', description: 'Smart scheduling for busy teams' },
@@ -22,6 +23,7 @@ const solutionLinks = [
 
 export function Header() {
   const [open, setOpen] = React.useState(false)
+  const [searchOpen, setSearchOpen] = React.useState(false)
   
   React.useEffect(() => {
     function onEsc(e: KeyboardEvent) { 
@@ -57,6 +59,13 @@ export function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] min-w-[44px] px-3 py-2 inline-flex items-center justify-center rounded-lg border border-transparent hover:border-border"
+            aria-label="Open search"
+          >
+            <Search className="h-4 w-4" />
+          </button>
           <Link 
             to="/login" 
             className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center"
@@ -80,6 +89,7 @@ export function Header() {
       </div>
 
       <MobileDrawer open={open} onClose={() => setOpen(false)} />
+      <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
   )
 }

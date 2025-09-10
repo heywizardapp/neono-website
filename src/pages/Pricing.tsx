@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
 import { Check, X, ArrowRight, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { RoiMini } from '@/components/roi/RoiMini';
+import { StickyCompare } from '@/components/compare/StickyCompare';
 import {
   Accordion,
   AccordionContent,
@@ -313,6 +315,29 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      {/* ROI Calculator */}
+      <section className="py-20 lg:py-32 bg-gradient-subtle">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              See your real savings
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Calculate your true monthly cost including all the essentials that competitors charge extra for.
+            </p>
+          </div>
+          
+          <div className="max-w-lg mx-auto">
+            <RoiMini 
+              title="Calculate your savings with NeonO"
+              description="Quick estimate based on your business size and usage"
+            />
+          </div>
+        </div>
+      </section>
+      
+      <StickyCompare />
     </div>
   );
 }
