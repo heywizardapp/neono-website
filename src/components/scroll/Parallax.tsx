@@ -221,8 +221,9 @@ export function ParallaxLayer({ children, speed, className, zIndex = 0 }: Parall
       style={{ zIndex }}
     >
       <Parallax speed={speed}>
-      {children}
-    </Parallax>
+        {children}
+      </Parallax>
+    </div>
   );
 }
 
