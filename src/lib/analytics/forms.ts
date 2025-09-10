@@ -122,7 +122,7 @@ class FormAnalytics {
     
     analytics.track('form_submit', {
       form_id: formId,
-      form_fields: this.getFormFields(form),
+      form_fields: JSON.stringify(this.getFormFields(form)),
       completion_time: startTime ? Date.now() - startTime : null,
     });
     

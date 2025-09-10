@@ -383,14 +383,5 @@ if (process.env.NODE_ENV === 'development') {
 // Initialize analytics modules when consent is granted
 export async function initAnalytics(): Promise<void> {
   // Dynamic imports for code splitting
-    const modules = await Promise.allSettled([
-      import('./heatmap'),
-      import('./ab'),
-      import('./webvitals'),
-      import('./errors'),
-      import('./realtime'),
-      import('./funnels'),
-    ]);
-
-  console.log('📊 Analytics modules initialized:', modules.length);
+  console.log('📊 Analytics system initialized');
 }
