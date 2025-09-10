@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What's included in the pricing plans?",
+    "answer": "Starter ($29/mo) includes 2 seats, appointments, POS, basic marketing. Growth ($59/mo) includes 5 seats plus advanced analytics, automation, and priority support. All plans include SMS, website, cart, and QuickBooks integration at no extra cost.",
+    "tags": ["pricing", "plans", "features", "cost"]
+  },
+  {
+    "question": "How many team members can use NeonO?",
+    "answer": "Starter includes 2 seats, Growth includes 5 seats. Additional seats are $9.99/month each. Each seat gets full calendar access, POS permissions, and client management tools.",
+    "tags": ["seats", "team", "users", "staff"]
+  },
+  {
+    "question": "Do you charge commission on tips?",
+    "answer": "No! Unlike many competitors, NeonO never takes commission on tips. Your staff keeps 100% of their tips while you pay transparent processing fees: 2.6% + 10¢ or 2.5% + 20¢ per transaction.",
+    "tags": ["tips", "commission", "payments", "processing"]
+  },
+  {
+    "question": "Is SMS marketing included?",
+    "answer": "Yes! All plans include SMS campaigns, appointment reminders, and automated follow-ups. No per-message fees or monthly SMS add-ons like competitors charge.",
+    "tags": ["sms", "marketing", "messages", "automation"]
+  },
+  {
+    "question": "Can I use my own website?",
+    "answer": "Yes! NeonO includes a free website builder, but you can also embed our booking widget on your existing site. Online booking, payments, and client management work seamlessly either way.",
+    "tags": ["website", "booking", "integration", "embed"]
+  },
+  {
+    "question": "What types of businesses use NeonO?",
+    "answer": "Hair salons, barbershops, spas, nail salons, aesthetics clinics, massage therapy, and other appointment-based beauty and wellness businesses. Our features adapt to your specific industry needs.",
+    "tags": ["industries", "salon", "barbershop", "spa", "business types"]
+  },
+  {
+    "question": "How does QuickBooks integration work?",
+    "answer": "NeonO syncs daily sales, tax data, and expense categories directly to QuickBooks Online. No manual data entry or separate accounting add-on fees required.",
+    "tags": ["quickbooks", "accounting", "integration", "sync"]
+  },
+  {
+    "question": "Can I try before I buy?",
+    "answer": "Yes! Start with our free trial - no credit card required. Import your existing client data and test all features with real appointments before deciding on a plan.",
+    "tags": ["trial", "free", "demo", "testing"]
+  }
+]

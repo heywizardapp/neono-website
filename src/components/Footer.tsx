@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
+import { OrganizationJsonLd } from '@/lib/seo/jsonld';
 
 const footerLinks = {
   products: [
@@ -37,36 +39,39 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-slate-50 dark:bg-slate-900 border-t border-border/40">
-      <div className="container py-16">
-        <div className="grid gap-8 lg:grid-cols-6">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-hero">
-                <span className="text-lg font-bold text-white">N</span>
+    <>
+      <OrganizationJsonLd />
+      <footer className="bg-slate-50 dark:bg-slate-900 border-t border-border/40">
+        <div className="container py-16">
+          <div className="grid gap-8 lg:grid-cols-6">
+            {/* Brand & Newsletter */}
+            <div className="lg:col-span-2">
+              <Link to="/" className="flex items-center space-x-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-hero">
+                  <span className="text-lg font-bold text-white">N</span>
+                </div>
+                <span className="text-xl font-display font-bold text-foreground">NeonO</span>
+              </Link>
+              <p className="text-muted-foreground mb-6 max-w-sm">
+                The all-in-one platform for beauty and wellness businesses. 
+                Grow faster with smart scheduling, payments, and marketing.
+              </p>
+              <NewsletterForm variant="footer" className="mb-6" />
+              <div className="flex space-x-4">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </a>
               </div>
-              <span className="text-xl font-display font-bold text-foreground">NeonO</span>
-            </Link>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              The all-in-one platform for beauty and wellness businesses. 
-              Grow faster with smart scheduling, payments, and marketing.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
             </div>
-          </div>
 
           {/* Products */}
           <div>
@@ -153,7 +158,8 @@ export function Footer() {
             ))}
           </div>
         </div>
-      </div>
-    </footer>
+        </div>
+      </footer>
+    </>
   );
 }

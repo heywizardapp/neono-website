@@ -7,12 +7,15 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { InstallPrompt, registerServiceWorker } from "@/components/pwa/InstallPrompt";
+import { LiveChat } from "@/components/chat/LiveChat";
 
 import Index from "@/pages/Index";
 import Pricing from "@/pages/Pricing";
 import ProductsIndex from "@/pages/products/Index";
 import SalonsPage from "@/pages/solutions/Salons";
 import RoiPage from "@/pages/Roi";
+import ResourcesIndex from "@/pages/resources/Index";
+import BlogIndex from "@/pages/blog/Index";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +58,10 @@ export default function App() {
                 {/* Solutions */}
                 <Route path="/solutions/salons" element={<SalonsPage />} />
 
+                {/* Resources & Content */}
+                <Route path="/resources" element={<ResourcesIndex />} />
+                <Route path="/blog" element={<BlogIndex />} />
+
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
@@ -62,6 +69,7 @@ export default function App() {
             <Footer />
             <CookieBanner />
             <InstallPrompt />
+            <LiveChat />
           </div>
         </BrowserRouter>
       </TooltipProvider>
