@@ -5,8 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import accessibility styles */
+/* Import accessibility and mobile styles */
 @import './styles/a11y.css';
+@import './styles/mobile.css';
 
 /* NeonO Design System - All colors, gradients, fonts, animations defined here */
 

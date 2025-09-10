@@ -1,0 +1,232 @@
+/* Mobile-First Touch and Gesture Utilities */
+
+:root {
+  /* Touch target variables */
+  --tap-target: 44px;
+  --tap-padding: 0.75rem;
+  
+  /* Mobile viewport variables */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
+/* Touch target enforcement */
+button,
+a[role="button"],
+input[type="button"],
+input[type="submit"],
+.touch-target {
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  padding-inline: var(--tap-padding);
+  padding-block: calc(var(--tap-padding) * 0.5);
+}
+
+/* Enhanced touch areas for mobile */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a[role="button"],
+  .touch-enhanced {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Scroll snap utilities */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-snap-x::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-snap-start {
+  scroll-snap-align: start;
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+}
+
+/* Overscroll behavior for pull-to-refresh */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+.overscroll-none {
+  overscroll-behavior: none;
+}
+
+/* Touch feedback */
+.touch-feedback {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.touch-feedback:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
+/* Disable touch feedback when reduced motion is preferred */
+@media (prefers-reduced-motion: reduce) {
+  .touch-feedback:active {
+    transform: none;
+  }
+}
+
+/* Safe area utilities */
+.safe-top {
+  padding-top: var(--safe-area-inset-top);
+}
+
+.safe-bottom {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+.safe-left {
+  padding-left: var(--safe-area-inset-left);
+}
+
+.safe-right {
+  padding-right: var(--safe-area-inset-right);
+}
+
+.safe-x {
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+}
+
+.safe-y {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+
+/* Momentum scrolling */
+.momentum-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+/* Mobile-optimized animations */
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutBottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes scaleInCenter {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 1;
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Animation classes */
+.animate-slide-in-bottom {
+  animation: slideInBottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-out-bottom {
+  animation: slideOutBottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-scale-in-center {
+  animation: scaleInCenter 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-ripple {
+  animation: ripple 0.6s linear;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-in-bottom,
+  .animate-slide-out-bottom,
+  .animate-scale-in-center,
+  .animate-ripple {
+    animation: none;
+  }
+}
+
+/* Mobile-specific utilities */
+@media (max-width: 768px) {
+  /* Increase spacing on mobile */
+  .mobile-spacing-y > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Larger text on mobile for readability */
+  .mobile-text-lg {
+    font-size: 1.125rem;
+  }
+  
+  /* Full width buttons on mobile */
+  .mobile-full-width {
+    width: 100%;
+  }
+}
+
+/* Prevent zoom on double tap on iOS */
+.no-zoom {
+  touch-action: manipulation;
+}
+
+/* Custom scrollbar for mobile browsers that support it */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground) / 0.5);
+}
