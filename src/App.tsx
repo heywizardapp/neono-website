@@ -16,6 +16,7 @@ import SalonsPage from "@/pages/solutions/Salons";
 import RoiPage from "@/pages/Roi";
 import ResourcesIndex from "@/pages/resources/Index";
 import BlogIndex from "@/pages/blog/Index";
+import BlogPost from "@/pages/blog/BlogPost";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,7 @@ export default function App() {
                 {/* Resources & Content */}
                 <Route path="/resources" element={<ResourcesIndex />} />
                 <Route path="/blog" element={<BlogIndex />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
