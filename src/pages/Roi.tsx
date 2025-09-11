@@ -11,6 +11,8 @@ import { RoiInput } from '@/types/roi';
 import { calcRoi } from '@/lib/calcRoi';
 import { DEFAULT_ROI_CONFIG } from '@/config/roi';
 import { useToast } from '@/hooks/use-toast';
+import { SEOHead } from '@/components/SEO/SEOHead';
+import { generateStructuredData } from '@/lib/seo/meta';
 
 export default function RoiPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -158,7 +160,20 @@ export default function RoiPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <>
+      <SEOHead
+        title="ROI Calculator — See Your Savings with NeonO"
+        description="Calculate how much you could save with NeonO vs. competitors. Compare total costs including seats, SMS, website, accounting, and payment processing."
+        path="/roi"
+        keywords="salon software cost calculator, ROI calculator, salon software savings, barbershop software pricing"
+        structuredData={[
+          {
+            type: 'organization',
+            data: generateStructuredData('organization', {})
+          }
+        ]}
+      />
+      <div className="min-h-screen bg-gradient-subtle">
       {/* Hero Section */}
       <section className="py-12 lg:py-20">
         <div className="container">
@@ -223,6 +238,7 @@ export default function RoiPage() {
           </Card>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

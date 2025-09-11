@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Star, ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
+import { generateStructuredData } from '@/lib/seo/meta';
 
 const testimonials = [
   {
@@ -54,7 +56,18 @@ const pricingPlans = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead
+        {...SEO_PRESETS.home}
+        path="/"
+        structuredData={[
+          {
+            type: 'organization',
+            data: generateStructuredData('organization', {})
+          }
+        ]}
+      />
+      <div className="min-h-screen">
       <Hero
         title="Run your salon or barbershop on one platform."
         subtitle="Appointments, POS, marketing, website, and AI—built in. Start free, grow fast."
@@ -305,7 +318,8 @@ const Index = () => {
           </p>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

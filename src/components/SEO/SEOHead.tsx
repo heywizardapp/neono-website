@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Meta } from '@/lib/seo/meta.tsx';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { generatePreloadLinks } from '@/lib/seo/prerender';
@@ -36,7 +37,7 @@ export function SEOHead({
   const preloadLinks = generatePreloadLinks(path);
 
   return (
-    <>
+    <Helmet>
       {/* Basic Meta Tags */}
       <Meta
         title={title}
@@ -72,7 +73,7 @@ export function SEOHead({
       
       {/* Additional Performance Hints */}
       <meta httpEquiv="x-dns-prefetch-control" content="on" />
-    </>
+    </Helmet>
   );
 }
 

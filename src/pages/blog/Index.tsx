@@ -8,6 +8,8 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
 import { blogPosts, categories, type BlogPost } from './blogData';
+import { SEOHead } from '@/components/SEO/SEOHead';
+import { generateStructuredData } from '@/lib/seo/meta';
 
 export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +54,25 @@ export default function BlogIndex() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEOHead
+        title="Blog — NeonO"
+        description="Tips, guides, and insights for running a successful salon or barbershop business. Industry trends and best practices."
+        path="/blog"
+        keywords="salon blog, barbershop tips, beauty business advice, salon management guides"
+        structuredData={[
+          {
+            type: 'breadcrumb',
+            data: generateStructuredData('breadcrumb', {
+              crumbs: [
+                { label: "Home", href: "/" },
+                { label: "Blog", href: "/blog" }
+              ]
+            })
+          }
+        ]}
+      />
+      <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <Breadcrumbs customCrumbs={breadcrumbs} />
         
@@ -189,5 +209,6 @@ export default function BlogIndex() {
         </div>
       </div>
     </div>
+    </>
   );
 }

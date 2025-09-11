@@ -8,6 +8,8 @@ import { Check, X, ArrowRight, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { RoiMini } from '@/components/roi/RoiMini';
 import { StickyCompare } from '@/components/compare/StickyCompare';
+import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
+import { generateStructuredData } from '@/lib/seo/meta';
 import {
   Accordion,
   AccordionContent,
@@ -94,7 +96,18 @@ export default function Pricing() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead
+        {...SEO_PRESETS.pricing}
+        path="/pricing"
+        structuredData={[
+          {
+            type: 'faq',
+            data: generateStructuredData('faqPage', { faqs })
+          }
+        ]}
+      />
+      <div className="min-h-screen">
       <Hero
         title="Simple, transparent pricing"
         subtitle="No setup fees, no contracts, no commission on tips. Start free and scale as you grow."
@@ -338,6 +351,7 @@ export default function Pricing() {
       </section>
       
       <StickyCompare />
-    </div>
+      </div>
+    </>
   );
 }

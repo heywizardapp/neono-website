@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOHead } from '@/components/SEO/SEOHead';
+import { generateStructuredData } from '@/lib/seo/meta';
 
 const products = [
   {
@@ -87,7 +89,25 @@ const benefits = [
 
 export default function ProductsIndex() {
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead
+        title="Products — NeonO Business Management Features"
+        description="Explore NeonO's comprehensive business management features: appointments, POS & payments, marketing automation, analytics, and more."
+        path="/products"
+        keywords="salon products, barbershop tools, beauty software features, appointment system"
+        structuredData={[
+          {
+            type: 'breadcrumb',
+            data: generateStructuredData('breadcrumb', {
+              crumbs: [
+                { label: "Home", href: "/" },
+                { label: "Products", href: "/products" }
+              ]
+            })
+          }
+        ]}
+      />
+      <div className="min-h-screen">
       <Hero
         title="One platform. Endless possibilities."
         subtitle="Everything you need to run a modern beauty and wellness business. From booking to analytics, all integrated seamlessly."
@@ -275,6 +295,7 @@ export default function ProductsIndex() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
