@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Meta } from '@/lib/seo/meta.tsx';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { generatePreloadLinks } from '@/lib/seo/prerender';
+import { canonical, buildHreflang } from '@/lib/seo/hreflang';
 
 interface SEOHeadProps {
   title: string;
@@ -25,7 +25,7 @@ export function SEOHead({
   title,
   description,
   path,
-  image,
+  image = "/og/og-default.png",
   type = 'website',
   publishedTime,
   modifiedTime,
@@ -35,22 +35,65 @@ export function SEOHead({
   structuredData = []
 }: SEOHeadProps) {
   const preloadLinks = generatePreloadLinks(path);
+  const canonicalUrl = canonical(path);
+  const fullImageUrl = image.startsWith('http') ? image : `https://www.neono.com${image}`;
+  const hreflangLinks = buildHreflang(path);
 
   return (
     <Helmet>
       {/* Basic Meta Tags */}
-      <Meta
-        title={title}
-        description={description}
-        path={path}
-        image={image}
-        type={type}
-        publishedTime={publishedTime}
-        modifiedTime={modifiedTime}
-        author={author}
-        keywords={keywords}
-        noindex={noindex}
-      />
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      
+      {/* Canonical and hreflang */}
+      <link rel="canonical" href={canonicalUrl} />
+      {hreflangLinks.map(link => (
+        <link 
+          key={link.hreflang}
+          rel="alternate" 
+          hrefLang={link.hreflang} 
+          href={link.href} 
+        />
+      ))}
+      
+      {/* Robots */}
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      
+      {/* Open Graph */}
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="NeonO" />
+      <meta property="og:locale" content="en_CA" />
+      
+      {/* Article specific */}
+      {type === "article" && publishedTime && (
+        <meta property="article:published_time" content={publishedTime} />
+      )}
+      {type === "article" && modifiedTime && (
+        <meta property="article:modified_time" content={modifiedTime} />
+      )}
+      {type === "article" && author && (
+        <meta property="article:author" content={author} />
+      )}
+      
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@neono" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImageUrl} />
+      
+      {/* Language and locale */}
+      <meta httpEquiv="content-language" content="en-CA" />
+      
+      {/* Additional SEO meta */}
+      <meta name="format-detection" content="telephone=no" />
 
       {/* Preload Critical Resources */}
       {preloadLinks.map((link, index) => (
@@ -60,7 +103,13 @@ export function SEOHead({
       {/* Structured Data */}
       {structuredData.map((schema, index) => {
         const jsonLdData = schema.data;
-        return jsonLdData ? <JsonLd key={index} data={jsonLdData} /> : null;
+        return jsonLdData ? (
+          <script 
+            key={index}
+            type="application/ld+json" 
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }} 
+          />
+        ) : null;
       })}
 
       {/* Favicon and theme */}
