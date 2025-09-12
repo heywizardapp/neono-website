@@ -1,8 +1,14 @@
 import * as React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Search } from 'lucide-react'
+import { Menu, X, Search, ChevronDown } from 'lucide-react'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
 const productLinks = [
   { name: 'Appointments & Calendar', href: '/products/appointments', description: 'Smart scheduling for busy teams' },
@@ -52,7 +58,21 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base" aria-label="Primary">
           <TopNav to="/products">Products</TopNav>
-          <TopNav to="/solutions">Solutions</TopNav>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
+              Solutions
+              <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="min-w-[200px]">
+              {solutionLinks.map((item) => (
+                <DropdownMenuItem key={item.name} asChild>
+                  <Link to={item.href} className="w-full cursor-pointer">
+                    {item.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <TopNav to="/pricing">Pricing</TopNav>
           <TopNav to="/roi">ROI Calculator</TopNav>
           <TopNav to="/blog">Resources</TopNav>
