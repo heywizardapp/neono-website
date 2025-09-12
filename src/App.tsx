@@ -14,6 +14,10 @@ import Index from "@/pages/Index";
 import Pricing from "@/pages/Pricing";
 import ProductsIndex from "@/pages/products/Index";
 import SalonsPage from "@/pages/solutions/Salons";
+import SolutionsIndex from "@/pages/solutions/Index";
+import BarbershopsPage from "@/pages/solutions/Barbershops";
+import SpasPage from "@/pages/solutions/Spas";
+import AestheticsPage from "@/pages/solutions/Aesthetics";
 import RoiPage from "@/pages/Roi";
 import ResourcesIndex from "@/pages/resources/Index";
 import BlogIndex from "@/pages/blog/Index";
@@ -59,7 +63,11 @@ export default function App() {
                 <Route path="/products/pos" element={<div className="p-8">POS product page - coming soon</div>} />
 
                 {/* Solutions */}
+                <Route path="/solutions" element={<SolutionsIndex />} />
                 <Route path="/solutions/salons" element={<SalonsPage />} />
+                <Route path="/solutions/barbershops" element={<BarbershopsPage />} />
+                <Route path="/solutions/spas" element={<SpasPage />} />
+                <Route path="/solutions/aesthetics" element={<AestheticsPage />} />
 
                 {/* Resources & Content */}
                 <Route path="/resources" element={<ResourcesIndex />} />

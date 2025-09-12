@@ -52,7 +52,7 @@ export function Header() {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base" aria-label="Primary">
           <TopNav to="/products">Products</TopNav>
-          <TopNav to="/solutions/salons">Solutions</TopNav>
+          <TopNav to="/solutions">Solutions</TopNav>
           <TopNav to="/pricing">Pricing</TopNav>
           <TopNav to="/roi">ROI Calculator</TopNav>
           <TopNav to="/blog">Resources</TopNav>
