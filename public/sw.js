@@ -1,12 +1,22 @@
 // Lightweight Service Worker for NeonO (public)
 // Caches core assets and provides offline fallback
 
-const CACHE_NAME = 'neono-v1';
+const CACHE_NAME = 'neono-v2';
 const OFFLINE_URL = '/offline.html';
+const STATIC_CACHE = 'static-v2';
+const IMAGES_CACHE = 'images-v2';
+const FONTS_CACHE = 'fonts-v2';
+
 const PRECACHE_ASSETS = [
   '/',
   OFFLINE_URL,
   '/manifest.webmanifest',
+];
+
+// Critical resources to cache aggressively
+const CRITICAL_RESOURCES = [
+  'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+  'https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap'
 ];
 
 self.addEventListener('install', (event) => {
@@ -43,12 +53,23 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (request.destination === 'image') {
-    event.respondWith(staleWhileRevalidate(request, 'images-cache'));
+    event.respondWith(staleWhileRevalidate(request, IMAGES_CACHE));
     return;
   }
 
   if (request.destination === 'style' || request.destination === 'script') {
-    event.respondWith(staleWhileRevalidate(request, 'static-cache'));
+    event.respondWith(staleWhileRevalidate(request, STATIC_CACHE));
+    return;
+  }
+
+  if (request.destination === 'font') {
+    event.respondWith(cacheFirst(request, FONTS_CACHE));
+    return;
+  }
+
+  // Cache critical resources more aggressively
+  if (CRITICAL_RESOURCES.some(resource => request.url.includes(resource))) {
+    event.respondWith(cacheFirst(request, STATIC_CACHE));
     return;
   }
 
@@ -100,6 +121,23 @@ async function staleWhileRevalidate(request, cacheName = CACHE_NAME) {
   }).catch(() => cached || new Response('Offline', { status: 503 }));
 
   return cached || fetchPromise;
+}
+
+async function cacheFirst(request, cacheName = CACHE_NAME) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+  
+  if (cached) return cached;
+  
+  try {
+    const res = await fetch(request);
+    if (res && res.status === 200) {
+      cache.put(request, res.clone());
+    }
+    return res;
+  } catch (e) {
+    return new Response('Offline', { status: 503 });
+  }
 }
 
 self.addEventListener('message', (event) => {
