@@ -119,7 +119,7 @@ export function Header() {
           </Button>
         </div>
 
-        /* Mobile hamburger */
+        {/* Mobile hamburger */}
         <button
           className={cn(
             "md:hidden inline-flex items-center justify-center rounded-lg border min-h-[44px] min-w-[44px] p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-all duration-200 hover:bg-accent/50 active:scale-95",
