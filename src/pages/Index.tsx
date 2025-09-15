@@ -1,7 +1,10 @@
 import { Hero } from '@/components/Hero';
 import { FeatureGrid } from '@/components/FeatureGrid';
-import { LogosMarquee } from '@/components/LogosMarquee';
+import { RealCustomerLogos } from '@/components/logos/RealCustomerLogos';
 import { AdvancedShowcase } from '@/components/advanced/AdvancedShowcase';
+import { EnhancedTestimonials } from '@/components/testimonials/EnhancedTestimonials';
+import { TrustBadges } from '@/components/trust/TrustBadges';
+import { ConversionOptimizedCTA } from '@/components/cta/ConversionOptimizedCTA';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -74,7 +77,7 @@ const Index = () => {
         subtitle="Appointments, POS, marketing, website, and AI—built in. Start free, grow fast."
       />
 
-      <LogosMarquee />
+      <RealCustomerLogos />
 
       <FeatureGrid />
 
@@ -183,52 +186,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-20 lg:py-32">
-        <div className="container">
-          <div className="text-center mb-16">
-            <div className="flex justify-center items-center space-x-2 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-              ))}
-              <span className="text-sm font-medium ml-2">4.9/5 from 2,847 reviews</span>
-            </div>
-            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-              Loved by business owners everywhere
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <Card key={testimonial.name} className="hover-lift">
-                <CardHeader>
-                  <div className="flex items-center space-x-3">
-                    <div className="h-10 w-10 rounded-full bg-gradient-hero flex items-center justify-center text-white font-semibold text-sm">
-                      {testimonial.avatar}
-                    </div>
-                    <div>
-                      <CardTitle className="text-sm">{testimonial.name}</CardTitle>
-                      <CardDescription className="text-xs">
-                        {testimonial.business} • {testimonial.industry}
-                      </CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex space-x-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    "{testimonial.quote}"
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <EnhancedTestimonials />
+      
+      <TrustBadges />
 
       {/* Pricing Teaser */}
       <section className="py-20 lg:py-32 bg-gradient-subtle">
@@ -302,25 +262,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 lg:py-32">
-        <div className="container text-center">
-          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            Ready to grow your business?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join 50,000+ beauty and wellness businesses already using NeonO to streamline operations and boost revenue.
-          </p>
-          <Button size="lg" className="btn-hero-primary" asChild>
-            <Link to="/signup">
-              Start Your Free Trial <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <p className="text-sm text-muted-foreground mt-4">
-            No credit card required • 14-day free trial • Cancel anytime
-          </p>
-        </div>
-      </section>
+      <ConversionOptimizedCTA 
+        title="Ready to transform your business?"
+        subtitle="Join 50,000+ beauty professionals who've streamlined operations, increased revenue, and delighted customers with NeonO."
+        urgency={true}
+      />
       </div>
     </>
   );

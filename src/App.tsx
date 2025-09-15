@@ -10,19 +10,29 @@ import { CookieBanner } from "@/components/consent/CookieBanner";
 import { InstallPrompt, registerServiceWorker } from "@/components/pwa/InstallPrompt";
 import { LiveChat } from "@/components/chat/LiveChat";
 
-import Index from "@/pages/Index";
-import Pricing from "@/pages/Pricing";
-import ProductsIndex from "@/pages/products/Index";
-import SalonsPage from "@/pages/solutions/Salons";
-import SolutionsIndex from "@/pages/solutions/Index";
-import BarbershopsPage from "@/pages/solutions/Barbershops";
-import SpasPage from "@/pages/solutions/Spas";
-import AestheticsPage from "@/pages/solutions/Aesthetics";
-import RoiPage from "@/pages/Roi";
-import ResourcesIndex from "@/pages/resources/Index";
-import BlogIndex from "@/pages/blog/Index";
-import BlogPost from "@/pages/blog/BlogPost";
-import NotFound from "@/pages/NotFound";
+import Index from './pages/Index';
+import Pricing from './pages/Pricing';
+import NotFound from './pages/NotFound';
+import Roi from './pages/Roi';
+import { Terms } from './pages/Terms';
+import { Security } from './pages/Security';
+import { Privacy } from './pages/Privacy';
+// Product pages
+import ProductsIndex from './pages/products/Index';
+
+// Solutions pages  
+import SolutionsIndex from './pages/solutions/Index';
+import Salons from './pages/solutions/Salons';
+import Spas from './pages/solutions/Spas';
+import Barbershops from './pages/solutions/Barbershops';
+import Aesthetics from './pages/solutions/Aesthetics';
+
+// Resources pages
+import ResourcesIndex from './pages/resources/Index';
+
+// Blog pages
+import BlogIndex from './pages/blog/Index';
+import BlogPost from './pages/blog/BlogPost';
 
 const queryClient = new QueryClient();
 
@@ -53,9 +63,11 @@ export default function App() {
                 <Route path="/login" element={<div className="p-8">Login page - coming soon</div>} />
                 <Route path="/demo" element={<div className="p-8">Demo page - coming soon</div>} />
 
-                {/* Pricing */}
                 <Route path="/pricing" element={<Pricing />} />
-                <Route path="/roi" element={<RoiPage />} />
+                <Route path="/roi" element={<Roi />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/security" element={<Security />} />
 
                 {/* Products */}
                 <Route path="/products" element={<ProductsIndex />} />
@@ -64,10 +76,10 @@ export default function App() {
 
                 {/* Solutions */}
                 <Route path="/solutions" element={<SolutionsIndex />} />
-                <Route path="/solutions/salons" element={<SalonsPage />} />
-                <Route path="/solutions/barbershops" element={<BarbershopsPage />} />
-                <Route path="/solutions/spas" element={<SpasPage />} />
-                <Route path="/solutions/aesthetics" element={<AestheticsPage />} />
+                <Route path="/solutions/salons" element={<Salons />} />
+                <Route path="/solutions/barbershops" element={<Barbershops />} />
+                <Route path="/solutions/spas" element={<Spas />} />
+                <Route path="/solutions/aesthetics" element={<Aesthetics />} />
 
                 {/* Resources & Content */}
                 <Route path="/resources" element={<ResourcesIndex />} />
