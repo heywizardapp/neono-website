@@ -145,6 +145,18 @@ export default {
         "slide-out-right": {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(100%)" }
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" }
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-2px)" }
+        },
+        "glow": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" }
         }
       },
       animation: {
@@ -157,6 +169,9 @@ export default {
         "marquee2": "marquee2 25s linear infinite",
         "slide-in-right": "slide-in-right 0.3s ease-out",
         "slide-out-right": "slide-out-right 0.3s ease-out",
+        "shimmer": "shimmer 2s ease-in-out infinite",
+        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+        "glow": "glow 2s ease-in-out infinite",
       },
     },
   },

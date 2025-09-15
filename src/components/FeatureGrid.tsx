@@ -1,4 +1,5 @@
 import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone } from 'lucide-react';
+import { StaggeredReveal } from '@/components/animations/ScrollReveal';
 
 const features = [
   {
@@ -53,27 +54,32 @@ export function FeatureGrid() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <div
-              key={feature.title}
-              className="feature-card group hover-lift"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="mb-6">
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card ${feature.color}`}>
-                  <feature.icon className="h-6 w-6" />
+          <StaggeredReveal
+            baseDelay={200}
+            staggerDelay={150}
+            animation="fade-up"
+          >
+            {features.map((feature, index) => (
+              <div
+                key={feature.title}
+                className="feature-card group hover-lift gpu-accelerated"
+              >
+                <div className="mb-6">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card ${feature.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="h-6 w-6" />
+                  </div>
                 </div>
+                
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
-              
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </StaggeredReveal>
         </div>
       </div>
     </section>

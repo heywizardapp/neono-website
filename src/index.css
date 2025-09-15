@@ -188,6 +188,16 @@
 }
 
 @layer utilities {
+  /* Performance optimizations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  .pause {
+    animation-play-state: paused;
+  }
+
   /* Custom shadows using design tokens */
   .shadow-soft {
     box-shadow: var(--shadow-soft);
