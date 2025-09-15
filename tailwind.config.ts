@@ -157,6 +157,22 @@ export default {
         "glow": {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" }
+        },
+        "float-up": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(var(--float-distance, -10px))" }
+        },
+        "float-down": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(var(--float-distance, 10px))" }
+        },
+        "float-left": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(var(--float-distance, -10px))" }
+        },
+        "float-right": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(var(--float-distance, 10px))" }
         }
       },
       animation: {

@@ -1,5 +1,6 @@
 import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone } from 'lucide-react';
 import { StaggeredReveal } from '@/components/animations/ScrollReveal';
+import { HoverCard } from '@/components/interactions/MicroInteractions';
 
 const features = [
   {
@@ -60,12 +61,14 @@ export function FeatureGrid() {
             animation="fade-up"
           >
             {features.map((feature, index) => (
-              <div
+              <HoverCard
                 key={feature.title}
-                className="feature-card group hover-lift gpu-accelerated"
+                effect="lift"
+                intensity="medium"
+                className="feature-card group gpu-accelerated rounded-2xl overflow-hidden"
               >
                 <div className="mb-6">
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card ${feature.color} group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card ${feature.color} group-hover:scale-110 transition-transform duration-300 shadow-md group-hover:shadow-lg`}>
                     <feature.icon className="h-6 w-6" />
                   </div>
                 </div>
@@ -77,7 +80,7 @@ export function FeatureGrid() {
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </HoverCard>
             ))}
           </StaggeredReveal>
         </div>

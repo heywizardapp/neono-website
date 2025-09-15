@@ -3,6 +3,8 @@ import { NavLink, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Menu, X, Search, ChevronDown } from 'lucide-react'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
+import { useScrollHeader } from '@/hooks/useScrollHeader'
+import { cn } from '@/lib/utils'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,6 +32,7 @@ const solutionLinks = [
 export function Header() {
   const [open, setOpen] = React.useState(false)
   const [searchOpen, setSearchOpen] = React.useState(false)
+  const { isScrolled, isVisible, scrollDirection } = useScrollHeader(20, 150)
   
   React.useEffect(() => {
     function onEsc(e: KeyboardEvent) { 
@@ -45,13 +48,29 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 bg-background/75 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header 
+      className={cn(
+        "sticky top-0 z-50 border-b transition-all duration-300 will-change-transform",
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-border/50" 
+          : "bg-background/75 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-transparent",
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      )}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link 
           to="/" 
-          className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          className={cn(
+            "flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-all duration-300",
+            isScrolled && "scale-95"
+          )}
         >
-          <div className="h-8 w-8 rounded-xl bg-gradient-hero text-white grid place-items-center font-bold">N</div>
+          <div className={cn(
+            "h-8 w-8 rounded-xl bg-gradient-hero text-white grid place-items-center font-bold transition-all duration-300",
+            isScrolled && "shadow-glow"
+          )}>
+            N
+          </div>
           <span className="font-display font-bold text-foreground">NeonO</span>
         </Link>
 
@@ -81,30 +100,55 @@ export function Header() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => setSearchOpen(true)}
-            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] min-w-[44px] px-3 py-2 inline-flex items-center justify-center rounded-lg border border-transparent hover:border-border"
+            className={cn(
+              "text-sm sm:text-base text-muted-foreground hover:text-foreground transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] min-w-[44px] px-3 py-2 inline-flex items-center justify-center rounded-lg border border-transparent hover:border-border hover:bg-accent/50 active:scale-95",
+              isScrolled && "hover:shadow-md"
+            )}
             aria-label="Open search"
           >
             <Search className="h-4 w-4" />
           </button>
           <Link 
             to="/login" 
-            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center"
+            className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center hover:bg-accent/50 rounded-lg"
           >
             Sign in
           </Link>
-          <Button asChild size="default" className="min-h-[44px] min-w-[44px]">
+          <Button asChild size="default" className="min-h-[44px] min-w-[44px] hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
             <Link to="/signup">Start Free Trial</Link>
           </Button>
         </div>
 
-        {/* Mobile hamburger */}
+        /* Mobile hamburger */
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-lg border min-h-[44px] min-w-[44px] p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          className={cn(
+            "md:hidden inline-flex items-center justify-center rounded-lg border min-h-[44px] min-w-[44px] p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-all duration-200 hover:bg-accent/50 active:scale-95",
+            open && "bg-accent"
+          )}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-5 w-5"/> : <Menu className="h-5 w-5"/>}
+          <div className="relative h-5 w-5">
+            <span 
+              className={cn(
+                "absolute h-0.5 w-5 bg-current transition-all duration-300 transform origin-center",
+                open ? "rotate-45 translate-y-0" : "-translate-y-1.5"
+              )}
+            />
+            <span 
+              className={cn(
+                "absolute h-0.5 w-5 bg-current transition-all duration-300",
+                open ? "opacity-0" : "opacity-100"
+              )}
+            />
+            <span 
+              className={cn(
+                "absolute h-0.5 w-5 bg-current transition-all duration-300 transform origin-center",
+                open ? "-rotate-45 translate-y-0" : "translate-y-1.5"
+              )}
+            />
+          </div>
         </button>
       </div>
 

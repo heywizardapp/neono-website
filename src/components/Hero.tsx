@@ -1,6 +1,7 @@
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { InteractiveButton, FloatingElement } from '@/components/interactions/MicroInteractions';
 
 interface HeroProps {
   title: string;
@@ -100,8 +101,15 @@ export function Hero({
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 h-16 w-16 rounded-full bg-gradient-hero shadow-glow animate-pulse" />
-            <div className="absolute -bottom-6 -left-6 h-12 w-12 rounded-full bg-accent shadow-glow animate-pulse delay-1000" />
+            <FloatingElement direction="up" distance={8} duration={4000} className="absolute -top-4 -right-4">
+              <div className="h-16 w-16 rounded-full bg-gradient-hero shadow-glow opacity-60" />
+            </FloatingElement>
+            <FloatingElement direction="down" distance={6} duration={3000} className="absolute -bottom-6 -left-6">
+              <div className="h-12 w-12 rounded-full bg-accent shadow-glow opacity-60" />
+            </FloatingElement>
+            <FloatingElement direction="right" distance={4} duration={5000} className="absolute top-1/2 -right-8">
+              <div className="h-8 w-8 rounded-full bg-mint shadow-glow opacity-40" />
+            </FloatingElement>
           </div>
         </div>
       </div>
