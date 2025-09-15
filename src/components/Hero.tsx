@@ -2,6 +2,8 @@ import { ArrowRight, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { InteractiveButton, FloatingElement } from '@/components/interactions/MicroInteractions';
+import { ParallaxContainer, ParallaxLayer } from '@/components/advanced/ParallaxSystem';
+import { TextReveal, Typewriter, CountUp } from '@/components/advanced/DynamicTypography';
 
 interface HeroProps {
   title: string;
@@ -25,21 +27,37 @@ export function Hero({
   showStats = true
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-gradient-subtle">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+    <ParallaxContainer className="relative overflow-hidden bg-gradient-subtle min-h-[80vh]">
+      {/* Background layers with parallax */}
+      <ParallaxLayer speed={0.2} depth={-100} opacity={0.3} className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-hero opacity-10" />
+      </ParallaxLayer>
+      
+      <ParallaxLayer speed={0.1} depth={-50} className="absolute inset-0">
+        <div className="absolute top-20 left-10 h-32 w-32 rounded-full bg-gradient-hero opacity-20 blur-3xl" />
+        <div className="absolute bottom-20 right-10 h-40 w-40 rounded-full bg-mint opacity-15 blur-3xl" />
+      </ParallaxLayer>
       
       <div className="container relative z-10 py-20 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left content */}
-          <div className="flex flex-col space-y-8 animate-fade-in">
+          <div className="flex flex-col space-y-8">
             <div className="space-y-6">
-              <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <TextReveal 
+                animation="slide-up" 
+                stagger={100} 
+                className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl"
+              >
                 {title}
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                {subtitle}
-              </p>
+              </TextReveal>
+              
+              <div className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                <Typewriter 
+                  text={subtitle}
+                  speed={30}
+                  delay={1000}
+                />
+              </div>
             </div>
 
             {/* CTAs */}
@@ -58,27 +76,33 @@ export function Hero({
               </Button>
             </div>
 
-            {/* Stats */}
+            {/* Enhanced Stats with CountUp */}
             {showStats && (
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/40">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient">50K+</div>
+                  <div className="text-2xl font-bold text-gradient">
+                    <CountUp end={50} suffix="K+" duration={2000} delay={1500} />
+                  </div>
                   <div className="text-sm text-muted-foreground">Active Businesses</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient">98%</div>
+                  <div className="text-2xl font-bold text-gradient">
+                    <CountUp end={98} suffix="%" duration={2000} delay={1700} />
+                  </div>
                   <div className="text-sm text-muted-foreground">Customer Satisfaction</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gradient">$2M+</div>
+                  <div className="text-2xl font-bold text-gradient">
+                    <CountUp end={2} prefix="$" suffix="M+" duration={2000} delay={1900} />
+                  </div>
                   <div className="text-sm text-muted-foreground">Daily Processing</div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Right visual */}
-          <div className="relative animate-scale-in">
+          {/* Right visual with enhanced parallax */}
+          <ParallaxLayer speed={0.8} className="relative">
             <div className="aspect-[4/3] rounded-2xl bg-gradient-card border border-border/40 shadow-large p-8">
               {/* Placeholder for device mockup */}
               <div className="h-full w-full rounded-xl bg-gradient-hero/10 border border-border/20 flex items-center justify-center">
@@ -100,19 +124,21 @@ export function Hero({
               </div>
             </div>
             
-            {/* Floating elements */}
-            <FloatingElement direction="up" distance={8} duration={4000} className="absolute -top-4 -right-4">
-              <div className="h-16 w-16 rounded-full bg-gradient-hero shadow-glow opacity-60" />
-            </FloatingElement>
-            <FloatingElement direction="down" distance={6} duration={3000} className="absolute -bottom-6 -left-6">
-              <div className="h-12 w-12 rounded-full bg-accent shadow-glow opacity-60" />
-            </FloatingElement>
-            <FloatingElement direction="right" distance={4} duration={5000} className="absolute top-1/2 -right-8">
-              <div className="h-8 w-8 rounded-full bg-mint shadow-glow opacity-40" />
-            </FloatingElement>
-          </div>
+            {/* Enhanced floating elements with parallax */}
+            <ParallaxLayer speed={1.2} className="absolute inset-0">
+              <FloatingElement direction="up" distance={8} duration={4000} className="absolute -top-4 -right-4">
+                <div className="h-16 w-16 rounded-full bg-gradient-hero shadow-glow opacity-60" />
+              </FloatingElement>
+              <FloatingElement direction="down" distance={6} duration={3000} className="absolute -bottom-6 -left-6">
+                <div className="h-12 w-12 rounded-full bg-accent shadow-glow opacity-60" />
+              </FloatingElement>
+              <FloatingElement direction="right" distance={4} duration={5000} className="absolute top-1/2 -right-8">
+                <div className="h-8 w-8 rounded-full bg-mint shadow-glow opacity-40" />
+              </FloatingElement>
+            </ParallaxLayer>
+          </ParallaxLayer>
         </div>
       </div>
-    </section>
+    </ParallaxContainer>
   );
 }

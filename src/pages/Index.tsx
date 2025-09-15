@@ -1,6 +1,7 @@
 import { Hero } from '@/components/Hero';
 import { FeatureGrid } from '@/components/FeatureGrid';
 import { LogosMarquee } from '@/components/LogosMarquee';
+import { AdvancedShowcase } from '@/components/advanced/AdvancedShowcase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -76,6 +77,8 @@ const Index = () => {
       <LogosMarquee />
 
       <FeatureGrid />
+
+      <AdvancedShowcase />
 
       {/* Product Highlights */}
       <section className="py-20 lg:py-32 bg-gradient-subtle">

@@ -173,6 +173,14 @@ export default {
         "float-right": {
           "0%, 100%": { transform: "translateX(0)" },
           "50%": { transform: "translateX(var(--float-distance, 10px))" }
+        },  
+        "text-shimmer": {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" }
+        },
+        "morph": {
+          "0%, 100%": { borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%" },
+          "50%": { borderRadius: "30% 60% 70% 40%/50% 60% 30% 60%" }
         }
       },
       animation: {
@@ -188,6 +196,8 @@ export default {
         "shimmer": "shimmer 2s ease-in-out infinite",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 3s ease-in-out infinite",
+        "morph": "morph 8s ease-in-out infinite",
       },
     },
   },

@@ -198,6 +198,34 @@
     animation-play-state: paused;
   }
 
+  /* Advanced animation utilities */
+  .text-shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted-foreground)) 0%,
+      hsl(var(--foreground)) 50%,
+      hsl(var(--muted-foreground)) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-shimmer 3s ease-in-out infinite;
+  }
+
+  .morph-bg {
+    animation: morph 8s ease-in-out infinite;
+  }
+
+  /* 3D transform utilities */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
   /* Custom shadows using design tokens */
   .shadow-soft {
     box-shadow: var(--shadow-soft);
