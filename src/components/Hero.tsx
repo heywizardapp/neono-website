@@ -35,7 +35,7 @@ export function Hero({
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
       </div>
       
-      <div className="container relative py-16 lg:py-24">
+      <div className="container relative py-12 lg:py-16">
         {/* Trust indicator */}
         <IntersectionAnimation animation="fade-in" className="text-center mb-8">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
@@ -44,7 +44,7 @@ export function Hero({
           </Badge>
         </IntersectionAnimation>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center max-w-7xl mx-auto">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center max-w-7xl mx-auto">
           {/* Left content - Simplified and focused */}
           <div className="text-center lg:text-left">
             <IntersectionAnimation animation="fade-up" delay={200}>

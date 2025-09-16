@@ -35,9 +35,9 @@ export function ValueProposition() {
   ];
 
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-12 lg:py-16">
       <div className="container">
-        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20 items-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* Left side - Value props */}
           <div>
             <IntersectionAnimation animation="fade-up">

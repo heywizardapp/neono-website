@@ -100,10 +100,10 @@ const Index = () => {
       <FeatureGrid />
 
       {/* Enhanced Product Demo Section */}
-      <section className="py-20 lg:py-32 bg-gradient-subtle">
+      <section className="py-12 lg:py-16 bg-gradient-subtle">
         <div className="container">
           <IntersectionAnimation animation="fade-up">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
                 <PlayCircle className="w-4 h-4 mr-2" />
                 See it in action
@@ -118,7 +118,7 @@ const Index = () => {
             </div>
           </IntersectionAnimation>
 
-          <div className="grid gap-16 lg:gap-24">
+          <div className="grid gap-12 lg:gap-16">
             {/* Appointments Demo - Enhanced */}
             <IntersectionAnimation animation="fade-up" delay={200}>
               <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
@@ -291,9 +291,9 @@ const Index = () => {
       <TrustBadges />
 
       {/* Pricing Teaser */}
-      <section className="py-20 lg:py-32 bg-gradient-subtle">
+      <section className="py-12 lg:py-16 bg-gradient-subtle">
         <div className="container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
               Simple, transparent pricing
             </h2>

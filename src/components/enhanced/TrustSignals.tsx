@@ -31,7 +31,7 @@ export function TrustSignals() {
   ];
 
   return (
-    <section className="py-16 bg-slate-50/50">
+    <section className="py-8 bg-slate-50/50">
       <div className="container">
         <IntersectionAnimation animation="fade-up">
           <div className="text-center mb-12">
@@ -70,7 +70,7 @@ export function TrustSignals() {
 
         {/* Customer logos */}
         <IntersectionAnimation animation="fade-up" delay={400}>
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground mb-8">
               Trusted by leading beauty brands and independent professionals
             </p>
