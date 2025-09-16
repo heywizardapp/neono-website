@@ -3,7 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimations';
-import { MicroInteractions } from '@/components/performance/MicroInteractions';
+import { EnhancedButton, InteractiveCard } from '@/components/advanced/EnhancedInteractiveElements';
+import { AnimatedCounter, Magnetic } from '@/components/advanced/AdvancedScrollAnimations';
 
 interface HeroProps {
   title: string;
@@ -63,15 +64,21 @@ export function Hero({
               <IntersectionAnimation animation="fade-up" delay={600}>
                 <div className="grid grid-cols-3 gap-8 mb-8 py-6">
                   <div className="text-center">
-                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">50K+</div>
+                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
+                      <AnimatedCounter end={50} suffix="K+" />
+                    </div>
                     <div className="text-sm text-muted-foreground">Businesses</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">1B+</div>
+                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
+                      <AnimatedCounter end={1} suffix="B+" />
+                    </div>
                     <div className="text-sm text-muted-foreground">Appointments</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">4.8</div>
+                    <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
+                      <AnimatedCounter end={4.8} suffix="" />
+                    </div>
                     <div className="text-sm text-muted-foreground flex items-center justify-center">
                       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 mr-1" />
                       Rating
@@ -84,23 +91,33 @@ export function Hero({
             {/* Enhanced CTAs */}
             <IntersectionAnimation animation="fade-up" delay={800}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <MicroInteractions variant="lift">
-                  <Button size="lg" className="h-12 px-8 bg-primary hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300" asChild>
-                    <Link to={primaryCta.href}>
-                      {primaryCta.text}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </Button>
-                </MicroInteractions>
+                <Magnetic intensity={0.2}>
+                  <EnhancedButton
+                    variant="primary"
+                    size="lg"
+                    magnetic={true}
+                    glow={true}
+                    onClick={() => {
+                      window.location.href = primaryCta.href;
+                    }}
+                  >
+                    {primaryCta.text}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </EnhancedButton>
+                </Magnetic>
                 
-                <MicroInteractions variant="lift">
-                  <Button size="lg" variant="outline" className="h-12 px-8 hover:bg-accent/50" asChild>
-                    <Link to={secondaryCta.href}>
-                      <Play className="mr-2 h-4 w-4" />
-                      {secondaryCta.text}
-                    </Link>
-                  </Button>
-                </MicroInteractions>
+                <Magnetic intensity={0.15}>
+                  <EnhancedButton
+                    variant="secondary"
+                    size="lg"
+                    onClick={() => {
+                      window.location.href = secondaryCta.href;
+                    }}
+                  >
+                    <Play className="mr-2 h-4 w-4" />
+                    {secondaryCta.text}
+                  </EnhancedButton>
+                </Magnetic>
               </div>
             </IntersectionAnimation>
 

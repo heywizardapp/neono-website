@@ -16,6 +16,9 @@ import { Link } from 'react-router-dom';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimations';
+import { ScrollProgress } from '@/components/advanced/ScrollProgressIndicator';
+import { InteractiveCard, FloatingButton } from '@/components/advanced/EnhancedInteractiveElements';
+import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
 
 const testimonials = [
   {
@@ -75,6 +78,13 @@ const Index = () => {
           }
         ]}
       />
+      <ScrollProgress />
+      <FloatingButton 
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="transition-all duration-300"
+      >
+        <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
+      </FloatingButton>
       <div className="min-h-screen">
       <Hero
         title="The #1 software for Salons and Spas"
@@ -293,42 +303,56 @@ const Index = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-            {pricingPlans.map((plan) => (
-              <Card key={plan.name} className={`hover-lift ${plan.popular ? 'ring-2 ring-primary shadow-glow' : ''}`}>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <CardTitle className="text-xl">{plan.name}</CardTitle>
-                      <CardDescription>{plan.description}</CardDescription>
+            {pricingPlans.map((plan, index) => (
+              <OptimizedInView
+                key={plan.name}
+                animation="slide"
+                threshold={0.2}
+              >
+                <InteractiveCard 
+                  tilt={plan.popular}
+                  glow={plan.popular}
+                  className={`h-full ${plan.popular ? 'ring-2 ring-primary shadow-glow' : ''}`}
+                >
+                  <CardHeader>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <CardTitle className="text-xl">{plan.name}</CardTitle>
+                        <CardDescription>{plan.description}</CardDescription>
+                      </div>
+                      {plan.popular && (
+                        <Badge variant="default" className="shimmer-effect">Most Popular</Badge>
+                      )}
                     </div>
-                    {plan.popular && (
-                      <Badge variant="default">Most Popular</Badge>
-                    )}
-                  </div>
-                  <div className="space-y-1">
-                    <div className="text-3xl font-bold">
-                      ${plan.price}
-                      <span className="text-lg font-normal text-muted-foreground">/mo</span>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold">
+                        ${plan.price}
+                        <span className="text-lg font-normal text-muted-foreground">/mo</span>
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {plan.seats} seats included
+                      </div>
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      {plan.seats} seats included
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="space-y-2">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center space-x-2 text-sm">
-                        <Check className="h-4 w-4 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full" variant={plan.popular ? "default" : "outline"} asChild>
-                    <Link to="/signup">Start Free Trial</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="space-y-2">
+                      {plan.features.map((feature) => (
+                        <li key={feature} className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                          <Check className="h-4 w-4 text-primary" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button 
+                      className="w-full glow-hover" 
+                      variant={plan.popular ? "default" : "outline"} 
+                      asChild
+                    >
+                      <Link to="/signup">Start Free Trial</Link>
+                    </Button>
+                  </CardContent>
+                </InteractiveCard>
+              </OptimizedInView>
             ))}
           </div>
 
