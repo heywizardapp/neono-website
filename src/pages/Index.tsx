@@ -4,17 +4,14 @@ import { RealCustomerLogos } from '@/components/logos/RealCustomerLogos';
 import { AdvancedShowcase } from '@/components/advanced/AdvancedShowcase';
 import { EnhancedTestimonials } from '@/components/testimonials/EnhancedTestimonials';
 import { TrustBadges } from '@/components/trust/TrustBadges';
-import { TrustSignals } from '@/components/enhanced/TrustSignals';
-import { ValueProposition } from '@/components/enhanced/ValueProposition';
 import { ConversionOptimizedCTA } from '@/components/cta/ConversionOptimizedCTA';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, ArrowRight, Check, PlayCircle } from 'lucide-react';
+import { Star, ArrowRight, Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
-import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimations';
 
 const testimonials = [
   {
@@ -76,201 +73,115 @@ const Index = () => {
       />
       <div className="min-h-screen">
       <Hero
-        title="The #1 software for Salons and Spas"
-        subtitle="Simple, flexible and powerful booking software for your business. Everything you need to grow and thrive."
-        primaryCta={{ text: "Get Started Now", href: "/signup" }}
-        secondaryCta={{ text: "Watch Demo", href: "/demo" }}
+        title="Run your salon or barbershop on one platform."
+        subtitle="Appointments, POS, marketing, website, and AI—built in. Start free, grow fast."
       />
 
-      <TrustSignals />
-
-      <ValueProposition />
+      <RealCustomerLogos />
 
       <FeatureGrid />
 
-      {/* Enhanced Product Demo Section */}
+      <AdvancedShowcase />
+
+      {/* Product Highlights */}
       <section className="py-20 lg:py-32 bg-gradient-subtle">
         <div className="container">
-          <IntersectionAnimation animation="fade-up">
-            <div className="text-center mb-16">
-              <Badge variant="secondary" className="mb-4">
-                <PlayCircle className="w-4 h-4 mr-2" />
-                See it in action
-              </Badge>
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                From booking to payment in seconds
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Watch how NeonO transforms every step of your customer journey—from online booking 
-                to checkout—into a seamless, delightful experience.
-              </p>
-            </div>
-          </IntersectionAnimation>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              See NeonO in action
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              From booking to payment, every step is designed to delight your customers and streamline your operations.
+            </p>
+          </div>
 
           <div className="grid gap-16 lg:gap-24">
-            {/* Appointments Demo - Enhanced */}
-            <IntersectionAnimation animation="fade-up" delay={200}>
-              <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-                <div className="space-y-6">
-                  <Badge variant="secondary" className="w-fit">
-                    🗓️ Smart Scheduling
-                  </Badge>
-                  <h3 className="text-2xl font-display font-bold">
-                    Appointments that work around your business
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Block booking, walk-in management, staff schedules, and room assignments. 
-                    Your calendar adapts to how you actually work, not the other way around.
-                  </p>
-                  
+            {/* Appointments Demo */}
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="space-y-6">
+                <Badge variant="secondary" className="w-fit">
+                  Smart Scheduling
+                </Badge>
+                <h3 className="text-2xl font-display font-bold">
+                  Appointments that work around your business
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Block booking, walk-in management, staff schedules, and room assignments. 
+                  Your calendar adapts to how you actually work.
+                </p>
+                <Button variant="outline" asChild>
+                  <Link to="/products/appointments">
+                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="aspect-[4/3] rounded-2xl bg-gradient-card border border-border/40 shadow-large p-6">
+                <div className="h-full w-full rounded-xl bg-gradient-hero/5 border border-border/20 p-4">
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Automated waitlist & cancellation handling</span>
+                    <div className="flex justify-between items-center">
+                      <div className="text-sm font-medium">Today's Schedule</div>
+                      <div className="text-xs text-muted-foreground">3 staff • 12 appointments</div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Smart buffer times between appointments</span>
+                    <div className="space-y-2">
+                      <div className="h-8 bg-primary/20 rounded-lg flex items-center px-3 text-xs">9:00 - Sarah • Cut & Color</div>
+                      <div className="h-8 bg-accent/20 rounded-lg flex items-center px-3 text-xs">10:30 - Mike • Beard Trim</div>
+                      <div className="h-8 bg-mint/20 rounded-lg flex items-center px-3 text-xs">11:00 - Lisa • Facial</div>
+                      <div className="h-6 bg-slate-100 rounded-lg" />
+                      <div className="h-6 bg-slate-100 rounded-lg" />
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Multi-location scheduling sync</span>
-                    </div>
-                  </div>
-                  
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/products/appointments">
-                      Explore Scheduling <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-                
-                <div className="relative">
-                  <div className="aspect-[4/3] rounded-2xl bg-white border border-border/40 shadow-2xl p-6 overflow-hidden">
-                    <div className="h-full w-full rounded-xl bg-gradient-to-br from-slate-50 to-white border border-border/20 p-4">
-                      <div className="space-y-4">
-                        <div className="flex justify-between items-center">
-                          <div className="text-sm font-medium">Today's Schedule</div>
-                          <div className="text-xs text-muted-foreground bg-green-50 text-green-700 px-2 py-1 rounded">
-                            98% booked
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="h-12 bg-gradient-to-r from-primary/10 to-primary/20 rounded-lg flex items-center px-4 border border-primary/20">
-                            <div className="w-8 h-8 rounded-full bg-primary/30 mr-3"></div>
-                            <div className="flex-1">
-                              <div className="text-sm font-medium">Sarah Martinez</div>
-                              <div className="text-xs text-muted-foreground">Cut & Color • 9:00 AM - 11:00 AM</div>
-                            </div>
-                            <div className="text-primary font-bold">$185</div>
-                          </div>
-                          
-                          <div className="h-12 bg-gradient-to-r from-accent/10 to-accent/20 rounded-lg flex items-center px-4 border border-accent/20">
-                            <div className="w-8 h-8 rounded-full bg-accent/30 mr-3"></div>
-                            <div className="flex-1">
-                              <div className="text-sm font-medium">Mike Johnson</div>
-                              <div className="text-xs text-muted-foreground">Beard Trim • 11:30 AM</div>
-                            </div>
-                            <div className="text-accent font-bold">$45</div>
-                          </div>
-                          
-                          <div className="h-8 bg-slate-100 rounded-lg opacity-50"></div>
-                          <div className="h-8 bg-slate-100 rounded-lg opacity-30"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Floating notification */}
-                  <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg border border-border/20 p-3 max-w-48">
-                    <div className="text-xs font-medium text-green-700 mb-1">New booking!</div>
-                    <div className="text-xs text-muted-foreground">Emma Chen just booked a facial for 2PM</div>
                   </div>
                 </div>
               </div>
-            </IntersectionAnimation>
+            </div>
 
-            {/* POS Demo - Enhanced */}
-            <IntersectionAnimation animation="fade-up" delay={400}>
-              <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-                <div className="lg:order-2 space-y-6">
-                  <Badge variant="secondary" className="w-fit">
-                    💳 Lightning Payments
-                  </Badge>
-                  <h3 className="text-2xl font-display font-bold">
-                    Checkout in seconds, not minutes
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Tap to pay, split tips instantly, and get paid the same day. 
-                    No hidden fees on tips—what your team earns, they keep.
-                  </p>
-                  
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Instant tip splitting across team members</span>
+            {/* POS Demo */}
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
+              <div className="lg:order-2 space-y-6">
+                <Badge variant="secondary" className="w-fit">
+                  Fast Payments
+                </Badge>
+                <h3 className="text-2xl font-display font-bold">
+                  Checkout in seconds, not minutes
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Tap to pay, split tips instantly, and get paid the same day. 
+                  No hidden fees on tips—what your team earns, they keep.
+                </p>
+                <Button variant="outline" asChild>
+                  <Link to="/products/pos">
+                    Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+              <div className="lg:order-1 aspect-[4/3] rounded-2xl bg-gradient-card border border-border/40 shadow-large p-6">
+                <div className="h-full w-full rounded-xl bg-gradient-hero/5 border border-border/20 p-4">
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold">$127.50</div>
+                      <div className="text-xs text-muted-foreground">Total</div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Same-day payouts with no fees</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Check className="h-5 w-5 text-green-500" />
-                      <span>Accept cards, cash, and digital wallets</span>
-                    </div>
-                  </div>
-                  
-                  <Button variant="outline" size="lg" asChild>
-                    <Link to="/products/pos">
-                      Explore Payments <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-                
-                <div className="lg:order-1 relative">
-                  <div className="aspect-[4/3] rounded-2xl bg-white border border-border/40 shadow-2xl p-6">
-                    <div className="h-full w-full rounded-xl bg-gradient-to-br from-slate-50 to-white border border-border/20 p-6">
-                      <div className="space-y-6 text-center">
-                        <div>
-                          <div className="text-3xl font-bold text-primary mb-1">$127.50</div>
-                          <div className="text-sm text-muted-foreground">Total Amount</div>
-                        </div>
-                        
-                        <div className="space-y-3 text-left">
-                          <div className="flex justify-between text-sm border-b pb-2">
-                            <span>Cut & Style</span>
-                            <span>$85.00</span>
-                          </div>
-                          <div className="flex justify-between text-sm border-b pb-2">
-                            <span>Deep Conditioning</span>
-                            <span>$25.00</span>
-                          </div>
-                          <div className="flex justify-between text-sm font-medium text-primary">
-                            <span>Tip (15%)</span>
-                            <span>$17.50</span>
-                          </div>
-                        </div>
-                        
-                        <div className="grid grid-cols-2 gap-3">
-                          <div className="h-12 bg-gradient-to-r from-primary/20 to-primary/30 rounded-xl flex items-center justify-center border border-primary/30">
-                            <span className="text-sm font-medium">💳 Tap to Pay</span>
-                          </div>
-                          <div className="h-12 bg-gradient-to-r from-accent/20 to-accent/30 rounded-xl flex items-center justify-center border border-accent/30">
-                            <span className="text-sm font-medium">📱 Digital Wallet</span>
-                          </div>
-                        </div>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-sm">
+                        <span>Cut & Style</span>
+                        <span>$85.00</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span>Deep Conditioning</span>
+                        <span>$25.00</span>
+                      </div>
+                      <div className="flex justify-between text-sm font-medium">
+                        <span>Tip (15%)</span>
+                        <span>$17.50</span>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Success notification */}
-                  <div className="absolute -bottom-4 -left-4 bg-green-50 border border-green-200 rounded-lg shadow-lg p-3">
-                    <div className="text-xs font-medium text-green-700 mb-1">Payment successful!</div>
-                    <div className="text-xs text-green-600">Tips split automatically</div>
+                    <div className="grid grid-cols-2 gap-2 mt-4">
+                      <div className="h-10 bg-primary/20 rounded-lg flex items-center justify-center text-xs">💳 Tap</div>
+                      <div className="h-10 bg-accent/20 rounded-lg flex items-center justify-center text-xs">📱 Wallet</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </IntersectionAnimation>
+            </div>
           </div>
         </div>
       </section>
