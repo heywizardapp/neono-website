@@ -67,13 +67,6 @@
             .catch(err => console.log('SW registration failed'));
         });
       }
-      
-      // Measure and report Core Web Vitals
-      if ('web-vitals' in window) {
-        import('./src/lib/analytics/webvitals.js').then(({ reportWebVitals }) => {
-          reportWebVitals(console.log);
-        });
-      }
     </script>
   </body>
 </html>
