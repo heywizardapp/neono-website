@@ -1,213 +1,233 @@
 import { ReactNode, useState } from 'react';
 import { cn } from '@/lib/utils';
 
+interface MicroInteractionsProps {
+  children: ReactNode;
+  variant?: 'lift' | 'scale' | 'glow' | 'bounce' | 'tilt' | 'pulse';
+  intensity?: 'subtle' | 'medium' | 'strong';
+  className?: string;
+  disabled?: boolean;
+}
+
+export function MicroInteractions({ 
+  children, 
+  variant = 'lift', 
+  intensity = 'medium',
+  className,
+  disabled = false 
+}: MicroInteractionsProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = useState(false);
+
+  const getIntensityValues = (base: number) => {
+    switch (intensity) {
+      case 'subtle': return base * 0.5;
+      case 'strong': return base * 1.5;
+      default: return base;
+    }
+  };
+
+  const getVariantClasses = () => {
+    if (disabled) return '';
+
+    const liftAmount = getIntensityValues(8);
+    const scaleAmount = getIntensityValues(1.05);
+    
+    switch (variant) {
+      case 'lift':
+        return cn(
+          'transition-all duration-300 ease-out',
+          isHovered && `-translate-y-${Math.round(liftAmount)}px shadow-medium`,
+          isPressed && 'scale-95'
+        );
+      
+      case 'scale':
+        return cn(
+          'transition-transform duration-200 ease-out',
+          isHovered && `scale-${scaleAmount.toFixed(2).replace('.', '')}`,
+          isPressed && 'scale-95'
+        );
+      
+      case 'glow':
+        return cn(
+          'transition-all duration-300 ease-out',
+          isHovered && 'shadow-glow',
+          isPressed && 'scale-98'
+        );
+      
+      case 'bounce':
+        return cn(
+          'transition-all duration-300 ease-out',
+          isHovered && 'animate-bounce',
+          isPressed && 'scale-95'
+        );
+      
+      case 'tilt':
+        return cn(
+          'transition-transform duration-300 ease-out',
+          isHovered && 'rotate-1 scale-105',
+          isPressed && 'rotate-0 scale-95'
+        );
+      
+      case 'pulse':
+        return cn(
+          'transition-all duration-300 ease-out',
+          isHovered && 'animate-pulse scale-105',
+          isPressed && 'scale-95'
+        );
+      
+      default:
+        return '';
+    }
+  };
+
+  if (disabled) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <div 
+      className={cn(getVariantClasses(), className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setIsPressed(false);
+      }}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+    >
+      {children}
+    </div>
+  );
+}
+
+// Specialized hover cards for different use cases
+interface HoverCardProps {
+  children: ReactNode;
+  effect?: 'lift' | 'scale' | 'glow' | 'tilt';
+  intensity?: 'subtle' | 'medium' | 'strong';
+  className?: string;
+}
+
+export function HoverCard({ 
+  children, 
+  effect = 'lift',
+  intensity = 'medium',
+  className 
+}: HoverCardProps) {
+  return (
+    <MicroInteractions variant={effect} intensity={intensity} className={className}>
+      {children}
+    </MicroInteractions>
+  );
+}
+
+// Button interaction wrapper
 interface InteractiveButtonProps {
   children: ReactNode;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
   className?: string;
-  variant?: 'bounce' | 'scale' | 'rotate' | 'glow' | 'ripple';
-  intensity?: 'subtle' | 'medium' | 'strong';
   onClick?: () => void;
   disabled?: boolean;
 }
 
-export function InteractiveButton({
-  children,
+export function InteractiveButton({ 
+  children, 
+  variant = 'primary',
+  size = 'md',
   className,
-  variant = 'scale',
-  intensity = 'medium',
   onClick,
-  disabled = false,
+  disabled = false 
 }: InteractiveButtonProps) {
   const [isPressed, setIsPressed] = useState(false);
 
+  const getSizeClasses = () => {
+    switch (size) {
+      case 'sm': return 'px-4 py-2 text-sm';
+      case 'lg': return 'px-8 py-4 text-lg';
+      default: return 'px-6 py-3 text-base';
+    }
+  };
+
   const getVariantClasses = () => {
-    const intensityMap = {
-      subtle: { scale: 'active:scale-98', bounce: 'active:translate-y-0.5', rotate: 'active:rotate-1', glow: 'active:shadow-sm' },
-      medium: { scale: 'active:scale-95', bounce: 'active:translate-y-1', rotate: 'active:rotate-2', glow: 'active:shadow-md' },
-      strong: { scale: 'active:scale-90', bounce: 'active:translate-y-2', rotate: 'active:rotate-3', glow: 'active:shadow-lg' },
-    };
-
-    const baseClasses = {
-      bounce: 'hover:-translate-y-1 transition-all duration-200 ease-out',
-      scale: 'hover:scale-105 transition-transform duration-200 ease-out',
-      rotate: 'hover:rotate-1 transition-transform duration-200 ease-out',
-      glow: 'hover:shadow-glow transition-all duration-300 ease-out',
-      ripple: 'relative overflow-hidden transition-all duration-200 ease-out',
-    };
-
-    return cn(
-      baseClasses[variant],
-      intensityMap[intensity][variant as keyof typeof intensityMap.medium],
-      'will-change-transform gpu-accelerated'
-    );
+    switch (variant) {
+      case 'primary':
+        return 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-soft hover:shadow-medium';
+      case 'secondary':
+        return 'bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border';
+      case 'ghost':
+        return 'hover:bg-accent/50 text-foreground';
+      default:
+        return '';
+    }
   };
 
   return (
     <button
       className={cn(
+        'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-ring',
+        'active:scale-95 hover:-translate-y-1',
+        getSizeClasses(),
         getVariantClasses(),
-        disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
+        isPressed && 'scale-95 translate-y-0',
+        disabled && 'opacity-50 cursor-not-allowed hover:translate-y-0 active:scale-100',
         className
       )}
       onClick={onClick}
+      disabled={disabled}
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
       onMouseLeave={() => setIsPressed(false)}
-      disabled={disabled}
     >
       {children}
-      {variant === 'ripple' && isPressed && (
-        <span className="absolute inset-0 bg-white/20 animate-ping rounded-inherit" />
-      )}
     </button>
   );
 }
 
-interface HoverCardProps {
-  children: ReactNode;
-  className?: string;
-  effect?: 'lift' | 'tilt' | 'glow' | 'border';
-  intensity?: 'subtle' | 'medium' | 'strong';
+// Loading button with micro-interactions
+interface LoadingButtonProps extends InteractiveButtonProps {
+  loading?: boolean;
+  loadingText?: string;
 }
 
-export function HoverCard({
-  children,
-  className,
-  effect = 'lift',
-  intensity = 'medium',
-}: HoverCardProps) {
-  const getEffectClasses = () => {
-    const intensityMap = {
-      subtle: {
-        lift: 'hover:-translate-y-1 hover:shadow-md',
-        tilt: 'hover:rotate-1 hover:-translate-y-0.5',
-        glow: 'hover:shadow-glow/30',
-        border: 'hover:border-primary/50',
-      },
-      medium: {
-        lift: 'hover:-translate-y-2 hover:shadow-lg',
-        tilt: 'hover:rotate-2 hover:-translate-y-1',
-        glow: 'hover:shadow-glow/50',
-        border: 'hover:border-primary',
-      },
-      strong: {
-        lift: 'hover:-translate-y-4 hover:shadow-xl',
-        tilt: 'hover:rotate-3 hover:-translate-y-2',
-        glow: 'hover:shadow-glow',
-        border: 'hover:border-primary hover:shadow-md',
-      },
-    };
-
-    return cn(
-      'transition-all duration-300 ease-out will-change-transform gpu-accelerated',
-      intensityMap[intensity][effect]
-    );
-  };
-
+export function LoadingButton({ 
+  children, 
+  loading = false,
+  loadingText = 'Loading...',
+  disabled,
+  ...props 
+}: LoadingButtonProps) {
   return (
-    <div className={cn(getEffectClasses(), className)}>
-      {children}
-    </div>
-  );
-}
-
-interface FloatingElementProps {
-  children: ReactNode;
-  className?: string;
-  direction?: 'up' | 'down' | 'left' | 'right';
-  distance?: number;
-  duration?: number;
-}
-
-export function FloatingElement({
-  children,
-  className,
-  direction = 'up',
-  distance = 10,
-  duration = 3000,
-}: FloatingElementProps) {
-  const getAnimationClasses = () => {
-    const directionMap = {
-      up: `animate-[float-up_${duration}ms_ease-in-out_infinite]`,
-      down: `animate-[float-down_${duration}ms_ease-in-out_infinite]`,
-      left: `animate-[float-left_${duration}ms_ease-in-out_infinite]`,
-      right: `animate-[float-right_${duration}ms_ease-in-out_infinite]`,
-    };
-
-    return directionMap[direction];
-  };
-
-  return (
-    <div
-      className={cn(getAnimationClasses(), 'will-change-transform', className)}
-      style={{
-        '--float-distance': `${distance}px`,
-      } as React.CSSProperties}
+    <InteractiveButton 
+      {...props}
+      disabled={loading || disabled}
+      className={cn(props.className, loading && 'cursor-wait')}
     >
-      {children}
-    </div>
+      {loading ? (
+        <div className="flex items-center space-x-2">
+          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+          <span>{loadingText}</span>
+        </div>
+      ) : (
+        children
+      )}
+    </InteractiveButton>
   );
 }
 
+// Pulsing dot component
 interface PulsingDotProps {
   className?: string;
   color?: string;
   size?: 'sm' | 'md' | 'lg';
-  intensity?: 'subtle' | 'medium' | 'strong';
 }
 
-export function PulsingDot({
-  className,
-  color = 'bg-primary',
-  size = 'md',
-  intensity = 'medium',
-}: PulsingDotProps) {
-  const sizeClasses = {
-    sm: 'h-2 w-2',
-    md: 'h-3 w-3',
-    lg: 'h-4 w-4',
-  };
-
-  const intensityClasses = {
-    subtle: 'animate-pulse',
-    medium: 'animate-bounce-subtle',
-    strong: 'animate-glow',
-  };
-
+export function PulsingDot({ className, color = 'bg-primary', size = 'md' }: PulsingDotProps) {
+  const sizeClasses = { sm: 'h-2 w-2', md: 'h-3 w-3', lg: 'h-4 w-4' };
   return (
     <div className={cn('relative inline-flex', className)}>
-      <div className={cn('rounded-full', color, sizeClasses[size], intensityClasses[intensity])} />
-      <div className={cn('absolute inset-0 rounded-full animate-ping opacity-75', color, sizeClasses[size])} />
-    </div>
-  );
-}
-
-// Utility component for adding press feedback to any element
-interface PressableProps {
-  children: ReactNode;
-  className?: string;
-  scale?: number;
-  onPress?: () => void;
-}
-
-export function Pressable({
-  children,
-  className,
-  scale = 0.95,
-  onPress,
-}: PressableProps) {
-  return (
-    <div
-      className={cn(
-        'cursor-pointer transition-transform duration-100 ease-out active:scale-95 will-change-transform',
-        className
-      )}
-      style={{
-        '--press-scale': scale,
-      } as React.CSSProperties}
-      onMouseDown={onPress}
-    >
-      {children}
+      <div className={cn('rounded-full animate-pulse', color, sizeClasses[size])} />
     </div>
   );
 }

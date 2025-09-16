@@ -37,8 +37,8 @@ export function EnhancedTestimonial({
         <div className="flex items-center gap-3">
           <SmartSkeleton variant="avatar" className="h-12 w-12" />
           <div className="flex-1">
-            <SmartSkeleton variant="text" width="60%" className="mb-1" />
-            <SmartSkeleton variant="text" width="40%" />
+            <SmartSkeleton variant="text" className="mb-1 w-3/5" />
+            <SmartSkeleton variant="text" className="w-2/5" />
           </div>
         </div>
       </div>

@@ -216,7 +216,36 @@
     animation: morph 8s ease-in-out infinite;
   }
 
-  @keyframes text-shimmer {
+  /* Loading skeleton shimmer */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--muted) / 0.6) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2s ease-in-out infinite;
+  }
+
+  /* Micro-interaction utilities */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.3);
+  }
+
+  .tap-scale {
+    transition: transform 0.1s ease;
+  }
+  
+  .tap-scale:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes skeleton-shimmer {
     0%, 100% {
       background-position: 200% center;
     }
