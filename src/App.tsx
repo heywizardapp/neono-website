@@ -22,6 +22,8 @@ const Roi = lazy(() => import('./pages/Roi'));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
 const Security = lazy(() => import('./pages/Security').then(m => ({ default: m.Security })));
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
+const Compare = lazy(() => import('./pages/Compare'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 
 // Product pages
 const ProductsIndex = lazy(() => import('./pages/products/Index'));
@@ -82,6 +84,8 @@ export default function App() {
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
                     <Route path="/security" element={<Security />} />
+                    <Route path="/compare" element={<Compare />} />
+                    <Route path="/case-studies" element={<CaseStudies />} />
 
                     {/* Products */}
                     <Route path="/products" element={<ProductsIndex />} />

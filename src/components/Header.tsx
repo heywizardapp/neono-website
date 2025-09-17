@@ -5,6 +5,7 @@ import { Menu, X, Search, ChevronDown } from 'lucide-react'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
 import { useScrollHeader } from '@/hooks/useScrollHeader'
 import { cn } from '@/lib/utils'
+import LanguageSwitcher from '@/components/i18n/LanguageSwitcher'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -93,6 +94,8 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           <TopNav to="/pricing">Pricing</TopNav>
+          <TopNav to="/compare">Compare</TopNav>
+          <TopNav to="/case-studies">Success Stories</TopNav>
           <TopNav to="/roi">ROI Calculator</TopNav>
           <TopNav to="/contact">Contact</TopNav>
           <TopNav to="/blog">Resources</TopNav>
@@ -109,6 +112,7 @@ export function Header() {
           >
             <Search className="h-4 w-4" />
           </button>
+          <LanguageSwitcher className="hidden sm:flex" />
           <Link 
             to="/login" 
             className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center hover:bg-accent/50 rounded-lg"
@@ -214,6 +218,8 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
 
         <div className="space-y-1">
           <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
+          <MobileLink to="/compare" onClose={onClose}>Compare</MobileLink>
+          <MobileLink to="/case-studies" onClose={onClose}>Success Stories</MobileLink>
           <MobileLink to="/roi" onClose={onClose}>ROI Calculator</MobileLink>
           <MobileLink to="/contact" onClose={onClose}>Contact</MobileLink>
           <MobileLink to="/blog" onClose={onClose}>Resources</MobileLink>
