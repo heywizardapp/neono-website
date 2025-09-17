@@ -16,6 +16,7 @@ import { SmartPreloader } from '@/components/advanced/SmartPreloader';
 // Lazy load pages for better performance
 import Index from './pages/Index'; // Keep homepage immediate for best UX
 const Pricing = lazy(() => import('./pages/Pricing'));
+const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Roi = lazy(() => import('./pages/Roi'));
 const Terms = lazy(() => import('./pages/Terms').then(m => ({ default: m.Terms })));
@@ -76,6 +77,7 @@ export default function App() {
                     <Route path="/demo" element={<div className="p-8">Demo page - coming soon</div>} />
 
                     <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/roi" element={<Roi />} />
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
