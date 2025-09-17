@@ -50,7 +50,6 @@ const contactMethods = [
 
 const supportTopics = [
   'General Inquiry',
-  'Product Demo',
   'Technical Support',
   'Billing & Pricing', 
   'Partnership Opportunities',
@@ -99,8 +98,8 @@ export default function Contact() {
   return (
     <>
       <SEOHead
-        title="Contact Us - Get Support & Book a Demo | NeonO"
-        description="Contact NeonO's expert team for support, demos, and questions about our beauty business software. 24/7 chat, phone support, and fast email response."
+        title="Contact Us - Get Support | NeonO"
+        description="Contact NeonO's expert team for support and questions about our beauty business software. 24/7 chat, phone support, and fast email response."
         path="/contact"
       />
 
@@ -118,7 +117,7 @@ export default function Contact() {
                   We're Here to Help
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Get expert support, book a demo, or ask questions about how NeonO can transform your beauty business.
+                  Get expert support and ask questions about how NeonO can transform your beauty business.
                 </p>
               </div>
             </OptimizedInView>
@@ -300,14 +299,6 @@ export default function Contact() {
                     </CardHeader>
                     <CardContent className="px-0">
                       <div className="space-y-3">
-                        <a href="/demo" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
-                          <div className="flex items-center gap-3">
-                            <Calendar className="h-4 w-4 text-primary" />
-                            <span className="font-medium">Book a Demo</span>
-                          </div>
-                          <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
-                        </a>
-                        
                         <a href="/pricing" className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors group">
                           <div className="flex items-center gap-3">
                             <CheckCircle className="h-4 w-4 text-primary" />
