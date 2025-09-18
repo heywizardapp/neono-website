@@ -19,6 +19,8 @@ import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimati
 import { ScrollProgress } from '@/components/advanced/ScrollProgressIndicator';
 import { InteractiveCard, FloatingButton } from '@/components/advanced/EnhancedInteractiveElements';
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
+import { StickyCompare } from '@/components/compare/StickyCompare';
+import { RoiMini } from '@/components/roi/RoiMini';
 
 const testimonials = [
   {
@@ -289,6 +291,131 @@ const Index = () => {
       <EnhancedTestimonials />
       
       <TrustBadges />
+
+      {/* Success Stories Section */}
+      <section className="py-12 lg:py-16">
+        <div className="container">
+          <IntersectionAnimation animation="fade-up">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">
+                <Star className="w-4 h-4 mr-2" />
+                Success Stories
+              </Badge>
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+                Real results from real businesses
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                See how salon and spa owners like you transformed their operations with NeonO
+              </p>
+            </div>
+          </IntersectionAnimation>
+
+          <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+            {testimonials.map((testimonial, index) => (
+              <OptimizedInView
+                key={testimonial.name}
+                animation="slide"
+                threshold={0.2}
+              >
+                <InteractiveCard className="h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-hero text-white font-bold flex items-center justify-center">
+                        {testimonial.avatar}
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                        <CardDescription>{testimonial.business} • {testimonial.industry}</CardDescription>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <blockquote className="text-lg italic">"{testimonial.quote}"</blockquote>
+                  </CardContent>
+                </InteractiveCard>
+              </OptimizedInView>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/case-studies">
+                Read More Success Stories <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section className="py-12 lg:py-16 bg-gradient-subtle">
+        <div className="container">
+          <IntersectionAnimation animation="fade-up">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">
+                💰 ROI Calculator
+              </Badge>
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+                Calculate your potential savings
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                See exactly how much you could save by switching to NeonO's all-in-one platform
+              </p>
+            </div>
+          </IntersectionAnimation>
+
+          <div className="max-w-md mx-auto">
+            <OptimizedInView animation="fade" threshold={0.2}>
+              <RoiMini 
+                title="Quick ROI Estimate"
+                description="Enter your business details for instant savings calculation"
+              />
+            </OptimizedInView>
+          </div>
+        </div>
+      </section>
+
+      {/* Compare Section */}
+      <section className="py-12 lg:py-16">
+        <div className="container">
+          <IntersectionAnimation animation="fade-up">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="mb-4">
+                📊 Feature Comparison
+              </Badge>
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+                Everything included vs. expensive add-ons
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Compare NeonO's all-inclusive platform with typical salon software stacks
+              </p>
+            </div>
+          </IntersectionAnimation>
+
+          <OptimizedInView animation="fade" threshold={0.2}>
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-gradient-card border-primary/20">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-2xl font-bold mb-4">Ready to see the full comparison?</h3>
+                  <p className="text-muted-foreground mb-6 text-lg">
+                    Compare features, pricing, and see exactly what's included with NeonO vs. competitors
+                  </p>
+                  <Button size="lg" asChild>
+                    <Link to="/compare">
+                      View Full Comparison <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </OptimizedInView>
+        </div>
+      </section>
 
       {/* Pricing Teaser */}
       <section className="py-12 lg:py-16 bg-gradient-subtle">
