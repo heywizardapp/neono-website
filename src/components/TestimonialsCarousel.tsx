@@ -3,6 +3,7 @@ import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useInView } from '@/lib/useInView';
+import { useI18n } from '@/hooks/useI18n';
 
 import { Testimonial } from '@/templates/types';
 
@@ -11,6 +12,7 @@ interface TestimonialsCarouselProps {
 }
 
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
+  const { t } = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const { ref, inView } = useInView<HTMLElement>('50px');
   const autoRef = useRef<number | null>(null);
@@ -100,8 +102,11 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-xl sm:text-3xl lg:text-4xl font-display font-bold tracking-tight mb-4">
-            What our customers say
+            {t('testimonials.title')}
           </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            {t('testimonials.subtitle')}
+          </p>
         </div>
 
         <div 

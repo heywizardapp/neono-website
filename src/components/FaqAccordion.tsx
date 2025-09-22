@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useI18n } from '@/hooks/useI18n';
 
 import { FaqItem } from '@/templates/types';
 
@@ -12,15 +13,16 @@ interface FaqAccordionProps {
 }
 
 export function FaqAccordion({ faqs }: FaqAccordionProps) {
+  const { t } = useI18n();
   return (
     <section id="faq" className="py-20 lg:py-32 bg-accent/5">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            Frequently asked questions
+            {t('faq.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about NeonO
+            {t('faq.subtitle')}
           </p>
         </div>
 

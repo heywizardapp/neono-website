@@ -3,52 +3,53 @@ import { StaggeredReveal } from '@/components/animations/ScrollReveal';
 import { HoverCard } from '@/components/interactions/MicroInteractions';
 import { SmartSkeleton } from '@/components/loading/SmartSkeleton';
 import { useState, useEffect } from 'react';
+import { useI18n } from '@/hooks/useI18n';
 
-const features = [
+const getFeatures = (t: (key: string) => string) => [
   {
     icon: Calendar,
-    title: 'Bookings & Calendar',
-    description: 'Smart schedules for busy teams—walk-ins, rebook, chair/room views.',
+    titleKey: 'features.grid.appointments.title',
+    descriptionKey: 'features.grid.appointments.description',
     color: 'text-primary',
     gradient: 'from-primary/20 to-primary/5',
     stat: '95% booking efficiency'
   },
   {
     icon: CreditCard,
-    title: 'POS & Payments',
-    description: 'Tap, split tips, instant payouts. No tip commission.',
+    titleKey: 'features.grid.pos.title',
+    descriptionKey: 'features.grid.pos.description',
     color: 'text-accent',
     gradient: 'from-accent/20 to-accent/5',
     stat: '40% faster checkout'
   },
   {
     icon: Mail,
-    title: 'Marketing & Reviews',
-    description: 'SMS and email campaigns that fill your calendar.',
+    titleKey: 'features.grid.marketing.title',
+    descriptionKey: 'features.grid.marketing.description',
     color: 'text-mint',
     gradient: 'from-mint/20 to-mint/5',
     stat: '3x more bookings'
   },
   {
     icon: Globe,
-    title: 'Website & Link-in-Bio',
-    description: 'Launch a clean site and link-in-bio—free.',
+    titleKey: 'features.grid.website.title',
+    descriptionKey: 'features.grid.website.description',
     color: 'text-lavender',
     gradient: 'from-lavender/20 to-lavender/5',
     stat: '24/7 online presence'
   },
   {
     icon: BarChart3,
-    title: 'Analytics & AI',
-    description: 'Role-based insights and automations for owners and teams.',
+    titleKey: 'features.grid.analytics.title',
+    descriptionKey: 'features.grid.analytics.description',
     color: 'text-primary',
     gradient: 'from-primary/20 to-primary/5',
     stat: 'Data-driven decisions'
   },
   {
     icon: Smartphone,
-    title: 'Mobile First',
-    description: 'Full-featured mobile apps for staff and customers.',
+    titleKey: 'features.grid.ai.title',
+    descriptionKey: 'features.grid.ai.description',
     color: 'text-accent',
     gradient: 'from-accent/20 to-accent/5',
     stat: 'Native app experience'
@@ -56,7 +57,9 @@ const features = [
 ];
 
 export function FeatureGrid() {
+  const { t } = useI18n();
   const [isLoading, setIsLoading] = useState(true);
+  const features = getFeatures(t);
 
   useEffect(() => {
     // Simulate loading state
@@ -113,7 +116,7 @@ export function FeatureGrid() {
           >
             {features.map((feature, index) => (
               <HoverCard
-                key={feature.title}
+                key={feature.titleKey}
                 effect="lift"
                 intensity="medium"
                 className="group gpu-accelerated rounded-2xl overflow-hidden relative"
@@ -134,11 +137,11 @@ export function FeatureGrid() {
                   </div>
                   
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
+                    {t(feature.titleKey)}
                   </h3>
                   
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    {feature.description}
+                    {t(feature.descriptionKey)}
                   </p>
 
                   {/* Enhanced stat badge */}

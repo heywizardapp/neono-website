@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useI18n } from '@/hooks/useI18n';
 
 import { PricingRibbonConfig } from '@/templates/types';
 
@@ -9,12 +10,13 @@ interface PricingRibbonProps {
 }
 
 export function PricingRibbon({ config }: PricingRibbonProps) {
+  const { t } = useI18n();
   return (
     <section id="pricing" className="py-20 lg:py-32">
       <div className="container">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-8">
-            Simple, transparent pricing
+            {t('pricing.ribbon.title')}
           </h2>
           
           <div className="bg-gradient-card rounded-2xl border border-border/40 p-8 lg:p-12 space-y-6">

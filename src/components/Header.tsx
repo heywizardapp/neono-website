@@ -6,6 +6,7 @@ import { GlobalSearch } from '@/components/search/GlobalSearch'
 import { useScrollHeader } from '@/hooks/useScrollHeader'
 import { cn } from '@/lib/utils'
 import LanguageSwitcher from '@/components/i18n/LanguageSwitcher'
+import { useI18n } from '@/hooks/useI18n'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,27 +14,31 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-const productLinks = [
-  { name: 'Appointments & Calendar', href: '/products/appointments', description: 'Smart scheduling for busy teams' },
-  { name: 'POS & Payments', href: '/products/pos', description: 'Tap, split tips, instant payouts' },
-  { name: 'Marketing', href: '/products/marketing', description: 'SMS and email campaigns' },
-  { name: 'Online Booking', href: '/products/booking', description: 'Marketplace and bookings' },
-  { name: 'Website & Link-in-Bio', href: '/products/website', description: 'Launch a clean site' },
-  { name: 'Analytics & AI', href: '/products/analytics', description: 'Role-based insights' },
+const getProductLinks = (t: (key: string) => string) => [
+  { name: t('nav.products.appointments'), href: '/products/appointments', description: t('nav.products.appointments.desc') },
+  { name: t('nav.products.pos'), href: '/products/pos', description: t('nav.products.pos.desc') },
+  { name: t('nav.products.marketing'), href: '/products/marketing', description: t('nav.products.marketing.desc') },
+  { name: t('nav.products.booking'), href: '/products/booking', description: t('nav.products.booking.desc') },
+  { name: t('nav.products.website'), href: '/products/website', description: t('nav.products.website.desc') },
+  { name: t('nav.products.analytics'), href: '/products/analytics', description: t('nav.products.analytics.desc') },
 ];
 
-const solutionLinks = [
-  { name: 'Salons', href: '/solutions/salons' },
-  { name: 'Barbershops', href: '/solutions/barbershops' },
-  { name: 'Spas', href: '/solutions/spas' },
-  { name: 'Aesthetics', href: '/solutions/aesthetics' },
-  { name: 'Nails', href: '/solutions/nails' },
+const getSolutionLinks = (t: (key: string) => string) => [
+  { name: t('nav.solutions.salons'), href: '/solutions/salons' },
+  { name: t('nav.solutions.barbershops'), href: '/solutions/barbershops' },
+  { name: t('nav.solutions.spas'), href: '/solutions/spas' },
+  { name: t('nav.solutions.aesthetics'), href: '/solutions/aesthetics' },
+  { name: t('nav.solutions.nails'), href: '/solutions/nails' },
 ];
 
 export function Header() {
+  const { t } = useI18n();
   const [open, setOpen] = React.useState(false)
   const [searchOpen, setSearchOpen] = React.useState(false)
   const { isScrolled, isVisible, scrollDirection } = useScrollHeader(20, 150)
+  
+  const productLinks = getProductLinks(t);
+  const solutionLinks = getSolutionLinks(t);
   
   React.useEffect(() => {
     function onEsc(e: KeyboardEvent) { 
@@ -114,10 +119,10 @@ export function Header() {
             to="/login" 
             className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center hover:bg-accent/50 rounded-lg"
           >
-            Sign in
+            {t('header.signin')}
           </Link>
           <Button asChild size="default" className="min-h-[44px] min-w-[44px] hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-200">
-            <Link to="/signup">Start Free Trial</Link>
+            <Link to="/signup">{t('header.trial')}</Link>
           </Button>
         </div>
 
@@ -154,7 +159,13 @@ export function Header() {
         </button>
       </div>
 
-      <MobileDrawer open={open} onClose={() => setOpen(false)} />
+      <MobileDrawer 
+        open={open} 
+        onClose={() => setOpen(false)} 
+        productLinks={productLinks}
+        solutionLinks={solutionLinks}
+        t={t}
+      />
       <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
   )
@@ -171,7 +182,19 @@ function TopNav({ to, children }: React.PropsWithChildren<{ to: string }>) {
   )
 }
 
-function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+function MobileDrawer({ 
+  open, 
+  onClose, 
+  productLinks, 
+  solutionLinks,
+  t
+}: { 
+  open: boolean; 
+  onClose: () => void;
+  productLinks: Array<{ name: string; href: string; description: string }>;
+  solutionLinks: Array<{ name: string; href: string }>;
+  t: (key: string) => string;
+}) {
   return (
     <div
       className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
@@ -196,7 +219,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
         </div>
         
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">PRODUCTS</h3>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.products')}</h3>
           {productLinks.map((item) => (
             <MobileLink key={item.name} to={item.href} onClose={onClose}>
               {item.name}
@@ -205,7 +228,7 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
         </div>
         
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">SOLUTIONS</h3>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.solutions')}</h3>
           {solutionLinks.map((item) => (
             <MobileLink key={item.name} to={item.href} onClose={onClose}>
               {item.name}
@@ -225,14 +248,14 @@ function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => void })
             onClick={onClose} 
             className="text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] px-4 py-3 inline-flex items-center justify-center"
           >
-            Sign in
+            {t('header.signin')}
           </Link>
           <Link 
             to="/signup" 
             onClick={onClose} 
             className="inline-flex items-center justify-center rounded-lg min-h-[44px] px-4 py-3 bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
           >
-            Start Free Trial
+            {t('header.trial')}
           </Link>
         </div>
       </div>
