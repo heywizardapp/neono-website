@@ -21,53 +21,68 @@ import { InteractiveCard, FloatingButton } from '@/components/advanced/EnhancedI
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
 import { StickyCompare } from '@/components/compare/StickyCompare';
 import { RoiMini } from '@/components/roi/RoiMini';
-
-const testimonials = [
-  {
-    name: 'Sarah Martinez',
-    business: 'Studio Twelve',
-    industry: 'Hair Salon',
-    rating: 5,
-    quote: '+18% repeat bookings in 60 days using SMS automations. The scheduling is so intuitive.',
-    avatar: 'SM'
-  },
-  {
-    name: 'Marcus Johnson',
-    business: 'Oak & Ash Barbers',
-    industry: 'Barbershop',
-    rating: 5,
-    quote: 'Saved $80/mo by ditching add-ons; faster checkouts. Our customers love the tip splitting.',
-    avatar: 'MJ'
-  },
-  {
-    name: 'Emily Chen',
-    business: 'Glow Aesthetics',
-    industry: 'Med Spa',
-    rating: 5,
-    quote: 'Filled weekday gaps with website booking & promos. The analytics show exactly what works.',
-    avatar: 'EC'
-  }
-];
-
-const pricingPlans = [
-  {
-    name: 'Starter',
-    price: 29,
-    seats: 2,
-    description: 'Perfect for small teams getting started',
-    features: ['2 seats included', 'Online booking', 'Basic POS', 'SMS & Email', 'Free website']
-  },
-  {
-    name: 'Growth',
-    price: 59,
-    seats: 5,
-    description: 'For growing businesses',
-    features: ['5 seats included', 'Advanced analytics', 'Marketing automation', 'AI insights', 'Priority support'],
-    popular: true
-  }
-];
+import { useI18n } from '@/hooks/useI18n';
 
 const Index = () => {
+  const { t } = useI18n();
+
+  const testimonials = [
+    {
+      name: t('testimonials.sarah.name'),
+      business: t('testimonials.sarah.business'),
+      industry: t('testimonials.sarah.industry'),
+      rating: 5,
+      quote: t('testimonials.sarah.quote'),
+      avatar: 'SM'
+    },
+    {
+      name: t('testimonials.marcus.name'),
+      business: t('testimonials.marcus.business'),
+      industry: t('testimonials.marcus.industry'),
+      rating: 5,
+      quote: t('testimonials.marcus.quote'),
+      avatar: 'MJ'
+    },
+    {
+      name: t('testimonials.emily.name'),
+      business: t('testimonials.emily.business'),
+      industry: t('testimonials.emily.industry'),
+      rating: 5,
+      quote: t('testimonials.emily.quote'),
+      avatar: 'EC'
+    }
+  ];
+
+  const pricingPlans = [
+    {
+      name: t('pricing.starter'),
+      price: 29,
+      seats: 2,
+      description: t('pricing.starterDescription'),
+      features: [
+        `2 ${t('pricing.seats')}`, 
+        t('pricing.onlineBooking'), 
+        t('pricing.basicPos'), 
+        t('pricing.smsEmail'), 
+        t('pricing.freeWebsite')
+      ]
+    },
+    {
+      name: t('pricing.growth'),
+      price: 59,
+      seats: 5,
+      description: t('pricing.growthDescription'),
+      features: [
+        `5 ${t('pricing.seats')}`, 
+        t('pricing.advancedAnalytics'), 
+        t('pricing.marketingAutomation'), 
+        t('pricing.aiInsights'), 
+        t('pricing.prioritySupport')
+      ],
+      popular: true
+    }
+  ];
+
   return (
     <>
       <SEOHead
@@ -89,10 +104,10 @@ const Index = () => {
       </FloatingButton>
       <div className="min-h-screen">
       <Hero
-        title="The #1 software for Salons and Spas"
-        subtitle="Simple, flexible and powerful booking software for your business. Everything you need to grow and thrive."
-        primaryCta={{ text: "Get Started Now", href: "/signup" }}
-        secondaryCta={{ text: "Watch Demo", href: "/demo" }}
+        title={t('hero.title')}
+        subtitle={t('hero.subtitle')}
+        primaryCta={{ text: t('hero.primaryCta'), href: "/signup" }}
+        secondaryCta={{ text: t('hero.secondaryCta'), href: "/demo" }}
       />
 
       <TrustSignals />

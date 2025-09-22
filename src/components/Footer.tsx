@@ -2,42 +2,45 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { OrganizationJsonLd } from '@/lib/seo/jsonld';
+import { useI18n } from '@/hooks/useI18n';
 
 const footerLinks = {
   products: [
-    { name: 'Appointments', href: '/products/appointments' },
-    { name: 'POS & Payments', href: '/products/pos' },
-    { name: 'Marketing', href: '/products/marketing' },
-    { name: 'Website Builder', href: '/products/website' },
-    { name: 'Analytics', href: '/products/analytics' },
+    { nameKey: 'footer.appointments', href: '/products/appointments' },
+    { nameKey: 'footer.pos', href: '/products/pos' },
+    { nameKey: 'footer.marketing', href: '/products/marketing' },
+    { nameKey: 'footer.website', href: '/products/website' },
+    { nameKey: 'footer.analytics', href: '/products/analytics' },
   ],
   solutions: [
-    { name: 'Salons', href: '/solutions/salons' },
-    { name: 'Barbershops', href: '/solutions/barbershops' },
-    { name: 'Spas', href: '/solutions/spas' },
-    { name: 'Aesthetics', href: '/solutions/aesthetics' },
-    { name: 'Nail Salons', href: '/solutions/nails' },
+    { nameKey: 'footer.salons', href: '/solutions/salons' },
+    { nameKey: 'footer.barbershops', href: '/solutions/barbershops' },
+    { nameKey: 'footer.spas', href: '/solutions/spas' },
+    { nameKey: 'footer.aesthetics', href: '/solutions/aesthetics' },
+    { nameKey: 'footer.nails', href: '/solutions/nails' },
   ],
   company: [
-    { name: 'About', href: '/company/about' },
-    { name: 'Careers', href: '/company/careers' },
-    { name: 'Security', href: '/company/security' },
-    { name: 'Contact', href: '/company/contact' },
+    { nameKey: 'footer.about', href: '/company/about' },
+    { nameKey: 'footer.careers', href: '/company/careers' },
+    { nameKey: 'footer.security', href: '/company/security' },
+    { nameKey: 'footer.contact', href: '/company/contact' },
   ],
   resources: [
-    { name: 'Blog', href: '/blog' },
-    { name: 'Help Center', href: '/help' },
-    { name: 'API Docs', href: '/developers' },
-    { name: 'Status', href: '/status' },
+    { nameKey: 'footer.blog', href: '/blog' },
+    { nameKey: 'footer.help', href: '/help' },
+    { nameKey: 'footer.api', href: '/developers' },
+    { nameKey: 'footer.status', href: '/status' },
   ],
   legal: [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
-    { name: 'Security', href: '/security' },
+    { nameKey: 'footer.privacy', href: '/privacy' },
+    { nameKey: 'footer.terms', href: '/terms' },
+    { nameKey: 'footer.security', href: '/security' },
   ],
 };
 
 export function Footer() {
+  const { t } = useI18n();
+  
   return (
     <>
       <OrganizationJsonLd />
@@ -53,8 +56,7 @@ export function Footer() {
                 <span className="text-xl font-display font-bold text-foreground">NeonO</span>
               </Link>
               <p className="text-muted-foreground mb-6 max-w-sm">
-                The all-in-one platform for beauty and wellness businesses. 
-                Grow faster with smart scheduling, payments, and marketing.
+                {t('footer.description')}
               </p>
               <NewsletterForm variant="footer" className="mb-6" />
               <div className="flex space-x-4">
@@ -75,15 +77,15 @@ export function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="font-semibold mb-4">Products</h3>
+            <h3 className="font-semibold mb-4">{t('footer.products')}</h3>
             <ul className="space-y-3">
               {footerLinks.products.map((link) => (
-                <li key={link.name}>
+                <li key={link.nameKey}>
                   <Link
                     to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </Link>
                 </li>
               ))}
@@ -92,15 +94,15 @@ export function Footer() {
 
           {/* Solutions */}
           <div>
-            <h3 className="font-semibold mb-4">Solutions</h3>
+            <h3 className="font-semibold mb-4">{t('footer.solutions')}</h3>
             <ul className="space-y-3">
               {footerLinks.solutions.map((link) => (
-                <li key={link.name}>
+                <li key={link.nameKey}>
                   <Link
                     to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </Link>
                 </li>
               ))}
@@ -109,15 +111,15 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
+            <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
+                <li key={link.nameKey}>
                   <Link
                     to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </Link>
                 </li>
               ))}
@@ -126,15 +128,15 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h3 className="font-semibold mb-4">Resources</h3>
+            <h3 className="font-semibold mb-4">{t('footer.resources')}</h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
-                <li key={link.name}>
+                <li key={link.nameKey}>
                   <Link
                     to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </Link>
                 </li>
               ))}
@@ -144,16 +146,16 @@ export function Footer() {
 
         <div className="border-t border-border/40 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 NeonO. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 mt-4 sm:mt-0">
             {footerLinks.legal.map((link) => (
               <Link
-                key={link.name}
+                key={link.nameKey}
                 to={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                {link.name}
+                {t(link.nameKey)}
               </Link>
             ))}
           </div>
