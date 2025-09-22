@@ -1,4 +1,4 @@
-import { Scene3D } from './Scene3D';
+import { LazyScene3D } from '../lazy/LazyScene3D';
 import { EnhancedCarousel } from './EnhancedCarousel';
 import { Parallax3D, ParallaxLayer } from './ParallaxSystem';
 import { TextReveal, GlitchText, WaveText } from './DynamicTypography';
@@ -106,7 +106,7 @@ export function AdvancedShowcase() {
           
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-accent/10 rounded-2xl" />
-            <Scene3D 
+            <LazyScene3D 
               className="h-96 w-full rounded-2xl border border-border/40 shadow-lg"
               enableControls={true}
               autoRotate={true}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useWebVitals } from '@/lib/performance/webVitals';
+import { webVitals } from '@/lib/analytics/webvitals';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -15,7 +15,21 @@ export function PerformanceMonitor({
 }: PerformanceMonitorProps) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [showDetails, setShowDetails] = React.useState(false);
-  const metrics = useWebVitals();
+  const [metrics, setMetrics] = React.useState<any[]>([]);
+
+  // Use the analytics webVitals instance
+  React.useEffect(() => {
+    const updateMetrics = () => {
+      const currentVitals = webVitals.getCurrentVitals();
+      const metricsArray = Object.values(currentVitals);
+      setMetrics(metricsArray);
+    };
+
+    updateMetrics();
+    const interval = setInterval(updateMetrics, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Only show in development unless explicitly enabled for production
   if (!showInProduction && process.env.NODE_ENV === 'production') {
