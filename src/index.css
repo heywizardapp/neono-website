@@ -1,12 +1,12 @@
+/* Import accessibility and mobile styles */
+@import './styles/a11y.css';
+@import './styles/mobile.css';
+
 /* Fonts are now preloaded in HTML head for better performance */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import accessibility and mobile styles */
-@import './styles/a11y.css';
-@import './styles/mobile.css';
 
 /* NeonO Design System - All colors, gradients, fonts, animations defined here */
 
