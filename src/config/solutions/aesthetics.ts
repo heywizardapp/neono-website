@@ -3,12 +3,17 @@ import { BusinessTemplateConfig } from "@/templates/types";
 const aestheticsConfig: BusinessTemplateConfig = {
   industry: "Medical Aesthetics",
   hero: {
-    title: "Medical aesthetics software, simplified.",
-    subtitle:
-      "Appointments, POS, marketing, website, and AI—together. Grow bookings while staying efficient and compliant.",
-    primary: { label: "Start free trial", href: "/signup" },
-    secondary: { label: "See pricing", href: "/pricing" },
-    chips: ["Consents & notes", "Series & packages", "Waitlist"],
+    titleKey: "solutions.aesthetics.hero.title",
+    subtitleKey: "solutions.aesthetics.hero.subtitle",
+    primaryCtaKey: "solutions.aesthetics.hero.primary",
+    secondaryCtaKey: "solutions.aesthetics.hero.secondary",
+    primaryHref: "/signup",
+    secondaryHref: "/pricing",
+    chipsKeys: [
+      "solutions.aesthetics.chips.deposits",
+      "solutions.aesthetics.chips.consults", 
+      "solutions.aesthetics.chips.compliance"
+    ],
     image: "/assets/placeholders/hero-salon.webp",
   },
   snapshot: [
