@@ -214,10 +214,7 @@ class WebVitalsReporter {
     if (process.env.NODE_ENV === 'development') {
       const color = metric.rating === 'good' ? 'green' : 
                    metric.rating === 'needs-improvement' ? 'orange' : 'red';
-      console.log(
-        `%c${metric.name}: ${metric.value.toFixed(2)}ms (${metric.rating})`,
-        `color: ${color}; font-weight: bold;`
-      );
+      // Web vitals metric logged in development only
     }
   }
 

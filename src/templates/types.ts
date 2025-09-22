@@ -2,12 +2,14 @@ export type Cta = { label: string; href: string };
 export type Chip = string;
 
 export type HeroConfig = {
-  title: string;
-  subtitle: string;
-  primary: Cta;
-  secondary?: Cta;
-  chips?: Chip[];
-  image?: string; // path to placeholder
+  titleKey: string;
+  subtitleKey: string;
+  primaryCtaKey: string;
+  secondaryCtaKey: string;
+  primaryHref: string;
+  secondaryHref: string;
+  chipsKeys: string[];
+  image?: string;
 };
 
 export type SnapshotCard = { 

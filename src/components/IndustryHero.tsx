@@ -1,30 +1,31 @@
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useI18n } from '@/hooks/useI18n';
 
 interface IndustryHeroProps {
-  title: string;
-  subtitle: string;
-  primaryCta: {
-    label: string;
-    href: string;
-  };
-  secondaryCta: {
-    label: string;
-    href: string;
-  };
-  chips: string[];
+  titleKey: string;
+  subtitleKey: string;
+  primaryCtaKey: string;
+  secondaryCtaKey: string;
+  primaryHref: string;
+  secondaryHref: string;
+  chipsKeys: string[];
   image?: string;
 }
 
 export function IndustryHero({ 
-  title, 
-  subtitle, 
-  primaryCta, 
-  secondaryCta, 
-  chips,
+  titleKey, 
+  subtitleKey, 
+  primaryCtaKey,
+  secondaryCtaKey,
+  primaryHref,
+  secondaryHref,
+  chipsKeys,
   image 
 }: IndustryHeroProps) {
+  const { t } = useI18n();
+  
   return (
     <section className="relative overflow-hidden bg-gradient-subtle">
       <div className="absolute inset-0 bg-gradient-hero opacity-10" />
@@ -34,35 +35,35 @@ export function IndustryHero({
           <div className="flex flex-col space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                {title}
+                {t(titleKey)}
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                {subtitle}
+                {t(subtitleKey)}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="btn-hero-primary group" asChild>
-                <Link to={primaryCta.href}>
-                  {primaryCta.label}
+                <Link to={primaryHref}>
+                  {t(primaryCtaKey)}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="btn-hero-secondary" asChild>
-                <Link to={secondaryCta.href}>
-                  {secondaryCta.label}
+                <Link to={secondaryHref}>
+                  {t(secondaryCtaKey)}
                 </Link>
               </Button>
             </div>
 
             <div className="flex flex-wrap gap-4">
-              {chips.map((chip, index) => (
+              {chipsKeys.map((chipKey, index) => (
                 <div 
                   key={index}
                   className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-border/40 rounded-full px-4 py-2 text-sm"
                 >
                   <Check className="h-4 w-4 text-mint" />
-                  <span className="text-muted-foreground">{chip}</span>
+                  <span className="text-muted-foreground">{t(chipKey)}</span>
                 </div>
               ))}
             </div>

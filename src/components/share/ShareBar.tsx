@@ -39,9 +39,7 @@ export function ShareBar({
 
   const handleShare = (platform: keyof typeof shareLinks) => {
     // Track share event
-    if (canUseAnalytics) {
-      console.log('Content shared:', { platform, url: trackingUrl });
-    }
+    // Analytics tracking moved to production service
 
     // Open share dialog
     const shareUrl = shareLinks[platform];
@@ -59,9 +57,7 @@ export function ShareBar({
       });
 
       // Track copy event
-      if (canUseAnalytics) {
-        console.log('Link copied:', { url: trackingUrl });
-      }
+      // Analytics tracking moved to production service
 
       // Reset copied state after 2 seconds
       setTimeout(() => setCopied(false), 2000);
@@ -83,9 +79,7 @@ export function ShareBar({
           url: trackingUrl
         });
         
-        if (canUseAnalytics) {
-          console.log('Native share used:', { url: trackingUrl });
-        }
+        // Analytics tracking moved to production service
       } catch (err) {
         // User cancelled or error - ignore
       }

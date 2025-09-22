@@ -204,7 +204,7 @@ class RealtimeMonitor {
       this.eventSource = new EventSource(this.sseConfig.endpoint);
       
       this.eventSource.onopen = () => {
-        console.log('📊 Real-time analytics connected');
+        // Real-time analytics connected
         this.reconnectAttempts = 0;
       };
 

@@ -69,24 +69,7 @@ export default function OutlineDebug({ enabled = false }: OutlineDebugProps) {
       'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"]), [contenteditable="true"], [role="button"], [role="link"], [role="menuitem"], [role="tab"], [role="option"]'
     );
     
-    console.group('🎯 Focusable Elements Debug');
-    console.log(`Found ${focusableElements.length} focusable elements:`);
-    focusableElements.forEach((el, index) => {
-      const tagName = el.tagName.toLowerCase();
-      const id = el.id ? `#${el.id}` : '';
-      const className = el.className ? `.${el.className.split(' ').join('.')}` : '';
-      const tabIndex = el.getAttribute('tabindex');
-      const role = el.getAttribute('role');
-      
-      const htmlEl = el as HTMLElement;
-      console.log(`${index + 1}. ${tagName}${id}${className}`, {
-        element: el,
-        tabIndex,
-        role,
-        visible: htmlEl.offsetWidth > 0 && htmlEl.offsetHeight > 0
-      });
-    });
-    console.groupEnd();
+    // Focusable elements debug removed for production
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);

@@ -3,12 +3,17 @@ import { BusinessTemplateConfig } from "@/templates/types";
 const barbersConfig: BusinessTemplateConfig = {
   industry: "Barbershops",
   hero: {
-    title: "Run your barbershop on one platform.",
-    subtitle:
-      "Walk-ins, appointments, POS, marketing, website, and AI—built in. Faster checkouts, fewer no-shows, loyal clients.",
-    primary: { label: "Start free trial", href: "/signup" },
-    secondary: { label: "See pricing", href: "/pricing" },
-    chips: ["99.9% uptime", "2-tap checkout", "No add-on traps"],
+    titleKey: "solutions.barbershops.hero.title",
+    subtitleKey: "solutions.barbershops.hero.subtitle",
+    primaryCtaKey: "solutions.barbershops.hero.primary",
+    secondaryCtaKey: "solutions.barbershops.hero.secondary",
+    primaryHref: "/signup",
+    secondaryHref: "/pricing",
+    chipsKeys: [
+      "solutions.barbershops.chips.uptime", 
+      "solutions.barbershops.chips.checkout", 
+      "solutions.barbershops.chips.traps"
+    ],
     image: "/assets/placeholders/hero-salon.webp",
   },
   snapshot: [

@@ -252,7 +252,7 @@ class AnalyticsCore {
 
       // In development, log to console and window object for debugging
       if (process.env.NODE_ENV === 'development') {
-        console.log('📊 Analytics Event:', event);
+        // Analytics event tracked in development
         
         if (!window.__neonoEvents) {
           window.__neonoEvents = [];
@@ -383,5 +383,5 @@ if (process.env.NODE_ENV === 'development') {
 // Initialize analytics modules when consent is granted
 export async function initAnalytics(): Promise<void> {
   // Dynamic imports for code splitting
-  console.log('📊 Analytics system initialized');
+  // Analytics system initialized
 }

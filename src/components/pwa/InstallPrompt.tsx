@@ -178,7 +178,7 @@ export function registerServiceWorker() {
       updateViaCache: 'none'
     })
     .then((registration) => {
-      console.log('SW registered:', registration);
+      // Service worker registration successful
       
       // Check for updates
       registration.addEventListener('updatefound', () => {

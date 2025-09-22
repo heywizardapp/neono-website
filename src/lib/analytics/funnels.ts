@@ -57,7 +57,7 @@ class FunnelAnalyzer {
     try {
       const { funnels } = await import('../../config/analytics/funnels');
       this.funnels = funnels;
-      console.log('📊 Loaded', this.funnels.length, 'funnel definitions');
+      // Funnel definitions loaded
     } catch (error) {
       console.warn('Failed to load funnel definitions:', error);
     }

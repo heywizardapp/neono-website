@@ -3,12 +3,17 @@ import { BusinessTemplateConfig } from "@/templates/types";
 const spasConfig: BusinessTemplateConfig = {
   industry: "Spas",
   hero: {
-    title: "Spa & wellness software that feels effortless.",
-    subtitle:
-      "Bookings, memberships, POS, marketing, website, and AI—together. Smooth check-ins, serene ops, delighted clients.",
-    primary: { label: "Start free trial", href: "/signup" },
-    secondary: { label: "See pricing", href: "/pricing" },
-    chips: ["Waitlist & rooms", "Memberships", "Gift cards"],
+    titleKey: "solutions.spas.hero.title",
+    subtitleKey: "solutions.spas.hero.subtitle", 
+    primaryCtaKey: "solutions.spas.hero.primary",
+    secondaryCtaKey: "solutions.spas.hero.secondary",
+    primaryHref: "/signup",
+    secondaryHref: "/pricing",
+    chipsKeys: [
+      "solutions.spas.chips.waitlist", 
+      "solutions.spas.chips.memberships", 
+      "solutions.spas.chips.giftcards"
+    ],
     image: "/assets/placeholders/hero-salon.webp",
   },
   snapshot: [

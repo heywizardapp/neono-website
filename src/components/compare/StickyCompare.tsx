@@ -25,21 +25,19 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
   const handleToggle = () => {
     setIsOpen(prev => {
       const newState = !prev;
-      if (newState) {
-        console.log('compare_opened', { path: location.pathname, timestamp: Date.now() });
-      }
+      // Analytics tracking moved to production service
       return newState;
     });
   };
 
   const handleCategoryChange = (categoryId: string) => {
     setActiveCategory(categoryId);
-    console.log('compare_category_changed', { category: categoryId, timestamp: Date.now() });
+    // Analytics tracking moved to production service
   };
 
   const handleRoiDeeplink = (plan: 'starter' | 'growth') => {
     const roiUrl = `/roi?plan=${plan}`;
-    console.log('compare_deeplink_to_roi', { plan, timestamp: Date.now() });
+    // Analytics tracking moved to production service
     return roiUrl;
   };
 

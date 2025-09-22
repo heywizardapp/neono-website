@@ -150,8 +150,35 @@
 
   "pricing.ribbon.title": "Simple, transparent pricing",
 
-  "header.signin": "Sign in",
-  "header.trial": "Start Free Trial",
-  "header.products": "PRODUCTS",
-  "header.solutions": "SOLUTIONS"
+  "solutions.salons.hero.title": "Run your salon on one platform.",
+  "solutions.salons.hero.subtitle": "Appointments, POS, marketing, website, and AI—built in. Faster checkouts, fewer no-shows, happier clients.",
+  "solutions.salons.hero.primary": "Start free trial",
+  "solutions.salons.hero.secondary": "See pricing",
+  "solutions.salons.chips.uptime": "99.9% uptime",
+  "solutions.salons.chips.checkout": "2-tap checkout", 
+  "solutions.salons.chips.traps": "No add-on traps",
+
+  "solutions.barbershops.hero.title": "Run your barbershop on one platform.",
+  "solutions.barbershops.hero.subtitle": "Walk-ins, appointments, POS, marketing, website, and AI—built in. Faster checkouts, fewer no-shows, loyal clients.",
+  "solutions.barbershops.hero.primary": "Start free trial",
+  "solutions.barbershops.hero.secondary": "See pricing", 
+  "solutions.barbershops.chips.uptime": "99.9% uptime",
+  "solutions.barbershops.chips.checkout": "2-tap checkout",
+  "solutions.barbershops.chips.traps": "No add-on traps",
+
+  "solutions.spas.hero.title": "Spa & wellness software that feels effortless.",
+  "solutions.spas.hero.subtitle": "Bookings, memberships, POS, marketing, website, and AI—together. Smooth check-ins, serene ops, delighted clients.", 
+  "solutions.spas.hero.primary": "Start free trial",
+  "solutions.spas.hero.secondary": "See pricing",
+  "solutions.spas.chips.waitlist": "Waitlist & rooms",
+  "solutions.spas.chips.memberships": "Memberships",
+  "solutions.spas.chips.giftcards": "Gift cards",
+
+  "solutions.aesthetics.hero.title": "Medical aesthetics software built for growth.",
+  "solutions.aesthetics.hero.subtitle": "Deposits, series, POS, marketing, website, and AI—integrated. Grow bookings while staying efficient.",
+  "solutions.aesthetics.hero.primary": "Start free trial", 
+  "solutions.aesthetics.hero.secondary": "See pricing",
+  "solutions.aesthetics.chips.deposits": "Deposits & series",
+  "solutions.aesthetics.chips.consults": "Consult booking",
+  "solutions.aesthetics.chips.compliance": "Treatment tracking",
 }

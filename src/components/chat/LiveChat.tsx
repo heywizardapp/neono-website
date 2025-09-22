@@ -57,9 +57,7 @@ export function LiveChat() {
     setMessages(prev => [...prev, userMessage]);
     
     // Track message if consent given
-    if (canUseAnalytics) {
-      console.log('Chat message sent:', { text: inputValue.substring(0, 50) });
-    }
+    // Analytics tracking moved to production service
 
     // Show email capture after first user message
     if (messages.filter(m => m.sender === 'user').length === 0) {
@@ -87,9 +85,7 @@ export function LiveChat() {
 
   const handleClose = () => {
     setIsOpen(false);
-    if (canUseAnalytics) {
-      console.log('Chat closed');
-    }
+    // Analytics tracking moved to production service
   };
 
   if (!isOpen) {

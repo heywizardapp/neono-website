@@ -150,6 +150,38 @@
 
   "pricing.ribbon.title": "Tarification simple et transparente",
 
+  "solutions.salons.hero.title": "Gérez votre salon sur une seule plateforme.",
+  "solutions.salons.hero.subtitle": "Rendez-vous, caisse, marketing, site web et IA—intégrés. Paiements rapides, moins d'absences, clients satisfaits.",
+  "solutions.salons.hero.primary": "Essai gratuit",
+  "solutions.salons.hero.secondary": "Voir les tarifs",
+  "solutions.salons.chips.uptime": "99,9% de disponibilité",
+  "solutions.salons.chips.checkout": "Paiement en 2 clics", 
+  "solutions.salons.chips.traps": "Pas de piège d'options",
+
+  "solutions.barbershops.hero.title": "Gérez votre barbier sur une seule plateforme.",
+  "solutions.barbershops.hero.subtitle": "Clients sans rendez-vous, rendez-vous, caisse, marketing, site web et IA—intégrés. Paiements rapides, moins d'absences, clients fidèles.",
+  "solutions.barbershops.hero.primary": "Essai gratuit",
+  "solutions.barbershops.hero.secondary": "Voir les tarifs", 
+  "solutions.barbershops.chips.uptime": "99,9% de disponibilité",
+  "solutions.barbershops.chips.checkout": "Paiement en 2 clics",
+  "solutions.barbershops.chips.traps": "Pas de piège d'options",
+
+  "solutions.spas.hero.title": "Logiciel spa et bien-être qui semble naturel.",
+  "solutions.spas.hero.subtitle": "Réservations, adhésions, caisse, marketing, site web et IA—ensemble. Enregistrements fluides, opérations sereines, clients ravis.", 
+  "solutions.spas.hero.primary": "Essai gratuit",
+  "solutions.spas.hero.secondary": "Voir les tarifs",
+  "solutions.spas.chips.waitlist": "Liste d'attente et salles",
+  "solutions.spas.chips.memberships": "Adhésions",
+  "solutions.spas.chips.giftcards": "Cartes cadeaux",
+
+  "solutions.aesthetics.hero.title": "Logiciel d'esthétique médicale conçu pour la croissance.",
+  "solutions.aesthetics.hero.subtitle": "Dépôts, séries, caisse, marketing, site web et IA—intégrés. Augmentez les réservations tout en restant efficace.",
+  "solutions.aesthetics.hero.primary": "Essai gratuit", 
+  "solutions.aesthetics.hero.secondary": "Voir les tarifs",
+  "solutions.aesthetics.chips.deposits": "Dépôts et séries",
+  "solutions.aesthetics.chips.consults": "Réservation de consultation",
+  "solutions.aesthetics.chips.compliance": "Suivi des traitements",
+
   "header.signin": "Se connecter",
   "header.trial": "Commencer l'essai gratuit",
   "header.products": "PRODUITS",

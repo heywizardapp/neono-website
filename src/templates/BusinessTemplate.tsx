@@ -59,11 +59,13 @@ export default function BusinessTemplate(props: BusinessTemplateConfig | Busines
       
       <div data-hero>
         <IndustryHero 
-          title={config.hero.title}
-          subtitle={config.hero.subtitle}
-          primaryCta={config.hero.primary}
-          secondaryCta={config.hero.secondary}
-          chips={config.hero.chips || []}
+          titleKey={config.hero.titleKey}
+          subtitleKey={config.hero.subtitleKey}
+          primaryCtaKey={config.hero.primaryCtaKey}
+          secondaryCtaKey={config.hero.secondaryCtaKey}
+          primaryHref={config.hero.primaryHref}
+          secondaryHref={config.hero.secondaryHref}
+          chipsKeys={config.hero.chipsKeys || []}
           image={config.hero.image}
         />
       </div>

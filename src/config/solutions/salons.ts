@@ -3,11 +3,17 @@ import { BusinessTemplateConfig } from "@/templates/types";
 const salonsConfig: BusinessTemplateConfig = {
   industry: "Salons",
   hero: {
-    title: "Run your salon on one platform.",
-    subtitle: "Appointments, POS, marketing, website, and AI—built in. Faster checkouts, fewer no-shows, happier clients.",
-    primary: { label: "Start free trial", href: "/signup" },
-    secondary: { label: "See pricing", href: "/pricing" },
-    chips: ["99.9% uptime", "2-tap checkout", "No add-on traps"],
+    titleKey: "solutions.salons.hero.title",
+    subtitleKey: "solutions.salons.hero.subtitle",
+    primaryCtaKey: "solutions.salons.hero.primary",
+    secondaryCtaKey: "solutions.salons.hero.secondary",
+    primaryHref: "/signup",
+    secondaryHref: "/pricing",
+    chipsKeys: [
+      "solutions.salons.chips.uptime", 
+      "solutions.salons.chips.checkout", 
+      "solutions.salons.chips.traps"
+    ],
     image: "/assets/placeholders/hero-salon.webp",
   },
   snapshot: [

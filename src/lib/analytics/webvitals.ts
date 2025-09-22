@@ -63,7 +63,7 @@ class WebVitalsMonitor {
       onLCP(this.handleVital.bind(this), { reportAllChanges: this.config.reportAllChanges });
       onTTFB(this.handleVital.bind(this), { reportAllChanges: this.config.reportAllChanges });
 
-      console.log('📊 Web Vitals monitoring initialized');
+      // Web Vitals monitoring initialized
     } catch (error) {
       console.warn('Failed to initialize Web Vitals:', error);
     }

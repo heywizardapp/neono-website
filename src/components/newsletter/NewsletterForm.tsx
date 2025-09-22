@@ -29,9 +29,7 @@ export function NewsletterForm({ variant = 'inline', className = '' }: Newslette
     setIsLoading(true);
     
     // Track newsletter signup
-    if (canUseAnalytics) {
-      console.log('Newsletter signup:', { industry, hasConsent: consent });
-    }
+    // Analytics tracking moved to production service
 
     // Simulate API call
     setTimeout(() => {

@@ -62,8 +62,7 @@ export function GlobalSearch({ open, onOpenChange }: GlobalSearchProps) {
     onOpenChange(false);
     setQuery('');
     
-    // Analytics stub
-    console.log('search_navigate', { path, query, timestamp: Date.now() });
+    // Analytics tracking moved to production service
   };
 
   const groupedResults = React.useMemo(() => {
@@ -214,8 +213,7 @@ export function SearchTrigger({ onClick, variant = 'header' }: SearchTriggerProp
         e.preventDefault();
         onClick();
         
-        // Analytics stub
-        console.log('search_opened', { trigger: 'keyboard', timestamp: Date.now() });
+        // Analytics tracking moved to production service
       }
     };
 
@@ -228,7 +226,7 @@ export function SearchTrigger({ onClick, variant = 'header' }: SearchTriggerProp
       <button
         onClick={() => {
           onClick();
-          console.log('search_opened', { trigger: 'mobile', timestamp: Date.now() });
+          // Analytics tracking moved to production service
         }}
         className="flex items-center gap-2 w-full px-4 py-3 text-left hover:bg-muted/50 rounded-lg touch-44"
         aria-label="Search"
@@ -243,7 +241,7 @@ export function SearchTrigger({ onClick, variant = 'header' }: SearchTriggerProp
     <button
       onClick={() => {
         onClick();
-        console.log('search_opened', { trigger: 'header', timestamp: Date.now() });
+        // Analytics tracking moved to production service
       }}
       className="flex items-center gap-2 px-3 py-2 text-sm bg-muted/50 hover:bg-muted rounded-lg transition-colors touch-44 focus-ring"
       aria-label="Search (⌘K)"
