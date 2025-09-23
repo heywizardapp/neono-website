@@ -22,8 +22,8 @@ const footerLinks = {
   company: [
     { nameKey: 'footer.about', href: '/company/about' },
     { nameKey: 'footer.careers', href: '/company/careers' },
-    { nameKey: 'footer.security', href: '/company/security' },
-    { nameKey: 'footer.contact', href: '/company/contact' },
+    { nameKey: 'footer.security', href: '/security' },
+    { nameKey: 'footer.contact', href: '/contact' },
   ],
   resources: [
     { nameKey: 'footer.blog', href: '/blog' },

@@ -319,7 +319,7 @@ export default function Pricing() {
               Still have questions?
             </p>
             <Button variant="outline" asChild>
-              <Link to="/company/contact">
+              <Link to="/contact">
                 Contact Sales
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

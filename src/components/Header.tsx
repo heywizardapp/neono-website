@@ -99,7 +99,29 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           <TopNav to="/pricing">Pricing</TopNav>
-          <TopNav to="/contact">Contact</TopNav>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
+              Company
+              <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="min-w-[200px]">
+              <DropdownMenuItem asChild>
+                <Link to="/company/about" className="w-full cursor-pointer">
+                  About
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/company/careers" className="w-full cursor-pointer">
+                  Careers
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/contact" className="w-full cursor-pointer">
+                  Contact
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <TopNav to="/blog">Resources</TopNav>
         </nav>
 
@@ -238,7 +260,16 @@ function MobileDrawer({
 
         <div className="space-y-1">
           <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
+        </div>
+
+        <div className="space-y-1">
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">COMPANY</h3>
+          <MobileLink to="/company/about" onClose={onClose}>About</MobileLink>
+          <MobileLink to="/company/careers" onClose={onClose}>Careers</MobileLink>
           <MobileLink to="/contact" onClose={onClose}>Contact</MobileLink>
+        </div>
+
+        <div className="space-y-1">
           <MobileLink to="/blog" onClose={onClose}>Resources</MobileLink>
         </div>
 
