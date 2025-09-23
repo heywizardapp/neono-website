@@ -19,7 +19,7 @@ const NotFound = () => {
         title="Page Not Found - 404 Error | NeonO"
         description="The page you're looking for doesn't exist. Explore our solutions, pricing, and support resources."
         path={location.pathname}
-        noIndex
+        noindex
       />
       
       <div className="min-h-screen flex items-center justify-center bg-gradient-subtle">
