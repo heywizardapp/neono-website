@@ -2,59 +2,75 @@ import { Hero } from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield } from 'lucide-react';
+import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 
 const products = [
   {
-    icon: Calendar,
-    name: 'Appointments & Calendar',
-    description: 'Smart scheduling for busy teams—walk-ins, rebook, chair/room views.',
-    href: '/products/appointments',
+    icon: Users,
+    name: 'Staff Management',
+    description: 'Manage schedules, permissions, commissions, and team performance.',
+    href: '/products/staff-management',
     color: 'text-primary',
-    features: ['Real-time availability', 'Staff scheduling', 'Room management', 'Walk-in queues']
+    features: ['Role-based access', 'Commission tracking', 'Schedule management', 'Performance metrics']
   },
   {
-    icon: CreditCard,
-    name: 'POS & Payments',
-    description: 'Tap, split tips, instant payouts. No tip commission.',
-    href: '/products/pos',
+    icon: Calendar,
+    name: 'Appointments',
+    description: 'Smart scheduling with real-time availability and automated reminders.',
+    href: '/products/appointments',
     color: 'text-accent',
-    features: ['Contactless payments', 'Tip splitting', 'Same-day payouts', 'Inventory tracking']
-  },
-  {
-    icon: Mail,
-    name: 'Marketing & Reviews',
-    description: 'SMS and email campaigns that fill your calendar.',
-    href: '/products/marketing',
-    color: 'text-mint',
-    features: ['Automated campaigns', 'Review management', 'Customer segmentation', 'A/B testing']
+    features: ['Real-time availability', 'Automated reminders', 'Multi-location support', 'Recurring appointments']
   },
   {
     icon: Globe,
     name: 'Online Booking',
-    description: 'Marketplace exposure and seamless booking experience.',
-    href: '/products/booking',
-    color: 'text-lavender',
+    description: '24/7 online booking with marketplace exposure.',
+    href: '/products/online-booking',
+    color: 'text-mint',
     features: ['Marketplace listing', 'Real-time booking', 'Service packages', 'Gift cards']
   },
   {
-    icon: Smartphone,
-    name: 'Website & Link-in-Bio',
-    description: 'Launch a clean site and link-in-bio—free.',
-    href: '/products/website',
+    icon: Mail,
+    name: 'Marketing',
+    description: 'SMS and email campaigns that fill your calendar automatically.',
+    href: '/products/marketing',
+    color: 'text-lavender',
+    features: ['Automated campaigns', 'Review management', 'Customer segmentation', 'A/B testing']
+  },
+  {
+    icon: Sparkles,
+    name: 'AI',
+    description: 'AI-powered automations and intelligent business insights.',
+    href: '/products/ai',
     color: 'text-primary',
+    features: ['Smart scheduling', 'Predictive analytics', 'Automated responses', 'Revenue forecasting']
+  },
+  {
+    icon: Smartphone,
+    name: 'Landing Page Builder',
+    description: 'Build beautiful websites and link-in-bio pages in minutes.',
+    href: '/products/landing-page-builder',
+    color: 'text-accent',
     features: ['Drag & drop builder', 'Mobile optimized', 'SEO ready', 'Social integration']
   },
   {
     icon: BarChart3,
-    name: 'Analytics & AI',
-    description: 'Role-based insights and automations for owners and teams.',
+    name: 'Analytics',
+    description: 'Role-based dashboards with real-time business insights.',
     href: '/products/analytics',
-    color: 'text-accent',
-    features: ['Revenue analytics', 'Staff performance', 'Predictive insights', 'Custom reports']
+    color: 'text-mint',
+    features: ['Revenue analytics', 'Staff performance', 'Custom reports', 'Export capabilities']
+  },
+  {
+    icon: CreditCard,
+    name: 'PoS',
+    description: 'Fast payments, tip splitting, and instant payouts.',
+    href: '/products/pos',
+    color: 'text-lavender',
+    features: ['Contactless payments', 'Tip splitting', 'Same-day payouts', 'Inventory tracking']
   },
 ];
 

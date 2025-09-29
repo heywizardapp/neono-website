@@ -28,6 +28,14 @@ const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 
 // Product pages
 const ProductsIndex = lazy(() => import('./pages/products/Index'));
+const StaffManagement = lazy(() => import('./pages/products/StaffManagement'));
+const Appointments = lazy(() => import('./pages/products/Appointments'));
+const OnlineBooking = lazy(() => import('./pages/products/OnlineBooking'));
+const Marketing = lazy(() => import('./pages/products/Marketing'));
+const AI = lazy(() => import('./pages/products/AI'));
+const LandingPageBuilder = lazy(() => import('./pages/products/LandingPageBuilder'));
+const Analytics = lazy(() => import('./pages/products/Analytics'));
+const Pos = lazy(() => import('./pages/products/Pos'));
 
 // Solutions pages  
 const SolutionsIndex = lazy(() => import('./pages/solutions/Index'));
@@ -95,8 +103,14 @@ export default function App() {
 
                     {/* Products */}
                     <Route path="/products" element={<ProductsIndex />} />
-                    <Route path="/products/appointments" element={<div className="p-8">Appointments product page - coming soon</div>} />
-                    <Route path="/products/pos" element={<div className="p-8">POS product page - coming soon</div>} />
+                    <Route path="/products/staff-management" element={<StaffManagement />} />
+                    <Route path="/products/appointments" element={<Appointments />} />
+                    <Route path="/products/online-booking" element={<OnlineBooking />} />
+                    <Route path="/products/marketing" element={<Marketing />} />
+                    <Route path="/products/ai" element={<AI />} />
+                    <Route path="/products/landing-page-builder" element={<LandingPageBuilder />} />
+                    <Route path="/products/analytics" element={<Analytics />} />
+                    <Route path="/products/pos" element={<Pos />} />
 
                     {/* Solutions */}
                     <Route path="/solutions" element={<SolutionsIndex />} />
