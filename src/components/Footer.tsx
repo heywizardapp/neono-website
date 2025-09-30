@@ -34,6 +34,7 @@ const footerLinks = {
   legal: [
     { nameKey: 'footer.privacy', href: '/privacy' },
     { nameKey: 'footer.terms', href: '/terms' },
+    { nameKey: 'footer.termsOfService', href: '/terms-of-service' },
     { nameKey: 'footer.security', href: '/security' },
   ],
 };

@@ -48,7 +48,9 @@
   "footer.support": "Support",
   "footer.legal": "Legal",
   "footer.privacy": "Privacy Policy",
-  "footer.terms": "Terms of Service",
+  "footer.terms": "Terms of Use",
+  "footer.termsOfService": "Terms of Service",
+  "footer.security": "Security",
   "footer.copyright": "© 2024 NeonO. All rights reserved.",
   
   "cta.demo": "Book a demo",
