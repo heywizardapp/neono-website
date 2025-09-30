@@ -84,7 +84,28 @@ export function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base" aria-label="Primary">
-          <TopNav to="/products">Products</TopNav>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
+                    Products
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-64">
+                  {productLinks.map((product) => (
+                    <DropdownMenuItem key={product.href} asChild>
+                      <Link to={product.href} className="flex flex-col items-start py-2">
+                        <div className="font-medium">{product.name}</div>
+                        {product.description && (
+                          <div className="text-xs text-muted-foreground mt-0.5">
+                            {product.description}
+                          </div>
+                        )}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
               Solutions
