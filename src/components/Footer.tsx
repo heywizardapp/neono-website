@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, ChevronDown } from 'lucide-react';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { OrganizationJsonLd } from '@/lib/seo/jsonld';
 import { useI18n } from '@/hooks/useI18n';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 
 const footerLinks = {
   products: [
@@ -145,21 +152,27 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border/40 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
+        <div className="border-t border-border/40 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             {t('footer.copyright')}
           </p>
-          <div className="flex space-x-6 mt-4 sm:mt-0">
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.nameKey}
-                to={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {t(link.nameKey)}
-              </Link>
-            ))}
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="gap-1">
+                {t('footer.legal')}
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              {footerLinks.legal.map((link) => (
+                <DropdownMenuItem key={link.nameKey} asChild>
+                  <Link to={link.href} className="cursor-pointer">
+                    {t(link.nameKey)}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         </div>
       </footer>
