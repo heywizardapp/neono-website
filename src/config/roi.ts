@@ -1,16 +1,24 @@
 import { RoiInput } from '@/types/roi';
 
 export const DEFAULT_ROI_CONFIG = {
-  // NeonO Plan Pricing
+  // NeonO Plan Pricing (New)
+  independent: {
+    basePrice: 19.99,
+    includedSeats: 1,
+  },
+  salon: {
+    pricePerChair: 16.99,
+  },
+  // Legacy pricing for ROI calculator (to be updated)
   starter: {
-    basePrice: 29,
-    includedSeats: 2,
+    basePrice: 19.99,
+    includedSeats: 1,
   },
   growth: {
-    basePrice: 59,
-    includedSeats: 5,
+    basePrice: 16.99,
+    includedSeats: 1,
   },
-  extraSeatPrice: 9.99,
+  extraSeatPrice: 16.99,
 
   // Default Payment Rates
   paymentRates: {
