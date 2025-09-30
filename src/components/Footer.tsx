@@ -13,11 +13,14 @@ import { Button } from '@/components/ui/button';
 
 const footerLinks = {
   products: [
+    { nameKey: 'footer.staffManagement', href: '/products/staff-management' },
     { nameKey: 'footer.appointments', href: '/products/appointments' },
-    { nameKey: 'footer.pos', href: '/products/pos' },
+    { nameKey: 'footer.onlineBooking', href: '/products/online-booking' },
     { nameKey: 'footer.marketing', href: '/products/marketing' },
-    { nameKey: 'footer.website', href: '/products/website' },
+    { nameKey: 'footer.ai', href: '/products/ai' },
+    { nameKey: 'footer.landingPageBuilder', href: '/products/landing-page-builder' },
     { nameKey: 'footer.analytics', href: '/products/analytics' },
+    { nameKey: 'footer.pos', href: '/products/pos' },
   ],
   solutions: [
     { nameKey: 'footer.salons', href: '/solutions/salons' },
@@ -54,7 +57,7 @@ export function Footer() {
       <OrganizationJsonLd />
       <footer className="bg-slate-50 dark:bg-slate-900 border-t border-border/40">
         <div className="container py-16">
-          <div className="grid gap-8 lg:grid-cols-6">
+          <div className="grid gap-8 lg:grid-cols-5">
             {/* Brand & Newsletter */}
             <div className="lg:col-span-2">
               <Link to="/" className="flex items-center space-x-2 mb-4">
@@ -82,23 +85,6 @@ export function Footer() {
                 </a>
               </div>
             </div>
-
-          {/* Products */}
-          <div>
-            <h3 className="font-semibold mb-4">{t('footer.products')}</h3>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.nameKey}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t(link.nameKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Solutions */}
           <div>
@@ -156,7 +142,25 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             {t('footer.copyright')}
           </p>
-          <DropdownMenu>
+          <div className="flex gap-2">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="gap-1">
+                  {t('footer.products')}
+                  <ChevronDown className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                {footerLinks.products.map((link) => (
+                  <DropdownMenuItem key={link.nameKey} asChild>
+                    <Link to={link.href} className="cursor-pointer">
+                      {t(link.nameKey)}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="gap-1">
                 {t('footer.legal')}
@@ -173,6 +177,7 @@ export function Footer() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+          </div>
         </div>
         </div>
       </footer>
