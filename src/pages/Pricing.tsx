@@ -136,18 +136,7 @@ export default function Pricing() {
                     </div>
                   </CardHeader>
 
-                  <CardContent className="space-y-8 flex-1 flex flex-col justify-between">
-                    <Button 
-                      className="w-full" 
-                      size="lg"
-                      asChild
-                    >
-                      <Link to="/signup">
-                        Start Free Trial
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-
+                  <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground">
                         Everything included:
@@ -161,6 +150,17 @@ export default function Pricing() {
                         ))}
                       </ul>
                     </div>
+
+                    <Button 
+                      className="w-full mt-auto" 
+                      size="lg"
+                      asChild
+                    >
+                      <Link to="/signup">
+                        Start Free Trial
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
 
@@ -220,18 +220,7 @@ export default function Pricing() {
                     </div>
                   </CardHeader>
 
-                  <CardContent className="space-y-8 flex-1 flex flex-col justify-between">
-                    <Button 
-                      className="w-full" 
-                      size="lg"
-                      asChild
-                    >
-                      <Link to="/signup">
-                        Start Free Trial
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-
+                  <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground">
                         Everything included:
@@ -245,6 +234,17 @@ export default function Pricing() {
                         ))}
                       </ul>
                     </div>
+
+                    <Button 
+                      className="w-full mt-auto" 
+                      size="lg"
+                      asChild
+                    >
+                      <Link to="/signup">
+                        Start Free Trial
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
                   </CardContent>
                 </Card>
             </div>
