@@ -115,7 +115,7 @@ export default function Pricing() {
             {/* Pricing Display */}
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
               {/* Independent Plan */}
-              <Card className="hover-lift border-2">
+              <Card className="hover-lift border-2 h-full flex flex-col">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="secondary" className="mx-auto mb-4 w-fit">
                       Solo Practitioner
@@ -136,7 +136,7 @@ export default function Pricing() {
                     </div>
                   </CardHeader>
 
-                  <CardContent className="space-y-8">
+                  <CardContent className="space-y-8 flex-1 flex flex-col justify-between">
                     <Button 
                       className="w-full" 
                       size="lg"
@@ -165,7 +165,7 @@ export default function Pricing() {
                 </Card>
 
               {/* Salon Plan */}
-              <Card className="hover-lift border-2">
+              <Card className="hover-lift border-2 h-full flex flex-col">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="default" className="mx-auto mb-4 w-fit">
                       Most Popular
@@ -220,7 +220,7 @@ export default function Pricing() {
                     </div>
                   </CardHeader>
 
-                  <CardContent className="space-y-8">
+                  <CardContent className="space-y-8 flex-1 flex flex-col justify-between">
                     <Button 
                       className="w-full" 
                       size="lg"
