@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Check, ArrowRight, Minus, Plus, Users, User } from 'lucide-react';
+import { Check, ArrowRight, Minus, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { RoiMini } from '@/components/roi/RoiMini';
 import { StickyCompare } from '@/components/compare/StickyCompare';
@@ -15,8 +15,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-
-type BusinessType = 'independent' | 'salon';
 
 const independentFeatures = [
   'Online booking & scheduling',
@@ -76,7 +74,6 @@ const faqs = [
 ];
 
 export default function Pricing() {
-  const [businessType, setBusinessType] = useState<BusinessType>('salon');
   const [chairCount, setChairCount] = useState(3);
 
   const independentPrice = 19.99;
@@ -115,32 +112,10 @@ export default function Pricing() {
         {/* Business Type Selection & Pricing */}
         <section className="py-20 lg:py-32">
           <div className="container">
-            {/* Business Type Toggle */}
-            <div className="flex items-center justify-center gap-4 mb-16">
-              <Button
-                variant={businessType === 'independent' ? 'default' : 'outline'}
-                size="lg"
-                onClick={() => setBusinessType('independent')}
-                className="gap-2 min-w-[180px]"
-              >
-                <User className="h-4 w-4" />
-                Independent
-              </Button>
-              <Button
-                variant={businessType === 'salon' ? 'default' : 'outline'}
-                size="lg"
-                onClick={() => setBusinessType('salon')}
-                className="gap-2 min-w-[180px]"
-              >
-                <Users className="h-4 w-4" />
-                Salon
-              </Button>
-            </div>
-
             {/* Pricing Display */}
-            <div className="max-w-2xl mx-auto">
-              {businessType === 'independent' ? (
-                <Card className="hover-lift border-2">
+            <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+              {/* Independent Plan */}
+              <Card className="hover-lift border-2">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="secondary" className="mx-auto mb-4 w-fit">
                       Solo Practitioner
@@ -188,8 +163,9 @@ export default function Pricing() {
                     </div>
                   </CardContent>
                 </Card>
-              ) : (
-                <Card className="hover-lift border-2">
+
+              {/* Salon Plan */}
+              <Card className="hover-lift border-2">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="default" className="mx-auto mb-4 w-fit">
                       Most Popular
@@ -271,14 +247,13 @@ export default function Pricing() {
                     </div>
                   </CardContent>
                 </Card>
-              )}
+            </div>
 
-              {/* Trial Info */}
-              <div className="text-center mt-8">
-                <p className="text-sm text-muted-foreground">
-                  14-day free trial • No credit card required • Cancel anytime
-                </p>
-              </div>
+            {/* Trial Info */}
+            <div className="text-center mt-8">
+              <p className="text-sm text-muted-foreground">
+                14-day free trial • No credit card required • Cancel anytime
+              </p>
             </div>
           </div>
         </section>
