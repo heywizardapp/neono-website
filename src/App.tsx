@@ -51,6 +51,9 @@ const ResourcesIndex = lazy(() => import('./pages/resources/Index'));
 // Blog pages
 const BlogIndex = lazy(() => import('./pages/blog/Index'));
 const BlogPost = lazy(() => import('./pages/blog/BlogPost'));
+const BlogLogin = lazy(() => import('./pages/admin/BlogLogin'));
+const BlogAdmin = lazy(() => import('./pages/admin/BlogAdmin'));
+const BlogEditor = lazy(() => import('./pages/admin/BlogEditor'));
 
 // Company pages
 const CompanyIndex = lazy(() => import('./pages/company/Index'));
@@ -125,6 +128,12 @@ export default function App() {
                     <Route path="/resources" element={<ResourcesIndex />} />
                     <Route path="/blog" element={<BlogIndex />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
+
+                    {/* Admin Routes */}
+                    <Route path="/admin/login" element={<BlogLogin />} />
+                    <Route path="/admin/blog" element={<BlogAdmin />} />
+                    <Route path="/admin/blog/new" element={<BlogEditor />} />
+                    <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
 
                     {/* Company */}
                     <Route path="/company" element={<CompanyIndex />} />
