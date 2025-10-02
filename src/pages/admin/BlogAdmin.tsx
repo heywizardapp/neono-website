@@ -7,21 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { blogStorage, DraftPost } from '@/lib/blog/storage';
 import { useToast } from '@/hooks/use-toast';
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
 
 export default function BlogAdmin() {
   const [posts, setPosts] = useState<DraftPost[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [deleteId, setDeleteId] = useState<string | null>(null);
+  
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -40,7 +30,6 @@ export default function BlogAdmin() {
   const handleDelete = (id: string) => {
     blogStorage.deletePost(id);
     loadPosts();
-    setDeleteId(null);
     toast({
       title: 'Post Deleted',
       description: 'The blog post has been deleted successfully.'
@@ -180,7 +169,9 @@ export default function BlogAdmin() {
                       <Button
                         variant="outline"
                         size="icon"
-                        onClick={() => setDeleteId(post.id!)}
+                        onClick={() => {
+                          if (window.confirm('Delete this post? This action cannot be undone.')) handleDelete(post.id!);
+                        }}
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
@@ -193,22 +184,6 @@ export default function BlogAdmin() {
         )}
       </main>
 
-      <AlertDialog open={!!deleteId} onOpenChange={() => setDeleteId(null)}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Delete Post</AlertDialogTitle>
-            <AlertDialogDescription>
-              Are you sure you want to delete this post? This action cannot be undone.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={() => deleteId && handleDelete(deleteId)}>
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 }
