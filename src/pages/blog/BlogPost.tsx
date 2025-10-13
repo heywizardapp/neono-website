@@ -1,4 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
+import { loadBlogContent } from '@/lib/blog/loader';
 import { useMemo, useState, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowLeft, User, Tag } from 'lucide-react';
@@ -37,24 +38,20 @@ export default function BlogPost() {
   ];
 
   // Get the full blog content from markdown files
-  const getFullContent = async (slug: string): Promise<string> => {
-    try {
-      const content = await import(`../../content/blog/${slug}.md`);
-      return content.default || content;
-    } catch (error) {
-      console.error(`Failed to load blog post: ${slug}`, error);
-      return '# Content Unavailable\n\nWe\'re having trouble loading this blog post. Please try refreshing the page or [contact us](/contact) if the issue persists.';
-    }
-  };
-
   const [content, setContent] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getFullContent(slug || '').then((markdownContent) => {
+    // Load content synchronously from the loader
+    try {
+      const markdownContent = loadBlogContent(slug || '');
       setContent(markdownContent);
+    } catch (error) {
+      console.error(`Failed to load blog post: ${slug}`, error);
+      setContent('# Content Unavailable\n\nWe\'re having trouble loading this blog post. Please try refreshing the page or [contact us](/contact) if the issue persists.');
+    } finally {
       setIsLoading(false);
-    });
+    }
   }, [slug]);
 
   // Extract headings for table of contents

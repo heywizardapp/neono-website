@@ -121,6 +121,18 @@ export const blogPosts: BlogPost[] = [
     readTime: '9 min read',
     author: 'Success Team',
     featured: true
+  },
+  {
+    id: '10',
+    title: 'How to Set Up Your First SMS Campaign (Step-by-Step Video Tutorial)',
+    excerpt: 'Complete walkthrough to launch your first SMS campaign in under an hour. Includes templates and best practices.',
+    category: 'Marketing',
+    tags: ['sms', 'tutorial', 'video'],
+    slug: 'sms-campaign-setup-video-tutorial',
+    publishedAt: '2024-01-28',
+    readTime: '10 min read',
+    author: 'Marketing Team',
+    featured: true
   }
 ];
 
