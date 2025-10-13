@@ -68,6 +68,10 @@ export function generateEnhancedArticleSchema(props: EnhancedArticleSchemaProps)
       '@type': 'WebPage',
       '@id': url
     },
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['article', 'h1', 'h2', 'h3']
+    },
     articleBody: content.substring(0, 500), // First 500 chars for preview
     wordCount: wordCount,
     timeRequired: `PT${Math.ceil(stats.minutes)}M`,

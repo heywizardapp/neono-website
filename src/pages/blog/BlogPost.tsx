@@ -1,6 +1,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
+import { useMemo } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, ArrowLeft } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, User, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ShareBar } from '@/components/share/ShareBar';
@@ -9,7 +10,10 @@ import { SEOHead } from '@/components/SEO/SEOHead';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { UpdateBadge } from '@/components/blog/UpdateBadge';
 import { UpdateNotes } from '@/components/blog/UpdateNotes';
+import { TableOfContents } from '@/components/blog/TableOfContents';
+import { ReadingProgressBar } from '@/components/blog/ReadingProgressBar';
 import { generateEnhancedArticleSchema, generateBlogBreadcrumbSchema } from '@/lib/seo/blogSchema';
+import { extractHeadings, calculateReadingTime } from '@/lib/blog/tocGenerator';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
@@ -536,10 +540,16 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
   };
 
   const fullContent = getFullContent(post.slug);
+  
+  // Extract headings for table of contents
+  const headings = useMemo(() => extractHeadings(fullContent), [fullContent]);
+  const readingTime = useMemo(() => calculateReadingTime(fullContent), [fullContent]);
 
   return (
     <>
-      <SEOHead 
+      <ReadingProgressBar />
+      
+      <SEOHead
         title={post.title}
         description={post.excerpt}
         path={`/blog/${post.slug}`}
@@ -579,7 +589,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
       />
       
       <div className="min-h-screen bg-background">
-        <div className="container mx-auto px-4 py-8 max-w-4xl">
+        <div className="container mx-auto px-4 py-8 max-w-7xl">
           <Breadcrumbs customCrumbs={breadcrumbs} />
           
           {/* Back to Blog */}
@@ -590,9 +600,10 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
             </a>
           </Button>
 
-          {/* Article Header */}
-          <article className="prose prose-lg max-w-none">
-            <header className="mb-8 pb-8 border-b">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-8">
+            {/* Article Content */}
+            <article className="prose prose-lg max-w-none">
+              <header className="mb-8 pb-8 border-b">
               <div className="flex flex-wrap gap-2 mb-4">
                 <Badge variant="outline">{post.category}</Badge>
                 {post.featured && <Badge>Featured</Badge>}
@@ -618,7 +629,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
                 </div>
                 <div className="flex items-center gap-1">
                   <Clock className="h-4 w-4" />
-                  {post.readTime}
+                  {readingTime} min read
                 </div>
                 <span>By {post.author}</span>
               </div>
@@ -631,6 +642,9 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
                 ))}
               </div>
             </header>
+
+            {/* Mobile Table of Contents */}
+            <TableOfContents headings={headings} className="lg:hidden" />
 
             {/* Update Notes */}
             {(post.contentHistory || post.updateNotes) && (
@@ -654,7 +668,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
 
             {/* Article Content */}
             <ReactMarkdown
-              className="prose prose-lg max-w-none
+              className="prose prose-lg max-w-none prose-headings:scroll-mt-24
                 prose-headings:font-bold prose-headings:text-foreground
                 prose-h1:text-4xl prose-h1:mb-4
                 prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4
@@ -671,10 +685,26 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
                 prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8"
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
+              components={{
+                h2: ({ children, ...props }) => {
+                  const text = String(children);
+                  const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                  return <h2 id={id} {...props}>{children}</h2>;
+                },
+                h3: ({ children, ...props }) => {
+                  const text = String(children);
+                  const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                  return <h3 id={id} {...props}>{children}</h3>;
+                },
+              }}
             >
               {fullContent}
             </ReactMarkdown>
-          </article>
+            </article>
+
+            {/* Desktop Table of Contents - Sticky Sidebar */}
+            <TableOfContents headings={headings} />
+          </div>
 
           {/* Related Posts */}
           <RelatedPosts 
