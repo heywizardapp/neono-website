@@ -63,6 +63,7 @@ export function generateEnhancedArticleSchema(props: EnhancedArticleSchemaProps)
     },
     datePublished: publishedTime,
     dateModified: modifiedTime || publishedTime,
+    dateReviewed: modifiedTime,
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': url

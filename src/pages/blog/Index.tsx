@@ -8,6 +8,7 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
 import { RSSButton } from '@/components/blog/RSSButton';
+import { UpdateBadge } from '@/components/blog/UpdateBadge';
 import { blogPosts, categories, type BlogPost } from './blogData';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateBlogSchema } from '@/lib/seo/blogSchema';
@@ -176,6 +177,11 @@ export default function BlogIndex() {
             </div>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="outline">{featuredPost.category}</Badge>
+                  <UpdateBadge 
+                    updatedAt={featuredPost.updatedAt || featuredPost.publishedAt}
+                    publishedAt={featuredPost.publishedAt}
+                    lastReviewed={featuredPost.lastReviewed}
+                  />
                   {featuredPost.tags.map(tag => (
                     <Badge key={tag} variant="secondary" className="text-xs">
                       {tag}
@@ -201,7 +207,14 @@ export default function BlogIndex() {
                 </div>
               )}
               <div className="p-6">
-                <Badge variant="outline" className="mb-3">{post.category}</Badge>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <Badge variant="outline">{post.category}</Badge>
+                  <UpdateBadge 
+                    updatedAt={post.updatedAt || post.publishedAt}
+                    publishedAt={post.publishedAt}
+                    lastReviewed={post.lastReviewed}
+                  />
+                </div>
                 
                 <h3 className="font-semibold mb-3 line-clamp-2">
                   <a 

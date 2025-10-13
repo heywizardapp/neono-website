@@ -1,3 +1,5 @@
+import { ContentUpdate } from '@/lib/blog/storage';
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -10,6 +12,11 @@ export interface BlogPost {
   author: string;
   featured?: boolean;
   featuredImage?: string;
+  updatedAt?: string;
+  lastReviewed?: string;
+  contentHistory?: ContentUpdate[];
+  updateNotes?: string;
+  version?: number;
 }
 
 export const blogPosts: BlogPost[] = [

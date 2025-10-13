@@ -9,8 +9,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
+import { Checkbox } from '@/components/ui/checkbox';
 import { blogStorage, DraftPost } from '@/lib/blog/storage';
 import { categories } from '@/pages/blog/blogData';
+import { needsReview } from '@/lib/blog/updateTracking';
 import { useToast } from '@/hooks/use-toast';
 import { ImageUploader } from '@/components/blog/ImageUploader';
 import { SEOScoreCard } from '@/components/blog/SEOScoreCard';
@@ -48,6 +50,8 @@ export default function BlogEditor() {
 
   const [tagInput, setTagInput] = useState('');
   const [focusKeyword, setFocusKeyword] = useState('');
+  const [updateNotes, setUpdateNotes] = useState('');
+  const [isContentUpdate, setIsContentUpdate] = useState(false);
 
   // Real-time SEO analysis
   const seoAnalysis = analyzeSEO(post, focusKeyword);
@@ -86,7 +90,9 @@ export default function BlogEditor() {
     const savedPost = blogStorage.savePost({
       ...post,
       status,
-      publishedAt: status === 'published' ? new Date().toISOString() : post.publishedAt
+      publishedAt: status === 'published' ? new Date().toISOString() : post.publishedAt,
+      updateNotes: isContentUpdate ? updateNotes : undefined,
+      lastReviewed: isContentUpdate ? new Date().toISOString() : post.lastReviewed
     });
 
     toast({
@@ -305,6 +311,57 @@ export default function BlogEditor() {
                 </div>
               </CardContent>
             </Card>
+
+            {isEdit && (
+              <Card className={needsReview(post.lastReviewed) ? 'border-yellow-500' : ''}>
+                <CardHeader>
+                  <CardTitle>Content Updates</CardTitle>
+                  {needsReview(post.lastReviewed) && (
+                    <p className="text-sm text-yellow-600">⚠️ This post needs review (6+ months old)</p>
+                  )}
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox
+                      id="isUpdate"
+                      checked={isContentUpdate}
+                      onCheckedChange={(checked) => setIsContentUpdate(checked as boolean)}
+                    />
+                    <Label htmlFor="isUpdate" className="text-sm font-normal cursor-pointer">
+                      This is a content update
+                    </Label>
+                  </div>
+
+                  {isContentUpdate && (
+                    <div>
+                      <Label htmlFor="updateNotes">Update Notes *</Label>
+                      <Textarea
+                        id="updateNotes"
+                        value={updateNotes}
+                        onChange={(e) => setUpdateNotes(e.target.value)}
+                        placeholder="What changed in this update?"
+                        rows={3}
+                      />
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Describe what was updated for transparency
+                      </p>
+                    </div>
+                  )}
+
+                  {post.lastReviewed && (
+                    <p className="text-sm text-muted-foreground">
+                      Last reviewed: {new Date(post.lastReviewed).toLocaleDateString()}
+                    </p>
+                  )}
+
+                  {post.version && (
+                    <p className="text-sm text-muted-foreground">
+                      Current version: {post.version}
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            )}
 
             <Card>
               <CardHeader>

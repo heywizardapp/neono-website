@@ -7,6 +7,8 @@ import { ShareBar } from '@/components/share/ShareBar';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
+import { UpdateBadge } from '@/components/blog/UpdateBadge';
+import { UpdateNotes } from '@/components/blog/UpdateNotes';
 import { generateEnhancedArticleSchema, generateBlogBreadcrumbSchema } from '@/lib/seo/blogSchema';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
@@ -544,6 +546,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
         keywords={post.tags.join(', ')}
         type="article"
         publishedTime={post.publishedAt}
+        modifiedTime={post.updatedAt}
         author={post.author}
         image={post.featuredImage}
       />
@@ -558,6 +561,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
             content: fullContent,
             author: post.author,
             publishedTime: post.publishedAt,
+            modifiedTime: post.updatedAt,
             url: `https://www.neono.com/blog/${post.slug}`,
             featuredImage: post.featuredImage,
             category: post.category,
@@ -592,6 +596,11 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
               <div className="flex flex-wrap gap-2 mb-4">
                 <Badge variant="outline">{post.category}</Badge>
                 {post.featured && <Badge>Featured</Badge>}
+                <UpdateBadge 
+                  updatedAt={post.updatedAt || post.publishedAt}
+                  publishedAt={post.publishedAt}
+                  lastReviewed={post.lastReviewed}
+                />
               </div>
               
               <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
@@ -622,6 +631,15 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
                 ))}
               </div>
             </header>
+
+            {/* Update Notes */}
+            {(post.contentHistory || post.updateNotes) && (
+              <UpdateNotes 
+                contentHistory={post.contentHistory}
+                updateNotes={post.updateNotes}
+                version={post.version}
+              />
+            )}
 
             {/* Featured Image */}
             {post.featuredImage && (

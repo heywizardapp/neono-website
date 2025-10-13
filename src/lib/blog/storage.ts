@@ -5,6 +5,13 @@ import { BlogPost } from '@/pages/blog/blogData';
 const STORAGE_KEY = 'neono_blog_posts';
 const ADMIN_KEY = 'neono_blog_admin';
 
+export interface ContentUpdate {
+  version: number;
+  date: string;
+  notes: string;
+  author?: string;
+}
+
 export interface DraftPost extends Omit<BlogPost, 'id' | 'publishedAt'> {
   id?: string;
   publishedAt?: string;
@@ -13,6 +20,10 @@ export interface DraftPost extends Omit<BlogPost, 'id' | 'publishedAt'> {
   createdAt: string;
   updatedAt: string;
   featuredImage?: string;
+  lastReviewed?: string;
+  contentHistory?: ContentUpdate[];
+  updateNotes?: string;
+  version?: number;
 }
 
 export const blogStorage = {
@@ -37,7 +48,33 @@ export const blogStorage = {
       // Update existing
       const index = posts.findIndex(p => p.id === post.id);
       if (index !== -1) {
-        posts[index] = { ...post, updatedAt: now };
+        const existingPost = posts[index];
+        const isContentUpdate = existingPost.content !== post.content;
+        
+        // Build content history if this is an update with notes
+        let contentHistory = existingPost.contentHistory || [];
+        let version = existingPost.version || 1;
+        
+        if (isContentUpdate && post.updateNotes) {
+          version = version + 1;
+          contentHistory = [
+            {
+              version: existingPost.version || 1,
+              date: existingPost.updatedAt,
+              notes: post.updateNotes,
+              author: post.author
+            },
+            ...contentHistory
+          ];
+        }
+        
+        posts[index] = {
+          ...post,
+          updatedAt: now,
+          version,
+          contentHistory,
+          lastReviewed: post.lastReviewed || (isContentUpdate ? now : existingPost.lastReviewed)
+        };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
         return posts[index];
       }
@@ -49,7 +86,9 @@ export const blogStorage = {
       id: Date.now().toString(),
       createdAt: now,
       updatedAt: now,
-      publishedAt: post.status === 'published' ? now : undefined
+      publishedAt: post.status === 'published' ? now : undefined,
+      version: 1,
+      contentHistory: []
     };
     
     posts.push(newPost);
