@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NeonO Blog - Beauty &amp; Wellness Business Insights</title>
+    <link>https://neono.io/blog</link>
+    <description>Expert insights on salon management, spa operations, barbershop growth, and beauty industry trends. Powered by NeonO.</description>
+    <language>en</language>
+    <atom:link href="https://neono.io/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://neono.io/og-image.png</url>
+      <title>NeonO Blog</title>
+      <link>https://neono.io/blog</link>
+    </image>
+  </channel>
+</rss>

@@ -7,10 +7,12 @@ import { Search, Calendar, Clock } from 'lucide-react';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
+import { RSSButton } from '@/components/blog/RSSButton';
 import { blogPosts, categories, type BlogPost } from './blogData';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateBlogSchema } from '@/lib/seo/blogSchema';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { Helmet } from 'react-helmet-async';
 
 export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -76,6 +78,13 @@ export default function BlogIndex() {
         ]}
       />
       
+      {/* RSS Feed Discovery */}
+      <Helmet>
+        <link rel="alternate" type="application/rss+xml" title="NeonO Blog RSS Feed" href="/blog/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="NeonO Blog Atom Feed" href="/blog/feed.xml" />
+        <link rel="alternate" type="application/json" title="NeonO Blog JSON Feed" href="/blog/feed.json" />
+      </Helmet>
+      
       {/* Blog Schema */}
       <script 
         type="application/ld+json"
@@ -89,6 +98,9 @@ export default function BlogIndex() {
         
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <RSSButton />
+          </div>
           <h1 className="text-4xl font-bold mb-4">NeonO Blog</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Industry insights, business tips, and product updates to help your beauty business thrive.
