@@ -1,4 +1,4 @@
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,8 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ShareBar } from '@/components/share/ShareBar';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { SEOHead } from '@/components/SEO/SEOHead';
+import { RelatedPosts } from '@/components/blog/RelatedPosts';
+import { generateEnhancedArticleSchema, generateBlogBreadcrumbSchema } from '@/lib/seo/blogSchema';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
@@ -531,6 +533,8 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
     }
   };
 
+  const fullContent = getFullContent(post.slug);
+
   return (
     <>
       <SEOHead 
@@ -541,6 +545,33 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
         type="article"
         publishedTime={post.publishedAt}
         author={post.author}
+        image={post.featuredImage}
+      />
+      
+      {/* Enhanced Article Schema */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateEnhancedArticleSchema({
+            title: post.title,
+            description: post.excerpt,
+            content: fullContent,
+            author: post.author,
+            publishedTime: post.publishedAt,
+            url: `https://www.neono.com/blog/${post.slug}`,
+            featuredImage: post.featuredImage,
+            category: post.category,
+            tags: post.tags
+          }))
+        }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateBlogBreadcrumbSchema(breadcrumbs))
+        }}
       />
       
       <div className="min-h-screen bg-background">
@@ -592,6 +623,17 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
               </div>
             </header>
 
+            {/* Featured Image */}
+            {post.featuredImage && (
+              <div className="my-8 -mx-4 md:mx-0">
+                <img 
+                  src={post.featuredImage} 
+                  alt={post.title}
+                  className="w-full rounded-lg shadow-xl"
+                />
+              </div>
+            )}
+
             {/* Article Content */}
             <ReactMarkdown
               className="prose prose-lg max-w-none
@@ -612,9 +654,18 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
             >
-              {getFullContent(post.slug)}
+              {fullContent}
             </ReactMarkdown>
           </article>
+
+          {/* Related Posts */}
+          <RelatedPosts 
+            currentPostId={post.id}
+            currentCategory={post.category}
+            currentTags={post.tags}
+            allPosts={blogPosts}
+            maxPosts={3}
+          />
 
           {/* Share and Newsletter */}
           <div className="grid gap-6 md:grid-cols-2 mt-12 pt-8 border-t">

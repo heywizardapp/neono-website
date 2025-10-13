@@ -169,34 +169,81 @@ function validateUrls(urls: SitemapUrl[]): SitemapUrl[] {
 }
 
 /**
- * Scan for blog posts (in a real implementation, this would read from filesystem or CMS)
+ * Scan for blog posts from localStorage and static blog data
  */
 function scanBlogPosts(): SitemapUrl[] {
-  // This is a placeholder - in a real implementation, you would:
-  // 1. Scan src/content/blog/*.md files
-  // 2. Extract frontmatter for dates and metadata
-  // 3. Generate URLs based on file structure
-  
   const blogPosts: SitemapUrl[] = [];
   
-  // Example blog posts
-  const samplePosts = [
-    'salon-management-tips',
-    'barbershop-marketing-strategies',
-    'appointment-booking-best-practices'
+  // Try to read from localStorage (published posts from blog admin)
+  try {
+    if (typeof window !== 'undefined') {
+      const storedPosts = localStorage.getItem('blog_posts');
+      if (storedPosts) {
+        const posts = JSON.parse(storedPosts);
+        const publishedPosts = posts.filter((post: any) => post.status === 'published');
+        
+        for (const post of publishedPosts) {
+          blogPosts.push({
+            loc: `/blog/${post.slug || post.id}`,
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: post.updatedAt ? new Date(post.updatedAt).toISOString().split('T')[0] : 
+                     new Date(post.createdAt).toISOString().split('T')[0]
+          });
+        }
+      }
+    }
+  } catch (error) {
+    console.warn('Could not read blog posts from localStorage:', error);
+  }
+  
+  // Fallback: Static blog posts from blogData.ts
+  const staticPosts = [
+    { slug: 'salon-management-tips', date: '2024-01-15' },
+    { slug: 'barbershop-marketing-strategies', date: '2024-01-20' },
+    { slug: 'appointment-booking-best-practices', date: '2024-01-25' },
+    { slug: 'beauty-salon-success', date: '2024-02-01' },
+    { slug: 'spa-client-retention', date: '2024-02-05' }
   ];
   
-  for (const slug of samplePosts) {
-    blogPosts.push({
-      loc: `/blog/${slug}`,
-      changefreq: 'monthly',
-      priority: 0.6,
-      lastmod: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
-        .toISOString().split('T')[0]
-    });
+  for (const post of staticPosts) {
+    // Only add if not already added from localStorage
+    if (!blogPosts.find(p => p.loc === `/blog/${post.slug}`)) {
+      blogPosts.push({
+        loc: `/blog/${post.slug}`,
+        changefreq: 'monthly',
+        priority: 0.6,
+        lastmod: post.date
+      });
+    }
   }
   
   return blogPosts;
+}
+
+/**
+ * Generate image sitemap for blog featured images
+ */
+function generateImageSitemap(blogPosts: SitemapUrl[]): string {
+  const imageEntries = blogPosts
+    .map(post => {
+      // In a real implementation, you'd fetch the actual featured image
+      const slug = post.loc.split('/').pop();
+      return `  <url>
+    <loc>${config.baseUrl}${post.loc}</loc>
+    <image:image>
+      <image:loc>${config.baseUrl}/blog-images/${slug}-featured.jpg</image:loc>
+      <image:title>${slug?.replace(/-/g, ' ')}</image:title>
+    </image:image>
+  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${imageEntries}
+</urlset>`;
 }
 
 /**
@@ -214,12 +261,14 @@ export function generateSitemaps(): void {
   writeSitemap('sitemap-pages.xml', generateSitemapXml(validStaticPages));
   writeSitemap('sitemap-solutions.xml', generateSitemapXml(validSolutionPages));
   writeSitemap('sitemap-blog.xml', generateSitemapXml(validBlogPages));
+  writeSitemap('sitemap-images.xml', generateImageSitemap(validBlogPages));
   
   // Generate sitemap index
   const sitemapFiles = [
     'sitemap-pages.xml',
     'sitemap-solutions.xml', 
-    'sitemap-blog.xml'
+    'sitemap-blog.xml',
+    'sitemap-images.xml'
   ];
   
   writeSitemap('sitemap.xml', generateSitemapIndex(sitemapFiles));

@@ -9,6 +9,7 @@ import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
 import { blogPosts, categories, type BlogPost } from './blogData';
 import { SEOHead } from '@/components/SEO/SEOHead';
+import { generateBlogSchema } from '@/lib/seo/blogSchema';
 import { generateStructuredData } from '@/lib/seo/meta';
 
 export default function BlogIndex() {
@@ -53,6 +54,8 @@ export default function BlogIndex() {
     { label: 'Blog', href: '/blog' }
   ];
 
+  const blogSchema = generateBlogSchema();
+
   return (
     <>
       <SEOHead
@@ -71,6 +74,14 @@ export default function BlogIndex() {
             })
           }
         ]}
+      />
+      
+      {/* Blog Schema */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogSchema)
+        }}
       />
       <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
