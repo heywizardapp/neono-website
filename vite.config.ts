@@ -13,13 +13,12 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
+  },
   resolve: {
-    dedupe: ['react', 'react-dom'],
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // Force all packages to use the same React instances to prevent multiple React instances
-      "react": path.resolve(__dirname, "./node_modules/react"),
-      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
 }));
