@@ -1,4 +1,4 @@
-import { ContentUpdate } from '@/lib/blog/storage';
+import { ContentUpdate, getAllPosts } from '@/lib/blog/storage';
 
 export interface BlogPost {
   id: string;
@@ -23,3 +23,6 @@ export interface BlogPost {
 }
 
 export const categories = ['All', 'Business', 'Marketing', 'Growth', 'Payments', 'Technology', 'Success Stories'];
+
+// Export blog posts for backward compatibility
+export const blogPosts = getAllPosts().filter(post => post.status === 'published');
