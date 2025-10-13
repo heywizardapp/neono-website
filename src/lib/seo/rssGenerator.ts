@@ -1,5 +1,5 @@
 import { Feed } from 'feed';
-import { blogPosts } from '@/pages/blog/blogData';
+import { getAllPosts } from '@/lib/blog/storage';
 
 export interface RSSOptions {
   category?: string;
@@ -34,9 +34,9 @@ export const generateRSSFeed = (options: RSSOptions = {}) => {
   });
 
   // Filter posts based on options
-  let posts = [...blogPosts].sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  let posts = getAllPosts()
+    .filter(post => post.status === 'published')
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
 
   if (options.category) {
     posts = posts.filter(post => post.category === options.category);

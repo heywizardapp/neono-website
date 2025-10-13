@@ -7,7 +7,7 @@ import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
 import { StickyCompare } from '@/components/compare/StickyCompare';
 import { ResourceTabs, ResourceType } from '@/components/resources/ResourceTabs';
-import { blogPosts } from '@/pages/blog/blogData';
+import { getAllPosts } from '@/lib/blog/storage';
 import { SEOHead } from '@/components/SEO/SEOHead';
 
 // Extended resource interface with content types
@@ -27,12 +27,24 @@ interface Resource {
 }
 
 // Map blog posts to resources with content types
-const resources: Resource[] = [
-  ...blogPosts.map(post => ({
-    ...post,
-    contentType: 'blog' as const
-  })),
-  // Additional mock resources for demonstration
+const getResources = (): Resource[] => {
+  const blogPosts = getAllPosts().filter(post => post.status === 'published');
+  return [
+    ...blogPosts.map(post => ({
+      id: post.id,
+      title: post.title,
+      excerpt: post.excerpt,
+      category: post.category,
+      tags: post.tags,
+      slug: post.slug,
+      publishedAt: post.publishedAt,
+      readTime: post.readTime,
+      author: post.author,
+      featured: post.featured,
+      featuredImage: post.featuredImage,
+      contentType: 'blog' as const
+    })),
+    // Additional mock resources for demonstration
   {
     id: 'guide-1',
     title: 'Complete Guide to Salon Client Retention',
@@ -70,11 +82,13 @@ const resources: Resource[] = [
     readTime: '6 min read',
     author: 'Customer Success'
   }
-];
+  ];
+};
 
 export default function ResourcesHub() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<ResourceType>('all');
+  const resources = getResources();
 
   // Filter resources based on type and search
   const filteredResources = useMemo(() => {

@@ -12,13 +12,21 @@ export interface ContentUpdate {
   author?: string;
 }
 
-export interface DraftPost extends Omit<BlogPost, 'id' | 'publishedAt'> {
+export interface DraftPost {
   id?: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  tags: string[];
+  slug: string;
   publishedAt?: string;
+  readTime: string;
+  author: string;
   status: 'draft' | 'published';
   content: string;
   createdAt: string;
   updatedAt: string;
+  featured?: boolean;
   featuredImage?: string;
   lastReviewed?: string;
   contentHistory?: ContentUpdate[];
@@ -140,3 +148,35 @@ export const blogStorage = {
     localStorage.removeItem(ADMIN_KEY);
   }
 };
+
+// Export convenient standalone functions
+export const getAllPosts = (): BlogPost[] => {
+  const posts = blogStorage.getAllPosts();
+  // Filter for posts that have required fields and cast to BlogPost
+  return posts
+    .filter(p => p.id && p.publishedAt)
+    .map(p => ({
+      ...p,
+      id: p.id!,
+      publishedAt: p.publishedAt!,
+      status: p.status || 'draft'
+    } as BlogPost));
+};
+
+export const getPost = (slug: string): BlogPost | null => {
+  const posts = blogStorage.getAllPosts();
+  const post = posts.find(p => p.slug === slug);
+  if (!post || !post.id || !post.publishedAt) return null;
+  return {
+    ...post,
+    id: post.id,
+    publishedAt: post.publishedAt,
+    status: post.status || 'draft'
+  } as BlogPost;
+};
+export const savePost = (post: DraftPost) => blogStorage.savePost(post);
+export const deletePost = (id: string) => blogStorage.deletePost(id);
+export const duplicatePost = (id: string) => blogStorage.duplicatePost(id);
+export const isAuthenticated = () => blogStorage.isAuthenticated();
+export const authenticate = (password: string) => blogStorage.authenticate(password);
+export const logout = () => blogStorage.logout();

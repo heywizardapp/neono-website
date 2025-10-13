@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import string from "vite-plugin-string";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,10 +11,6 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    string({
-      include: "**/*.md",
-      compress: false
-    }),
     mode === "development" && componentTagger()
   ].filter(Boolean),
   resolve: {
@@ -26,5 +21,4 @@ export default defineConfig(({ mode }) => ({
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
-  assetsInclude: ['**/*.md'],
 }));

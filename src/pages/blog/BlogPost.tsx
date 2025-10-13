@@ -1,6 +1,6 @@
-import { useParams, Navigate, Link } from 'react-router-dom';
-import { loadBlogContent } from '@/lib/blog/loader';
+import { useParams, Navigate } from 'react-router-dom';
 import { useMemo, useState, useEffect } from 'react';
+import { getPost } from '@/lib/blog/storage';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -20,48 +20,43 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import 'highlight.js/styles/github-dark.css';
 
-// Import blog posts data
-import { blogPosts } from './blogData';
-
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find(p => p.slug === slug);
-  
-  // Get the full blog content from markdown files
-  const [content, setContent] = useState<string>('');
+  const [post, setPost] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!slug) {
-      setError('No slug provided');
       setIsLoading(false);
       return;
     }
 
     try {
-      const markdownContent = loadBlogContent(slug);
-      setContent(markdownContent);
+      const foundPost = getPost(slug);
+      if (!foundPost || foundPost.status !== 'published') {
+        setPost(null);
+      } else {
+        setPost(foundPost);
+      }
       setError(null);
     } catch (err) {
-      console.error(`Failed to load blog post: ${slug}`, err);
-      setError('Failed to load content');
-      setContent('# Content Unavailable\n\nWe\'re having trouble loading this blog post. Please try refreshing the page or [contact us](/contact) if the issue persists.');
+      console.error('Error loading blog post:', err);
+      setError('Failed to load blog post');
     } finally {
       setIsLoading(false);
     }
   }, [slug]);
 
-  // Extract headings for table of contents - only when content is loaded
   const headings = useMemo(() => {
-    if (!content || isLoading) return [];
-    return extractHeadings(content);
-  }, [content, isLoading]);
+    if (!post?.content || isLoading) return [];
+    return extractHeadings(post.content);
+  }, [post, isLoading]);
   
   const readingTime = useMemo(() => {
-    if (!content || isLoading) return 0;
-    return calculateReadingTime(content);
-  }, [content, isLoading]);
+    if (!post?.content || isLoading) return 0;
+    return calculateReadingTime(post.content);
+  }, [post, isLoading]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -96,7 +91,7 @@ export default function BlogPost() {
           __html: JSON.stringify(generateEnhancedArticleSchema({
             title: post.title,
             description: post.excerpt,
-            content: content,
+            content: post.content || '',
             author: post.author,
             publishedTime: post.publishedAt,
             modifiedTime: post.updatedAt,
@@ -204,7 +199,7 @@ export default function BlogPost() {
                 <p className="text-destructive mb-4">Error loading content</p>
                 <Button onClick={() => window.location.reload()}>Refresh Page</Button>
               </div>
-            ) : (
+            ) : post?.content ? (
               <ReactMarkdown
                 className="prose prose-lg max-w-none prose-headings:scroll-mt-24
                   prose-headings:font-bold prose-headings:text-foreground
@@ -236,8 +231,12 @@ export default function BlogPost() {
                   },
                 }}
               >
-                {content}
+                {post.content}
               </ReactMarkdown>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No content available</p>
+              </div>
             )}
             </article>
 
@@ -246,13 +245,15 @@ export default function BlogPost() {
           </div>
 
           {/* Related Posts */}
-          <RelatedPosts 
-            currentPostId={post.id}
-            currentCategory={post.category}
-            currentTags={post.tags}
-            allPosts={blogPosts}
-            maxPosts={3}
-          />
+          {post && (
+            <RelatedPosts 
+              currentPostId={post.id}
+              currentCategory={post.category}
+              currentTags={post.tags}
+              allPosts={[]}
+              maxPosts={3}
+            />
+          )}
 
           {/* Share and Newsletter */}
           <div className="grid gap-6 md:grid-cols-2 mt-12 pt-8 border-t">

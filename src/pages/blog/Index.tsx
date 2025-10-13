@@ -9,7 +9,8 @@ import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
 import { RSSButton } from '@/components/blog/RSSButton';
 import { UpdateBadge } from '@/components/blog/UpdateBadge';
-import { blogPosts, categories, type BlogPost } from './blogData';
+import { categories, type BlogPost } from './blogData';
+import { getAllPosts } from '@/lib/blog/storage';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateBlogSchema } from '@/lib/seo/blogSchema';
 import { generateStructuredData } from '@/lib/seo/meta';
@@ -18,7 +19,8 @@ import { Helmet } from 'react-helmet-async';
 export default function BlogIndex() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [filteredPosts, setFilteredPosts] = useState(blogPosts);
+  const allPosts = getAllPosts().filter(post => post.status === 'published');
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(allPosts);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
@@ -31,7 +33,7 @@ export default function BlogIndex() {
   };
 
   const filterPosts = (query: string, category: string) => {
-    let filtered = blogPosts;
+    let filtered = [...allPosts];
 
     if (category !== 'All') {
       filtered = filtered.filter(post => post.category === category);
@@ -255,7 +257,7 @@ export default function BlogIndex() {
             <Button variant="outline" onClick={() => {
               setSearchQuery('');
               setSelectedCategory('All');
-              setFilteredPosts(blogPosts);
+              setFilteredPosts(allPosts);
             }}>
               Clear filters
             </Button>
