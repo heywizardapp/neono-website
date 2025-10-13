@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger()
   ].filter(Boolean),
   resolve: {
+    dedupe: ['react', 'react-dom'],
     alias: {
       "@": path.resolve(__dirname, "./src"),
       // Force all packages to use the same React instances to prevent multiple React instances
