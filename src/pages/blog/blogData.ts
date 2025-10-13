@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
   }
 ];
 
-export const categories = ['All', 'Business', 'Marketing', 'Growth', 'Payments', 'Technology'];
+export const categories = ['All', 'Business', 'Marketing', 'Growth', 'Payments', 'Technology', 'Success Stories'];
 
 // Helper function to add new blog posts
 export const addBlogPost = (post: Omit<BlogPost, 'id'>) => {

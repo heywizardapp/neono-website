@@ -36,8 +36,29 @@ export default function BlogPost() {
     { label: post.title, href: `/blog/${post.slug}` }
   ];
 
-  // Get the full blog content based on slug
-  const getFullContent = (slug: string) => {
+  // Get the full blog content from markdown files
+  const getFullContent = async (slug: string): Promise<string> => {
+    try {
+      const content = await import(`../../content/blog/${slug}.md?raw`);
+      return content.default;
+    } catch (error) {
+      console.error(`Failed to load blog post: ${slug}`, error);
+      return '# Content not found\n\nThis blog post content could not be loaded.';
+    }
+  };
+
+  const [content, setContent] = React.useState<string>('');
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    getFullContent(slug || '').then((markdownContent) => {
+      setContent(markdownContent);
+      setIsLoading(false);
+    });
+  }, [slug]);
+
+  // Legacy switch statement for backwards compatibility (will be removed)
+  const getLegacyContent = (slug: string) => {
     switch (slug) {
       case 'hidden-costs-salon-software':
         return `
