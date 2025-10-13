@@ -145,7 +145,7 @@ export function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <TopNav to="/blog">Resources</TopNav>
+          <TopNav to="/resources">Resources</TopNav>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -293,7 +293,7 @@ function MobileDrawer({
         </div>
 
         <div className="space-y-1">
-          <MobileLink to="/blog" onClose={onClose}>Resources</MobileLink>
+          <MobileLink to="/resources" onClose={onClose}>Resources</MobileLink>
         </div>
 
         <div className="flex flex-col gap-3 pt-4 mt-auto border-t">

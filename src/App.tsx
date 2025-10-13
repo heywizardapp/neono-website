@@ -55,6 +55,9 @@ const BlogLogin = lazy(() => import('./pages/admin/BlogLogin'));
 const BlogAdmin = lazy(() => import('./pages/admin/BlogAdmin'));
 const BlogEditor = lazy(() => import('./pages/admin/BlogEditor'));
 
+// Resources Hub (unified)
+const ResourcesHub = lazy(() => import('./pages/ResourcesHub'));
+
 // Company pages
 const CompanyIndex = lazy(() => import('./pages/company/Index'));
 const CompanyAbout = lazy(() => import('./pages/company/About'));
@@ -124,9 +127,12 @@ export default function App() {
                     <Route path="/solutions/spas" element={<Spas />} />
                     <Route path="/solutions/aesthetics" element={<Aesthetics />} />
 
-                    {/* Resources & Content */}
-                    <Route path="/resources" element={<ResourcesIndex />} />
-                    <Route path="/blog" element={<BlogIndex />} />
+                    {/* Resources Hub (Unified) */}
+                    <Route path="/resources" element={<ResourcesHub />} />
+                    <Route path="/resources/:slug" element={<BlogPost />} />
+                    
+                    {/* Legacy blog routes - redirect to resources */}
+                    <Route path="/blog" element={<ResourcesHub />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
 
                     {/* Admin Routes */}
