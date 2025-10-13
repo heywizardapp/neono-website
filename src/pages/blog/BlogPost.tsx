@@ -2,7 +2,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { loadBlogContent } from '@/lib/blog/loader';
 import { useMemo, useState, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, Clock, ArrowLeft, User, Tag } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ShareBar } from '@/components/share/ShareBar';
@@ -26,6 +26,42 @@ import { blogPosts } from './blogData';
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find(p => p.slug === slug);
+  
+  // Get the full blog content from markdown files
+  const [content, setContent] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!slug) {
+      setError('No slug provided');
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const markdownContent = loadBlogContent(slug);
+      setContent(markdownContent);
+      setError(null);
+    } catch (err) {
+      console.error(`Failed to load blog post: ${slug}`, err);
+      setError('Failed to load content');
+      setContent('# Content Unavailable\n\nWe\'re having trouble loading this blog post. Please try refreshing the page or [contact us](/contact) if the issue persists.');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [slug]);
+
+  // Extract headings for table of contents - only when content is loaded
+  const headings = useMemo(() => {
+    if (!content || isLoading) return [];
+    return extractHeadings(content);
+  }, [content, isLoading]);
+  
+  const readingTime = useMemo(() => {
+    if (!content || isLoading) return 0;
+    return calculateReadingTime(content);
+  }, [content, isLoading]);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -36,27 +72,6 @@ export default function BlogPost() {
     { label: 'Blog', href: '/blog' },
     { label: post.title, href: `/blog/${post.slug}` }
   ];
-
-  // Get the full blog content from markdown files
-  const [content, setContent] = useState<string>('');
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Load content synchronously from the loader
-    try {
-      const markdownContent = loadBlogContent(slug || '');
-      setContent(markdownContent);
-    } catch (error) {
-      console.error(`Failed to load blog post: ${slug}`, error);
-      setContent('# Content Unavailable\n\nWe\'re having trouble loading this blog post. Please try refreshing the page or [contact us](/contact) if the issue persists.');
-    } finally {
-      setIsLoading(false);
-    }
-  }, [slug]);
-
-  // Extract headings for table of contents
-  const headings = useMemo(() => extractHeadings(content), [content]);
-  const readingTime = useMemo(() => calculateReadingTime(content), [content]);
 
   return (
     <>
@@ -180,39 +195,50 @@ export default function BlogPost() {
             )}
 
             {/* Article Content */}
-            <ReactMarkdown
-              className="prose prose-lg max-w-none prose-headings:scroll-mt-24
-                prose-headings:font-bold prose-headings:text-foreground
-                prose-h1:text-4xl prose-h1:mb-4
-                prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4
-                prose-h3:text-2xl prose-h3:mt-6 prose-h3:mb-3
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground prose-strong:font-semibold
-                prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
-                prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
-                prose-li:text-muted-foreground prose-li:mb-2
-                prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:rounded
-                prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
-                prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8"
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeHighlight]}
-              components={{
-                h2: ({ children, ...props }) => {
-                  const text = String(children);
-                  const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-                  return <h2 id={id} {...props}>{children}</h2>;
-                },
-                h3: ({ children, ...props }) => {
-                  const text = String(children);
-                  const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-                  return <h3 id={id} {...props}>{children}</h3>;
-                },
-              }}
-            >
-              {isLoading ? 'Loading...' : content}
-            </ReactMarkdown>
+            {isLoading ? (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">Loading content...</p>
+              </div>
+            ) : error ? (
+              <div className="text-center py-12">
+                <p className="text-destructive mb-4">Error loading content</p>
+                <Button onClick={() => window.location.reload()}>Refresh Page</Button>
+              </div>
+            ) : (
+              <ReactMarkdown
+                className="prose prose-lg max-w-none prose-headings:scroll-mt-24
+                  prose-headings:font-bold prose-headings:text-foreground
+                  prose-h1:text-4xl prose-h1:mb-4
+                  prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4
+                  prose-h3:text-2xl prose-h3:mt-6 prose-h3:mb-3
+                  prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
+                  prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                  prose-strong:text-foreground prose-strong:font-semibold
+                  prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
+                  prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
+                  prose-li:text-muted-foreground prose-li:mb-2
+                  prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:rounded
+                  prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
+                  prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
+                  prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8"
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeHighlight]}
+                components={{
+                  h2: ({ children, ...props }) => {
+                    const text = String(children);
+                    const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                    return <h2 id={id} {...props}>{children}</h2>;
+                  },
+                  h3: ({ children, ...props }) => {
+                    const text = String(children);
+                    const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+                    return <h3 id={id} {...props}>{children}</h3>;
+                  },
+                }}
+              >
+                {content}
+              </ReactMarkdown>
+            )}
             </article>
 
             {/* Desktop Table of Contents - Sticky Sidebar */}
