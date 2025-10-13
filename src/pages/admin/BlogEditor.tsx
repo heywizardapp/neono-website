@@ -13,6 +13,9 @@ import { blogStorage, DraftPost } from '@/lib/blog/storage';
 import { categories } from '@/pages/blog/blogData';
 import { useToast } from '@/hooks/use-toast';
 import { ImageUploader } from '@/components/blog/ImageUploader';
+import { SEOScoreCard } from '@/components/blog/SEOScoreCard';
+import { FocusKeyword } from '@/components/blog/FocusKeyword';
+import { analyzeSEO } from '@/lib/seo/seoAnalyzer';
 import {
   Select,
   SelectContent,
@@ -44,6 +47,10 @@ export default function BlogEditor() {
   });
 
   const [tagInput, setTagInput] = useState('');
+  const [focusKeyword, setFocusKeyword] = useState('');
+
+  // Real-time SEO analysis
+  const seoAnalysis = analyzeSEO(post, focusKeyword);
 
   useEffect(() => {
     if (!blogStorage.isAuthenticated()) {
@@ -216,6 +223,9 @@ export default function BlogEditor() {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* SEO Score Card */}
+            <SEOScoreCard analysis={seoAnalysis} focusKeyword={focusKeyword} />
+
             <Card>
               <CardHeader>
                 <CardTitle>Featured Image</CardTitle>
@@ -293,6 +303,15 @@ export default function BlogEditor() {
                     onCheckedChange={(checked) => setPost({ ...post, featured: checked })}
                   />
                 </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>SEO Settings</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <FocusKeyword value={focusKeyword} onChange={setFocusKeyword} />
               </CardContent>
             </Card>
 
