@@ -9,6 +9,7 @@ export interface BlogPost {
   readTime: string;
   author: string;
   featured?: boolean;
+  featuredImage?: string;
 }
 
 export const blogPosts: BlogPost[] = [

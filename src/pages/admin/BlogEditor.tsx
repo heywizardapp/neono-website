@@ -39,7 +39,8 @@ export default function BlogEditor() {
     content: '',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
-    featured: false
+    featured: false,
+    featuredImage: ''
   });
 
   const [tagInput, setTagInput] = useState('');
@@ -205,7 +206,7 @@ export default function BlogEditor() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Featured Image</CardTitle>
+                <CardTitle>Images</CardTitle>
               </CardHeader>
               <CardContent>
                 <ImageUploader onImageUploaded={handleImageUpload} />
@@ -215,6 +216,22 @@ export default function BlogEditor() {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Featured Image</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ImageUploader 
+                  onImageUploaded={(url) => setPost({ ...post, featuredImage: url })}
+                />
+                {post.featuredImage && (
+                  <div className="mt-4">
+                    <img src={post.featuredImage} alt="Featured" className="w-full rounded-lg" />
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Post Settings</CardTitle>

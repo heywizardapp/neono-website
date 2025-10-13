@@ -12,6 +12,7 @@ export interface DraftPost extends Omit<BlogPost, 'id' | 'publishedAt'> {
   content: string;
   createdAt: string;
   updatedAt: string;
+  featuredImage?: string;
 }
 
 export const blogStorage = {

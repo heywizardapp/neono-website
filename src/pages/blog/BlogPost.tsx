@@ -6,6 +6,10 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ShareBar } from '@/components/share/ShareBar';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { SEOHead } from '@/components/SEO/SEOHead';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import 'highlight.js/styles/github-dark.css';
 
 // Import blog posts data
 import { blogPosts } from './blogData';
@@ -589,15 +593,27 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
             </header>
 
             {/* Article Content */}
-            <div 
-              className="prose prose-lg prose-slate max-w-none dark:prose-invert"
-              dangerouslySetInnerHTML={{ 
-                __html: getFullContent(post.slug).replace(/\n/g, '<br />').replace(/#{1,6}\s+(.+)/g, (match, title) => {
-                  const level = match.match(/^#+/)[0].length;
-                  return `<h${level}>${title}</h${level}>`;
-                })
-              }}
-            />
+            <ReactMarkdown
+              className="prose prose-lg max-w-none
+                prose-headings:font-bold prose-headings:text-foreground
+                prose-h1:text-4xl prose-h1:mb-4
+                prose-h2:text-3xl prose-h2:mt-8 prose-h2:mb-4
+                prose-h3:text-2xl prose-h3:mt-6 prose-h3:mb-3
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-4
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-foreground prose-strong:font-semibold
+                prose-ul:my-4 prose-ul:list-disc prose-ul:pl-6
+                prose-ol:my-4 prose-ol:list-decimal prose-ol:pl-6
+                prose-li:text-muted-foreground prose-li:mb-2
+                prose-code:text-primary prose-code:bg-muted prose-code:px-1 prose-code:rounded
+                prose-pre:bg-muted prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
+                prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8"
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+            >
+              {getFullContent(post.slug)}
+            </ReactMarkdown>
           </article>
 
           {/* Share and Newsletter */}

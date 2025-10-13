@@ -116,19 +116,30 @@ export default function BlogIndex() {
 
         {/* Featured Post */}
         {featuredPost && (
-          <Card className="p-8 mb-12 bg-gradient-to-r from-primary/5 to-primary/10">
-            <Badge className="mb-4">Featured</Badge>
-            <h2 className="text-2xl font-bold mb-4">
-              <a 
-                href={`/blog/${featuredPost.slug}`}
-                className="hover:text-primary transition-colors"
-              >
-                {featuredPost.title}
-              </a>
-            </h2>
-            <p className="text-muted-foreground mb-6 text-lg">
-              {featuredPost.excerpt}
-            </p>
+          <Card className="mb-12 overflow-hidden border-primary/20">
+            <div className="grid md:grid-cols-2 gap-6">
+              {featuredPost.featuredImage && (
+                <div className="relative h-64 md:h-auto">
+                  <img 
+                    src={featuredPost.featuredImage} 
+                    alt={featuredPost.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+              )}
+              <div className={`p-8 flex flex-col justify-center ${!featuredPost.featuredImage ? 'md:col-span-2' : ''}`}>
+                <Badge className="w-fit mb-4">Featured</Badge>
+                <h2 className="text-2xl font-bold mb-4">
+                  <a 
+                    href={`/blog/${featuredPost.slug}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {featuredPost.title}
+                  </a>
+                </h2>
+                <p className="text-muted-foreground mb-6 text-lg">
+                  {featuredPost.excerpt}
+                </p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
               <div className="flex items-center gap-1">
                 <Calendar className="h-4 w-4" />
@@ -140,13 +151,15 @@ export default function BlogIndex() {
               </div>
               <span>By {featuredPost.author}</span>
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="outline">{featuredPost.category}</Badge>
-              {featuredPost.tags.map(tag => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  {tag}
-                </Badge>
-              ))}
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline">{featuredPost.category}</Badge>
+                  {featuredPost.tags.map(tag => (
+                    <Badge key={tag} variant="secondary" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
             </div>
           </Card>
         )}
@@ -154,17 +167,27 @@ export default function BlogIndex() {
         {/* Regular Posts */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-12">
           {regularPosts.map(post => (
-            <Card key={post.id} className="p-6 hover:shadow-lg transition-shadow">
-              <Badge variant="outline" className="mb-3">{post.category}</Badge>
-              
-              <h3 className="font-semibold mb-3 line-clamp-2">
-                <a 
-                  href={`/blog/${post.slug}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {post.title}
-                </a>
-              </h3>
+            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              {post.featuredImage && (
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={post.featuredImage} 
+                    alt={post.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <Badge variant="outline" className="mb-3">{post.category}</Badge>
+                
+                <h3 className="font-semibold mb-3 line-clamp-2">
+                  <a 
+                    href={`/blog/${post.slug}`}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {post.title}
+                  </a>
+                </h3>
               
               <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                 {post.excerpt}
@@ -181,6 +204,7 @@ export default function BlogIndex() {
                     {tag}
                   </Badge>
                 ))}
+              </div>
               </div>
             </Card>
           ))}

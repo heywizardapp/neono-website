@@ -1,4 +1,40 @@
 export const imageUtils = {
+  // Compress image before converting to base64
+  async compressImage(file: File, maxWidth: number = 1200, quality: number = 0.8): Promise<Blob> {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+
+        // Resize if image is too large
+        if (width > maxWidth) {
+          height = (height * maxWidth) / width;
+          width = maxWidth;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        ctx?.drawImage(img, 0, 0, width, height);
+
+        canvas.toBlob(
+          (blob) => {
+            if (blob) resolve(blob);
+            else reject(new Error('Canvas to Blob conversion failed'));
+          },
+          file.type,
+          quality
+        );
+      };
+
+      img.onerror = reject;
+      img.src = URL.createObjectURL(file);
+    });
+  },
+
   // Convert image to base64 for storage
   async toBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -40,7 +76,11 @@ export const imageUtils = {
       throw new Error(validation.error);
     }
 
-    const base64 = await this.toBase64(file);
+    // Compress image before storing
+    const compressed = await this.compressImage(file);
+    const compressedFile = new File([compressed], file.name, { type: file.type });
+    
+    const base64 = await this.toBase64(compressedFile);
     const imageName = this.generateImageName(file.name);
     
     // Store in localStorage
