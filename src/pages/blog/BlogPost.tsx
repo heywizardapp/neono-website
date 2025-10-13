@@ -1,5 +1,5 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowLeft, User, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -47,10 +47,10 @@ export default function BlogPost() {
     }
   };
 
-  const [content, setContent] = React.useState<string>('');
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [content, setContent] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getFullContent(slug || '').then((markdownContent) => {
       setContent(markdownContent);
       setIsLoading(false);
@@ -560,11 +560,9 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
     }
   };
 
-  const fullContent = getFullContent(post.slug);
-  
   // Extract headings for table of contents
-  const headings = useMemo(() => extractHeadings(fullContent), [fullContent]);
-  const readingTime = useMemo(() => calculateReadingTime(fullContent), [fullContent]);
+  const headings = useMemo(() => extractHeadings(content), [content]);
+  const readingTime = useMemo(() => calculateReadingTime(content), [content]);
 
   return (
     <>
@@ -589,7 +587,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
           __html: JSON.stringify(generateEnhancedArticleSchema({
             title: post.title,
             description: post.excerpt,
-            content: fullContent,
+            content: content,
             author: post.author,
             publishedTime: post.publishedAt,
             modifiedTime: post.updatedAt,
@@ -719,7 +717,7 @@ Stay tuned for the full content, or [contact our team](/contact) if you have spe
                 },
               }}
             >
-              {fullContent}
+              {isLoading ? 'Loading...' : content}
             </ReactMarkdown>
             </article>
 

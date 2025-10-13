@@ -18,4 +18,5 @@ export default defineConfig(({ mode }) => ({
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
+  assetsInclude: ['**/*.md'],
 }));

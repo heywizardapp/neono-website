@@ -64,6 +64,63 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2024-01-08',
     readTime: '4 min read',
     author: 'Product Team'
+  },
+  {
+    id: '5',
+    title: 'Ultimate Guide to Salon Management Software',
+    excerpt: 'Everything you need to know to choose the right salon software: features, pricing, implementation, and ROI calculations.',
+    category: 'Technology',
+    tags: ['software', 'guide', 'features'],
+    slug: 'ultimate-salon-management-software-guide',
+    publishedAt: '2024-01-20',
+    readTime: '15 min read',
+    author: 'NeonO Team',
+    featured: true
+  },
+  {
+    id: '6',
+    title: 'Staff Scheduling Best Practices for Salons',
+    excerpt: 'Maximize profitability and staff satisfaction with strategic scheduling. Includes templates and optimization strategies.',
+    category: 'Business',
+    tags: ['scheduling', 'staff', 'operations'],
+    slug: 'staff-scheduling-best-practices-salons',
+    publishedAt: '2024-01-18',
+    readTime: '12 min read',
+    author: 'Operations Team'
+  },
+  {
+    id: '7',
+    title: 'Local SEO for Barbershops: Complete Guide',
+    excerpt: 'Dominate local search results and attract more walk-ins with proven SEO strategies for barbershops.',
+    category: 'Marketing',
+    tags: ['seo', 'local', 'barbershops'],
+    slug: 'local-seo-barbershops-guide',
+    publishedAt: '2024-01-16',
+    readTime: '10 min read',
+    author: 'Marketing Team'
+  },
+  {
+    id: '8',
+    title: 'How to Calculate ROI on Salon Software (With Real Examples)',
+    excerpt: 'Step-by-step guide to calculating true ROI on salon software investments, including real salon case studies.',
+    category: 'Business',
+    tags: ['roi', 'analytics', 'finance'],
+    slug: 'calculate-salon-roi-guide',
+    publishedAt: '2024-01-22',
+    readTime: '11 min read',
+    author: 'Business Team'
+  },
+  {
+    id: '9',
+    title: 'Case Study: How Metro Salon Doubled Online Bookings in 90 Days',
+    excerpt: 'Real strategies and results from a salon that transformed their booking process and revenue.',
+    category: 'Success Stories',
+    tags: ['case-study', 'bookings', 'growth'],
+    slug: 'metro-salon-doubled-bookings-case-study',
+    publishedAt: '2024-01-25',
+    readTime: '9 min read',
+    author: 'Success Team',
+    featured: true
   }
 ];
 
