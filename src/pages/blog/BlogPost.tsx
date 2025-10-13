@@ -39,11 +39,12 @@ export default function BlogPost() {
   // Get the full blog content from markdown files
   const getFullContent = async (slug: string): Promise<string> => {
     try {
-      const content = await import(`../../content/blog/${slug}.md?raw`);
-      return content.default;
+      const content = await import(`../../content/blog/${slug}.md`);
+      return content.default || content;
     } catch (error) {
       console.error(`Failed to load blog post: ${slug}`, error);
-      return '# Content not found\n\nThis blog post content could not be loaded.';
+      // Fallback to legacy content
+      return getLegacyContent(slug) || '# Content not found\n\nThis blog post content could not be loaded.';
     }
   };
 
