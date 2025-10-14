@@ -5,6 +5,7 @@ import { Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/consent/CookieBanner";
@@ -159,6 +160,9 @@ export default function App() {
               <PerformanceErrorBoundary>
                 <PerformanceMonitor position="bottom-right" />
               </PerformanceErrorBoundary>
+              
+              {/* Vercel Speed Insights - Production RUM tracking */}
+              <SpeedInsights />
             </div>
           </BrowserRouter>
           
