@@ -161,8 +161,8 @@ export default function App() {
                 <PerformanceMonitor position="bottom-right" />
               </PerformanceErrorBoundary>
               
-              {/* Vercel Speed Insights - Production RUM tracking */}
-              <SpeedInsights />
+              {/* Vercel Speed Insights - Production only */}
+              {import.meta.env.PROD && <SpeedInsights />}
             </div>
           </BrowserRouter>
           

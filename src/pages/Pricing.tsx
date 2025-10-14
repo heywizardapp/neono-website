@@ -10,7 +10,6 @@ import { StickyCompare } from '@/components/compare/StickyCompare';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 import { useI18n } from '@/hooks/useI18n';
-import { StickySubnav } from '@/components/StickySubnav';
 import {
   Accordion,
   AccordionContent,
