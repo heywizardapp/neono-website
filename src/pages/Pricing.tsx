@@ -50,7 +50,11 @@ const faqs = [
   },
   {
     question: 'How does the per-chair pricing work?',
-    answer: 'For salons, you pay $16.99 per chair per month. If you have 3 chairs, that\'s $50.97/month. You can add or remove chairs anytime as your business grows.'
+    answer: 'Salon plans start at 2 chairs for $33.98/month. Each chair costs $16.99/month for the first 7 chairs. After that, chairs 8 and beyond are completely FREE—no additional cost as you grow. The maximum you\'ll ever pay is $118.93/month, regardless of team size.'
+  },
+  {
+    question: 'Do I really get unlimited chairs after 7?',
+    answer: 'Yes! Once you have 7 chairs, every additional chair is completely free. Whether you have 8 chairs or 50 chairs, you pay the same price: $118.93/month. This makes NeonO incredibly cost-effective for growing salons and multi-location businesses.'
   },
   {
     question: 'Can I switch between Independent and Salon plans?',
@@ -76,14 +80,23 @@ const faqs = [
 
 export default function Pricing() {
   const { t } = useI18n();
-  const [chairCount, setChairCount] = useState(3);
+  const [chairCount, setChairCount] = useState(2);
 
   const independentPrice = 19.99;
   const pricePerChair = 16.99;
-  const salonTotal = chairCount * pricePerChair;
+  
+  // Calculate salon price with free chairs after 7
+  const calculateSalonPrice = (chairs: number) => {
+    const billableChairs = Math.min(chairs, 7);
+    return billableChairs * pricePerChair;
+  };
+  
+  const salonTotal = calculateSalonPrice(chairCount);
+  const freeChairs = Math.max(0, chairCount - 7);
+  const savings = freeChairs * pricePerChair;
 
   const decrementChairs = () => {
-    if (chairCount > 1) setChairCount(chairCount - 1);
+    if (chairCount > 2) setChairCount(chairCount - 1);
   };
 
   const incrementChairs = () => {
@@ -183,7 +196,7 @@ export default function Pricing() {
                     </Badge>
                     <CardTitle className="text-3xl mb-2">Salon</CardTitle>
                     <CardDescription className="text-lg">
-                      Perfect for multi-chair salons and teams
+                      Perfect for teams of 2+ • Chairs 8+ are FREE
                     </CardDescription>
                     
                     <div className="pt-8 space-y-6">
@@ -197,7 +210,7 @@ export default function Pricing() {
                             variant="outline"
                             size="icon"
                             onClick={decrementChairs}
-                            disabled={chairCount <= 1}
+                            disabled={chairCount <= 2}
                             className="h-12 w-12"
                           >
                             <Minus className="h-4 w-4" />
@@ -216,7 +229,18 @@ export default function Pricing() {
                           </Button>
                         </div>
                         <div className="text-sm text-muted-foreground text-center mt-4">
-                          ${pricePerChair} per chair/month
+                          {chairCount <= 7 ? (
+                            <span>${pricePerChair} per chair/month</span>
+                          ) : (
+                            <div className="space-y-1">
+                              <div className="font-medium text-primary">
+                                First 7 chairs: ${pricePerChair}/chair
+                              </div>
+                              <div className="text-green-600 dark:text-green-400 font-semibold">
+                                Chairs 8-{chairCount}: FREE
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
 
@@ -226,8 +250,19 @@ export default function Pricing() {
                         <span className="text-xl font-normal text-muted-foreground">/month</span>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        All features included • No hidden fees
+                        {chairCount <= 7 
+                          ? "All features included • No hidden fees"
+                          : `First 7 chairs billed • ${freeChairs} additional chair${freeChairs > 1 ? 's' : ''} FREE`
+                        }
                       </div>
+                      
+                      {chairCount > 7 && (
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                          <p className="text-xs text-green-700 dark:text-green-300 font-medium text-center">
+                            🎉 You're saving ${savings.toFixed(2)}/month with free chairs!
+                          </p>
+                        </div>
+                      )}
                     </div>
                   </CardHeader>
 
