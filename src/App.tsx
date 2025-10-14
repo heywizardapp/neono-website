@@ -13,6 +13,7 @@ import { LiveChat } from "@/components/chat/LiveChat";
 import { PerformanceMonitor } from '@/components/performance/PerformanceMonitor';
 import { PerformanceErrorBoundary } from '@/components/performance/PerformanceMonitor';
 import { SmartPreloader } from '@/components/advanced/SmartPreloader';
+import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 
 // Lazy load pages for better performance
 import Index from './pages/Index'; // Keep homepage immediate for best UX
@@ -78,89 +79,91 @@ const PageFallback = () => (
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <div className="min-h-screen flex flex-col bg-background text-foreground">
-            <Header />
-            <main className="flex-1">
-              <Suspense fallback={<PageFallback />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
+    <ErrorBoundary>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <div className="min-h-screen flex flex-col bg-background text-foreground">
+              <Header />
+              <main className="flex-1">
+                <Suspense fallback={<PageFallback />}>
+                  <Routes>
+                    <Route path="/" element={<Index />} />
 
-                  {/* Auth */}
-                  <Route path="/signup" element={<div className="p-8">Signup page - coming soon</div>} />
-                  <Route path="/login" element={<div className="p-8">Login page - coming soon</div>} />
-                  <Route path="/demo" element={<Demo />} />
+                    {/* Auth */}
+                    <Route path="/signup" element={<div className="p-8">Signup page - coming soon</div>} />
+                    <Route path="/login" element={<div className="p-8">Login page - coming soon</div>} />
+                    <Route path="/demo" element={<Demo />} />
 
-                  <Route path="/pricing" element={<Pricing />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/roi" element={<Roi />} />
-                  <Route path="/privacy" element={<Privacy />} />
-                  <Route path="/terms" element={<Terms />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/security" element={<Security />} />
-                  <Route path="/compare" element={<Compare />} />
-                  <Route path="/case-studies" element={<CaseStudies />} />
+                    <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/roi" element={<Roi />} />
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
+                    <Route path="/terms-of-service" element={<TermsOfService />} />
+                    <Route path="/security" element={<Security />} />
+                    <Route path="/compare" element={<Compare />} />
+                    <Route path="/case-studies" element={<CaseStudies />} />
 
-                  {/* Products */}
-                  <Route path="/products" element={<ProductsIndex />} />
-                  <Route path="/products/staff-management" element={<StaffManagement />} />
-                  <Route path="/products/appointments" element={<Appointments />} />
-                  <Route path="/products/online-booking" element={<OnlineBooking />} />
-                  <Route path="/products/marketing" element={<Marketing />} />
-                  <Route path="/products/ai" element={<AI />} />
-                  <Route path="/products/landing-page-builder" element={<LandingPageBuilder />} />
-                  <Route path="/products/analytics" element={<Analytics />} />
-                  <Route path="/products/pos" element={<Pos />} />
+                    {/* Products */}
+                    <Route path="/products" element={<ProductsIndex />} />
+                    <Route path="/products/staff-management" element={<StaffManagement />} />
+                    <Route path="/products/appointments" element={<Appointments />} />
+                    <Route path="/products/online-booking" element={<OnlineBooking />} />
+                    <Route path="/products/marketing" element={<Marketing />} />
+                    <Route path="/products/ai" element={<AI />} />
+                    <Route path="/products/landing-page-builder" element={<LandingPageBuilder />} />
+                    <Route path="/products/analytics" element={<Analytics />} />
+                    <Route path="/products/pos" element={<Pos />} />
 
-                  {/* Solutions */}
-                  <Route path="/solutions" element={<SolutionsIndex />} />
-                  <Route path="/solutions/salons" element={<Salons />} />
-                  <Route path="/solutions/barbershops" element={<Barbershops />} />
-                  <Route path="/solutions/spas" element={<Spas />} />
-                  <Route path="/solutions/aesthetics" element={<Aesthetics />} />
+                    {/* Solutions */}
+                    <Route path="/solutions" element={<SolutionsIndex />} />
+                    <Route path="/solutions/salons" element={<Salons />} />
+                    <Route path="/solutions/barbershops" element={<Barbershops />} />
+                    <Route path="/solutions/spas" element={<Spas />} />
+                    <Route path="/solutions/aesthetics" element={<Aesthetics />} />
 
-                  {/* Resources Hub (Unified) */}
-                  <Route path="/resources" element={<ResourcesHub />} />
-                  <Route path="/resources/:slug" element={<BlogPost />} />
-                  
-                  {/* Legacy blog routes - redirect to resources */}
-                  <Route path="/blog" element={<ResourcesHub />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
+                    {/* Resources Hub (Unified) */}
+                    <Route path="/resources" element={<ResourcesHub />} />
+                    <Route path="/resources/:slug" element={<BlogPost />} />
+                    
+                    {/* Legacy blog routes - redirect to resources */}
+                    <Route path="/blog" element={<ResourcesHub />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
 
-                  {/* Admin Routes */}
-                  <Route path="/admin/login" element={<BlogLogin />} />
-                  <Route path="/admin/blog" element={<BlogAdmin />} />
-                  <Route path="/admin/blog/new" element={<BlogEditor />} />
-                  <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
+                    {/* Admin Routes */}
+                    <Route path="/admin/login" element={<BlogLogin />} />
+                    <Route path="/admin/blog" element={<BlogAdmin />} />
+                    <Route path="/admin/blog/new" element={<BlogEditor />} />
+                    <Route path="/admin/blog/edit/:id" element={<BlogEditor />} />
 
-                  {/* Company */}
-                  <Route path="/company" element={<CompanyIndex />} />
-                  <Route path="/company/about" element={<CompanyAbout />} />
-                  <Route path="/company/careers" element={<CompanyCareers />} />
+                    {/* Company */}
+                    <Route path="/company" element={<CompanyIndex />} />
+                    <Route path="/company/about" element={<CompanyAbout />} />
+                    <Route path="/company/careers" element={<CompanyCareers />} />
 
-                  {/* 404 */}
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </main>
-            <Footer />
-            <CookieBanner />
-            <InstallPrompt />
-            <LiveChat />
-            
-            {/* Performance Monitor - Only shows in development */}
-            <PerformanceErrorBoundary>
-              <PerformanceMonitor position="bottom-right" />
-            </PerformanceErrorBoundary>
-          </div>
-        </BrowserRouter>
-        
-      </QueryClientProvider>
-    </HelmetProvider>
+                    {/* 404 */}
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </main>
+              <Footer />
+              <CookieBanner />
+              <InstallPrompt />
+              <LiveChat />
+              
+              {/* Performance Monitor - Only shows in development */}
+              <PerformanceErrorBoundary>
+                <PerformanceMonitor position="bottom-right" />
+              </PerformanceErrorBoundary>
+            </div>
+          </BrowserRouter>
+          
+        </QueryClientProvider>
+      </HelmetProvider>
+    </ErrorBoundary>
   );
 }

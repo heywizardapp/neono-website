@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +10,10 @@ import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
 import { useToast } from '@/hooks/use-toast';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { demoFormSchema, type DemoFormData } from '@/lib/validation/schemas';
+import { handleError } from '@/lib/errors/handlers';
 
 const demoFeatures = [
   {
@@ -40,37 +43,10 @@ const timeSlots = [
 ];
 
 export default function Demo() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    businessName: '',
-    businessType: 'salon',
-    teamSize: '1-5',
-    currentSoftware: '',
-    preferredDate: '',
-    preferredTime: '',
-    goals: '',
-    hearAboutUs: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Demo scheduled successfully!",
-      description: "We'll send you a calendar invite within 15 minutes.",
-    });
-    
-    // Reset form
-    setFormData({
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<DemoFormData>({
+    resolver: zodResolver(demoFormSchema),
+    defaultValues: {
       firstName: '',
       lastName: '',
       email: '',
@@ -83,13 +59,23 @@ export default function Demo() {
       preferredTime: '',
       goals: '',
       hearAboutUs: ''
-    });
-    
-    setIsSubmitting(false);
-  };
+    }
+  });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const onSubmit = async (data: DemoFormData) => {
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast({
+        title: "Demo scheduled successfully!",
+        description: "We'll send you a calendar invite within 15 minutes.",
+      });
+      
+      reset();
+    } catch (error) {
+      handleError(error);
+    }
   };
 
   return (
@@ -137,7 +123,7 @@ export default function Demo() {
                   </CardDescription>
                 </CardHeader>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-sm font-medium">
@@ -145,11 +131,12 @@ export default function Demo() {
                       </label>
                       <Input
                         id="firstName"
-                        value={formData.firstName}
-                        onChange={(e) => handleInputChange('firstName', e.target.value)}
-                        required
+                        {...register('firstName')}
                         placeholder="John"
                       />
+                      {errors.firstName && (
+                        <p className="text-sm text-destructive">{errors.firstName.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="lastName" className="text-sm font-medium">
@@ -157,11 +144,12 @@ export default function Demo() {
                       </label>
                       <Input
                         id="lastName"
-                        value={formData.lastName}
-                        onChange={(e) => handleInputChange('lastName', e.target.value)}
-                        required
+                        {...register('lastName')}
                         placeholder="Doe"
                       />
+                      {errors.lastName && (
+                        <p className="text-sm text-destructive">{errors.lastName.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -173,11 +161,12 @@ export default function Demo() {
                       <Input
                         id="email"
                         type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        required
+                        {...register('email')}
                         placeholder="john@salon.com"
                       />
+                      {errors.email && (
+                        <p className="text-sm text-destructive">{errors.email.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="phone" className="text-sm font-medium">
@@ -186,10 +175,12 @@ export default function Demo() {
                       <Input
                         id="phone"
                         type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
+                        {...register('phone')}
                         placeholder="(555) 123-4567"
                       />
+                      {errors.phone && (
+                        <p className="text-sm text-destructive">{errors.phone.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -199,11 +190,12 @@ export default function Demo() {
                     </label>
                     <Input
                       id="businessName"
-                      value={formData.businessName}
-                      onChange={(e) => handleInputChange('businessName', e.target.value)}
-                      required
+                      {...register('businessName')}
                       placeholder="Your Salon/Spa Name"
                     />
+                    {errors.businessName && (
+                      <p className="text-sm text-destructive">{errors.businessName.message}</p>
+                    )}
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -213,10 +205,8 @@ export default function Demo() {
                       </label>
                       <select
                         id="businessType"
-                        value={formData.businessType}
-                        onChange={(e) => handleInputChange('businessType', e.target.value)}
+                        {...register('businessType')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
                       >
                         <option value="salon">Hair Salon</option>
                         <option value="barbershop">Barbershop</option>
@@ -225,6 +215,9 @@ export default function Demo() {
                         <option value="nails">Nail Salon</option>
                         <option value="other">Other</option>
                       </select>
+                      {errors.businessType && (
+                        <p className="text-sm text-destructive">{errors.businessType.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="teamSize" className="text-sm font-medium">
@@ -232,16 +225,17 @@ export default function Demo() {
                       </label>
                       <select
                         id="teamSize"
-                        value={formData.teamSize}
-                        onChange={(e) => handleInputChange('teamSize', e.target.value)}
+                        {...register('teamSize')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
                       >
                         <option value="1-5">1-5 employees</option>
                         <option value="6-15">6-15 employees</option>
                         <option value="16-30">16-30 employees</option>
                         <option value="31+">31+ employees</option>
                       </select>
+                      {errors.teamSize && (
+                        <p className="text-sm text-destructive">{errors.teamSize.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -251,10 +245,12 @@ export default function Demo() {
                     </label>
                     <Input
                       id="currentSoftware"
-                      value={formData.currentSoftware}
-                      onChange={(e) => handleInputChange('currentSoftware', e.target.value)}
+                      {...register('currentSoftware')}
                       placeholder="e.g., Fresha, Booksy, Square, etc."
                     />
+                    {errors.currentSoftware && (
+                      <p className="text-sm text-destructive">{errors.currentSoftware.message}</p>
+                    )}
                   </div>
 
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -265,10 +261,12 @@ export default function Demo() {
                       <Input
                         id="preferredDate"
                         type="date"
-                        value={formData.preferredDate}
-                        onChange={(e) => handleInputChange('preferredDate', e.target.value)}
+                        {...register('preferredDate')}
                         min={new Date().toISOString().split('T')[0]}
                       />
+                      {errors.preferredDate && (
+                        <p className="text-sm text-destructive">{errors.preferredDate.message}</p>
+                      )}
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="preferredTime" className="text-sm font-medium">
@@ -276,8 +274,7 @@ export default function Demo() {
                       </label>
                       <select
                         id="preferredTime"
-                        value={formData.preferredTime}
-                        onChange={(e) => handleInputChange('preferredTime', e.target.value)}
+                        {...register('preferredTime')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       >
                         <option value="">Select a time</option>
@@ -285,6 +282,9 @@ export default function Demo() {
                           <option key={time} value={time}>{time}</option>
                         ))}
                       </select>
+                      {errors.preferredTime && (
+                        <p className="text-sm text-destructive">{errors.preferredTime.message}</p>
+                      )}
                     </div>
                   </div>
 
@@ -294,11 +294,13 @@ export default function Demo() {
                     </label>
                     <Textarea
                       id="goals"
-                      value={formData.goals}
-                      onChange={(e) => handleInputChange('goals', e.target.value)}
+                      {...register('goals')}
                       rows={3}
                       placeholder="e.g., Increase bookings, reduce no-shows, streamline operations..."
                     />
+                    {errors.goals && (
+                      <p className="text-sm text-destructive">{errors.goals.message}</p>
+                    )}
                   </div>
 
                   <Button

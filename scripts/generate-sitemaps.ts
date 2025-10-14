@@ -39,35 +39,120 @@ const staticPages: SitemapUrl[] = [
     lastmod: new Date().toISOString().split('T')[0]
   },
   {
+    loc: '/products/appointments',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/online-booking',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/pos',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/marketing',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/staff-management',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/analytics',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/ai',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/products/landing-page-builder',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
     loc: '/roi',
     changefreq: 'monthly',
     priority: 0.7,
     lastmod: new Date().toISOString().split('T')[0]
+  },
+  {
+    loc: '/contact',
+    changefreq: 'monthly',
+    priority: 0.6
+  },
+  {
+    loc: '/demo',
+    changefreq: 'monthly',
+    priority: 0.8
+  },
+  {
+    loc: '/compare',
+    changefreq: 'monthly',
+    priority: 0.6
+  },
+  {
+    loc: '/case-studies',
+    changefreq: 'monthly',
+    priority: 0.7
+  },
+  {
+    loc: '/company/about',
+    changefreq: 'yearly',
+    priority: 0.5
+  },
+  {
+    loc: '/company/careers',
+    changefreq: 'monthly',
+    priority: 0.6
   }
 ];
 
 // Solutions pages
 const solutionPages: SitemapUrl[] = [
   {
+    loc: '/solutions',
+    changefreq: 'monthly',
+    priority: 0.8,
+    lastmod: new Date().toISOString().split('T')[0]
+  },
+  {
     loc: '/solutions/salons',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: new Date().toISOString().split('T')[0]
+  },
+  {
+    loc: '/solutions/barbershops',
+    changefreq: 'monthly',
+    priority: 0.8
+  },
+  {
+    loc: '/solutions/spas',
+    changefreq: 'monthly',
+    priority: 0.8
+  },
+  {
+    loc: '/solutions/aesthetics',
+    changefreq: 'monthly',
+    priority: 0.8
   }
 ];
 
-// Blog/Resources pages (would be dynamic in real implementation)
+// Blog/Resources pages
 const blogPages: SitemapUrl[] = [
   {
-    loc: '/blog',
-    changefreq: 'weekly',
-    priority: 0.7,
-    lastmod: new Date().toISOString().split('T')[0]
-  },
-  {
     loc: '/resources',
-    changefreq: 'weekly',
-    priority: 0.6,
+    changefreq: 'daily',
+    priority: 0.7,
     lastmod: new Date().toISOString().split('T')[0]
   }
 ];

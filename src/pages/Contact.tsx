@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -6,8 +5,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
-import { EnhancedButton } from '@/components/advanced/EnhancedInteractiveElements';
 import { useToast } from '@/hooks/use-toast';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactFormSchema, type ContactFormData } from '@/lib/validation/schemas';
+import { handleError } from '@/lib/errors/handlers';
 import { 
   Mail, 
   Phone, 
@@ -58,41 +60,32 @@ const supportTopics = [
 ];
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    topic: 'General Inquiry',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
-    
-    setFormData({
+  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
       name: '',
       email: '',
       company: '',
       topic: 'General Inquiry',
       message: ''
-    });
-    
-    setIsSubmitting(false);
-  };
+    }
+  });
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      // Simulate form submission
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      toast({
+        title: "Message sent successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      
+      reset();
+    } catch (error) {
+      handleError(error);
+    }
   };
 
   return (
@@ -167,7 +160,7 @@ export default function Contact() {
                     </CardDescription>
                   </CardHeader>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="name" className="text-sm font-medium">
@@ -175,11 +168,12 @@ export default function Contact() {
                         </label>
                         <Input
                           id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          required
+                          {...register('name')}
                           placeholder="John Doe"
                         />
+                        {errors.name && (
+                          <p className="text-sm text-destructive">{errors.name.message}</p>
+                        )}
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="email" className="text-sm font-medium">
@@ -188,11 +182,12 @@ export default function Contact() {
                         <Input
                           id="email"
                           type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          required
+                          {...register('email')}
                           placeholder="john@example.com"
                         />
+                        {errors.email && (
+                          <p className="text-sm text-destructive">{errors.email.message}</p>
+                        )}
                       </div>
                     </div>
 
@@ -202,10 +197,12 @@ export default function Contact() {
                       </label>
                       <Input
                         id="company"
-                        value={formData.company}
-                        onChange={(e) => handleInputChange('company', e.target.value)}
+                        {...register('company')}
                         placeholder="Your Salon/Spa Name"
                       />
+                      {errors.company && (
+                        <p className="text-sm text-destructive">{errors.company.message}</p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -214,15 +211,16 @@ export default function Contact() {
                       </label>
                       <select
                         id="topic"
-                        value={formData.topic}
-                        onChange={(e) => handleInputChange('topic', e.target.value)}
+                        {...register('topic')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
                       >
                         {supportTopics.map(topic => (
                           <option key={topic} value={topic}>{topic}</option>
                         ))}
                       </select>
+                      {errors.topic && (
+                        <p className="text-sm text-destructive">{errors.topic.message}</p>
+                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -231,12 +229,13 @@ export default function Contact() {
                       </label>
                       <Textarea
                         id="message"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        required
+                        {...register('message')}
                         rows={5}
                         placeholder="Tell us how we can help you..."
                       />
+                      {errors.message && (
+                        <p className="text-sm text-destructive">{errors.message.message}</p>
+                      )}
                     </div>
 
                     <Button
