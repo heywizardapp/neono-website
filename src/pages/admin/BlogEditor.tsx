@@ -32,7 +32,7 @@ export default function BlogEditor() {
   const { toast } = useToast();
   const isEdit = !!id;
 
-  const [post, setPost] = useState<DraftPost>({
+  const [post, setPost] = useState<DraftPost & { contentType?: string }>({
     title: '',
     excerpt: '',
     category: 'Business',
@@ -45,7 +45,8 @@ export default function BlogEditor() {
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     featured: false,
-    featuredImage: ''
+    featuredImage: '',
+    contentType: 'blog'
   });
 
   const [tagInput, setTagInput] = useState('');
@@ -261,6 +262,25 @@ export default function BlogEditor() {
                     onChange={(e) => setPost({ ...post, slug: e.target.value })}
                     placeholder="post-url-slug"
                   />
+                </div>
+
+                <div>
+                  <Label htmlFor="contentType">Content Type *</Label>
+                  <Select
+                    value={post.contentType || 'blog'}
+                    onValueChange={(value) => setPost({ ...post, contentType: value })}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="blog">Blog</SelectItem>
+                      <SelectItem value="guide">Guide</SelectItem>
+                      <SelectItem value="education">Education</SelectItem>
+                      <SelectItem value="video">Video</SelectItem>
+                      <SelectItem value="case-study">Case Study</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>

@@ -46,9 +46,6 @@ const Spas = lazy(() => import('./pages/solutions/Spas'));
 const Barbershops = lazy(() => import('./pages/solutions/Barbershops'));
 const Aesthetics = lazy(() => import('./pages/solutions/Aesthetics'));
 
-// Resources pages
-const ResourcesIndex = lazy(() => import('./pages/resources/Index'));
-
 // Blog pages
 const BlogIndex = lazy(() => import('./pages/blog/Index'));
 const BlogPost = lazy(() => import('./pages/blog/BlogPost'));

@@ -26,63 +26,23 @@ interface Resource {
   featuredImage?: string;
 }
 
-// Map blog posts to resources with content types
+// Map blog posts to resources - only from localStorage
 const getResources = (): Resource[] => {
   const blogPosts = getAllPosts().filter(post => post.status === 'published');
-  return [
-    ...blogPosts.map(post => ({
-      id: post.id,
-      title: post.title,
-      excerpt: post.excerpt,
-      category: post.category,
-      tags: post.tags,
-      slug: post.slug,
-      publishedAt: post.publishedAt,
-      readTime: post.readTime,
-      author: post.author,
-      featured: post.featured,
-      featuredImage: post.featuredImage,
-      contentType: 'blog' as const
-    })),
-    // Additional mock resources for demonstration
-  {
-    id: 'guide-1',
-    title: 'Complete Guide to Salon Client Retention',
-    excerpt: 'Learn proven strategies to keep clients coming back and increase lifetime value with actionable retention tactics.',
-    category: 'Growth',
-    contentType: 'guide' as const,
-    tags: ['retention', 'clients', 'strategy'],
-    slug: 'salon-client-retention-guide',
-    publishedAt: '2024-01-20',
-    readTime: '12 min read',
-    author: 'NeonO Team',
-    featured: true
-  },
-  {
-    id: 'video-1',
-    title: 'Setting Up Your Salon for Success',
-    excerpt: 'Watch this comprehensive video guide on essential systems and processes every salon needs to thrive.',
-    category: 'Business',
-    contentType: 'video' as const,
-    tags: ['setup', 'systems', 'video'],
-    slug: 'salon-setup-success',
-    publishedAt: '2024-01-18',
-    readTime: '15 min watch',
-    author: 'Product Team'
-  },
-  {
-    id: 'case-1',
-    title: 'How Luxe Salon Increased Revenue by 40% in 6 Months',
-    excerpt: 'Real case study: Discover the strategies that helped this salon transform their business with NeonO.',
-    category: 'Success Stories',
-    contentType: 'case-study' as const,
-    tags: ['case study', 'revenue', 'success'],
-    slug: 'luxe-salon-success-story',
-    publishedAt: '2024-01-16',
-    readTime: '6 min read',
-    author: 'Customer Success'
-  }
-  ];
+  return blogPosts.map(post => ({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: post.category,
+    tags: post.tags,
+    slug: post.slug,
+    publishedAt: post.publishedAt,
+    readTime: post.readTime,
+    author: post.author,
+    featured: post.featured,
+    featuredImage: post.featuredImage,
+    contentType: (post as any).contentType || 'blog' as const
+  }));
 };
 
 export default function ResourcesHub() {
