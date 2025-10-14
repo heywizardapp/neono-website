@@ -8,6 +8,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    fs: {
+      strict: false
+    }
   },
   plugins: [
     react(),
@@ -15,6 +18,7 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom'],
+    force: true
   },
   resolve: {
     alias: {

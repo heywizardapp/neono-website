@@ -70,7 +70,7 @@ export default function ResourcesHub() {
     }
 
     return filtered;
-  }, [selectedType, searchQuery]);
+  }, [selectedType, searchQuery, resources]);
 
   // Get content type badge variant
   const getContentTypeBadge = (type: string) => {

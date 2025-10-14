@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Copy, Share2, Check } from 'lucide-react';
@@ -13,20 +13,30 @@ interface ShareBarProps {
 }
 
 export function ShareBar({ 
-  url = window.location.href,
-  title = document.title,
+  url = typeof window !== 'undefined' ? window.location.href : '',
+  title = typeof document !== 'undefined' ? document.title : '',
   description = "Streamline your beauty business with NeonO - all-in-one appointments, POS, marketing, and more.",
   className = ""
 }: ShareBarProps) {
   const [copied, setCopied] = useState(false);
+  const [trackingUrl, setTrackingUrl] = useState(url);
   const { toast } = useToast();
   const { canUseAnalytics } = useConsent();
 
-  // Add UTM parameters for tracking
-  const shareUrl = new URL(url);
-  shareUrl.searchParams.set('utm_source', 'share');
-  shareUrl.searchParams.set('utm_medium', 'social');
-  const trackingUrl = shareUrl.toString();
+  // Safe URL creation with SSR check
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const shareUrl = new URL(url);
+        shareUrl.searchParams.set('utm_source', 'share');
+        shareUrl.searchParams.set('utm_medium', 'social');
+        setTrackingUrl(shareUrl.toString());
+      } catch (err) {
+        console.warn('Failed to create tracking URL:', err);
+        setTrackingUrl(url);
+      }
+    }
+  }, [url]);
 
   const encodeUrl = (url: string) => encodeURIComponent(url);
   const encodeText = (text: string) => encodeURIComponent(text);
