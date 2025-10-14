@@ -268,7 +268,7 @@ export default function BlogEditor() {
                   <Label htmlFor="contentType">Content Type *</Label>
                   <Select
                     value={post.contentType || 'blog'}
-                    onValueChange={(value) => setPost({ ...post, contentType: value })}
+                    onValueChange={(value: 'blog' | 'guide' | 'education' | 'video' | 'case-study') => setPost({ ...post, contentType: value })}
                   >
                     <SelectTrigger>
                       <SelectValue />

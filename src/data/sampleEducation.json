@@ -1,0 +1,185 @@
+[
+  {
+    "id": "collect-split-payments",
+    "title": "How to Collect Split Payments",
+    "excerpt": "Learn how to easily split payments between multiple payment methods at checkout.",
+    "category": "sales",
+    "categoryPath": ["Sales & Payments", "Split Payments"],
+    "tags": ["payments", "pos", "checkout", "split payment"],
+    "slug": "collect-split-payments",
+    "publishedAt": "2024-03-15T10:00:00Z",
+    "lastUpdated": "2024-03-20T14:30:00Z",
+    "author": "NeonO Team",
+    "status": "published",
+    "contentType": "education",
+    "description": "This guide explains how to process split payments when customers want to pay using multiple payment methods during checkout.",
+    "estimatedReadTime": "4 min read",
+    "difficulty": "beginner",
+    "sections": [
+      {
+        "id": "what-is-split-payment",
+        "title": "What is Split Payment?",
+        "content": "Split payment allows your customers to divide a single transaction across multiple payment methods. For example, a client might want to pay $50 with a gift card and the remaining $75 with a credit card.\n\nThis feature is especially useful for:\n- Using gift cards or store credit with another payment method\n- Splitting costs between multiple people\n- Maximizing credit card rewards programs\n- Managing budgets by using different payment sources",
+        "callouts": [
+          {
+            "type": "tip",
+            "content": "Split payments are most commonly used during busy periods like holidays when customers have gift cards to use."
+          }
+        ]
+      },
+      {
+        "id": "how-to-process",
+        "title": "How to Process a Split Payment",
+        "content": "Processing a split payment in NeonO is simple and takes just a few steps:\n\n1. **Add items to cart** - Add all services and products to the checkout cart as normal\n2. **Navigate to checkout** - Click the \"Checkout\" button to proceed to payment\n3. **Select first payment method** - Choose the first payment method (e.g., Gift Card)\n4. **Enter amount** - Enter the amount to charge to this payment method\n5. **Apply payment** - Click \"Apply\" to process the first payment\n6. **Add second payment** - The system will show the remaining balance\n7. **Select second method** - Choose the second payment method\n8. **Complete transaction** - Process the final payment to complete the sale",
+        "callouts": [
+          {
+            "type": "important",
+            "content": "Always apply the gift card or store credit FIRST before processing credit card payments. This ensures any promotional credits are used before charging cards."
+          },
+          {
+            "type": "note",
+            "content": "You can split a payment across up to 3 different payment methods in a single transaction."
+          }
+        ]
+      },
+      {
+        "id": "supported-methods",
+        "title": "Supported Payment Methods",
+        "content": "NeonO supports split payments across the following payment methods:\n\n**Primary Methods:**\n- Credit Cards (Visa, Mastercard, Amex)\n- Debit Cards\n- Gift Cards\n- Store Credit\n- Cash\n\n**Mobile Payments:**\n- Apple Pay\n- Google Pay\n- Tap to Pay\n\nEach payment method can be combined with any other method in the list above.",
+        "callouts": [
+          {
+            "type": "warning",
+            "content": "Some payment processors may charge an additional fee for split transactions. Check your merchant agreement for details."
+          }
+        ]
+      },
+      {
+        "id": "tips-best-practices",
+        "title": "Tips & Best Practices",
+        "content": "Follow these best practices when processing split payments:\n\n**For Staff:**\n- Always confirm the split amounts with the customer before processing\n- Process gift cards and store credit first\n- Double-check the remaining balance before processing the final payment\n- Keep the receipt printer nearby for immediate transaction confirmation\n\n**For Customers:**\n- Have all payment methods ready before checkout\n- Know the balance on gift cards or store credit\n- Consider combining smaller balances onto a single card to avoid multiple transactions\n\n**Common Scenarios:**\n- **Couples splitting costs** - Split 50/50 between two credit cards\n- **Gift card redemption** - Use full gift card balance, pay remainder with card\n- **Budget management** - Pay partially with cash, remainder with credit for tracking",
+        "callouts": [
+          {
+            "type": "tip",
+            "content": "If you frequently process split payments, consider adding this as a quick action in your POS shortcuts menu."
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I split a payment after it's been processed?",
+        "answer": "No, split payments must be set up during the checkout process before any payment is finalized. If you need to make changes, you'll need to void the transaction and start over."
+      },
+      {
+        "question": "What happens if a split payment fails?",
+        "answer": "If any part of a split payment fails, the entire transaction is rolled back and no charges are processed. You can then retry the transaction or use different payment methods."
+      },
+      {
+        "question": "Can I refund only part of a split payment?",
+        "answer": "Yes, you can process partial refunds. The system will automatically determine which payment method to refund based on your refund policy settings."
+      },
+      {
+        "question": "Is there a limit to how many times I can split a payment?",
+        "answer": "You can split a payment across up to 3 different payment methods per transaction. This limit helps keep checkout fast and prevents processing complications."
+      },
+      {
+        "question": "Do split payments work with tips?",
+        "answer": "Yes! Tips are calculated on the total amount and can be added to any of the payment methods used. The system will prompt you to select which payment method should include the tip."
+      }
+    ],
+    "relatedArticles": []
+  },
+  {
+    "id": "getting-started-setup",
+    "title": "Getting Started with NeonO",
+    "excerpt": "Complete guide to setting up your NeonO account and getting your business online in minutes.",
+    "category": "getting-started",
+    "categoryPath": ["Getting Started", "Account Setup"],
+    "tags": ["setup", "onboarding", "getting started", "account"],
+    "slug": "getting-started-setup",
+    "publishedAt": "2024-03-10T09:00:00Z",
+    "lastUpdated": "2024-03-18T11:00:00Z",
+    "author": "NeonO Team",
+    "status": "published",
+    "contentType": "education",
+    "description": "Everything you need to know to set up your NeonO account, configure your business settings, and start accepting bookings.",
+    "estimatedReadTime": "8 min read",
+    "difficulty": "beginner",
+    "sections": [
+      {
+        "id": "create-account",
+        "title": "Create Your Account",
+        "content": "Getting started with NeonO takes just a few minutes:\n\n1. Visit [neono.com](https://neono.com) and click \"Start Free Trial\"\n2. Enter your business email address\n3. Create a secure password (minimum 8 characters)\n4. Verify your email address\n5. Choose your business type (Salon, Barbershop, Spa, or Aesthetics)\n\nOnce verified, you'll be taken to your dashboard where you can complete your profile.",
+        "callouts": [
+          {
+            "type": "tip",
+            "content": "Use a business email address rather than personal email. This helps keep your business communications organized."
+          }
+        ]
+      },
+      {
+        "id": "business-info",
+        "title": "Set Up Business Information",
+        "content": "Complete your business profile to help clients find and book with you:\n\n**Required Information:**\n- Business name\n- Business address\n- Phone number\n- Business hours\n- Time zone\n\n**Optional (but recommended):**\n- Business logo\n- Business description\n- Social media links\n- Website URL\n- Photos of your location\n\nAccurate business information helps improve your search ranking and builds trust with new clients.",
+        "callouts": [
+          {
+            "type": "important",
+            "content": "Make sure your business hours are accurate. This determines when clients can book appointments online."
+          }
+        ]
+      },
+      {
+        "id": "add-services",
+        "title": "Add Your Services",
+        "content": "Set up the services you offer:\n\n1. Navigate to **Settings** > **Services**\n2. Click **Add Service**\n3. Enter service details:\n   - Service name (e.g., \"Men's Haircut\")\n   - Duration (e.g., 30 minutes)\n   - Price\n   - Description\n   - Service category\n4. **Save** the service\n5. Repeat for all services you offer\n\n**Pro Tips:**\n- Use clear, descriptive names\n- Include what's included in the service description\n- Set realistic durations to avoid overbooking\n- Create service bundles for package deals",
+        "callouts": [
+          {
+            "type": "tip",
+            "content": "You can duplicate existing services to save time when adding similar services with different durations or prices."
+          }
+        ]
+      },
+      {
+        "id": "add-team",
+        "title": "Add Team Members",
+        "content": "If you have staff, add them to your account:\n\n1. Go to **Team** > **Add Team Member**\n2. Enter their email address\n3. Assign a role (Owner, Manager, or Staff)\n4. Set their working hours\n5. Assign services they can perform\n6. Send invitation\n\nTeam members will receive an email to create their login and access the system.\n\n**Role Permissions:**\n- **Owner** - Full access to all features\n- **Manager** - Can manage staff, services, and view reports\n- **Staff** - Can view schedule, check out clients, and manage own appointments",
+        "callouts": [
+          {
+            "type": "note",
+            "content": "Each active team member counts toward your subscription seat count. You can add unlimited team members to Starter plan, but only 1 can be active at a time."
+          }
+        ]
+      },
+      {
+        "id": "test-booking",
+        "title": "Test Your First Booking",
+        "content": "Before going live, test the booking process:\n\n1. Copy your booking page URL from the dashboard\n2. Open it in a new browser window (or incognito mode)\n3. Try booking an appointment as a customer would\n4. Verify you receive confirmation emails\n5. Check that the appointment appears in your calendar\n\nThis ensures everything is working correctly before sharing with real clients.",
+        "callouts": [
+          {
+            "type": "tip",
+            "content": "Test bookings show with a 'TEST' label. You can delete them from your calendar after verifying everything works."
+          }
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How long does setup take?",
+        "answer": "Basic setup takes about 15-30 minutes. This includes creating your account, adding services, and configuring business hours. You can always add more details later."
+      },
+      {
+        "question": "Do I need to enter credit card information for the free trial?",
+        "answer": "No! Your 14-day free trial doesn't require a credit card. You'll only need to add payment information if you decide to continue after the trial ends."
+      },
+      {
+        "question": "Can I import my existing client list?",
+        "answer": "Yes! You can import clients via CSV file. Go to Clients > Import and follow the formatting instructions. We also offer free data migration for Growth and Pro plans."
+      },
+      {
+        "question": "What if I need help during setup?",
+        "answer": "Our support team is here to help! Click the chat icon in the bottom right corner or email support@neono.com. We typically respond within 2 hours during business hours."
+      }
+    ],
+    "relatedArticles": []
+  }
+]

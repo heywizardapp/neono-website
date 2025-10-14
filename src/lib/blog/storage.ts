@@ -1,4 +1,5 @@
 import { BlogPost } from '@/pages/blog/blogData';
+import type { Content, EducationContent } from '@/types/content';
 
 // In a real implementation, this would use a backend API
 // For now, we'll use localStorage to persist blog posts
@@ -20,10 +21,11 @@ export interface DraftPost {
   tags: string[];
   slug: string;
   publishedAt?: string;
-  readTime: string;
+  readTime?: string;
   author: string;
   status: 'draft' | 'published';
-  content: string;
+  content?: string; // Markdown content for blog posts
+  contentType?: 'blog' | 'guide' | 'education' | 'video' | 'case-study';
   createdAt: string;
   updatedAt: string;
   featured?: boolean;
@@ -32,6 +34,16 @@ export interface DraftPost {
   contentHistory?: ContentUpdate[];
   updateNotes?: string;
   version?: number;
+  lastUpdated?: string;
+  
+  // Education-specific fields
+  categoryPath?: string[];
+  description?: string;
+  estimatedReadTime?: string;
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
+  sections?: any[];
+  faqs?: any[];
+  relatedArticles?: string[];
 }
 
 export const blogStorage = {

@@ -1,6 +1,8 @@
 import { useParams, Navigate } from 'react-router-dom';
 import { useMemo, useState, useEffect } from 'react';
 import { getPost } from '@/lib/blog/storage';
+import { EducationTemplate } from '@/components/content-templates/EducationTemplate';
+import type { EducationContent } from '@/types/content';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -61,6 +63,13 @@ export default function BlogPost() {
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
+
+  // Route to appropriate template based on content type
+  if (post.contentType === 'education') {
+    return <EducationTemplate content={post as EducationContent} />;
+  }
+
+  // Default blog template rendering
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
