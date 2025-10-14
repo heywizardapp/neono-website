@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Search } from 'lucide-react';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { ShareBar } from '@/components/share/ShareBar';
@@ -9,6 +10,7 @@ import { StickyCompare } from '@/components/compare/StickyCompare';
 import { ResourceTabs, ResourceType } from '@/components/resources/ResourceTabs';
 import { getAllPosts } from '@/lib/blog/storage';
 import { SEOHead } from '@/components/SEO/SEOHead';
+import { useDebounce } from '@/hooks/useDebounce';
 
 // Extended resource interface with content types
 interface Resource {
@@ -48,20 +50,38 @@ const getResources = (): Resource[] => {
 export default function ResourcesHub() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<ResourceType>('all');
-  const resources = getResources();
+  const [resources, setResources] = useState<Resource[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Debounce search for better performance
+  const debouncedSearch = useDebounce(searchQuery, 300);
+  
+  // Load resources asynchronously to avoid blocking render
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      const data = getResources();
+      setResources(data);
+      setIsLoading(false);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Cache parsed resources to avoid unnecessary recalculations
+  const cachedResources = useMemo(() => resources, [resources.length]);
 
-  // Filter resources based on type and search
+  // Filter resources based on type and search (using debounced search)
   const filteredResources = useMemo(() => {
-    let filtered = resources;
+    let filtered = cachedResources;
 
     // Filter by content type
     if (selectedType !== 'all') {
       filtered = filtered.filter(resource => resource.contentType === selectedType);
     }
 
-    // Filter by search query
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+    // Filter by search query (debounced)
+    if (debouncedSearch.trim()) {
+      const query = debouncedSearch.toLowerCase();
       filtered = filtered.filter(resource =>
         resource.title.toLowerCase().includes(query) ||
         resource.excerpt.toLowerCase().includes(query) ||
@@ -70,7 +90,7 @@ export default function ResourcesHub() {
     }
 
     return filtered;
-  }, [selectedType, searchQuery, resources]);
+  }, [selectedType, debouncedSearch, cachedResources]);
 
   // Get content type badge variant
   const getContentTypeBadge = (type: string) => {
@@ -131,9 +151,30 @@ export default function ResourcesHub() {
           <h2 className="text-3xl font-bold">The Latest Articles</h2>
         </div>
 
-        {/* Resource Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
-          {filteredResources.map((resource) => (
+        {/* Loading Skeleton */}
+        {isLoading ? (
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i} className="overflow-hidden">
+                <Skeleton className="h-56 w-full rounded-none" />
+                <div className="p-6 space-y-4">
+                  <Skeleton className="h-6 w-3/4" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-2/3" />
+                  <div className="flex justify-between pt-2">
+                    <Skeleton className="h-4 w-20" />
+                    <Skeleton className="h-4 w-24" />
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <>
+            {/* Resource Grid */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+              {filteredResources.map((resource) => (
             <a 
               key={resource.id} 
               href={`/blog/${resource.slug}`}
@@ -183,17 +224,19 @@ export default function ResourcesHub() {
                 </div>
               </Card>
             </a>
-          ))}
-        </div>
+              ))}
+            </div>
 
-        {/* No Results */}
-        {filteredResources.length === 0 && (
-          <Card className="p-12 text-center">
-            <h3 className="text-xl font-semibold mb-2">No resources found</h3>
-            <p className="text-muted-foreground mb-6">
-              Try adjusting your search or selecting a different category.
-            </p>
-          </Card>
+            {/* No Results */}
+            {filteredResources.length === 0 && (
+              <Card className="p-12 text-center">
+                <h3 className="text-xl font-semibold mb-2">No resources found</h3>
+                <p className="text-muted-foreground mb-6">
+                  Try adjusting your search or selecting a different category.
+                </p>
+              </Card>
+            )}
+          </>
         )}
 
         {/* Newsletter & Share */}
