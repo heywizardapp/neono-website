@@ -203,6 +203,84 @@ export const SEO_PRESETS = {
         ]
       }
     ]
+  },
+
+  products: {
+    title: "Products — All Features Included | NeonO",
+    description: "Discover all the powerful features included in NeonO: appointments, POS, marketing, analytics, and more. No hidden fees, everything you need.",
+    keywords: "salon features, beauty software features, POS system, appointment booking, marketing automation",
+  },
+
+  staffManagement: {
+    title: "Staff Management Software | NeonO",
+    description: "Empower your team with smart scheduling, performance tracking, commission management, and role-based access. Reduce admin time by 70%.",
+    keywords: "staff management, team scheduling, commission tracking, employee performance, salon staff software",
+  },
+
+  appointments: {
+    title: "Appointment Scheduling Software | NeonO",
+    description: "Smart appointment scheduling with automated reminders, real-time availability, and 80% reduction in no-shows. Try it free for 14 days.",
+    keywords: "appointment scheduling, beauty booking software, automated reminders, salon calendar, online booking",
+  },
+
+  onlineBooking: {
+    title: "Online Booking System | NeonO",
+    description: "24/7 online booking that fills your calendar automatically. Reduce phone calls and increase bookings by 40%.",
+    keywords: "online booking, 24/7 reservations, automatic booking, salon online scheduling",
+  },
+
+  marketing: {
+    title: "Marketing Automation | NeonO",
+    description: "Automated SMS and email campaigns that bring clients back. Increase repeat bookings by 35% with smart marketing tools.",
+    keywords: "salon marketing, email automation, SMS campaigns, client retention, marketing software",
+  },
+
+  ai: {
+    title: "AI-Powered Insights | NeonO",
+    description: "Get intelligent recommendations to optimize pricing, staffing, and marketing. AI that helps you make better business decisions.",
+    keywords: "AI salon software, business intelligence, predictive analytics, smart recommendations",
+  },
+
+  analytics: {
+    title: "Analytics & Reports | NeonO",
+    description: "Real-time business insights with customizable reports. Track revenue, staff performance, and customer trends in one dashboard.",
+    keywords: "salon analytics, business reports, revenue tracking, performance metrics, dashboard",
+  },
+
+  pos: {
+    title: "Point of Sale System | NeonO",
+    description: "Lightning-fast POS with tap-to-pay, tip splitting, and same-day payouts. Accept all payment types with no hidden fees.",
+    keywords: "salon POS, point of sale, payment processing, tip management, checkout system",
+  },
+
+  landingPageBuilder: {
+    title: "Landing Page Builder | NeonO",
+    description: "Create beautiful booking pages and websites in minutes. Mobile-optimized, SEO-friendly, and includes free hosting.",
+    keywords: "website builder, landing page, salon website, booking page, online presence",
+  },
+
+  contact: {
+    title: "Contact Us | NeonO",
+    description: "Get in touch with our sales team to learn how NeonO can transform your salon or spa. Book a free demo or chat with our support team.",
+    keywords: "contact salon software, demo request, customer support, sales inquiry",
+  },
+
+  demo: {
+    title: "Book a Demo | NeonO",
+    description: "See NeonO in action with a personalized demo. Learn how our all-in-one platform can save you time and increase revenue.",
+    keywords: "software demo, product demo, salon software demo, personalized walkthrough",
+  },
+
+  resources: {
+    title: "Resources & Guides | NeonO",
+    description: "Expert advice, guides, and resources for salon and spa owners. Learn best practices, industry trends, and growth strategies.",
+    keywords: "salon tips, spa business advice, beauty industry trends, business growth guides",
+  },
+
+  blog: {
+    title: "Blog & Insights | NeonO",
+    description: "Stay up-to-date with the latest trends, tips, and strategies for running a successful beauty business.",
+    keywords: "salon blog, beauty business tips, industry insights, business strategies",
   }
 };
 

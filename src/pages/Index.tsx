@@ -123,14 +123,13 @@ const Index = () => {
             <div className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
                 <PlayCircle className="w-4 h-4 mr-2" />
-                See it in action
+                {t('demo.badge')}
               </Badge>
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                From booking to payment in seconds
+                {t('demo.title')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Watch how NeonO transforms every step of your customer journey—from online booking 
-                to checkout—into a seamless, delightful experience.
+                {t('demo.subtitle')}
               </p>
             </div>
           </IntersectionAnimation>
@@ -141,34 +140,33 @@ const Index = () => {
               <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
                 <div className="space-y-6">
                   <Badge variant="secondary" className="w-fit">
-                    🗓️ Smart Scheduling
+                    {t('demo.appointments.badge')}
                   </Badge>
                   <h3 className="text-2xl font-display font-bold">
-                    Appointments that work around your business
+                    {t('demo.appointments.title')}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    Block booking, walk-in management, staff schedules, and room assignments. 
-                    Your calendar adapts to how you actually work, not the other way around.
+                    {t('demo.appointments.description')}
                   </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Automated waitlist & cancellation handling</span>
+                      <span>{t('demo.appointments.feature1')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Smart buffer times between appointments</span>
+                      <span>{t('demo.appointments.feature2')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Multi-location scheduling sync</span>
+                      <span>{t('demo.appointments.feature3')}</span>
                     </div>
                   </div>
                   
                   <Button variant="outline" size="lg" asChild>
                     <Link to="/products/appointments">
-                      Explore Scheduling <ArrowRight className="ml-2 h-4 w-4" />
+                      {t('demo.appointments.cta')} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -223,34 +221,33 @@ const Index = () => {
               <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
                 <div className="lg:order-2 space-y-6">
                   <Badge variant="secondary" className="w-fit">
-                    💳 Lightning Payments
+                    {t('demo.pos.badge')}
                   </Badge>
                   <h3 className="text-2xl font-display font-bold">
-                    Checkout in seconds, not minutes
+                    {t('demo.pos.title')}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed text-lg">
-                    Tap to pay, split tips instantly, and get paid the same day. 
-                    No hidden fees on tips—what your team earns, they keep.
+                    {t('demo.pos.description')}
                   </p>
                   
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Instant tip splitting across team members</span>
+                      <span>{t('demo.pos.feature1')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Same-day payouts with no fees</span>
+                      <span>{t('demo.pos.feature2')}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span>Accept cards, cash, and digital wallets</span>
+                      <span>{t('demo.pos.feature3')}</span>
                     </div>
                   </div>
                   
                   <Button variant="outline" size="lg" asChild>
                     <Link to="/products/pos">
-                      Explore Payments <ArrowRight className="ml-2 h-4 w-4" />
+                      {t('demo.pos.cta')} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
@@ -314,13 +311,13 @@ const Index = () => {
             <div className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
                 <Star className="w-4 h-4 mr-2" />
-                Success Stories
+                {t('success.badge')}
               </Badge>
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Real results from real businesses
+                {t('success.title')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                See how salon and spa owners like you transformed their operations with NeonO
+                {t('success.subtitle')}
               </p>
             </div>
           </IntersectionAnimation>
@@ -360,7 +357,7 @@ const Index = () => {
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" asChild>
               <Link to="/case-studies">
-                Read More Success Stories <ArrowRight className="ml-2 h-4 w-4" />
+                {t('success.cta')} <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -373,13 +370,13 @@ const Index = () => {
           <IntersectionAnimation animation="fade-up">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
-                💰 ROI Calculator
+                {t('roi.badge')}
               </Badge>
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Calculate your potential savings
+                {t('roi.title')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                See exactly how much you could save by switching to NeonO's all-in-one platform
+                {t('roi.subtitle')}
               </p>
             </div>
           </IntersectionAnimation>
@@ -387,7 +384,7 @@ const Index = () => {
           <div className="max-w-md mx-auto">
             <OptimizedInView animation="fade" threshold={0.2}>
               <RoiMini 
-                title="Quick ROI Estimate"
+                title={t('roi.quickTitle')}
                 description="Enter your business details for instant savings calculation"
               />
             </OptimizedInView>
