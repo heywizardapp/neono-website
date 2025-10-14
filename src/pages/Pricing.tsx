@@ -162,7 +162,7 @@ export default function Pricing() {
 
                   <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
-                      <h4 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground">
+                      <h4 className="font-semibold text-sm tracking-wide text-muted-foreground">
                         Everything included:
                       </h4>
                       <ul className="space-y-3">
@@ -268,7 +268,7 @@ export default function Pricing() {
 
                   <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
-                      <h4 className="font-semibold text-sm uppercase tracking-wide text-muted-foreground">
+                      <h4 className="font-semibold text-sm tracking-wide text-muted-foreground">
                         Everything included:
                       </h4>
                       <ul className="space-y-3">
