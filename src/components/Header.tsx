@@ -286,7 +286,7 @@ function MobileDrawer({
         </div>
 
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">COMPANY</h3>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Company</h3>
           <MobileLink to="/company/about" onClose={onClose}>About</MobileLink>
           <MobileLink to="/company/careers" onClose={onClose}>Careers</MobileLink>
           <MobileLink to="/contact" onClose={onClose}>Contact</MobileLink>
