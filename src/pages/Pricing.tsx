@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 import { Hero } from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -80,7 +80,7 @@ const faqs = [
 
 export default function Pricing() {
   const { t } = useI18n();
-  const [chairCount, setChairCount] = useState(2);
+  const [chairCount, setChairCount] = React.useState(2);
 
   const independentPrice = 19.99;
   const pricePerChair = 16.99;

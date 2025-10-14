@@ -2,7 +2,7 @@
  * Global error boundary component
  */
 
-import React from 'react';
+import * as React from 'react';
 import { ErrorFallback } from './ErrorFallback';
 
 interface Props {
