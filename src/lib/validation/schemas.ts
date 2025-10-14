@@ -141,3 +141,13 @@ export const roiFormSchema = z.object({
 });
 
 export type RoiFormData = z.infer<typeof roiFormSchema>;
+
+// ROI Calculator Form Schema
+export const roiCalculatorSchema = z.object({
+  monthlyClients: z.number().int().min(10, "Must have at least 10 clients").max(10000, "Value too large"),
+  averageServicePrice: z.number().min(10, "Must be at least $10").max(1000, "Value too large"),
+  noShowRate: z.number().min(0, "Cannot be negative").max(50, "Cannot exceed 50%"),
+  staffCount: z.number().int().min(1, "Must have at least 1 staff member").max(100, "Value too large"),
+});
+
+export type RoiCalculatorData = z.infer<typeof roiCalculatorSchema>;

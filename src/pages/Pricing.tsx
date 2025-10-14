@@ -9,6 +9,8 @@ import { RoiMini } from '@/components/roi/RoiMini';
 import { StickyCompare } from '@/components/compare/StickyCompare';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
+import { StickySubnav } from '@/components/StickySubnav';
 import {
   Accordion,
   AccordionContent,
@@ -74,6 +76,7 @@ const faqs = [
 ];
 
 export default function Pricing() {
+  const { t } = useI18n();
   const [chairCount, setChairCount] = useState(3);
 
   const independentPrice = 19.99;
@@ -97,15 +100,24 @@ export default function Pricing() {
           {
             type: 'faq',
             data: generateStructuredData('faqPage', { faqs })
+          },
+          {
+            type: 'breadcrumb',
+            data: generateStructuredData('breadcrumb', {
+              crumbs: [
+                { label: "Home", href: "/" },
+                { label: "Pricing", href: "/pricing" }
+              ]
+            })
           }
         ]}
       />
       <div className="min-h-screen">
         <Hero
-          title="Simple, transparent pricing"
-          subtitle="No setup fees, no contracts, no commission on tips. Choose the plan that fits your business."
-          primaryCta={{ text: "Start Free Trial", href: "/signup" }}
-          secondaryCta={{ text: "Talk to Sales", href: "/contact" }}
+          title={t('pricing.hero.title')}
+          subtitle={t('pricing.hero.subtitle')}
+          primaryCta={{ text: t('pricing.cta.trial'), href: "/signup" }}
+          secondaryCta={{ text: t('pricing.cta.sales'), href: "/contact" }}
           showStats={false}
         />
 

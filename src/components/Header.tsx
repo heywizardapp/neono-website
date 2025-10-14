@@ -15,14 +15,14 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 const getProductLinks = (t: (key: string) => string) => [
-  { name: 'Staff Management', href: '/products/staff-management', description: 'Team & permissions' },
-  { name: 'Appointments', href: '/products/appointments', description: 'Smart scheduling' },
-  { name: 'Online Booking', href: '/products/online-booking', description: '24/7 bookings' },
-  { name: 'Marketing', href: '/products/marketing', description: 'Automated campaigns' },
-  { name: 'AI', href: '/products/ai', description: 'Intelligent automation' },
-  { name: 'Landing Page Builder', href: '/products/landing-page-builder', description: 'Website builder' },
-  { name: 'Analytics', href: '/products/analytics', description: 'Business insights' },
-  { name: 'PoS', href: '/products/pos', description: 'Payments & checkout' },
+  { name: t('nav.products.staff'), href: '/products/staff-management', description: t('nav.products.staff.desc') },
+  { name: t('nav.products.appointments'), href: '/products/appointments', description: t('nav.products.appointments.desc') },
+  { name: t('nav.products.booking'), href: '/products/online-booking', description: t('nav.products.booking.desc') },
+  { name: t('nav.products.marketing'), href: '/products/marketing', description: t('nav.products.marketing.desc') },
+  { name: t('nav.products.ai'), href: '/products/ai', description: t('nav.products.ai.desc') },
+  { name: t('nav.products.landing'), href: '/products/landing-page-builder', description: t('nav.products.landing.desc') },
+  { name: t('nav.products.analytics'), href: '/products/analytics', description: t('nav.products.analytics.desc') },
+  { name: t('nav.products.pos'), href: '/products/pos', description: t('nav.products.pos.desc') },
 ];
 
 const getSolutionLinks = (t: (key: string) => string) => [
@@ -34,10 +34,10 @@ const getSolutionLinks = (t: (key: string) => string) => [
 ];
 
 export function Header() {
-  const { t } = useI18n();
   const [open, setOpen] = React.useState(false)
   const [searchOpen, setSearchOpen] = React.useState(false)
   const { isScrolled, isVisible, scrollDirection } = useScrollHeader(20, 150)
+  const { t } = useI18n();
   
   const productLinks = getProductLinks(t);
   const solutionLinks = getSolutionLinks(t);
@@ -87,7 +87,7 @@ export function Header() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
-                    Products
+                    {t('header.products')}
                     <ChevronDown className="h-4 w-4" />
                   </button>
                 </DropdownMenuTrigger>
@@ -108,7 +108,7 @@ export function Header() {
               </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
-              Solutions
+              {t('header.solutions')}
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="min-w-[200px]">
