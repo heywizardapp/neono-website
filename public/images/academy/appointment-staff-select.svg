@@ -1,0 +1,84 @@
+<svg width="700" height="500" viewBox="0 0 700 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="700" height="500" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="700" height="44" rx="12" fill="#252542"/>
+  <rect y="32" width="700" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="22" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="22" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="22" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="100" y="10" width="500" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="310" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/calendar</text>
+  
+  <!-- Dimmed Background -->
+  <rect x="0" y="44" width="700" height="456" fill="#13131f" fill-opacity="0.8"/>
+  
+  <!-- Modal -->
+  <rect x="100" y="65" width="500" height="400" rx="16" fill="#1e1e36"/>
+  <rect x="100" y="65" width="500" height="400" rx="16" stroke="#3a3a5a" stroke-width="1"/>
+  
+  <!-- Modal Header -->
+  <text x="300" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#fff" text-anchor="middle">Select Staff Member</text>
+  
+  <!-- Close Button -->
+  <circle cx="570" cy="95" r="14" fill="#252542"/>
+  <text x="566" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">×</text>
+  
+  <!-- Selected Context -->
+  <rect x="140" y="120" width="420" height="36" rx="8" fill="#252542"/>
+  <text x="160" y="143" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Booking:</text>
+  <text x="225" y="143" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7C7CF2">Manicure • 30 min</text>
+  <text x="380" y="143" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">for Jan 27, 10:00 AM</text>
+  
+  <!-- Staff List -->
+  <text x="140" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#888">AVAILABLE STAFF</text>
+  
+  <!-- Staff 1 - Selected -->
+  <rect x="140" y="198" width="420" height="60" rx="8" fill="#7C7CF2" fill-opacity="0.15"/>
+  <rect x="140" y="198" width="420" height="60" rx="8" stroke="#7C7CF2" stroke-width="2"/>
+  <circle cx="180" cy="228" r="24" fill="#E879F9"/>
+  <text x="169" y="234" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">SJ</text>
+  <text x="218" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#fff">Sarah Johnson</text>
+  <text x="218" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Senior Stylist</text>
+  
+  <!-- Availability Badge -->
+  <rect x="460" y="215" width="85" height="26" rx="13" fill="#10B981" fill-opacity="0.2"/>
+  <circle cx="478" cy="228" r="5" fill="#10B981"/>
+  <text x="490" y="233" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#10B981">Available</text>
+  
+  <!-- Staff 2 -->
+  <rect x="140" y="268" width="420" height="60" rx="8" fill="#252542"/>
+  <circle cx="180" cy="298" r="24" fill="#60A5FA"/>
+  <text x="168" y="304" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">MC</text>
+  <text x="218" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#9999aa">Mike Chen</text>
+  <text x="218" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666">Nail Technician</text>
+  
+  <!-- Availability Badge -->
+  <rect x="460" y="285" width="85" height="26" rx="13" fill="#10B981" fill-opacity="0.2"/>
+  <circle cx="478" cy="298" r="5" fill="#10B981"/>
+  <text x="490" y="303" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#10B981">Available</text>
+  
+  <!-- Staff 3 - Busy -->
+  <rect x="140" y="338" width="420" height="60" rx="8" fill="#252542" fill-opacity="0.5"/>
+  <circle cx="180" cy="368" r="24" fill="#4B5563"/>
+  <text x="172" y="374" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9ca3af">JL</text>
+  <text x="218" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#666">Jessica Lee</text>
+  <text x="218" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4B5563">Nail Technician</text>
+  
+  <!-- Busy Badge -->
+  <rect x="440" y="355" width="105" height="26" rx="13" fill="#F59E0B" fill-opacity="0.2"/>
+  <circle cx="458" cy="368" r="5" fill="#F59E0B"/>
+  <text x="470" y="373" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#F59E0B">Busy until 3 PM</text>
+  
+  <!-- Bottom Buttons -->
+  <rect x="140" y="415" width="100" height="38" rx="8" fill="#252542"/>
+  <text x="172" y="439" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Back</text>
+  
+  <rect x="460" y="415" width="100" height="38" rx="8" fill="#7C7CF2"/>
+  <text x="493" y="439" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#fff">Next</text>
+</svg>

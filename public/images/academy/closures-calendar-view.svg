@@ -1,0 +1,137 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="1000" height="600" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="1000" height="48" rx="12" fill="#252542"/>
+  <rect y="36" width="1000" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="24" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="24" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="24" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="150" y="12" width="700" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="450" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/calendar</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="48" width="180" height="552" fill="#1e1e36"/>
+  
+  <!-- Logo -->
+  <rect x="16" y="64" width="148" height="36" rx="6" fill="#252542"/>
+  <text x="55" y="88" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#7C7CF2">NeonO</text>
+  
+  <!-- Main Content -->
+  <rect x="180" y="48" width="820" height="552" fill="#13131f"/>
+  
+  <!-- Top Toolbar -->
+  <rect x="180" y="48" width="820" height="56" fill="#1a1a2e"/>
+  
+  <!-- Date -->
+  <text x="210" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#fff">December 22 - 28, 2025</text>
+  
+  <!-- View Toggles -->
+  <rect x="450" y="66" width="130" height="32" rx="6" fill="#252542"/>
+  <text x="467" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Day</text>
+  <rect x="498" y="70" width="40" height="24" rx="4" fill="#7C7CF2"/>
+  <text x="506" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#fff">Week</text>
+  <text x="548" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Month</text>
+  
+  <!-- Staff Filter -->
+  <rect x="600" y="66" width="110" height="32" rx="6" fill="#252542"/>
+  <text x="620" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9999aa">All Staff ▼</text>
+  
+  <!-- New Appointment Button -->
+  <rect x="830" y="66" width="150" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="858" y="87" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#fff">+ New Appointment</text>
+  
+  <!-- Calendar Grid -->
+  <rect x="180" y="104" width="50" height="496" fill="#1a1a2e"/>
+  
+  <!-- Time Labels -->
+  <text x="195" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">9 AM</text>
+  <text x="192" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">11 AM</text>
+  <text x="195" y="265" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">1 PM</text>
+  <text x="195" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">3 PM</text>
+  <text x="195" y="385" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">5 PM</text>
+  
+  <!-- Day Headers -->
+  <rect x="230" y="104" width="770" height="32" fill="#1e1e36"/>
+  <text x="285" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Mon 22</text>
+  <text x="395" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Tue 23</text>
+  <text x="505" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Wed 24</text>
+  
+  <!-- Thursday 25 - CHRISTMAS - Grayed Out -->
+  <rect x="560" y="104" width="110" height="32" fill="#4B5563" fill-opacity="0.3"/>
+  <text x="590" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#EF4444" font-weight="600">Thu 25 🚫</text>
+  
+  <text x="725" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Fri 26</text>
+  <text x="835" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Sat 27</text>
+  <text x="945" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Sun 28</text>
+  
+  <!-- Grid Lines -->
+  <line x1="230" y1="165" x2="1000" y2="165" stroke="#252542" stroke-width="1"/>
+  <line x1="230" y1="225" x2="1000" y2="225" stroke="#252542" stroke-width="1"/>
+  <line x1="230" y1="285" x2="1000" y2="285" stroke="#252542" stroke-width="1"/>
+  <line x1="230" y1="345" x2="1000" y2="345" stroke="#252542" stroke-width="1"/>
+  <line x1="230" y1="405" x2="1000" y2="405" stroke="#252542" stroke-width="1"/>
+  
+  <line x1="340" y1="136" x2="340" y2="600" stroke="#252542" stroke-width="1"/>
+  <line x1="450" y1="136" x2="450" y2="600" stroke="#252542" stroke-width="1"/>
+  <line x1="560" y1="136" x2="560" y2="600" stroke="#252542" stroke-width="1"/>
+  <line x1="670" y1="136" x2="670" y2="600" stroke="#252542" stroke-width="1"/>
+  <line x1="780" y1="136" x2="780" y2="600" stroke="#252542" stroke-width="1"/>
+  <line x1="890" y1="136" x2="890" y2="600" stroke="#252542" stroke-width="1"/>
+  
+  <!-- Christmas Day Column - GRAYED OUT -->
+  <rect x="561" y="136" width="108" height="464" fill="#4B5563" fill-opacity="0.4"/>
+  
+  <!-- Closure Label on Thursday -->
+  <rect x="570" y="260" width="90" height="80" rx="8" fill="#EF4444" fill-opacity="0.2"/>
+  <rect x="570" y="260" width="90" height="80" rx="8" stroke="#EF4444" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="615" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#EF4444" text-anchor="middle">🚫</text>
+  <text x="615" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#EF4444" text-anchor="middle">CLOSED</text>
+  <text x="615" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#9ca3af" text-anchor="middle">Christmas Day</text>
+  
+  <!-- Regular appointments on other days -->
+  <!-- Monday -->
+  <rect x="250" y="170" width="80" height="50" rx="4" fill="#3B82F6"/>
+  <text x="260" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">Emma J.</text>
+  <text x="260" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#bfdbfe">Haircut</text>
+  
+  <rect x="250" y="290" width="80" height="45" rx="4" fill="#10B981"/>
+  <text x="260" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">Lisa C.</text>
+  <text x="260" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a7f3d0">Color</text>
+  
+  <!-- Tuesday -->
+  <rect x="360" y="200" width="80" height="65" rx="4" fill="#3B82F6"/>
+  <text x="370" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">Tom W.</text>
+  <text x="370" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#bfdbfe">Balayage</text>
+  
+  <!-- Wednesday -->
+  <rect x="470" y="150" width="80" height="50" rx="4" fill="#3B82F6"/>
+  <text x="480" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">Maria G.</text>
+  <text x="480" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#bfdbfe">Manicure</text>
+  
+  <!-- Friday -->
+  <rect x="690" y="180" width="80" height="55" rx="4" fill="#3B82F6"/>
+  <text x="700" y="200" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">John D.</text>
+  <text x="700" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#bfdbfe">Men's Cut</text>
+  
+  <rect x="690" y="300" width="80" height="50" rx="4" fill="#F59E0B"/>
+  <text x="700" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">New Client</text>
+  <text x="700" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fef3c7">Consultation</text>
+  
+  <!-- Saturday -->
+  <rect x="800" y="160" width="80" height="50" rx="4" fill="#3B82F6"/>
+  <text x="810" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">Sophie W.</text>
+  <text x="810" y="195" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#bfdbfe">Full Color</text>
+  
+  <!-- Legend at bottom -->
+  <rect x="550" y="555" width="300" height="32" rx="6" fill="#1e1e36"/>
+  <rect x="575" y="565" width="14" height="14" rx="2" fill="#4B5563" fill-opacity="0.4"/>
+  <text x="597" y="576" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Closed Period</text>
+  <rect x="710" y="565" width="14" height="14" rx="2" fill="#3B82F6"/>
+  <text x="732" y="576" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Appointments</text>
+</svg>
