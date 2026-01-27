@@ -1,0 +1,195 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/calendar</text>
+  
+  <!-- Sidebar -->
+  <rect x="1" y="53" width="64" height="746" fill="#0B1220"/>
+  
+  <!-- Sidebar Icons -->
+  <rect x="16" y="77" width="32" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="24" y="100" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="white">N</text>
+  
+  <rect x="16" y="136" width="32" height="32" rx="6" fill="transparent"/>
+  <text x="28" y="157" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">📊</text>
+  
+  <!-- Active Calendar Icon -->
+  <rect x="16" y="180" width="32" height="32" rx="6" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="28" y="201" font-family="system-ui, sans-serif" font-size="14" fill="#7C7CF2">📅</text>
+  
+  <rect x="16" y="224" width="32" height="32" rx="6" fill="transparent"/>
+  <text x="28" y="245" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">👥</text>
+  
+  <!-- Main Content - Calendar View -->
+  <rect x="64" y="53" width="1135" height="746" fill="white"/>
+  
+  <!-- Calendar Header -->
+  <rect x="64" y="53" width="1135" height="60" fill="#f8fafc"/>
+  <line x1="64" y1="113" x2="1199" y2="113" stroke="#e5e7eb"/>
+  
+  <text x="96" y="91" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0B1220">January 2026</text>
+  
+  <!-- Navigation Arrows -->
+  <rect x="240" y="72" width="32" height="32" rx="6" fill="white" stroke="#e5e7eb"/>
+  <text x="252" y="94" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">‹</text>
+  
+  <rect x="280" y="72" width="32" height="32" rx="6" fill="white" stroke="#e5e7eb"/>
+  <text x="292" y="94" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">›</text>
+  
+  <rect x="328" y="72" width="60" height="32" rx="6" fill="white" stroke="#e5e7eb"/>
+  <text x="344" y="94" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Today</text>
+  
+  <!-- View Toggles -->
+  <rect x="920" y="72" width="120" height="32" rx="6" fill="#f1f5f9"/>
+  <rect x="924" y="76" width="36" height="24" rx="4" fill="#7C7CF2"/>
+  <text x="932" y="94" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="white">Day</text>
+  <text x="974" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Week</text>
+  <text x="1012" y="94" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Month</text>
+  
+  <!-- New Appointment Button -->
+  <rect x="1060" y="68" width="120" height="40" rx="8" fill="#7C7CF2"/>
+  <text x="1076" y="94" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="white">+ New Appt</text>
+  
+  <!-- Time Column -->
+  <rect x="64" y="113" width="60" height="686" fill="#f8fafc"/>
+  <line x1="124" y1="113" x2="124" y2="799" stroke="#e5e7eb"/>
+  
+  <text x="76" y="168" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">9 AM</text>
+  <text x="72" y="228" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">10 AM</text>
+  <text x="72" y="288" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">11 AM</text>
+  <text x="72" y="348" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">12 PM</text>
+  <text x="76" y="408" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">1 PM</text>
+  <text x="76" y="468" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">2 PM</text>
+  <text x="76" y="528" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">3 PM</text>
+  <text x="76" y="588" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">4 PM</text>
+  <text x="76" y="648" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">5 PM</text>
+  
+  <!-- Staff Columns Header -->
+  <rect x="124" y="113" width="1075" height="40" fill="#f8fafc"/>
+  <line x1="124" y1="153" x2="1199" y2="153" stroke="#e5e7eb"/>
+  
+  <!-- Staff Member 1 -->
+  <text x="220" y="138" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#0B1220" text-anchor="middle">Sarah M.</text>
+  <line x1="340" y1="113" x2="340" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Staff Member 2 -->
+  <text x="435" y="138" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#0B1220" text-anchor="middle">Mike T.</text>
+  <line x1="555" y1="113" x2="555" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Staff Member 3 -->
+  <text x="650" y="138" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#0B1220" text-anchor="middle">Emma R.</text>
+  <line x1="770" y1="113" x2="770" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Hour Grid Lines -->
+  <line x1="124" y1="213" x2="1199" y2="213" stroke="#f1f5f9"/>
+  <line x1="124" y1="273" x2="1199" y2="273" stroke="#f1f5f9"/>
+  <line x1="124" y1="333" x2="1199" y2="333" stroke="#f1f5f9"/>
+  <line x1="124" y1="393" x2="1199" y2="393" stroke="#f1f5f9"/>
+  <line x1="124" y1="453" x2="1199" y2="453" stroke="#f1f5f9"/>
+  <line x1="124" y1="513" x2="1199" y2="513" stroke="#f1f5f9"/>
+  <line x1="124" y1="573" x2="1199" y2="573" stroke="#f1f5f9"/>
+  <line x1="124" y1="633" x2="1199" y2="633" stroke="#f1f5f9"/>
+  <line x1="124" y1="693" x2="1199" y2="693" stroke="#f1f5f9"/>
+  
+  <!-- Appointment Blocks -->
+  <!-- Sarah's 10am appointment -->
+  <rect x="134" y="213" width="196" height="90" rx="6" fill="#7C7CF2" fill-opacity="0.15" stroke="#7C7CF2" stroke-width="2"/>
+  <rect x="134" y="213" width="4" height="90" rx="2" fill="#7C7CF2"/>
+  <text x="150" y="238" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#7C7CF2">Jennifer Smith</text>
+  <text x="150" y="256" font-family="system-ui, sans-serif" font-size="11" fill="#6366f1">Color Service</text>
+  <text x="150" y="274" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">10:00 AM - 12:00 PM</text>
+  
+  <!-- Mike's 11am appointment -->
+  <rect x="350" y="273" width="196" height="60" rx="6" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="2"/>
+  <rect x="350" y="273" width="4" height="60" rx="2" fill="#22c55e"/>
+  <text x="366" y="298" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#16a34a">David Lee</text>
+  <text x="366" y="316" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Men's Haircut</text>
+  
+  <!-- Emma's 2pm appointment -->
+  <rect x="565" y="453" width="196" height="45" rx="6" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="2"/>
+  <rect x="565" y="453" width="4" height="45" rx="2" fill="#f97316"/>
+  <text x="581" y="478" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#c2410c">Maria Garcia</text>
+  <text x="581" y="493" font-family="system-ui, sans-serif" font-size="11" fill="#f97316">Manicure</text>
+  
+  <!-- Modal Overlay -->
+  <rect x="64" y="53" width="1135" height="746" fill="#0B1220" fill-opacity="0.5"/>
+  
+  <!-- New Appointment Modal -->
+  <rect x="380" y="140" width="500" height="520" rx="16" fill="white" filter="url(#modalShadow)"/>
+  
+  <defs>
+    <filter id="modalShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  
+  <!-- Modal Header -->
+  <text x="420" y="182" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0B1220">New Appointment</text>
+  
+  <!-- Close Button -->
+  <circle cx="848" cy="170" r="16" fill="#f1f5f9"/>
+  <path d="M842 164 L854 176 M854 164 L842 176" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Client Field -->
+  <text x="420" y="230" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Client *</text>
+  <rect x="420" y="242" width="440" height="44" rx="8" fill="white" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="440" y="270" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Jennifer Smith</text>
+  <text x="820" y="270" font-family="system-ui, sans-serif" font-size="12" fill="#7C7CF2">✓</text>
+  
+  <!-- Service Field -->
+  <text x="420" y="310" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Service *</text>
+  <rect x="420" y="322" width="440" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="440" y="350" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Women's Haircut & Blow Dry</text>
+  <path d="M836 342 L844 350 L852 342" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Staff Field -->
+  <text x="420" y="390" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Staff Member *</text>
+  <rect x="420" y="402" width="210" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="440" y="430" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Sarah M.</text>
+  <path d="M606 422 L614 430 L622 422" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Duration Display -->
+  <text x="650" y="390" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Duration</text>
+  <rect x="650" y="402" width="210" height="44" rx="8" fill="#f8fafc"/>
+  <text x="670" y="430" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">45 minutes</text>
+  
+  <!-- Date Field -->
+  <text x="420" y="470" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Date *</text>
+  <rect x="420" y="482" width="210" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="440" y="510" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Jan 23, 2026</text>
+  <text x="606" y="510" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">📅</text>
+  
+  <!-- Time Field -->
+  <text x="650" y="470" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Time *</text>
+  <rect x="650" y="482" width="210" height="44" rx="8" fill="white" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="670" y="510" font-family="system-ui, sans-serif" font-size="14" font-weight="500" fill="#7C7CF2">2:30 PM</text>
+  <path d="M836 502 L844 510 L852 502" stroke="#7C7CF2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Notes Field -->
+  <text x="420" y="550" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Notes</text>
+  <rect x="420" y="562" width="440" height="48" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="440" y="592" font-family="system-ui, sans-serif" font-size="13" fill="#9ca3af">Add any special instructions...</text>
+  
+  <!-- Modal Footer -->
+  <rect x="420" y="624" width="440" height="50" fill="white" rx="8"/>
+  
+  <rect x="640" y="624" width="220" height="46" rx="8" fill="#7C7CF2"/>
+  <text x="695" y="653" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="white">Book Appointment</text>
+  
+  <rect x="420" y="624" width="100" height="46" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="450" y="653" font-family="system-ui, sans-serif" font-size="14" fill="#374151">Cancel</text>
+</svg>

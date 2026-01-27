@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react';
+import * as React from "react";
 import { SmartSkeleton } from './SmartSkeleton';
 import { cn } from '@/lib/utils';
 
@@ -17,9 +17,9 @@ export function ProgressiveLoader({
   className,
   fadeIn = true,
 }: ProgressiveLoaderProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, delay);
@@ -88,10 +88,10 @@ export function LazyLoader({
   threshold = 0.1,
   className,
 }: LazyLoaderProps) {
-  const [shouldLoad, setShouldLoad] = useState(false);
-  const [ref, setRef] = useState<HTMLDivElement | null>(null);
+  const [shouldLoad, setShouldLoad] = React.useState(false);
+  const [ref, setRef] = React.useState<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!ref) return;
 
     const observer = new IntersectionObserver(

@@ -1,4 +1,5 @@
 import { BusinessTemplateConfig } from "@/templates/types";
+import { PRICING } from "@/config/pricing";
 
 const spasConfig: BusinessTemplateConfig = {
   industry: "Spas",
@@ -97,7 +98,7 @@ const spasConfig: BusinessTemplateConfig = {
     { label: "Instagram", src: "/assets/placeholders/integration-instagram.svg" },
   ],
   pricing: {
-    blurb: "Starter $29/mo (2 seats) • Growth $59/mo (5 seats) • +$9.99 per extra seat",
+    blurb: `Starter ${PRICING.starter.priceDisplay}/mo (${PRICING.starter.seats} seats) • Growth ${PRICING.growth.priceDisplay}/mo (${PRICING.growth.seats} seats) • Salon ${PRICING.salon.pricePerChairDisplay}/chair`,
     sub: "SMS, website, online cart, QuickBooks sync, and AI are included.",
     cta: { label: "See pricing", href: "/pricing" },
   },

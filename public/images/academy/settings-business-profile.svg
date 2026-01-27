@@ -1,0 +1,117 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/settings/business-profile</text>
+  
+  <!-- Sidebar -->
+  <rect x="1" y="53" width="240" height="746" fill="#f8fafc"/>
+  <line x1="241" y1="53" x2="241" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Sidebar Logo -->
+  <rect x="24" y="77" width="36" height="36" rx="8" fill="#7C7CF2"/>
+  <text x="32" y="102" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="white">N</text>
+  <text x="72" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">NeonO</text>
+  
+  <!-- Sidebar Menu Items -->
+  <rect x="12" y="140" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="166" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Dashboard</text>
+  
+  <rect x="12" y="188" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="214" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Calendar</text>
+  
+  <rect x="12" y="236" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="262" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Clients</text>
+  
+  <rect x="12" y="284" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="310" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Services</text>
+  
+  <!-- Active Settings Item -->
+  <rect x="12" y="332" width="216" height="40" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <rect x="12" y="332" width="4" height="40" rx="2" fill="#7C7CF2"/>
+  <text x="48" y="358" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#7C7CF2">Settings</text>
+  
+  <!-- Main Content Area -->
+  <rect x="241" y="53" width="958" height="746" fill="white"/>
+  
+  <!-- Page Header -->
+  <text x="280" y="105" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#0B1220">Business Profile</text>
+  <text x="280" y="130" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Manage your salon's basic information and branding</text>
+  
+  <!-- Settings Tabs -->
+  <rect x="280" y="160" width="120" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="305" y="183" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#7C7CF2">General</text>
+  
+  <text x="430" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Location</text>
+  <text x="530" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Hours</text>
+  <text x="610" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Branding</text>
+  
+  <!-- Form Card -->
+  <rect x="280" y="220" width="640" height="520" rx="12" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Business Name Field -->
+  <text x="312" y="268" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Business Name</text>
+  <rect x="312" y="280" width="576" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="328" y="308" font-family="system-ui, sans-serif" font-size="14" fill="#111827">Bella Salon & Spa</text>
+  
+  <!-- Phone Field -->
+  <text x="312" y="358" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Phone Number</text>
+  <rect x="312" y="370" width="280" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="328" y="398" font-family="system-ui, sans-serif" font-size="14" fill="#111827">(416) 555-0123</text>
+  
+  <!-- Email Field -->
+  <text x="608" y="358" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Email Address</text>
+  <rect x="608" y="370" width="280" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="624" y="398" font-family="system-ui, sans-serif" font-size="14" fill="#111827">hello@bellasalon.com</text>
+  
+  <!-- Address Field -->
+  <text x="312" y="448" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Street Address</text>
+  <rect x="312" y="460" width="576" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="328" y="488" font-family="system-ui, sans-serif" font-size="14" fill="#111827">123 Queen Street West</text>
+  
+  <!-- City/Province Row -->
+  <text x="312" y="538" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">City</text>
+  <rect x="312" y="550" width="180" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="328" y="578" font-family="system-ui, sans-serif" font-size="14" fill="#111827">Toronto</text>
+  
+  <text x="508" y="538" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Province</text>
+  <rect x="508" y="550" width="180" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="524" y="578" font-family="system-ui, sans-serif" font-size="14" fill="#111827">Ontario</text>
+  
+  <text x="704" y="538" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Postal Code</text>
+  <rect x="704" y="550" width="184" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="720" y="578" font-family="system-ui, sans-serif" font-size="14" fill="#111827">M5V 2A1</text>
+  
+  <!-- Save Button -->
+  <rect x="312" y="640" width="140" height="48" rx="8" fill="#7C7CF2"/>
+  <text x="352" y="670" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="white">Save Changes</text>
+  
+  <!-- Cancel Button -->
+  <rect x="468" y="640" width="100" height="48" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="498" y="670" font-family="system-ui, sans-serif" font-size="14" fill="#374151">Cancel</text>
+  
+  <!-- Right Sidebar Preview -->
+  <rect x="960" y="220" width="200" height="280" rx="12" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="980" y="252" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b">PREVIEW</text>
+  
+  <!-- Preview Card -->
+  <rect x="976" y="272" width="168" height="200" rx="8" fill="white" stroke="#e5e7eb"/>
+  <circle cx="1060" cy="312" r="24" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="1051" y="318" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#7C7CF2">B</text>
+  <text x="1016" y="360" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#111827">Bella Salon</text>
+  <text x="1020" y="378" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">123 Queen St W</text>
+  <text x="1028" y="392" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">Toronto, ON</text>
+</svg>

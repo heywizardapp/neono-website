@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -19,11 +19,11 @@ interface EducationTemplateProps {
 }
 
 export function EducationTemplate({ content }: EducationTemplateProps) {
-  const [activeSection, setActiveSection] = useState<string>(content.sections[0]?.id || '');
+  const [activeSection, setActiveSection] = React.useState<string>(content.sections[0]?.id || '');
   const category = getCategoryById(content.category);
 
   // Scroll spy for active section
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       const sections = content.sections.map(s => document.getElementById(s.id));
       const scrollPosition = window.scrollY + 100;

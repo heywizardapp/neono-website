@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Save, Eye } from 'lucide-react';
 import MDEditor from '@uiw/react-md-editor';
@@ -32,7 +32,7 @@ export default function BlogEditor() {
   const { toast } = useToast();
   const isEdit = !!id;
 
-  const [post, setPost] = useState<DraftPost & { contentType?: string }>({
+  const [post, setPost] = React.useState<DraftPost & { contentType?: string }>({
     title: '',
     excerpt: '',
     category: 'Business',
@@ -49,15 +49,15 @@ export default function BlogEditor() {
     contentType: 'blog'
   });
 
-  const [tagInput, setTagInput] = useState('');
-  const [focusKeyword, setFocusKeyword] = useState('');
-  const [updateNotes, setUpdateNotes] = useState('');
-  const [isContentUpdate, setIsContentUpdate] = useState(false);
+  const [tagInput, setTagInput] = React.useState('');
+  const [focusKeyword, setFocusKeyword] = React.useState('');
+  const [updateNotes, setUpdateNotes] = React.useState('');
+  const [isContentUpdate, setIsContentUpdate] = React.useState(false);
 
   // Real-time SEO analysis
   const seoAnalysis = analyzeSEO(post, focusKeyword);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!blogStorage.isAuthenticated()) {
       navigate('/admin/login');
       return;

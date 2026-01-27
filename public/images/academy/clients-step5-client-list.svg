@@ -1,0 +1,127 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="52" width="400" height="24" rx="4" fill="#0B1220"/>
+  <text x="220" y="69" font-family="system-ui" font-size="12" fill="#718096">app.neono.io/clients</text>
+  
+  <!-- Main Content Area -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0f0f1a"/>
+  
+  <!-- Left Sidebar (collapsed representation) -->
+  <rect x="60" y="84" width="60" height="676" fill="#141428"/>
+  <text x="78" y="130" font-family="system-ui" font-size="14" font-weight="bold" fill="#7C7CF2">N</text>
+  
+  <!-- Main Content -->
+  <rect x="140" y="100" width="980" height="640" fill="#0f0f1a"/>
+  
+  <!-- Page Header -->
+  <text x="180" y="145" font-family="system-ui" font-size="24" font-weight="bold" fill="#FFFFFF">Clients</text>
+  
+  <!-- Stats Cards with Data -->
+  <rect x="180" y="175" width="180" height="70" rx="10" fill="#1a1a2e"/>
+  <text x="210" y="205" font-family="system-ui" font-size="12" fill="#718096">Total Clients</text>
+  <text x="210" y="230" font-family="system-ui" font-size="22" font-weight="bold" fill="#48BB78">47</text>
+  
+  <rect x="380" y="175" width="180" height="70" rx="10" fill="#1a1a2e"/>
+  <text x="410" y="205" font-family="system-ui" font-size="12" fill="#718096">New This Month</text>
+  <text x="410" y="230" font-family="system-ui" font-size="22" font-weight="bold" fill="#7C7CF2">12</text>
+  
+  <rect x="580" y="175" width="180" height="70" rx="10" fill="#1a1a2e"/>
+  <text x="610" y="205" font-family="system-ui" font-size="12" fill="#718096">Active Bookings</text>
+  <text x="610" y="230" font-family="system-ui" font-size="22" font-weight="bold" fill="#FFFFFF">8</text>
+  
+  <!-- Search -->
+  <rect x="880" y="130" width="250" height="40" rx="8" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="910" y="156" font-family="system-ui" font-size="13" fill="#718096">🔍 Search clients...</text>
+  
+  <!-- Client List Header -->
+  <rect x="180" y="265" width="940" height="40" rx="8" fill="#1a1a2e"/>
+  <text x="220" y="291" font-family="system-ui" font-size="12" font-weight="600" fill="#718096">CLIENT</text>
+  <text x="500" y="291" font-family="system-ui" font-size="12" font-weight="600" fill="#718096">CONTACT</text>
+  <text x="720" y="291" font-family="system-ui" font-size="12" font-weight="600" fill="#718096">LAST VISIT</text>
+  <text x="900" y="291" font-family="system-ui" font-size="12" font-weight="600" fill="#718096">TOTAL SPENT</text>
+  <text x="1040" y="291" font-family="system-ui" font-size="12" font-weight="600" fill="#718096">STATUS</text>
+  
+  <!-- Client Row 1 - New -->
+  <rect x="180" y="315" width="940" height="70" rx="8" fill="#7C7CF2" fill-opacity="0.05"/>
+  <circle cx="220" cy="350" r="22" fill="#7C7CF2" fill-opacity="0.3"/>
+  <text x="210" y="358" font-family="system-ui" font-size="14" font-weight="bold" fill="#7C7CF2">JS</text>
+  <text x="260" y="342" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Jennifer Smith</text>
+  <rect x="260" y="352" width="40" height="18" rx="3" fill="#48BB78"/>
+  <text x="268" y="365" font-family="system-ui" font-size="9" fill="#FFFFFF">NEW</text>
+  <text x="500" y="345" font-family="system-ui" font-size="13" fill="#A0AEC0">jennifer.smith@email.com</text>
+  <text x="500" y="365" font-family="system-ui" font-size="12" fill="#718096">(555) 123-4567</text>
+  <text x="720" y="355" font-family="system-ui" font-size="13" fill="#718096">—</text>
+  <text x="900" y="355" font-family="system-ui" font-size="13" fill="#718096">$0</text>
+  <rect x="1020" y="338" width="80" height="24" rx="4" fill="#48BB78" fill-opacity="0.2"/>
+  <text x="1038" y="355" font-family="system-ui" font-size="11" fill="#48BB78">Invited</text>
+  
+  <!-- Client Row 2 -->
+  <rect x="180" y="395" width="940" height="70" rx="8" fill="transparent"/>
+  <circle cx="220" cy="430" r="22" fill="#48BB78" fill-opacity="0.3"/>
+  <text x="207" y="438" font-family="system-ui" font-size="14" font-weight="bold" fill="#48BB78">MB</text>
+  <text x="260" y="425" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Michelle Brown</text>
+  <text x="260" y="445" font-family="system-ui" font-size="12" fill="#718096">Preferred: Sarah</text>
+  <text x="500" y="425" font-family="system-ui" font-size="13" fill="#A0AEC0">michelle.b@email.com</text>
+  <text x="500" y="445" font-family="system-ui" font-size="12" fill="#718096">(555) 234-5678</text>
+  <text x="720" y="435" font-family="system-ui" font-size="13" fill="#A0AEC0">Dec 10, 2024</text>
+  <text x="900" y="435" font-family="system-ui" font-size="13" font-weight="600" fill="#48BB78">$485</text>
+  <rect x="1020" y="418" width="80" height="24" rx="4" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="1040" y="435" font-family="system-ui" font-size="11" fill="#7C7CF2">Active</text>
+  
+  <!-- Client Row 3 -->
+  <rect x="180" y="475" width="940" height="70" rx="8" fill="transparent"/>
+  <circle cx="220" cy="510" r="22" fill="#ED8936" fill-opacity="0.3"/>
+  <text x="208" y="518" font-family="system-ui" font-size="14" font-weight="bold" fill="#ED8936">AJ</text>
+  <text x="260" y="505" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Alex Johnson</text>
+  <text x="260" y="525" font-family="system-ui" font-size="12" fill="#718096">⭐ VIP Client</text>
+  <text x="500" y="505" font-family="system-ui" font-size="13" fill="#A0AEC0">alex.j@company.com</text>
+  <text x="500" y="525" font-family="system-ui" font-size="12" fill="#718096">(555) 345-6789</text>
+  <text x="720" y="515" font-family="system-ui" font-size="13" fill="#A0AEC0">Dec 15, 2024</text>
+  <text x="900" y="515" font-family="system-ui" font-size="13" font-weight="600" fill="#48BB78">$1,250</text>
+  <rect x="1020" y="498" width="80" height="24" rx="4" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="1040" y="515" font-family="system-ui" font-size="11" fill="#7C7CF2">Active</text>
+  
+  <!-- Client Row 4 -->
+  <rect x="180" y="555" width="940" height="70" rx="8" fill="transparent"/>
+  <circle cx="220" cy="590" r="22" fill="#FC8181" fill-opacity="0.3"/>
+  <text x="206" y="598" font-family="system-ui" font-size="14" font-weight="bold" fill="#FC8181">RW</text>
+  <text x="260" y="585" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Rachel Wilson</text>
+  <text x="500" y="585" font-family="system-ui" font-size="13" fill="#A0AEC0">rachel.w@email.com</text>
+  <text x="500" y="605" font-family="system-ui" font-size="12" fill="#718096">(555) 456-7890</text>
+  <text x="720" y="595" font-family="system-ui" font-size="13" fill="#718096">Nov 5, 2024</text>
+  <text x="900" y="595" font-family="system-ui" font-size="13" fill="#A0AEC0">$195</text>
+  <rect x="1020" y="578" width="80" height="24" rx="4" fill="#ED8936" fill-opacity="0.2"/>
+  <text x="1033" y="595" font-family="system-ui" font-size="11" fill="#ED8936">Inactive</text>
+  
+  <!-- Pagination -->
+  <rect x="500" y="650" width="200" height="40" rx="8" fill="#1a1a2e"/>
+  <text x="530" y="676" font-family="system-ui" font-size="12" fill="#A0AEC0">← Previous</text>
+  <text x="590" y="676" font-family="system-ui" font-size="12" fill="#FFFFFF">1</text>
+  <text x="620" y="676" font-family="system-ui" font-size="12" fill="#718096">2</text>
+  <text x="650" y="676" font-family="system-ui" font-size="12" fill="#A0AEC0">Next →</text>
+  
+  <!-- Success Toast -->
+  <rect x="380" y="700" width="450" height="50" rx="10" fill="#48BB78" filter="url(#shadow)"/>
+  <text x="420" y="732" font-family="system-ui" font-size="14" fill="#FFFFFF">✓ Welcome email sent to Jennifer Smith!</text>
+</svg>

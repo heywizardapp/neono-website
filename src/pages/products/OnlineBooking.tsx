@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { Globe, Star, Package, Gift, Share2, TrendingUp, Heart, Award } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function OnlineBooking() {
   return (
     <ProductTemplate
       productName="Online Booking"
-      tagline="Book while you sleep with 24/7 online scheduling"
-      description="Get discovered by new clients through our marketplace and make it effortless for them to book. Accept bookings 24/7, even when you're closed, and grow your business on autopilot."
+      tagline="Customer Portal, Forms, Consent & Communication Preferences"
+      description="Give your clients their own portal to manage bookings, complete custom intake forms, sign consent forms, and set their communication preferences. 24/7 self-service booking that delights clients."
       icon={Globe}
       path="/products/online-booking"
       seoKeywords="online booking system, beauty marketplace, 24/7 booking, salon booking, automated scheduling"
+      sections={[
+        {
+          id: "discovery",
+          eyebrow: "DISCOVERY & BOOKING",
+          title: "Get discovered and booked instantly.",
+          bullets: [
+            "Get discovered by thousands of beauty seekers browsing our marketplace.",
+            "Clients see live availability and book instantly.",
+            "Show up in local search results automatically."
+          ],
+          media: {
+            src: "/assets/placeholders/hero-salon.webp",
+            alt: "Online booking interface"
+          }
+        },
+        {
+          id: "growth",
+          eyebrow: "SALES & GROWTH",
+          title: "Boost revenue with smart tools.",
+          bullets: [
+             "Create bundled services at discounted rates.",
+             "Sell digital gift cards that clients can send instantly.",
+             "Increase your average ticket size with smart package deals."
+          ],
+          media: {
+            src: "/assets/placeholders/hero-salon.webp",
+            alt: "Gift cards and packages"
+          }
+        },
+        {
+          id: "social",
+          eyebrow: "SOCIAL & REPUTATION",
+          title: "Turn followers into loyal clients.",
+          bullets: [
+            "Add a 'Book Now' button to Instagram, Facebook, and TikTok.",
+            "Build trust with verified reviews from real clients.",
+            "Show off your 5-star reputation to attract new bookings."
+          ],
+          media: {
+             src: "/assets/placeholders/hero-salon.webp",
+             alt: "Social booking integration"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Marketplace Listing',
@@ -82,8 +127,8 @@ export default function OnlineBooking() {
         { name: 'TikTok', logo: 'TT' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {
@@ -109,17 +154,17 @@ export default function OnlineBooking() {
       ]}
       relatedProducts={[
         {
+          name: 'Loyalty & Gift Cards',
+          href: '/products/loyalty',
+          description: 'Sell gift cards and show loyalty status online',
+        },
+        {
           name: 'Appointments',
           href: '/products/appointments',
           description: 'Smart scheduling with automated reminders',
         },
         {
-          name: 'Landing Page Builder',
-          href: '/products/landing-page-builder',
-          description: 'Create a stunning website in minutes',
-        },
-        {
-          name: 'Marketing',
+          name: 'Marketing Suite',
           href: '/products/marketing',
           description: 'Drive more bookings with automated campaigns',
         },

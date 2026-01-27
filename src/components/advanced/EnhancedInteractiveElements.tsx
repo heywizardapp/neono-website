@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, ReactNode } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
@@ -6,7 +6,7 @@ import { Loader2 } from 'lucide-react';
 // Enhanced Button with advanced interactions
 interface EnhancedButtonProps {
   children: ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost' | 'magnetic';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'magnetic' | 'warm';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   onClick?: () => void | Promise<void>;
@@ -27,11 +27,11 @@ export function EnhancedButton({
   glow = false,
   magnetic = false
 }: EnhancedButtonProps) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [ripples, setRipples] = useState<Array<{ id: number; x: number; y: number }>>([]);
-  const [magneticOffset, setMagneticOffset] = useState({ x: 0, y: 0 });
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const rippleId = useRef(0);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [ripples, setRipples] = React.useState<Array<{ id: number; x: number; y: number }>>([]);
+  const [magneticOffset, setMagneticOffset] = React.useState({ x: 0, y: 0 });
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const rippleId = React.useRef(0);
 
   const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     if (disabled || isLoading) return;
@@ -96,6 +96,12 @@ export function EnhancedButton({
         return cn(
           'bg-gradient-to-r from-primary to-accent text-white shadow-medium',
           'hover:shadow-glow transform-gpu hover:scale-105 transition-all duration-300'
+        );
+      case 'warm':
+        return cn(
+          'bg-warm-accent text-white shadow-medium hover:shadow-glow',
+          'border border-warm-accent/20 hover:border-warm-accent/40',
+          glow && 'shadow-glow-strong'
         );
       default:
         return '';
@@ -172,9 +178,9 @@ export function FloatingButton({
   className,
   onClick 
 }: FloatingButtonProps) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsVisible(window.pageYOffset > 300);
     };
@@ -217,6 +223,7 @@ interface InteractiveCardProps {
   tilt?: boolean;
   glow?: boolean;
   lift?: boolean;
+  spotlight?: boolean;
 }
 
 export function InteractiveCard({ 
@@ -224,25 +231,39 @@ export function InteractiveCard({
   className,
   tilt = false,
   glow = false,
-  lift = true 
+  lift = true,
+  spotlight = false
 }: InteractiveCardProps) {
-  const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0, scale: 1 });
-  const cardRef = useRef<HTMLDivElement>(null);
+  const [transform, setTransform] = React.useState({ rotateX: 0, rotateY: 0, scale: 1 });
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = React.useState(0);
+  const cardRef = React.useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!tilt || !cardRef.current) return;
+    if (!cardRef.current) return;
 
     const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const rotateY = ((e.clientX - centerX) / rect.width) * 20;
-    const rotateX = ((centerY - e.clientY) / rect.height) * 20;
-    
-    setTransform({ rotateX, rotateY, scale: 1.02 });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (spotlight) {
+      setPosition({ x, y });
+      setOpacity(1);
+    }
+
+    if (tilt) {
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const rotateY = ((e.clientX - centerX) / rect.width) * 20;
+      const rotateX = ((centerY - e.clientY) / rect.height) * 20;
+      setTransform({ rotateX, rotateY, scale: 1.02 });
+    }
   };
 
   const handleMouseLeave = () => {
+    if (spotlight) {
+      setOpacity(0);
+    }
     if (tilt) {
       setTransform({ rotateX: 0, rotateY: 0, scale: 1 });
     }
@@ -266,6 +287,17 @@ export function InteractiveCard({
     >
       {/* Shine effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+      
+      {/* Spotlight Effect */}
+      {spotlight && (
+        <div
+          className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+          style={{
+            opacity,
+            background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(124, 124, 242, 0.15), transparent 40%)`,
+          }}
+        />
+      )}
       
       {children}
     </div>

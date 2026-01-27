@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -11,7 +11,7 @@ interface TableOfContentsProps {
 }
 
 export function TableOfContents({ headings, className }: TableOfContentsProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const activeId = useActiveSection(headings);
 
   if (headings.length === 0) return null;

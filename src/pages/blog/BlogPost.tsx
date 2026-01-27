@@ -1,5 +1,5 @@
 import { useParams, Navigate } from 'react-router-dom';
-import { useMemo, useState, useEffect } from 'react';
+import * as React from "react";
 import { getPost } from '@/lib/blog/storage';
 import { EducationTemplate } from '@/components/content-templates/EducationTemplate';
 import type { EducationContent } from '@/types/content';
@@ -24,11 +24,11 @@ import 'highlight.js/styles/github-dark.css';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
-  const [post, setPost] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [post, setPost] = React.useState<any>(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!slug) {
       setIsLoading(false);
       return;
@@ -50,12 +50,12 @@ export default function BlogPost() {
     }
   }, [slug]);
 
-  const headings = useMemo(() => {
+  const headings = React.useMemo(() => {
     if (!post?.content || isLoading) return [];
     return extractHeadings(post.content);
   }, [post, isLoading]);
   
-  const readingTime = useMemo(() => {
+  const readingTime = React.useMemo(() => {
     if (!post?.content || isLoading) return 0;
     return calculateReadingTime(post.content);
   }, [post, isLoading]);

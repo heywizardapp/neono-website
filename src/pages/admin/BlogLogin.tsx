@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { useNavigate, Link } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,8 +9,8 @@ import { blogStorage } from '@/lib/blog/storage';
 import { useToast } from '@/hooks/use-toast';
 
 export default function BlogLogin() {
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [password, setPassword] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 

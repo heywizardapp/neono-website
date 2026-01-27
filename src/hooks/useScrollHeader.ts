@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import * as React from "react";
 
 interface ScrollHeaderState {
   isScrolled: boolean;
@@ -8,14 +8,14 @@ interface ScrollHeaderState {
 }
 
 export function useScrollHeader(threshold = 50, hideThreshold = 100) {
-  const [state, setState] = useState<ScrollHeaderState>({
+  const [state, setState] = React.useState<ScrollHeaderState>({
     isScrolled: false,
     scrollY: 0,
     scrollDirection: 'up',
     isVisible: true,
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     let lastScrollY = window.scrollY;
     let ticking = false;
 

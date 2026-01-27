@@ -1,0 +1,166 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/clients/import</text>
+  
+  <!-- Sidebar -->
+  <rect x="1" y="53" width="240" height="746" fill="#f8fafc"/>
+  <line x1="241" y1="53" x2="241" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Sidebar Logo -->
+  <rect x="24" y="77" width="36" height="36" rx="8" fill="#7C7CF2"/>
+  <text x="32" y="102" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="white">N</text>
+  <text x="72" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">NeonO</text>
+  
+  <!-- Sidebar Menu -->
+  <rect x="12" y="140" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="166" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Dashboard</text>
+  
+  <rect x="12" y="188" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="214" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Calendar</text>
+  
+  <!-- Active Clients Item -->
+  <rect x="12" y="236" width="216" height="40" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <rect x="12" y="236" width="4" height="40" rx="2" fill="#7C7CF2"/>
+  <text x="48" y="262" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#7C7CF2">Clients</text>
+  
+  <!-- Main Content -->
+  <rect x="241" y="53" width="958" height="746" fill="white"/>
+  
+  <!-- Page Header -->
+  <text x="280" y="105" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#0B1220">Import Clients</text>
+  <text x="280" y="130" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Upload a CSV file to import existing clients</text>
+  
+  <!-- Progress Steps -->
+  <rect x="280" y="160" width="880" height="60" rx="8" fill="#f8fafc"/>
+  
+  <!-- Step 1 (completed) -->
+  <circle cx="380" cy="190" r="16" fill="#22c55e"/>
+  <path d="M374 190 L378 194 L386 184" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="350" y="222" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Upload File</text>
+  
+  <line x1="400" y1="190" x2="560" y2="190" stroke="#22c55e" stroke-width="2"/>
+  
+  <!-- Step 2 (active) -->
+  <circle cx="580" cy="190" r="16" fill="#7C7CF2"/>
+  <text x="576" y="195" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="white">2</text>
+  <text x="545" y="222" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#7C7CF2">Map Columns</text>
+  
+  <line x1="600" y1="190" x2="760" y2="190" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Step 3 (pending) -->
+  <circle cx="780" cy="190" r="16" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="776" y="195" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">3</text>
+  <text x="762" y="222" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">Review</text>
+  
+  <line x1="800" y1="190" x2="960" y2="190" stroke="#e5e7eb" stroke-width="2"/>
+  
+  <!-- Step 4 (pending) -->
+  <circle cx="980" cy="190" r="16" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+  <text x="976" y="195" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">4</text>
+  <text x="960" y="222" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">Import</text>
+  
+  <!-- File Info Card -->
+  <rect x="280" y="260" width="880" height="70" rx="10" fill="#f0fdf4" stroke="#22c55e"/>
+  <circle cx="320" cy="295" r="20" fill="#dcfce7"/>
+  <text x="310" y="302" font-family="system-ui, sans-serif" font-size="16" fill="#22c55e">✓</text>
+  <text x="360" y="290" font-family="system-ui, sans-serif" font-size="14" font-weight="500" fill="#0B1220">clients_export.csv</text>
+  <text x="360" y="310" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">142 rows • 6 columns • 24.5 KB</text>
+  <rect x="1060" y="280" width="80" height="32" rx="6" fill="white" stroke="#d1d5db"/>
+  <text x="1078" y="302" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Change</text>
+  
+  <!-- Column Mapping Card -->
+  <rect x="280" y="350" width="880" height="360" rx="12" fill="white" stroke="#e5e7eb"/>
+  <text x="312" y="386" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#0B1220">Map CSV Columns to NeonO Fields</text>
+  <text x="312" y="408" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Match each column in your CSV file to the corresponding client field</text>
+  
+  <!-- Column Headers -->
+  <text x="312" y="452" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b">CSV COLUMN</text>
+  <text x="560" y="452" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b"></text>
+  <text x="700" y="452" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b">NEONO FIELD</text>
+  <text x="980" y="452" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748b">PREVIEW</text>
+  
+  <line x1="300" y1="468" x2="1140" y2="468" stroke="#f1f5f9"/>
+  
+  <!-- Row 1: FirstName -->
+  <rect x="312" y="484" width="180" height="40" rx="6" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="332" y="510" font-family="system-ui, sans-serif" font-size="13" fill="#374151">FirstName</text>
+  
+  <text x="560" y="510" font-family="system-ui, sans-serif" font-size="16" fill="#9ca3af">→</text>
+  
+  <rect x="620" y="484" width="200" height="40" rx="6" fill="white" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="510" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#22c55e">First Name</text>
+  <circle cx="800" cy="504" r="8" fill="#22c55e"/>
+  <path d="M796 504 L799 507 L804 501" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="980" y="510" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">John, Sarah, Mike...</text>
+  
+  <line x1="300" y1="540" x2="1140" y2="540" stroke="#f1f5f9"/>
+  
+  <!-- Row 2: LastName -->
+  <rect x="312" y="556" width="180" height="40" rx="6" fill="#f8fafc" stroke="#e5e7eb"/>
+  <text x="332" y="582" font-family="system-ui, sans-serif" font-size="13" fill="#374151">LastName</text>
+  
+  <text x="560" y="582" font-family="system-ui, sans-serif" font-size="16" fill="#9ca3af">→</text>
+  
+  <rect x="620" y="556" width="200" height="40" rx="6" fill="white" stroke="#22c55e" stroke-width="2"/>
+  <text x="640" y="582" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#22c55e">Last Name</text>
+  <circle cx="800" cy="576" r="8" fill="#22c55e"/>
+  <path d="M796 576 L799 579 L804 573" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="980" y="582" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Smith, Johnson...</text>
+  
+  <line x1="300" y1="612" x2="1140" y2="612" stroke="#f1f5f9"/>
+  
+  <!-- Row 3: Email (selected/active) -->
+  <rect x="304" y="620" width="856" height="56" rx="8" fill="#7C7CF2" fill-opacity="0.05"/>
+  <rect x="312" y="628" width="180" height="40" rx="6" fill="#f8fafc" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="332" y="654" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#7C7CF2">Email</text>
+  
+  <text x="560" y="654" font-family="system-ui, sans-serif" font-size="16" fill="#7C7CF2">→</text>
+  
+  <rect x="620" y="628" width="200" height="40" rx="6" fill="white" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="640" y="654" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#7C7CF2">Email Address</text>
+  <path d="M808 644 L816 654 L808 664" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <text x="980" y="654" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">john@email.com...</text>
+  
+  <!-- Dropdown (shown) -->
+  <rect x="620" y="672" width="200" height="120" rx="8" fill="white" stroke="#e5e7eb" filter="url(#dropShadow)"/>
+  <defs>
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <rect x="628" y="680" width="184" height="28" rx="4" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="644" y="700" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#7C7CF2">Email Address</text>
+  <text x="644" y="728" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Phone Number</text>
+  <text x="644" y="756" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Notes</text>
+  <text x="644" y="784" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Skip this column</text>
+  
+  <!-- Footer Actions -->
+  <rect x="280" y="730" width="880" height="60" rx="10" fill="#f8fafc"/>
+  
+  <rect x="948" y="742" width="180" height="44" rx="8" fill="#7C7CF2"/>
+  <text x="988" y="770" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="white">Continue to Review</text>
+  
+  <rect x="820" y="742" width="112" height="44" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="854" y="770" font-family="system-ui, sans-serif" font-size="14" fill="#374151">Back</text>
+  
+  <text x="312" y="770" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">3 of 6 columns mapped</text>
+</svg>

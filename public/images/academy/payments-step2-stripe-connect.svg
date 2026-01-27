@@ -1,0 +1,89 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="52" width="400" height="24" rx="4" fill="#0B1220"/>
+  <text x="220" y="69" font-family="system-ui" font-size="12" fill="#718096">connect.stripe.com/setup</text>
+  
+  <!-- Main Content Area -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0f0f1a"/>
+  
+  <!-- Stripe Connect Page -->
+  <rect x="200" y="120" width="800" height="560" rx="16" fill="#FFFFFF"/>
+  
+  <!-- Stripe Header -->
+  <rect x="200" y="120" width="800" height="80" rx="16" fill="#635BFF"/>
+  <rect x="200" y="184" width="800" height="16" fill="#635BFF"/>
+  
+  <!-- Stripe Logo -->
+  <text x="280" y="170" font-family="system-ui" font-size="28" font-weight="bold" fill="#FFFFFF">stripe</text>
+  
+  <!-- Progress Steps -->
+  <rect x="650" y="145" width="300" height="40" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="700" cy="165" r="12" fill="#FFFFFF"/>
+  <text x="696" y="170" font-family="system-ui" font-size="12" font-weight="bold" fill="#635BFF">1</text>
+  <line x1="720" y1="165" x2="780" y2="165" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="800" cy="165" r="12" fill="rgba(255,255,255,0.3)"/>
+  <text x="796" y="170" font-family="system-ui" font-size="12" fill="#FFFFFF">2</text>
+  <line x1="820" y1="165" x2="880" y2="165" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <circle cx="900" cy="165" r="12" fill="rgba(255,255,255,0.3)"/>
+  <text x="896" y="170" font-family="system-ui" font-size="12" fill="#FFFFFF">3</text>
+  
+  <!-- Form Content -->
+  <text x="280" y="250" font-family="system-ui" font-size="24" font-weight="600" fill="#1a1a2e">Connect your business</text>
+  <text x="280" y="280" font-family="system-ui" font-size="14" fill="#718096">Link your Stripe account to NeonO to accept payments</text>
+  
+  <!-- Email Field -->
+  <text x="280" y="330" font-family="system-ui" font-size="14" font-weight="500" fill="#1a1a2e">Email</text>
+  <rect x="280" y="345" width="640" height="52" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <text x="310" y="378" font-family="system-ui" font-size="15" fill="#1a1a2e">owner@bellasalon.com</text>
+  
+  <!-- Already have account link -->
+  <text x="680" y="330" font-family="system-ui" font-size="13" fill="#635BFF">Already have an account? Sign in</text>
+  
+  <!-- Phone Number -->
+  <text x="280" y="430" font-family="system-ui" font-size="14" font-weight="500" fill="#1a1a2e">Phone number</text>
+  <rect x="280" y="445" width="640" height="52" rx="8" fill="#FFFFFF" stroke="#635BFF" stroke-width="2"/>
+  <rect x="290" y="455" width="80" height="32" rx="4" fill="#F7FAFC"/>
+  <text x="305" y="477" font-family="system-ui" font-size="14" fill="#1a1a2e">🇺🇸 +1</text>
+  <text x="390" y="478" font-family="system-ui" font-size="15" fill="#1a1a2e">(555) 123-4567</text>
+  <rect x="545" y="460" width="2" height="22" fill="#635BFF">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Security Notice -->
+  <rect x="280" y="520" width="640" height="50" rx="8" fill="#F0FFF4"/>
+  <text x="310" y="550" font-family="system-ui" font-size="13" fill="#48BB78">🔒 Your information is secured with bank-level encryption</text>
+  
+  <!-- Continue Button -->
+  <rect x="280" y="590" width="640" height="56" rx="8" fill="#635BFF"/>
+  <text x="560" y="625" font-family="system-ui" font-size="16" font-weight="600" fill="#FFFFFF">Continue →</text>
+  
+  <!-- Back to NeonO link -->
+  <text x="530" y="665" font-family="system-ui" font-size="13" fill="#635BFF">← Back to NeonO</text>
+  
+  <!-- Trust Badges -->
+  <rect x="280" y="680" width="640" height="1" fill="#E2E8F0"/>
+  <text x="350" y="705" font-family="system-ui" font-size="11" fill="#A0AEC0">Secured by Stripe</text>
+  <text x="500" y="705" font-family="system-ui" font-size="11" fill="#A0AEC0">PCI Compliant</text>
+  <text x="640" y="705" font-family="system-ui" font-size="11" fill="#A0AEC0">256-bit SSL</text>
+</svg>

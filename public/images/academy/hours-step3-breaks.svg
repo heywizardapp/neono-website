@@ -1,0 +1,100 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Breaks Modal -->
+  <rect x="200" y="120" width="800" height="560" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Modal Header -->
+  <rect x="200" y="120" width="800" height="70" rx="16" fill="#141428"/>
+  <rect x="200" y="174" width="800" height="16" fill="#141428"/>
+  <text x="250" y="165" font-family="system-ui" font-size="20" font-weight="bold" fill="#FFFFFF">Add Break Time</text>
+  <circle cx="960" cy="155" r="16" fill="#2D3748"/>
+  <text x="955" y="161" font-family="system-ui" font-size="18" fill="#A0AEC0">×</text>
+  
+  <!-- Info Box -->
+  <rect x="250" y="210" width="700" height="60" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="280" y="235" font-family="system-ui" font-size="13" fill="#7C7CF2">💡 Breaks block off time when no appointments can be booked.</text>
+  <text x="280" y="255" font-family="system-ui" font-size="12" fill="#718096">Great for lunch, staff meetings, or cleaning time.</text>
+  
+  <!-- Existing Breaks -->
+  <text x="250" y="305" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Current Breaks</text>
+  
+  <rect x="250" y="325" width="700" height="120" rx="12" fill="#0f0f1a"/>
+  
+  <!-- Lunch Break -->
+  <rect x="270" y="345" width="660" height="50" rx="8" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="300" y="377" font-family="system-ui" font-size="15" fill="#FFFFFF">🍽️ Lunch Break</text>
+  <text x="530" y="377" font-family="system-ui" font-size="14" fill="#A0AEC0">12:00 PM - 1:00 PM</text>
+  <rect x="750" y="358" width="60" height="28" rx="6" fill="#48BB78" fill-opacity="0.2"/>
+  <text x="762" y="378" font-family="system-ui" font-size="12" fill="#48BB78">Daily</text>
+  <circle cx="880" cy="370" r="14" fill="#FC8181" fill-opacity="0.2"/>
+  <text x="875" y="376" font-family="system-ui" font-size="12" fill="#FC8181">✕</text>
+  
+  <!-- Empty slot -->
+  <rect x="270" y="405" width="660" height="30" rx="6" fill="transparent" stroke="#2D3748" stroke-dasharray="4,2"/>
+  <text x="540" y="426" font-family="system-ui" font-size="12" fill="#4A5568">+ Add another break</text>
+  
+  <!-- Add New Break Section -->
+  <text x="250" y="480" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Add New Break</text>
+  
+  <rect x="250" y="500" width="700" height="120" rx="12" fill="#0f0f1a" stroke="#7C7CF2" stroke-width="2"/>
+  
+  <!-- Break Name -->
+  <text x="280" y="535" font-family="system-ui" font-size="12" fill="#718096">Break Name</text>
+  <rect x="280" y="545" width="180" height="45" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="300" y="575" font-family="system-ui" font-size="14" fill="#7C7CF2">Team Meeting</text>
+  <rect x="415" y="555" width="2" height="20" fill="#7C7CF2">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Start Time -->
+  <text x="480" y="535" font-family="system-ui" font-size="12" fill="#718096">Start</text>
+  <rect x="480" y="545" width="120" height="45" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="500" y="575" font-family="system-ui" font-size="14" fill="#FFFFFF">3:00 PM</text>
+  <path d="M580 565 L590 565 L585 575 Z" fill="#718096"/>
+  
+  <!-- End Time -->
+  <text x="620" y="535" font-family="system-ui" font-size="12" fill="#718096">End</text>
+  <rect x="620" y="545" width="120" height="45" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="640" y="575" font-family="system-ui" font-size="14" fill="#FFFFFF">3:30 PM</text>
+  <path d="M720 565 L730 565 L725 575 Z" fill="#718096"/>
+  
+  <!-- Repeat -->
+  <text x="760" y="535" font-family="system-ui" font-size="12" fill="#718096">Repeat</text>
+  <rect x="760" y="545" width="170" height="45" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="780" y="575" font-family="system-ui" font-size="14" fill="#FFFFFF">Every Wednesday</text>
+  <path d="M900 565 L910 565 L905 575 Z" fill="#718096"/>
+  
+  <!-- Duration indicator -->
+  <rect x="480" y="600" width="260" height="25" rx="4" fill="#48BB78" fill-opacity="0.1"/>
+  <text x="560" y="618" font-family="system-ui" font-size="11" fill="#48BB78">⏱️ 30 minutes blocked</text>
+  
+  <!-- Navigation -->
+  <rect x="700" y="640" width="100" height="44" rx="8" fill="transparent" stroke="#4A5568"/>
+  <text x="730" y="668" font-family="system-ui" font-size="14" fill="#A0AEC0">Cancel</text>
+  
+  <rect x="820" y="640" width="140" height="44" rx="8" fill="#7C7CF2"/>
+  <text x="855" y="668" font-family="system-ui" font-size="14" font-weight="600" fill="#FFFFFF">Add Break</text>
+</svg>

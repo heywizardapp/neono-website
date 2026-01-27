@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import * as React from "react";
 
 /**
  * Track reading progress as user scrolls through content
  * Returns percentage (0-100) of content read
  */
 export function useReadingProgress() {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const updateProgress = () => {
       // Get the article content element
       const article = document.querySelector('article') || document.querySelector('main');

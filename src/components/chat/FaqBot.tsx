@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import faqData from '@/config/faq.json';
@@ -14,10 +14,10 @@ interface FaqItem {
 }
 
 export function FaqBot({ onSuggestion }: FaqBotProps) {
-  const [suggestions, setSuggestions] = useState<FaqItem[]>([]);
-  const [hasShownSuggestions, setHasShownSuggestions] = useState(false);
+  const [suggestions, setSuggestions] = React.useState<FaqItem[]>([]);
+  const [hasShownSuggestions, setHasShownSuggestions] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Show initial FAQ suggestions on mount
     if (!hasShownSuggestions) {
       const topFaqs = faqData.slice(0, 3) as FaqItem[];

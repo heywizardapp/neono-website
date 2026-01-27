@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { Calendar, Bell, Users, Repeat, MapPin, Clock, CheckCircle, Smartphone } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function Appointments() {
   return (
     <ProductTemplate
       productName="Appointments"
-      tagline="Smart scheduling that fills your calendar automatically"
-      description="Never miss a booking. Our intelligent calendar syncs in real-time, sends automatic reminders, and makes it easy for clients to book—reducing no-shows by up to 80%."
+      tagline="Smart Scheduling with Waitlists, Resources & Analytics"
+      description="Complete appointment management with smart waitlists, resource scheduling, closed period management, and schedule analytics. Automated reminders at 24 hours, 2 hours, and 30 minutes keep clients on time."
       icon={Calendar}
       path="/products/appointments"
       seoKeywords="appointment scheduling software, booking calendar, automated reminders, salon appointments, beauty booking system"
+      sections={[
+        {
+          id: "scheduling",
+          eyebrow: "SMART CALENDAR",
+          title: "A calendar designed for stylists.",
+          bullets: [
+            "Clients see live availability across your entire team.",
+            "Set up weekly, monthly, or custom recurring bookings.",
+            "No more double bookings or scheduling conflicts."
+          ],
+          media: {
+            src: "/src/assets/placeholders/appointments.webp",
+            alt: "Appointment calendar"
+          }
+        },
+        {
+          id: "automation",
+          eyebrow: "AUTOMATION",
+          title: "Reduce no-shows by 80%.",
+          bullets: [
+            "Send SMS and email reminders automatically.",
+            "Handle party bookings and group services easily.",
+            "Smart reminder sequences keep clients on time."
+          ],
+          media: {
+            src: "/src/assets/placeholders/appointments.webp",
+            alt: "Automated reminders"
+          }
+        },
+        {
+          id: "management",
+          eyebrow: "MANAGEMENT",
+          title: "Manage your business anywhere.",
+          bullets: [
+            "Manage appointments across multiple locations from one dashboard.",
+            "Your team can manage their schedules from any device.",
+            "Perfect for growing businesses and franchises."
+          ],
+          media: {
+            src: "/src/assets/placeholders/appointments.webp",
+            alt: "Mobile management"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Real-Time Availability',
@@ -82,8 +127,8 @@ export default function Appointments() {
         { name: 'iCal', logo: 'IC' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {

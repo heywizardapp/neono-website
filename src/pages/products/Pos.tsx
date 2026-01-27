@@ -1,5 +1,6 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { CreditCard, Zap, DollarSign, Users, Package, Smartphone, Receipt, TrendingUp } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function Pos() {
   return (
@@ -10,6 +11,90 @@ export default function Pos() {
       icon={CreditCard}
       path="/products/pos"
       seoKeywords="point of sale, salon POS, beauty payment processing, contactless payments, tip splitting"
+      sections={[
+        {
+          id: "retail",
+          eyebrow: "RETAIL & SERVICE SALES",
+          title: "Fast, flexible checkout.",
+          bullets: [
+            "Fast product scanning with barcode lookup.",
+            "Service checkout with automatic staff assignment.",
+            "Split payments across cards, cash, and gift cards.",
+            "Instant product recommendations at checkout."
+          ],
+          media: {
+            src: "/src/assets/placeholders/pos.webp",
+            alt: "Retail checkout"
+          }
+        },
+        {
+          id: "payments",
+          eyebrow: "PAYMENT PROCESSING",
+          title: "Accept payments anywhere.",
+          bullets: [
+            "Seamless integration with Stripe Terminal S700.",
+            "Tap, chip, and swipe payments for all major cards.",
+            "Split bills and tips easily between clients.",
+            "Direct tip distribution to team members."
+          ],
+          media: {
+            src: "/src/assets/placeholders/pos.webp",
+            alt: "Payment processing"
+          }
+        },
+        {
+          id: "cash",
+          eyebrow: "CASH MANAGEMENT",
+          title: "Complete cash control.",
+          bullets: [
+            "Track cash sessions with open/close enforcement.",
+            "Detailed cash in/out tracking and variance reporting.",
+            "End-of-day reconciliation reports.",
+            "Multi-location cash drawer tracking."
+          ],
+          media: {
+            src: "/src/assets/placeholders/pos.webp",
+            alt: "Cash management"
+          }
+        },
+        {
+          id: "inventory",
+          eyebrow: "INVENTORY MANAGEMENT",
+          title: "Never run out of stock.",
+          bullets: [
+             "Real-time stock tracking with deduction on sale.",
+             "Automatic low stock alerts and re-order reminders.",
+             "Manage purchase orders and supplier receiving.",
+             "Track retail vs. professional back-bar usage."
+          ],
+          media: {
+             src: "/src/assets/placeholders/pos.webp",
+             alt: "Inventory management"
+          }
+        }
+      ]}
+      hardware={[
+        {
+          name: "Stripe Terminal S700",
+          description: "All-in-one smart handheld device. Manage appointments, check out clients, and accept payments right from the chair.",
+          image: "/src/assets/placeholders/pos.webp" 
+        },
+        {
+          name: "WisePOS E",
+          description: "Smart countertop reader with a 5-inch touchscreen. Perfect for your front desk reception area.",
+          image: "/src/assets/placeholders/pos.webp"
+        },
+        {
+          name: "Tap to Pay on iPhone",
+          description: "Accept contactless payments with just your iPhone. No extra hardware required.",
+          image: "/src/assets/placeholders/pos.webp"
+        },
+        {
+          name: "Tap to Pay on Android",
+          description: "Turn your Android device into a payment terminal. Accept chip and contactless payments instantly.",
+          image: "/src/assets/placeholders/pos.webp"
+        }
+      ]}
       features={[
         {
           title: 'Contactless Payments',
@@ -82,8 +167,8 @@ export default function Pos() {
         { name: 'Xero', logo: 'XE' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {
@@ -109,6 +194,11 @@ export default function Pos() {
       ]}
       relatedProducts={[
         {
+          name: 'Loyalty & Gift Cards',
+          href: '/products/loyalty',
+          description: 'Earn and redeem points seamlessly at checkout',
+        },
+        {
           name: 'Staff Management',
           href: '/products/staff-management',
           description: 'Track commissions and team earnings',
@@ -117,11 +207,6 @@ export default function Pos() {
           name: 'Analytics',
           href: '/products/analytics',
           description: 'Monitor revenue and product sales',
-        },
-        {
-          name: 'Appointments',
-          href: '/products/appointments',
-          description: 'Seamless checkout after appointments',
         },
       ]}
     />

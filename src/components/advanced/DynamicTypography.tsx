@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ReactNode } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 
 interface TypewriterProps {
@@ -18,11 +18,11 @@ export function Typewriter({
   cursor = true,
   onComplete,
 }: TypewriterProps) {
-  const [displayedText, setDisplayedText] = useState('');
-  const [isComplete, setIsComplete] = useState(false);
-  const [showCursor, setShowCursor] = useState(true);
+  const [displayedText, setDisplayedText] = React.useState('');
+  const [isComplete, setIsComplete] = React.useState(false);
+  const [showCursor, setShowCursor] = React.useState(true);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       let index = 0;
       const interval = setInterval(() => {
@@ -43,7 +43,7 @@ export function Typewriter({
   }, [text, speed, delay, onComplete]);
 
   // Cursor blinking effect
-  useEffect(() => {
+  React.useEffect(() => {
     if (!cursor) return;
 
     const cursorInterval = setInterval(() => {
@@ -82,11 +82,11 @@ export function TextReveal({
   trigger = 'scroll',
   threshold = 0.1,
 }: TextRevealProps) {
-  const [isVisible, setIsVisible] = useState(trigger === 'immediate');
-  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = React.useState(trigger === 'immediate');
+  const ref = React.useRef<HTMLDivElement>(null);
   const words = children.split(' ');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (trigger !== 'scroll') return;
 
     const observer = new IntersectionObserver(
@@ -187,11 +187,11 @@ export function CountUp({
   trigger = 'scroll',
   onComplete,
 }: CountUpProps) {
-  const [count, setCount] = useState(start);
-  const [hasStarted, setHasStarted] = useState(trigger === 'immediate');
-  const ref = useRef<HTMLSpanElement>(null);
+  const [count, setCount] = React.useState(start);
+  const [hasStarted, setHasStarted] = React.useState(trigger === 'immediate');
+  const ref = React.useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (trigger !== 'scroll') return;
 
     const observer = new IntersectionObserver(
@@ -211,7 +211,7 @@ export function CountUp({
     return () => observer.disconnect();
   }, [trigger]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!hasStarted) return;
 
     const timer = setTimeout(() => {
@@ -271,10 +271,10 @@ export function GlitchText({
   trigger = 'hover',
   duration = 300,
 }: GlitchTextProps) {
-  const [isGlitching, setIsGlitching] = useState(trigger === 'continuous');
-  const ref = useRef<HTMLSpanElement>(null);
+  const [isGlitching, setIsGlitching] = React.useState(trigger === 'continuous');
+  const ref = React.useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (trigger === 'continuous') {
       const interval = setInterval(() => {
         setIsGlitching(true);

@@ -108,7 +108,7 @@ export function ConversionOptimizedCTA({
           <div className={`text-sm ${
             variant === 'hero' ? 'text-white/70' : 'text-muted-foreground'
           }`}>
-            Trusted by 50,000+ salons, spas & barbershops worldwide
+            Trusted by salon professionals coast to coast
           </div>
 
           {urgency && (

@@ -1,0 +1,102 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Import Modal -->
+  <rect x="150" y="100" width="900" height="600" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="150" y="100" width="900" height="70" rx="16" fill="#141428"/>
+  <rect x="150" y="154" width="900" height="16" fill="#141428"/>
+  <text x="200" y="145" font-family="system-ui" font-size="20" font-weight="bold" fill="#FFFFFF">📥 Import Clients from CSV</text>
+  <circle cx="1010" cy="135" r="16" fill="#2D3748"/>
+  <text x="1005" y="141" font-family="system-ui" font-size="18" fill="#A0AEC0">×</text>
+  
+  <!-- Steps Progress -->
+  <rect x="200" y="195" width="800" height="60" rx="10" fill="#0f0f1a"/>
+  
+  <circle cx="300" cy="225" r="20" fill="#7C7CF2"/>
+  <text x="294" y="231" font-family="system-ui" font-size="14" font-weight="bold" fill="#FFFFFF">1</text>
+  <text x="270" y="255" font-family="system-ui" font-size="11" fill="#7C7CF2">Upload</text>
+  
+  <line x1="330" y1="225" x2="470" y2="225" stroke="#4A5568" stroke-width="2"/>
+  
+  <circle cx="500" cy="225" r="20" fill="#2D3748"/>
+  <text x="494" y="231" font-family="system-ui" font-size="14" fill="#718096">2</text>
+  <text x="480" y="255" font-family="system-ui" font-size="11" fill="#718096">Map</text>
+  
+  <line x1="530" y1="225" x2="670" y2="225" stroke="#4A5568" stroke-width="2"/>
+  
+  <circle cx="700" cy="225" r="20" fill="#2D3748"/>
+  <text x="694" y="231" font-family="system-ui" font-size="14" fill="#718096">3</text>
+  <text x="675" y="255" font-family="system-ui" font-size="11" fill="#718096">Review</text>
+  
+  <line x1="730" y1="225" x2="870" y2="225" stroke="#4A5568" stroke-width="2"/>
+  
+  <circle cx="900" cy="225" r="20" fill="#2D3748"/>
+  <text x="894" y="231" font-family="system-ui" font-size="14" fill="#718096">4</text>
+  <text x="875" y="255" font-family="system-ui" font-size="11" fill="#718096">Import</text>
+  
+  <!-- Upload Area -->
+  <rect x="200" y="290" width="800" height="220" rx="16" fill="#0f0f1a" stroke="#7C7CF2" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <circle cx="600" cy="370" r="40" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="580" y="385" font-family="system-ui" font-size="32" fill="#7C7CF2">📄</text>
+  
+  <text x="520" y="430" font-family="system-ui" font-size="16" font-weight="500" fill="#FFFFFF">Drop your CSV file here</text>
+  <text x="545" y="455" font-family="system-ui" font-size="14" fill="#718096">or click to browse</text>
+  
+  <rect x="520" y="475" width="160" height="40" rx="8" fill="#7C7CF2"/>
+  <text x="560" y="501" font-family="system-ui" font-size="14" font-weight="600" fill="#FFFFFF">Choose File</text>
+  
+  <!-- Download Template -->
+  <rect x="200" y="530" width="800" height="70" rx="10" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="240" y="560" font-family="system-ui" font-size="14" font-weight="500" fill="#7C7CF2">📋 Need a template?</text>
+  <text x="240" y="582" font-family="system-ui" font-size="12" fill="#A0AEC0">Download our sample CSV to see the expected format.</text>
+  <rect x="860" y="545" width="120" height="36" rx="6" fill="transparent" stroke="#7C7CF2"/>
+  <text x="878" y="569" font-family="system-ui" font-size="12" fill="#7C7CF2">Download ↓</text>
+  
+  <!-- Supported Fields -->
+  <text x="200" y="640" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Supported Fields</text>
+  
+  <rect x="200" y="655" width="100" height="28" rx="4" fill="#48BB78" fill-opacity="0.2"/>
+  <text x="215" y="674" font-family="system-ui" font-size="11" fill="#48BB78">First Name *</text>
+  
+  <rect x="310" y="655" width="100" height="28" rx="4" fill="#48BB78" fill-opacity="0.2"/>
+  <text x="325" y="674" font-family="system-ui" font-size="11" fill="#48BB78">Last Name *</text>
+  
+  <rect x="420" y="655" width="80" height="28" rx="4" fill="#48BB78" fill-opacity="0.2"/>
+  <text x="437" y="674" font-family="system-ui" font-size="11" fill="#48BB78">Email *</text>
+  
+  <rect x="510" y="655" width="80" height="28" rx="4" fill="#2D3748"/>
+  <text x="530" y="674" font-family="system-ui" font-size="11" fill="#A0AEC0">Phone</text>
+  
+  <rect x="600" y="655" width="80" height="28" rx="4" fill="#2D3748"/>
+  <text x="617" y="674" font-family="system-ui" font-size="11" fill="#A0AEC0">Birthday</text>
+  
+  <rect x="690" y="655" width="80" height="28" rx="4" fill="#2D3748"/>
+  <text x="710" y="674" font-family="system-ui" font-size="11" fill="#A0AEC0">Notes</text>
+  
+  <text x="790" y="674" font-family="system-ui" font-size="11" fill="#4A5568">* Required</text>
+</svg>

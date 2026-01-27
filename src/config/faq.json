@@ -1,12 +1,12 @@
 [
   {
     "question": "What's included in the pricing plans?",
-    "answer": "Starter ($29/mo) includes 2 seats, appointments, POS, basic marketing. Growth ($59/mo) includes 5 seats plus advanced analytics, automation, and priority support. All plans include SMS, website, cart, and QuickBooks integration at no extra cost.",
+    "answer": "Independent ($19.99/mo) for solo practitioners, Starter ($29/mo) with 2 seats, and Growth ($59/mo) with 5 seats. Salon plans with chair-based pricing ($16.99/chair) are available for larger teams—chairs 8+ are FREE. All plans include online booking, POS, SMS/email, website builder, and QuickBooks integration.",
     "tags": ["pricing", "plans", "features", "cost"]
   },
   {
     "question": "How many team members can use NeonO?",
-    "answer": "Starter includes 2 seats, Growth includes 5 seats. Additional seats are $9.99/month each. Each seat gets full calendar access, POS permissions, and client management tools.",
+    "answer": "Independent includes 1 seat, Starter includes 2 seats, Growth includes 5 seats. For larger teams, our Salon plan offers per-chair pricing at $16.99/chair for the first 7 chairs, with chairs 8+ completely FREE. Each seat/chair gets full calendar access, POS permissions, and client management tools.",
     "tags": ["seats", "team", "users", "staff"]
   },
   {

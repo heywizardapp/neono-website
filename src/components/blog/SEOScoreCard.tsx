@@ -20,7 +20,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { useState } from 'react';
+import * as React from "react";
 
 interface SEOScoreCardProps {
   analysis: SEOAnalysis;
@@ -28,7 +28,7 @@ interface SEOScoreCardProps {
 }
 
 export function SEOScoreCard({ analysis, focusKeyword }: SEOScoreCardProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = React.useState(true);
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-green-600';

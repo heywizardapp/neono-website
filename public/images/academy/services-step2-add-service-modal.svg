@@ -1,0 +1,93 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Add Service Modal -->
+  <rect x="200" y="100" width="800" height="600" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Modal Header -->
+  <rect x="200" y="100" width="800" height="70" rx="16" fill="#141428"/>
+  <rect x="200" y="154" width="800" height="16" fill="#141428"/>
+  <text x="250" y="145" font-family="system-ui" font-size="20" font-weight="bold" fill="#FFFFFF">Add New Service</text>
+  <circle cx="960" cy="135" r="16" fill="#2D3748"/>
+  <text x="955" y="141" font-family="system-ui" font-size="18" fill="#A0AEC0">×</text>
+  
+  <!-- Service Name -->
+  <text x="250" y="210" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Service Name</text>
+  <text x="345" y="210" font-family="system-ui" font-size="12" fill="#FC8181">*</text>
+  <rect x="250" y="225" width="700" height="52" rx="8" fill="#0f0f1a" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="275" y="258" font-family="system-ui" font-size="15" fill="#FFFFFF">Women's Haircut &amp; Blow Dry</text>
+  <rect x="520" y="238" width="2" height="24" fill="#7C7CF2">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Category Dropdown -->
+  <text x="250" y="305" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Category</text>
+  <text x="315" y="305" font-family="system-ui" font-size="12" fill="#FC8181">*</text>
+  <rect x="250" y="320" width="340" height="52" rx="8" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="275" y="353" font-family="system-ui" font-size="15" fill="#FFFFFF">Hair Services</text>
+  <path d="M565 345 L575 345 L570 355 Z" fill="#718096"/>
+  
+  <!-- Category Dropdown Expanded -->
+  <rect x="250" y="378" width="340" height="160" rx="8" fill="#0f0f1a" stroke="#7C7CF2"/>
+  
+  <rect x="260" y="388" width="320" height="40" rx="6" fill="#7C7CF2" fill-opacity="0.15"/>
+  <text x="285" y="414" font-family="system-ui" font-size="14" fill="#7C7CF2">✂️ Hair Services</text>
+  
+  <rect x="260" y="433" width="320" height="40" rx="6" fill="transparent"/>
+  <text x="285" y="459" font-family="system-ui" font-size="14" fill="#FFFFFF">💅 Nail Services</text>
+  
+  <rect x="260" y="478" width="320" height="40" rx="6" fill="transparent"/>
+  <text x="285" y="504" font-family="system-ui" font-size="14" fill="#FFFFFF">🧖 Spa Services</text>
+  
+  <rect x="260" y="523" width="320" height="25" rx="6" fill="transparent" stroke="#7C7CF2" stroke-dasharray="4,2"/>
+  <text x="285" y="541" font-family="system-ui" font-size="12" fill="#7C7CF2">+ Create new category</text>
+  
+  <!-- Price & Duration Row -->
+  <text x="610" y="305" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Price</text>
+  <text x="650" y="305" font-family="system-ui" font-size="12" fill="#FC8181">*</text>
+  <rect x="610" y="320" width="160" height="52" rx="8" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="635" y="353" font-family="system-ui" font-size="15" fill="#718096">$</text>
+  <text x="655" y="353" font-family="system-ui" font-size="15" fill="#FFFFFF">65</text>
+  
+  <text x="790" y="305" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Duration</text>
+  <text x="860" y="305" font-family="system-ui" font-size="12" fill="#FC8181">*</text>
+  <rect x="790" y="320" width="160" height="52" rx="8" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="815" y="353" font-family="system-ui" font-size="15" fill="#FFFFFF">45 min</text>
+  <path d="M925 345 L935 345 L930 355 Z" fill="#718096"/>
+  
+  <!-- Pro Tip -->
+  <rect x="250" y="560" width="700" height="50" rx="8" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2" stroke-width="1"/>
+  <text x="280" y="590" font-family="system-ui" font-size="13" fill="#7C7CF2">💡 Pro Tip: Use "from $X" pricing for services that vary by length or complexity—like color services.</text>
+  
+  <!-- Progress Dots -->
+  <circle cx="560" cy="640" r="5" fill="#7C7CF2"/>
+  <circle cx="580" cy="640" r="5" fill="#4A5568"/>
+  <circle cx="600" cy="640" r="5" fill="#4A5568"/>
+  <circle cx="620" cy="640" r="5" fill="#4A5568"/>
+  
+  <!-- Next Button -->
+  <rect x="780" y="625" width="150" height="48" rx="8" fill="#7C7CF2"/>
+  <text x="830" y="655" font-family="system-ui" font-size="14" font-weight="600" fill="#FFFFFF">Next →</text>
+</svg>

@@ -16,32 +16,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { PRICING, calculateSalonPrice, MAX_SALON_PRICE_DISPLAY, MIN_SALON_PRICE_DISPLAY } from '@/config/pricing';
 
-const independentFeatures = [
-  'Online booking & scheduling',
-  'Point of sale & payments',
-  'Client management & history',
-  'SMS & email notifications',
-  'Free booking website',
-  'Marketing tools & campaigns',
-  'Reports & analytics',
-  'Mobile app access',
-  'Email support',
-];
+const independentFeatures = PRICING.independent.features;
 
-const salonFeatures = [
-  'Multi-chair scheduling',
-  'Staff management & permissions',
-  'Commission & payroll tracking',
-  'Online booking & scheduling',
-  'Point of sale & payments',
-  'Client management & history',
-  'SMS & email marketing',
-  'Free booking website',
-  'Advanced reports & analytics',
-  'Mobile app access',
-  'Priority support',
-];
+const salonFeatures = PRICING.salon.features;
 
 const faqs = [
   {
@@ -50,11 +29,11 @@ const faqs = [
   },
   {
     question: 'How does the per-chair pricing work?',
-    answer: 'Salon plans start at 2 chairs for $33.98/month. Each chair costs $16.99/month for the first 7 chairs. After that, chairs 8 and beyond are completely FREE—no additional cost as you grow. The maximum you\'ll ever pay is $118.93/month, regardless of team size.'
+    answer: `Salon plans start at ${PRICING.salon.minChairs} chairs for ${MIN_SALON_PRICE_DISPLAY}/month. Each chair costs ${PRICING.salon.pricePerChairDisplay}/month for the first ${PRICING.salon.maxBillableChairs} chairs. After that, chairs ${PRICING.salon.maxBillableChairs + 1} and beyond are completely FREE—no additional cost as you grow. The maximum you'll ever pay is ${MAX_SALON_PRICE_DISPLAY}/month, regardless of team size.`
   },
   {
     question: 'Do I really get unlimited chairs after 7?',
-    answer: 'Yes! Once you have 7 chairs, every additional chair is completely free. Whether you have 8 chairs or 50 chairs, you pay the same price: $118.93/month. This makes NeonO incredibly cost-effective for growing salons and multi-location businesses.'
+    answer: `Yes! Once you have ${PRICING.salon.maxBillableChairs} chairs, every additional chair is completely free. Whether you have ${PRICING.salon.maxBillableChairs + 1} chairs or ${PRICING.salon.maxChairs} chairs, you pay the same price: ${MAX_SALON_PRICE_DISPLAY}/month. This makes NeonO incredibly cost-effective for growing salons and multi-location businesses.`
   },
   {
     question: 'Can I switch between Independent and Salon plans?',
@@ -80,27 +59,20 @@ const faqs = [
 
 export default function Pricing() {
   const { t } = useI18n();
-  const [chairCount, setChairCount] = React.useState(2);
+  const [chairCount, setChairCount] = React.useState(PRICING.salon.minChairs);
 
-  const independentPrice = 19.99;
-  const pricePerChair = 16.99;
+  const independentPrice = PRICING.independent.price;
+  const pricePerChair = PRICING.salon.pricePerChair;
   
   // Calculate salon price with free chairs after 7
-  const calculateSalonPrice = (chairs: number) => {
-    const billableChairs = Math.min(chairs, 7);
-    return billableChairs * pricePerChair;
-  };
-  
-  const salonTotal = calculateSalonPrice(chairCount);
-  const freeChairs = Math.max(0, chairCount - 7);
-  const savings = freeChairs * pricePerChair;
+  const { total: salonTotal, freeChairs, savings } = calculateSalonPrice(chairCount);
 
   const decrementChairs = () => {
-    if (chairCount > 2) setChairCount(chairCount - 1);
+    if (chairCount > PRICING.salon.minChairs) setChairCount(chairCount - 1);
   };
 
   const incrementChairs = () => {
-    if (chairCount < 50) setChairCount(chairCount + 1);
+    if (chairCount < PRICING.salon.maxChairs) setChairCount(chairCount + 1);
   };
 
   return (

@@ -9,7 +9,7 @@ import { SEOHead } from '@/components/SEO/SEOHead';
 const NotFound = () => {
   const location = useLocation();
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 

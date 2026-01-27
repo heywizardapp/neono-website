@@ -1,3 +1,4 @@
+import { MediaRow } from '@/components/MediaRow';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +8,19 @@ import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { OptimizedImage } from '@/components/OptimizedImage';
+
+export interface ProductSection {
+  id: string;
+  title: string;
+  eyebrow?: string;
+  bullets: string[];
+  media: {
+    src: string;
+    alt: string;
+    variant?: 'image' | 'video';
+  };
+  reverse?: boolean;
+}
 
 export interface ProductFeature {
   title: string;
@@ -28,6 +42,12 @@ export interface ProductScreenshot {
 export interface ProductIntegration {
   name: string;
   logo: string;
+}
+
+export interface ProductHardware {
+  name: string;
+  description: string;
+  image: string;
 }
 
 export interface ProductPricing {
@@ -55,11 +75,13 @@ export interface ProductTemplateProps {
   benefits: ProductBenefit[];
   screenshots?: ProductScreenshot[];
   integrations?: ProductIntegration[];
+  hardware?: ProductHardware[];
   pricing?: ProductPricing;
   faqs: ProductFaq[];
   relatedProducts: RelatedProduct[];
   seoKeywords?: string;
   path: string;
+  sections?: ProductSection[];
 }
 
 export function ProductTemplate({
@@ -71,11 +93,13 @@ export function ProductTemplate({
   benefits,
   screenshots,
   integrations,
+  hardware,
   pricing,
   faqs,
   relatedProducts,
   seoKeywords,
   path,
+  sections,
 }: ProductTemplateProps) {
   return (
     <>
@@ -109,9 +133,9 @@ export function ProductTemplate({
       
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-subtle">
+        <section className="pt-20 pb-16 lg:pt-32 lg:pb-24 bg-gradient-subtle overflow-hidden">
           <div className="container">
-            <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="max-w-4xl mx-auto text-center space-y-8 mb-16">
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-hero text-white shadow-elegant mb-4">
                 <Icon className="h-8 w-8" />
               </div>
@@ -140,11 +164,38 @@ export function ProductTemplate({
                 </Button>
               </div>
             </div>
+
+            {/* Hero Image */}
+            {screenshots && screenshots.length > 0 && (
+              <div className="relative mx-auto max-w-6xl mt-12 lg:mt-20 fade-in-up">
+                 <div className="rounded-2xl border bg-background/50 backdrop-blur-sm p-3 shadow-2xl ring-1 ring-white/10 dark:ring-white/5">
+                    <OptimizedImage 
+                      src={screenshots[0].src} 
+                      alt={screenshots[0].alt} 
+                      className="rounded-xl w-full shadow-inner bg-muted/50"
+                    />
+                 </div>
+                 {/* Decorative elements behind */}
+                 <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-primary/10 blur-[100px] -z-10 opacity-50" />
+                 <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-accent/10 blur-[100px] -z-10 opacity-50" />
+              </div>
+            )}
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="py-20 lg:py-32">
+        {sections && sections.length > 0 ? (
+          <div className="flex flex-col">
+             {sections.map((section, index) => (
+                <MediaRow
+                  key={section.id}
+                  {...section}
+                  reverse={section.reverse ?? index % 2 === 1}
+                />
+             ))}
+          </div>
+        ) : (
+        <section className="py-20 lg:py-32 bg-slate-50/50 dark:bg-slate-900/20">
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
@@ -155,26 +206,35 @@ export function ProductTemplate({
               </p>
             </div>
             
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {features.map((feature, index) => (
-                <Card key={feature.title} className="feature-card" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardHeader>
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card text-primary mb-4">
-                      <feature.icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle>{feature.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {feature.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
+                <div 
+                  key={feature.title} 
+                  className="group relative overflow-hidden rounded-2xl bg-background p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1 border"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="absolute top-0 right-0 -mr-16 -mt-16 h-32 w-32 rounded-full bg-primary/5 transition-all group-hover:bg-primary/10" />
+                  
+                  <div className="relative mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+                    <feature.icon className="h-7 w-7" />
+                  </div>
+                  
+                  <h3 className="mb-3 text-xl font-bold text-foreground">
+                    {feature.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </section>
+        )}
 
-        {/* Screenshots Section */}
-        {screenshots && screenshots.length > 0 && (
+        {/* Screenshots Section - Display remaining screenshots if any */}
+        {screenshots && screenshots.length > 1 && (
           <section className="py-20 lg:py-32 bg-gradient-subtle">
             <div className="container">
               <div className="text-center mb-16">
@@ -184,7 +244,7 @@ export function ProductTemplate({
               </div>
               
               <div className="grid gap-8 md:grid-cols-2">
-                {screenshots.map((screenshot, index) => (
+                {screenshots.slice(1).map((screenshot, index) => (
                   <div key={index} className="space-y-4">
                     <OptimizedImage
                       src={screenshot.src}
@@ -231,6 +291,38 @@ export function ProductTemplate({
           </div>
         </section>
 
+        {/* Hardware Section */}
+        {hardware && hardware.length > 0 && (
+          <section className="py-20 lg:py-32">
+            <div className="container">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+                  Professional Hardware
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Industry-leading terminals for reliable, fast, and secure payments.
+                </p>
+              </div>
+              
+              <div className="grid gap-8 md:grid-cols-3">
+                {hardware.map((item) => (
+                  <div key={item.name} className="flex flex-col items-center text-center p-6 rounded-2xl bg-card border shadow-sm">
+                    <div className="relative w-full aspect-square mb-6 rounded-xl overflow-hidden bg-muted/50 p-8 flex items-center justify-center">
+                      <OptimizedImage 
+                        src={item.image} 
+                        alt={item.name}
+                        className="w-full h-full object-contain drop-shadow-xl"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold mb-2">{item.name}</h3>
+                    <p className="text-muted-foreground">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Integrations Section */}
         {integrations && integrations.length > 0 && (
           <section className="py-20 lg:py-32 bg-gradient-subtle">
@@ -244,7 +336,7 @@ export function ProductTemplate({
                 </p>
               </div>
               
-              <div className="grid grid-cols-4 md:grid-cols-6 gap-6 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-6 max-w-3xl mx-auto">
                 {integrations.map((integration) => (
                   <div key={integration.name} className="flex flex-col items-center space-y-2">
                     <div className="h-16 w-16 rounded-xl bg-gradient-card border border-border/40 flex items-center justify-center font-bold text-primary">

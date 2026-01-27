@@ -10,7 +10,7 @@ export function RealCustomerLogos() {
       <div className="container">
         <div className="text-center mb-8">
           <p className="text-sm font-medium text-muted-foreground mb-2">
-            Trusted by 50,000+ beauty and wellness businesses
+            Trusted by salon professionals coast to coast
           </p>
           <p className="text-xs text-muted-foreground">
             From independent studios to multi-location franchises

@@ -8,7 +8,7 @@ export function LogosMarquee() {
     <section className="py-16 border-t border-b border-border/40 bg-gradient-subtle">
       <div className="container">
         <p className="text-center text-sm font-medium text-muted-foreground mb-8">
-          Trusted by 50,000+ beauty and wellness businesses
+          Trusted by salon professionals coast to coast
         </p>
         
         <div className="relative overflow-hidden group">

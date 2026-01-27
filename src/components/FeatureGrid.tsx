@@ -2,7 +2,7 @@ import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, Sparkles, Zap
 import { StaggeredReveal } from '@/components/animations/ScrollReveal';
 import { HoverCard } from '@/components/interactions/MicroInteractions';
 import { SmartSkeleton } from '@/components/loading/SmartSkeleton';
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { useI18n } from '@/hooks/useI18n';
 
 const getFeatures = (t: (key: string) => string) => [
@@ -58,10 +58,10 @@ const getFeatures = (t: (key: string) => string) => [
 
 export function FeatureGrid() {
   const { t } = useI18n();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
   const features = getFeatures(t);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Simulate loading state
     const timer = setTimeout(() => setIsLoading(false), 1000);
     return () => clearTimeout(timer);

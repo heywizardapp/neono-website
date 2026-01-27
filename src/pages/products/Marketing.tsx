@@ -1,40 +1,148 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
-import { Mail, MessageSquare, Star, Users, Zap, Target, TrendingUp, BarChart3 } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
+import { Mail, MessageSquare, Star, Users, Zap, Target, BarChart3, Layout, Share2, MapPin, Sparkles, Instagram, Smartphone } from 'lucide-react';
 
 export default function Marketing() {
   return (
     <ProductTemplate
-      productName="Marketing"
-      tagline="Fill your calendar with automated campaigns that actually work"
-      description="Stop posting and praying. Send targeted SMS and email campaigns that bring clients back, fill last-minute slots, and turn one-time visitors into regulars—all on autopilot."
+      productName="Marketing Suite"
+      tagline="Email, SMS, Social Media & Google—All in One Platform"
+      description="The complete marketing toolkit for salons and barbershops. Visual email builder, bulk SMS campaigns, social media scheduling with AI content generation, Google Business management, and landing page builder—all working together to fill your chair."
       icon={Mail}
       path="/products/marketing"
-      seoKeywords="beauty marketing automation, salon email marketing, SMS campaigns, customer retention, review management"
+      seoKeywords="beauty marketing automation, salon email marketing, SMS campaigns, social media management, Google My Business, landing page builder, customer retention, review management"
+      sections={[
+        {
+          id: "email",
+          eyebrow: "EMAIL MARKETING",
+          title: "Beautiful emails that convert.",
+          bullets: [
+            "Visual drag-and-drop builder with professional templates.",
+            "Automated campaigns: welcome, birthday, winback, post-visit.",
+            "A/B testing and performance analytics built in.",
+            "Smart audience segmentation and unsubscribe management."
+          ],
+          media: {
+           src: "/src/assets/placeholders/marketing.webp",
+           alt: "Email marketing builder"
+          }
+        },
+        {
+          id: "sms",
+          eyebrow: "SMS CAMPAIGNS",
+          title: "98% open rate. Instant results.",
+          bullets: [
+            "Bulk SMS with personalization tokens for each client.",
+            "Two-way conversations—clients can reply directly.",
+            "Mobile preview, scheduled sending, and delivery tracking.",
+            "Response analytics to measure what works."
+          ],
+          media: {
+           src: "/src/assets/placeholders/marketing.webp",
+           alt: "SMS campaign interface"
+          }
+        },
+        {
+          id: "social",
+          eyebrow: "SOCIAL MEDIA",
+          title: "Schedule once. Post everywhere.",
+          bullets: [
+            "Facebook and Instagram post scheduling in one place.",
+            "AI-powered content generation creates posts for you.",
+            "Social inbox for messages and comments across platforms.",
+            "Multi-location social management and engagement tracking."
+          ],
+          media: {
+           src: "/src/assets/placeholders/marketing.webp",
+           alt: "Social media management"
+          }
+        },
+        {
+          id: "google",
+          eyebrow: "GOOGLE BUSINESS",
+          title: "Own your Google presence.",
+          bullets: [
+            "Manage your Google My Business profile directly.",
+            "Monitor and respond to Google reviews instantly.",
+            "Schedule posts to your Google Business listing.",
+            "Multi-location GBP management from one dashboard."
+          ],
+          media: {
+           src: "/src/assets/placeholders/marketing.webp",
+           alt: "Google Business integration"
+          }
+        },
+        {
+          id: "landing",
+          eyebrow: "LANDING PAGES",
+          title: "Build pages that book clients.",
+          bullets: [
+            "Drag-and-drop builder with professional salon themes.",
+            "AI-powered page generation in minutes.",
+            "Before/after galleries and service showcases.",
+            "Online booking integration and custom domains."
+          ],
+          media: {
+           src: "/src/assets/placeholders/marketing.webp",
+           alt: "Landing page builder"
+          }
+        }
+      ]}
       features={[
         {
+          title: 'Visual Email Builder',
+          description: 'Drag-and-drop editor with professional templates. Create stunning emails without any design skills.',
+          icon: Layout,
+        },
+        {
           title: 'Automated Campaigns',
-          description: 'Set up once, run forever. Birthday offers, win-back campaigns, and re-booking reminders run automatically.',
+          description: 'Welcome series, birthday offers, winback campaigns, and post-visit follow-ups run on autopilot.',
           icon: Zap,
         },
         {
+          title: 'Bulk SMS Marketing',
+          description: 'Reach clients instantly with 98% open rates. Personalization tokens, two-way conversations, and delivery tracking.',
+          icon: MessageSquare,
+        },
+        {
+          title: 'Social Scheduling',
+          description: 'Schedule posts to Facebook and Instagram. AI generates content ideas and captions for you.',
+          icon: Instagram,
+        },
+        {
+          title: 'Google Business Manager',
+          description: 'Manage your GBP profile, respond to reviews, and post updates—all from one dashboard.',
+          icon: MapPin,
+        },
+        {
+          title: 'AI Content Generation',
+          description: 'Let AI write your emails, SMS messages, social posts, and landing page copy. Just review and send.',
+          icon: Sparkles,
+        },
+        {
+          title: 'Landing Page Builder',
+          description: 'Drag-and-drop pages with salon themes, before/after galleries, and integrated online booking.',
+          icon: Smartphone,
+        },
+        {
           title: 'Review Management',
-          description: 'Automatically request reviews from happy clients. Respond to feedback and build your online reputation.',
+          description: 'Automatically request reviews from happy clients. Monitor and respond across Google and Facebook.',
           icon: Star,
         },
         {
-          title: 'Customer Segmentation',
-          description: 'Group clients by service history, spending, or visit frequency. Send hyper-targeted messages that convert.',
+          title: 'Audience Segmentation',
+          description: 'Target by service history, spending, visit frequency, or any custom criteria. Send the right message to the right people.',
           icon: Target,
         },
         {
           title: 'A/B Testing',
-          description: 'Test different messages, timing, and offers. See what works and optimize your campaigns automatically.',
+          description: 'Test subject lines, content, and timing. See what works and optimize campaigns automatically.',
           icon: BarChart3,
         },
         {
-          title: 'SMS Marketing',
-          description: 'Reach clients instantly with text messages. 98% open rate means your promotions actually get seen.',
-          icon: MessageSquare,
+          title: 'Social Inbox',
+          description: 'All your Facebook and Instagram messages and comments in one place. Never miss a conversation.',
+          icon: Share2,
         },
         {
           title: 'Referral Programs',
@@ -61,10 +169,18 @@ export default function Marketing() {
         },
         {
           title: 'Save 15+ hours per week',
-          description: 'No more manual posting or campaign management. It all runs automatically.',
+          description: 'AI creates content, campaigns run automatically—you focus on clients.',
         },
         {
-          title: 'Measure what works',
+          title: 'Dominate local search',
+          description: 'Optimized Google Business presence drives new clients to your door.',
+        },
+        {
+          title: 'Convert social followers',
+          description: 'Turn Instagram scrollers into paying clients with booking links.',
+        },
+        {
+          title: 'Measure everything',
           description: 'Track opens, clicks, bookings, and revenue from every campaign.',
         },
       ]}
@@ -76,38 +192,53 @@ export default function Marketing() {
         },
       ]}
       integrations={[
+        { name: 'Facebook', logo: 'FB' },
+        { name: 'Instagram', logo: 'IG' },
+        { name: 'Google', logo: 'GO' },
         { name: 'Mailchimp', logo: 'MC' },
-        { name: 'Klaviyo', logo: 'KL' },
         { name: 'Twilio', logo: 'TW' },
-        { name: 'Google Reviews', logo: 'GR' },
+        { name: 'Klaviyo', logo: 'KL' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {
           q: 'What automated campaigns are included?',
-          a: 'Birthday campaigns, win-back campaigns (for clients who haven\'t visited in X days), re-booking reminders, first-visit follow-ups, review requests, and promotional campaigns for slow periods.',
+          a: 'Welcome series for new clients, birthday campaigns, win-back campaigns (for clients who haven\'t visited in X days), post-visit follow-ups, re-booking reminders, review requests, and promotional campaigns for slow periods—all ready to go.',
         },
         {
-          q: 'How do I collect client emails and phone numbers?',
-          a: 'We automatically collect contact info during booking and checkout. You can also import existing client lists or add clients manually.',
+          q: 'How does AI content generation work?',
+          a: 'Just tell AI what you want to promote—it generates email copy, SMS messages, social captions, and landing page text. Review, edit if needed, and publish. It learns your brand voice over time.',
         },
         {
-          q: 'Can I send to specific groups of clients?',
-          a: 'Yes! Segment by service type, visit frequency, lifetime value, location, or any custom criteria. Send highly targeted messages that actually convert.',
+          q: 'Can I manage multiple locations?',
+          a: 'Yes! Manage social accounts, Google Business profiles, and campaigns for all your locations from one dashboard. Create location-specific content or share across all.',
         },
         {
           q: 'What\'s the cost of sending SMS?',
-          a: 'SMS are billed separately at $0.02 per message (typical US rate). You can set monthly SMS budgets and prioritize high-value clients.',
+          a: 'SMS are billed at $0.02 per message (typical US rate). Set monthly budgets to stay in control. Email, social posting, and Google Business management are unlimited.',
         },
         {
-          q: 'How does review management work?',
-          a: 'After appointments, we automatically send review requests via SMS or email. If clients leave positive reviews, we ask them to post on Google or Facebook. Negative feedback goes privately to you first.',
+          q: 'Do I need separate tools for each channel?',
+          a: 'No! NeonO combines email, SMS, social media, Google Business, and landing pages in one platform. No more juggling multiple logins and subscriptions.',
+        },
+        {
+          q: 'How does the landing page builder work?',
+          a: 'Choose a professional salon/barbershop theme, customize with drag-and-drop, add your services and portfolio, connect your booking calendar, and publish to your custom domain—no coding required.',
+        },
+        {
+          q: 'Can clients reply to SMS messages?',
+          a: 'Yes! Two-way SMS lets clients reply directly. Their responses appear in your inbox so you can continue the conversation or book them in.',
         },
       ]}
       relatedProducts={[
+        {
+          name: 'Loyalty & Gift Cards',
+          href: '/products/loyalty',
+          description: 'Reward repeat clients and boost retention',
+        },
         {
           name: 'Online Booking',
           href: '/products/online-booking',
@@ -117,11 +248,6 @@ export default function Marketing() {
           name: 'Analytics',
           href: '/products/analytics',
           description: 'Measure campaign ROI and optimize performance',
-        },
-        {
-          name: 'AI',
-          href: '/products/ai',
-          description: 'AI-powered campaign optimization and personalization',
         },
       ]}
     />

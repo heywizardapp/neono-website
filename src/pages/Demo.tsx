@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { demoFormSchema, type DemoFormData } from '@/lib/validation/schemas';
 import { handleError } from '@/lib/errors/handlers';
+import { supabase } from '@/lib/supabase';
 
 const demoFeatures = [
   {
@@ -64,8 +65,22 @@ export default function Demo() {
 
   const onSubmit = async (data: DemoFormData) => {
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Save to Supabase
+      const { error } = await supabase
+        .from('demo_requests')
+        .insert([{
+          name: `${data.firstName} ${data.lastName}`,
+          email: data.email,
+          phone: data.phone || null,
+          business_type: data.businessType,
+          team_size: data.teamSize,
+          preferred_date: data.preferredDate || null,
+          preferred_time: data.preferredTime || null,
+          goals: data.goals || null,
+          hear_about_us: data.hearAboutUs || null,
+        }]);
+
+      if (error) throw error;
       
       toast({
         title: "Demo scheduled successfully!",
@@ -74,6 +89,12 @@ export default function Demo() {
       
       reset();
     } catch (error) {
+      console.error('Demo request error:', error);
+      toast({
+        title: "Failed to submit",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
       handleError(error);
     }
   };

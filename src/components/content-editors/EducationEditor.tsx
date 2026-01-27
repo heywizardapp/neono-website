@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { useNavigate } from 'react-router-dom';
 import { EducationContent, EducationSection, Callout, FaqItem } from '@/types/content';
 import { Button } from '@/components/ui/button';
@@ -23,7 +23,7 @@ export function EducationEditor({ initialContent, onSave }: EducationEditorProps
   const navigate = useNavigate();
   const { toast } = useToast();
   
-  const [content, setContent] = useState<EducationContent>(
+  const [content, setContent] = React.useState<EducationContent>(
     initialContent || {
       id: Date.now().toString(),
       title: '',
@@ -44,8 +44,8 @@ export function EducationEditor({ initialContent, onSave }: EducationEditorProps
     }
   );
 
-  const [newTag, setNewTag] = useState('');
-  const [activeTab, setActiveTab] = useState('details');
+  const [newTag, setNewTag] = React.useState('');
+  const [activeTab, setActiveTab] = React.useState('details');
 
   // Section Management
   const addSection = () => {

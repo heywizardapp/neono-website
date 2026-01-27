@@ -1,5 +1,6 @@
 import { Check, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ProductMockup } from '@/components/mockups/ProductMockups';
 
 interface MediaRowProps {
   id: string;
@@ -50,24 +51,7 @@ export function MediaRow({
           </div>
 
           <div className={`relative ${reverse ? 'lg:col-start-1' : ''}`}>
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-card border border-border/40 shadow-large p-8">
-              <div className="h-full w-full rounded-xl bg-gradient-hero/10 border border-border/20 flex items-center justify-center">
-                <div className="text-center space-y-4">
-                  <div className="h-16 w-16 rounded-xl bg-gradient-hero mx-auto flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">N</span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-4 bg-slate-200 rounded w-40 mx-auto" />
-                    <div className="h-4 bg-slate-200 rounded w-32 mx-auto" />
-                    <div className="h-4 bg-slate-200 rounded w-36 mx-auto" />
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 mt-8">
-                    <div className="h-12 bg-primary/20 rounded" />
-                    <div className="h-12 bg-accent/20 rounded" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ProductMockup variant={id} className="w-full" />
           </div>
         </div>
       </div>

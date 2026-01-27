@@ -1,0 +1,98 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Deposit Settings Modal -->
+  <rect x="150" y="100" width="900" height="600" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="150" y="100" width="900" height="70" rx="16" fill="#141428"/>
+  <rect x="150" y="154" width="900" height="16" fill="#141428"/>
+  <text x="200" y="145" font-family="system-ui" font-size="20" font-weight="bold" fill="#FFFFFF">💳 Deposit Settings</text>
+  <circle cx="1010" cy="135" r="16" fill="#2D3748"/>
+  <text x="1005" y="141" font-family="system-ui" font-size="18" fill="#A0AEC0">×</text>
+  
+  <!-- Enable Deposits Toggle -->
+  <rect x="200" y="195" width="850" height="70" rx="10" fill="#0f0f1a"/>
+  <text x="240" y="235" font-family="system-ui" font-size="16" font-weight="500" fill="#FFFFFF">Require deposits for online bookings</text>
+  <text x="240" y="255" font-family="system-ui" font-size="12" fill="#718096">Protects against no-shows</text>
+  
+  <rect x="950" y="215" width="70" height="35" rx="17" fill="#48BB78"/>
+  <circle cx="1000" cy="233" r="13" fill="#FFFFFF"/>
+  
+  <!-- Deposit Amount Section -->
+  <text x="200" y="305" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">Deposit Amount</text>
+  
+  <rect x="200" y="325" width="400" height="120" rx="12" fill="#0f0f1a" stroke="#7C7CF2" stroke-width="2"/>
+  
+  <!-- Percentage Option - SELECTED -->
+  <rect x="220" y="345" width="170" height="80" rx="8" fill="#7C7CF2" fill-opacity="0.15" stroke="#7C7CF2"/>
+  <circle cx="250" cy="385" r="14" fill="#7C7CF2"/>
+  <circle cx="250" cy="385" r="6" fill="#FFFFFF"/>
+  <text x="275" y="375" font-family="system-ui" font-size="14" font-weight="500" fill="#FFFFFF">Percentage</text>
+  <text x="275" y="400" font-family="system-ui" font-size="24" font-weight="bold" fill="#7C7CF2">50%</text>
+  
+  <!-- Fixed Amount Option -->
+  <rect x="410" y="345" width="170" height="80" rx="8" fill="transparent" stroke="#2D3748"/>
+  <circle cx="440" cy="385" r="14" fill="transparent" stroke="#4A5568" stroke-width="2"/>
+  <text x="465" y="375" font-family="system-ui" font-size="14" font-weight="500" fill="#A0AEC0">Fixed</text>
+  <text x="465" y="400" font-family="system-ui" font-size="24" font-weight="500" fill="#4A5568">$25</text>
+  
+  <!-- Percentage Slider -->
+  <rect x="620" y="325" width="430" height="120" rx="12" fill="#0f0f1a"/>
+  <text x="650" y="360" font-family="system-ui" font-size="14" fill="#718096">Deposit percentage</text>
+  
+  <!-- Slider Track -->
+  <rect x="650" y="385" width="350" height="8" rx="4" fill="#2D3748"/>
+  <rect x="650" y="385" width="175" height="8" rx="4" fill="#7C7CF2"/>
+  
+  <!-- Slider Handle -->
+  <circle cx="825" cy="389" r="14" fill="#7C7CF2" stroke="#FFFFFF" stroke-width="3"/>
+  
+  <!-- Slider Labels -->
+  <text x="650" y="420" font-family="system-ui" font-size="11" fill="#718096">10%</text>
+  <text x="805" y="420" font-family="system-ui" font-size="11" fill="#7C7CF2">50%</text>
+  <text x="980" y="420" font-family="system-ui" font-size="11" fill="#718096">100%</text>
+  
+  <!-- Example Calculation -->
+  <rect x="200" y="465" width="850" height="80" rx="10" fill="#48BB78" fill-opacity="0.1"/>
+  <text x="240" y="500" font-family="system-ui" font-size="14" font-weight="500" fill="#48BB78">📊 Example Calculation</text>
+  <text x="240" y="525" font-family="system-ui" font-size="13" fill="#A0AEC0">For a $100 service → Client pays $50 deposit at booking + $50 at checkout</text>
+  
+  <!-- When to Charge Section -->
+  <text x="200" y="580" font-family="system-ui" font-size="14" font-weight="500" fill="#E2E8F0">When to collect deposit</text>
+  
+  <rect x="200" y="600" width="270" height="50" rx="8" fill="#7C7CF2" fill-opacity="0.15" stroke="#7C7CF2"/>
+  <text x="230" y="632" font-family="system-ui" font-size="14" fill="#FFFFFF">✓ At time of booking</text>
+  
+  <rect x="490" y="600" width="270" height="50" rx="8" fill="transparent" stroke="#2D3748"/>
+  <text x="520" y="632" font-family="system-ui" font-size="14" fill="#718096">24 hours before</text>
+  
+  <rect x="780" y="600" width="270" height="50" rx="8" fill="transparent" stroke="#2D3748"/>
+  <text x="810" y="632" font-family="system-ui" font-size="14" fill="#718096">Manual request</text>
+  
+  <!-- Save Button -->
+  <rect x="920" y="665" width="120" height="44" rx="8" fill="#7C7CF2"/>
+  <text x="955" y="693" font-family="system-ui" font-size="14" font-weight="600" fill="#FFFFFF">Save</text>
+</svg>

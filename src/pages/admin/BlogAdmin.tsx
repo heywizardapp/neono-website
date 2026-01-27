@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Edit, Trash2, Copy, Star, LogOut, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,13 +9,13 @@ import { blogStorage, DraftPost } from '@/lib/blog/storage';
 import { useToast } from '@/hooks/use-toast';
 
 export default function BlogAdmin() {
-  const [posts, setPosts] = useState<DraftPost[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [posts, setPosts] = React.useState<DraftPost[]>([]);
+  const [searchQuery, setSearchQuery] = React.useState('');
   
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!blogStorage.isAuthenticated()) {
       navigate('/admin/login');
       return;

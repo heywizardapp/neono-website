@@ -1,0 +1,135 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Availability Panel -->
+  <rect x="100" y="100" width="1000" height="600" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <text x="150" y="155" font-family="system-ui" font-size="22" font-weight="bold" fill="#FFFFFF">Set Availability</text>
+  <text x="150" y="180" font-family="system-ui" font-size="14" fill="#718096">Configure Sarah Johnson's working schedule</text>
+  
+  <!-- Tabs -->
+  <rect x="150" y="205" width="100" height="36" rx="6" fill="transparent"/>
+  <text x="170" y="229" font-family="system-ui" font-size="13" fill="#718096">Basic Info</text>
+  
+  <rect x="260" y="205" width="100" height="36" rx="6" fill="transparent"/>
+  <text x="288" y="229" font-family="system-ui" font-size="13" fill="#718096">Services</text>
+  
+  <rect x="370" y="205" width="100" height="36" rx="6" fill="#7C7CF2"/>
+  <text x="386" y="229" font-family="system-ui" font-size="13" font-weight="500" fill="#FFFFFF">Availability</text>
+  
+  <!-- Weekly Schedule Grid -->
+  <rect x="150" y="260" width="900" height="380" rx="12" fill="#0f0f1a"/>
+  
+  <!-- Column Headers -->
+  <text x="180" y="300" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">DAY</text>
+  <text x="320" y="300" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">WORKING</text>
+  <text x="460" y="300" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">START</text>
+  <text x="600" y="300" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">END</text>
+  <text x="740" y="300" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">BREAK</text>
+  
+  <line x1="170" y1="315" x2="1030" y2="315" stroke="#2D3748" stroke-width="1"/>
+  
+  <!-- Monday - Working -->
+  <text x="180" y="350" font-family="system-ui" font-size="14" fill="#FFFFFF">Monday</text>
+  <rect x="320" y="332" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="346" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="332" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="357" font-family="system-ui" font-size="13" fill="#FFFFFF">9:00 AM</text>
+  <rect x="570" y="332" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="595" y="357" font-family="system-ui" font-size="13" fill="#FFFFFF">6:00 PM</text>
+  <rect x="720" y="332" width="120" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2" stroke-dasharray="4,2"/>
+  <text x="750" y="357" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Tuesday - Working -->
+  <text x="180" y="400" font-family="system-ui" font-size="14" fill="#FFFFFF">Tuesday</text>
+  <rect x="320" y="382" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="396" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="382" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="407" font-family="system-ui" font-size="13" fill="#FFFFFF">9:00 AM</text>
+  <rect x="570" y="382" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="595" y="407" font-family="system-ui" font-size="13" fill="#FFFFFF">6:00 PM</text>
+  <rect x="720" y="382" width="120" height="36" rx="6" fill="#1a1a2e"/>
+  <text x="740" y="407" font-family="system-ui" font-size="12" fill="#718096">12-1 PM</text>
+  
+  <!-- Wednesday - Working -->
+  <text x="180" y="450" font-family="system-ui" font-size="14" fill="#FFFFFF">Wednesday</text>
+  <rect x="320" y="432" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="446" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="432" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="457" font-family="system-ui" font-size="13" fill="#FFFFFF">9:00 AM</text>
+  <rect x="570" y="432" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="595" y="457" font-family="system-ui" font-size="13" fill="#7C7CF2">8:00 PM</text>
+  <rect x="720" y="432" width="120" height="36" rx="6" fill="#1a1a2e"/>
+  <text x="740" y="457" font-family="system-ui" font-size="12" fill="#718096">12-1 PM</text>
+  
+  <!-- Thursday - Working -->
+  <text x="180" y="500" font-family="system-ui" font-size="14" fill="#FFFFFF">Thursday</text>
+  <rect x="320" y="482" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="496" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="482" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="507" font-family="system-ui" font-size="13" fill="#FFFFFF">9:00 AM</text>
+  <rect x="570" y="482" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="595" y="507" font-family="system-ui" font-size="13" fill="#FFFFFF">8:00 PM</text>
+  <rect x="720" y="482" width="120" height="36" rx="6" fill="#1a1a2e"/>
+  <text x="740" y="507" font-family="system-ui" font-size="12" fill="#718096">12-1 PM</text>
+  
+  <!-- Friday - Working -->
+  <text x="180" y="550" font-family="system-ui" font-size="14" fill="#FFFFFF">Friday</text>
+  <rect x="320" y="532" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="546" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="532" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="557" font-family="system-ui" font-size="13" fill="#FFFFFF">9:00 AM</text>
+  <rect x="570" y="532" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="595" y="557" font-family="system-ui" font-size="13" fill="#FFFFFF">6:00 PM</text>
+  <rect x="720" y="532" width="120" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2" stroke-dasharray="4,2"/>
+  <text x="750" y="557" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Saturday - Working -->
+  <text x="180" y="600" font-family="system-ui" font-size="14" fill="#FFFFFF">Saturday</text>
+  <rect x="320" y="582" width="50" height="28" rx="14" fill="#48BB78"/>
+  <circle cx="355" cy="596" r="10" fill="#FFFFFF"/>
+  <rect x="430" y="582" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="455" y="607" font-family="system-ui" font-size="13" fill="#FFFFFF">8:00 AM</text>
+  <rect x="570" y="582" width="100" height="36" rx="6" fill="#1a1a2e" stroke="#2D3748"/>
+  <text x="595" y="607" font-family="system-ui" font-size="13" fill="#FFFFFF">5:00 PM</text>
+  <rect x="720" y="582" width="120" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2" stroke-dasharray="4,2"/>
+  <text x="750" y="607" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Sunday - Off -->
+  <text x="880" y="350" font-family="system-ui" font-size="14" fill="#718096">Sunday</text>
+  <rect x="880" y="365" width="50" height="28" rx="14" fill="#4A5568"/>
+  <circle cx="895" cy="379" r="10" fill="#FFFFFF"/>
+  <text x="945" y="384" font-family="system-ui" font-size="13" fill="#718096">Off</text>
+  
+  <!-- Weekly Hours Summary -->
+  <rect x="880" y="420" width="150" height="80" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="900" y="450" font-family="system-ui" font-size="12" fill="#718096">Weekly Hours</text>
+  <text x="900" y="480" font-family="system-ui" font-size="24" font-weight="bold" fill="#7C7CF2">48h</text>
+  
+  <!-- Continue Button -->
+  <rect x="900" y="655" width="150" height="40" rx="8" fill="#7C7CF2"/>
+  <text x="945" y="681" font-family="system-ui" font-size="14" font-weight="600" fill="#FFFFFF">Continue →</text>
+</svg>

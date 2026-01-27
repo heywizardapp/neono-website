@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Float, Text3D, Environment, MeshDistortMaterial } from '@react-three/drei';
-import { useRef, useState } from 'react';
+import * as React from "react";
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -11,8 +11,8 @@ interface FloatingGeometryProps {
 }
 
 function FloatingGeometry({ position, color, speed = 1 }: FloatingGeometryProps) {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const [hovered, setHovered] = useState(false);
+  const meshRef = React.useRef<THREE.Mesh>(null);
+  const [hovered, setHovered] = React.useState(false);
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -46,7 +46,7 @@ function FloatingGeometry({ position, color, speed = 1 }: FloatingGeometryProps)
 }
 
 function AnimatedText() {
-  const textRef = useRef<THREE.Group>(null);
+  const textRef = React.useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (textRef.current) {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import * as React from "react";
 import type { TocHeading } from '@/lib/blog/tocGenerator';
 
 /**
@@ -6,9 +6,9 @@ import type { TocHeading } from '@/lib/blog/tocGenerator';
  * Returns the ID of the active heading
  */
 export function useActiveSection(headings: TocHeading[]) {
-  const [activeId, setActiveId] = useState<string>('');
+  const [activeId, setActiveId] = React.useState<string>('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (headings.length === 0) return;
 
     const observer = new IntersectionObserver(
