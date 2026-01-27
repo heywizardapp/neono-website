@@ -16,19 +16,10 @@ import { PerformanceErrorBoundary } from '@/components/performance/PerformanceMo
 import { SmartPreloader } from '@/components/advanced/SmartPreloader';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 
-<<<<<<< Updated upstream
-// Lazy load pages for better performance
-import Index from './pages/Index'; // Keep homepage immediate for best UX
-const Pricing = lazy(() => import('./pages/Pricing'));
-=======
 // Direct imports for frequently used pages to avoid React context issues
 import Index from './pages/Index';
 import ResourcesHub from './pages/ResourcesHub';
 import Pricing from './pages/Pricing';
-import Salons from './pages/solutions/Salons';
-import Barbershops from './pages/solutions/Barbershops';
-import Spas from './pages/solutions/Spas';
-import Aesthetics from './pages/solutions/Aesthetics';
 
 // Auth pages - direct imports
 import Signup from './pages/auth/Signup';
@@ -36,7 +27,6 @@ import Login from './pages/auth/Login';
 import Onboarding from './pages/auth/Onboarding';
 
 // Lazy load less frequently accessed pages
->>>>>>> Stashed changes
 const Contact = lazy(() => import('./pages/Contact'));
 const Demo = lazy(() => import('./pages/Demo'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -89,10 +79,6 @@ const BlogLogin = lazy(() => import('./pages/admin/BlogLogin'));
 const BlogAdmin = lazy(() => import('./pages/admin/BlogAdmin'));
 const BlogEditor = lazy(() => import('./pages/admin/BlogEditor'));
 
-<<<<<<< Updated upstream
-// Resources Hub (unified)
-const ResourcesHub = lazy(() => import('./pages/ResourcesHub'));
-=======
 // Case study pages
 const MetroBeauty = lazy(() => import('./pages/case-studies/MetroBeauty'));
 
@@ -103,7 +89,6 @@ const VagaroComparison = lazy(() => import('./pages/comparisons/Vagaro'));
 const SalonMonsterComparison = lazy(() => import('./pages/comparisons/SalonMonster'));
 const SquireComparison = lazy(() => import('./pages/comparisons/Squire'));
 const PhorestComparison = lazy(() => import('./pages/comparisons/Phorest'));
->>>>>>> Stashed changes
 
 // Company pages
 const CompanyIndex = lazy(() => import('./pages/company/Index'));
