@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { JsonLd } from '@/lib/seo/jsonld';
 import { generatePreloadLinks } from '@/lib/seo/prerender';
 import { canonical, buildHreflang } from '@/lib/seo/hreflang';
+import { PRICING } from '@/config/pricing';
 
 interface SEOHeadProps {
   title: string;
@@ -146,7 +147,7 @@ export const SEO_PRESETS = {
 
   pricing: {
     title: "Pricing — NeonO",
-    description: "Simple, transparent pricing for salon and barbershop software. Start at $29/month with no setup fees or hidden costs.",
+    description: `Simple, transparent pricing for salon and barbershop software. Start at ${PRICING.starter.priceDisplay}/month with no setup fees or hidden costs.`,
     keywords: "salon software pricing, barbershop software cost, POS pricing, appointment booking pricing",
     structuredData: [
       {
@@ -156,7 +157,7 @@ export const SEO_PRESETS = {
           description: "Complete salon software for small businesses",
           url: "https://www.neono.com/pricing",
           image: "https://www.neono.com/og/pricing.png",
-          price: 29,
+          price: PRICING.starter.price,
           currency: "USD"
         }
       },
@@ -167,7 +168,7 @@ export const SEO_PRESETS = {
           description: "Advanced salon software for growing businesses",
           url: "https://www.neono.com/pricing",
           image: "https://www.neono.com/og/pricing.png",
-          price: 59,
+          price: PRICING.growth.price,
           currency: "USD"
         }
       }

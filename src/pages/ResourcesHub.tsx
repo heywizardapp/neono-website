@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import * as React from 'react';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -48,16 +48,16 @@ const getResources = (): Resource[] => {
 };
 
 export default function ResourcesHub() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedType, setSelectedType] = useState<ResourceType>('all');
-  const [resources, setResources] = useState<Resource[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [selectedType, setSelectedType] = React.useState<ResourceType>('all');
+  const [resources, setResources] = React.useState<Resource[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
   
   // Debounce search for better performance
   const debouncedSearch = useDebounce(searchQuery, 300);
   
   // Load resources asynchronously to avoid blocking render
-  useEffect(() => {
+  React.useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       const data = getResources();
@@ -68,10 +68,10 @@ export default function ResourcesHub() {
   }, []);
   
   // Cache parsed resources to avoid unnecessary recalculations
-  const cachedResources = useMemo(() => resources, [resources.length]);
+  const cachedResources = React.useMemo(() => resources, [resources.length]);
 
   // Filter resources based on type and search (using debounced search)
-  const filteredResources = useMemo(() => {
+  const filteredResources = React.useMemo(() => {
     let filtered = cachedResources;
 
     // Filter by content type

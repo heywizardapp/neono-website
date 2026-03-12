@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import * as React from "react";
 
 interface UseScrollRevealOptions {
   threshold?: number;
@@ -17,10 +17,10 @@ export function useScrollReveal(options: UseScrollRevealOptions = {}) {
     triggerOnce = true
   } = options;
 
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const element = ref.current;
     if (!element) return;
 

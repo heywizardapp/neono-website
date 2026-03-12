@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 
 interface MicroInteractionsProps {
@@ -16,8 +16,8 @@ export function MicroInteractions({
   className,
   disabled = false 
 }: MicroInteractionsProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isPressed, setIsPressed] = useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
+  const [isPressed, setIsPressed] = React.useState(false);
 
   const getIntensityValues = (base: number) => {
     switch (intensity) {
@@ -140,7 +140,7 @@ export function InteractiveButton({
   onClick,
   disabled = false 
 }: InteractiveButtonProps) {
-  const [isPressed, setIsPressed] = useState(false);
+  const [isPressed, setIsPressed] = React.useState(false);
 
   const getSizeClasses = () => {
     switch (size) {

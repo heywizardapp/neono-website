@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { FileEdit, ChevronDown } from 'lucide-react';
 import { ContentUpdate } from '@/lib/blog/updateTracking';
 import { formatUpdateDate } from '@/lib/blog/updateTracking';
-import { useState } from 'react';
+import * as React from "react";
 
 interface UpdateNotesProps {
   contentHistory?: ContentUpdate[];
@@ -13,7 +13,7 @@ interface UpdateNotesProps {
 }
 
 export function UpdateNotes({ contentHistory = [], updateNotes, version }: UpdateNotesProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   
   // Don't show if no update history
   if (!contentHistory.length && !updateNotes) return null;

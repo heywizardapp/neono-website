@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import * as React from "react";
 import { IndustryHero } from '@/components/IndustryHero';
 import { StickySubnav } from '@/components/StickySubnav';
 import { ValueSnapshot } from '@/components/ValueSnapshot';
@@ -31,7 +31,7 @@ export default function BusinessTemplate(props: BusinessTemplateConfig | Busines
   // Handle both config object and spread props
   const config = 'config' in props ? props.config! : props as BusinessTemplateConfig;
   
-  useEffect(() => {
+  React.useEffect(() => {
     document.title = `${config.industry} Software | NeonO`;
   }, [config.industry]);
 

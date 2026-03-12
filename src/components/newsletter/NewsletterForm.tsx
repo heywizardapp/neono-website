@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -11,6 +11,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { newsletterFormSchema, type NewsletterFormData } from '@/lib/validation/schemas';
 import { handleError } from '@/lib/errors/handlers';
+import { supabase } from '@/lib/supabase';
 
 interface NewsletterFormProps {
   variant?: 'inline' | 'footer';
@@ -18,7 +19,7 @@ interface NewsletterFormProps {
 }
 
 export function NewsletterForm({ variant = 'inline', className = '' }: NewsletterFormProps) {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
   const { canUseAnalytics } = useConsent();
   
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset, control } = useForm<NewsletterFormData>({
@@ -32,11 +33,27 @@ export function NewsletterForm({ variant = 'inline', className = '' }: Newslette
 
   const onSubmit = async (data: NewsletterFormData) => {
     try {
-      // Track newsletter signup
-      // Analytics tracking moved to production service
+      // Save to Supabase
+      const { error } = await supabase
+        .from('newsletter_signups')
+        .insert([{
+          email: data.email,
+          industry: data.industry || null,
+          consent: data.consent,
+        }]);
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (error) {
+        // Handle duplicate email
+        if (error.code === '23505') {
+          setIsSubmitted(true);
+          setTimeout(() => {
+            reset();
+            setIsSubmitted(false);
+          }, 3000);
+          return;
+        }
+        throw error;
+      }
       
       setIsSubmitted(true);
       
@@ -46,6 +63,7 @@ export function NewsletterForm({ variant = 'inline', className = '' }: Newslette
         setIsSubmitted(false);
       }, 3000);
     } catch (error) {
+      console.error('Newsletter signup error:', error);
       handleError(error);
     }
   };

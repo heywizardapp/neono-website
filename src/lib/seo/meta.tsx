@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { canonical, buildHreflang } from './hreflang';
+import { PRICING } from '@/config/pricing';
 
 type Locale = "en-CA" | "en-US" | "fr-CA";
 
@@ -115,7 +116,7 @@ export const defaultMeta = {
   },
   pricing: {
     title: "Pricing — NeonO",
-    description: "Simple, transparent pricing for salon and barbershop software. Start at $29/month with no setup fees or hidden costs.",
+    description: `Simple, transparent pricing for salon and barbershop software. Start at ${PRICING.starter.priceDisplay}/month with no setup fees or hidden costs.`,
     keywords: "salon software pricing, barbershop software cost, POS pricing, appointment booking pricing"
   },
   solutions: {

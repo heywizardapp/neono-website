@@ -37,6 +37,8 @@ const footerLinks = {
   ],
   resources: [
     { nameKey: 'footer.blog', href: '/blog' },
+    { nameKey: 'footer.academy', href: '/academy' },
+    { nameKey: 'footer.caseStudies', href: '/case-studies/metro-beauty' },
     { nameKey: 'footer.help', href: '/help' },
     { nameKey: 'footer.api', href: '/developers' },
     { nameKey: 'footer.status', href: '/status' },
@@ -46,6 +48,12 @@ const footerLinks = {
     { nameKey: 'footer.terms', href: '/terms' },
     { nameKey: 'footer.termsOfService', href: '/terms-of-service' },
     { nameKey: 'footer.security', href: '/security' },
+  ],
+  comparisons: [
+    { nameKey: 'footer.vsFresha', href: '/vs/fresha' },
+    { nameKey: 'footer.vsVagaro', href: '/vs/vagaro' },
+    { nameKey: 'footer.vsSalonMonster', href: '/vs/salon-monster' },
+    { nameKey: 'footer.vsPhorest', href: '/vs/phorest' },
   ],
 };
 
@@ -57,9 +65,9 @@ export function Footer() {
       <OrganizationJsonLd />
       <footer className="bg-slate-50 dark:bg-slate-900 border-t border-border/40">
         <div className="container py-16">
-          <div className="grid gap-8 lg:grid-cols-5">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-6">
             {/* Brand & Newsletter */}
-            <div className="lg:col-span-2">
+            <div className="md:col-span-2 lg:col-span-2">
               <Link to="/" className="flex items-center space-x-2 mb-4">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-hero">
                   <span className="text-lg font-bold text-white">N</span>
@@ -86,57 +94,74 @@ export function Footer() {
               </div>
             </div>
 
-          {/* Solutions */}
-          <div>
-            <h3 className="font-semibold mb-4">{t('footer.solutions')}</h3>
-            <ul className="space-y-3">
-              {footerLinks.solutions.map((link) => (
-                <li key={link.nameKey}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t(link.nameKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Solutions */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.solutions')}</h3>
+              <ul className="space-y-3">
+                {footerLinks.solutions.map((link) => (
+                  <li key={link.nameKey}>
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t(link.nameKey)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.nameKey}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t(link.nameKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Company */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
+              <ul className="space-y-3">
+                {footerLinks.company.map((link) => (
+                  <li key={link.nameKey}>
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t(link.nameKey)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Resources */}
-          <div>
-            <h3 className="font-semibold mb-4">{t('footer.resources')}</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.nameKey}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {t(link.nameKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {/* Resources */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.resources')}</h3>
+              <ul className="space-y-3">
+                {footerLinks.resources.map((link) => (
+                  <li key={link.nameKey}>
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t(link.nameKey)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Comparisons */}
+            <div>
+              <h3 className="font-semibold mb-4">{t('footer.comparisons')}</h3>
+              <ul className="space-y-3">
+                {footerLinks.comparisons.map((link) => (
+                  <li key={link.nameKey}>
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t(link.nameKey)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
 
         <div className="border-t border-border/40 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">

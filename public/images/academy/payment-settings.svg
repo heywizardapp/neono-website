@@ -1,0 +1,174 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/settings/payments</text>
+  
+  <!-- Sidebar -->
+  <rect x="1" y="53" width="240" height="746" fill="#f8fafc"/>
+  <line x1="241" y1="53" x2="241" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Sidebar Logo -->
+  <rect x="24" y="77" width="36" height="36" rx="8" fill="#7C7CF2"/>
+  <text x="32" y="102" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="white">N</text>
+  <text x="72" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">NeonO</text>
+  
+  <!-- Sidebar Settings Submenu -->
+  <text x="24" y="150" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#9ca3af">SETTINGS</text>
+  
+  <rect x="12" y="164" width="216" height="36" rx="6" fill="#f1f5f9"/>
+  <text x="36" y="188" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">General</text>
+  
+  <rect x="12" y="206" width="216" height="36" rx="6" fill="#f1f5f9"/>
+  <text x="36" y="230" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Business Profile</text>
+  
+  <rect x="12" y="248" width="216" height="36" rx="6" fill="#f1f5f9"/>
+  <text x="36" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Business Hours</text>
+  
+  <!-- Active Payments Item -->
+  <rect x="12" y="290" width="216" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1"/>
+  <rect x="12" y="290" width="3" height="36" rx="1" fill="#7C7CF2"/>
+  <text x="36" y="314" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#7C7CF2">Payments</text>
+  
+  <!-- Main Content -->
+  <rect x="241" y="53" width="958" height="746" fill="white"/>
+  
+  <!-- Page Header -->
+  <text x="280" y="105" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#0B1220">Payment Settings</text>
+  <text x="280" y="130" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Configure payment processing and checkout options</text>
+  
+  <!-- Connected Processor Card -->
+  <rect x="280" y="160" width="440" height="140" rx="12" fill="white" stroke="#22c55e" stroke-width="2"/>
+  <rect x="280" y="160" width="440" height="140" rx="12" fill="#22c55e" fill-opacity="0.03"/>
+  
+  <text x="312" y="196" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#64748b">PAYMENT PROCESSOR</text>
+  
+  <!-- Stripe Logo placeholder -->
+  <rect x="312" y="212" width="80" height="32" rx="6" fill="#635bff"/>
+  <text x="330" y="234" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="white">stripe</text>
+  
+  <!-- Connected Badge -->
+  <rect x="412" y="216" width="90" height="24" rx="12" fill="#dcfce7"/>
+  <circle cx="432" cy="228" r="4" fill="#22c55e"/>
+  <text x="444" y="233" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#16a34a">Connected</text>
+  
+  <text x="312" y="272" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Account: acct_1234...5678</text>
+  
+  <rect x="580" y="252" width="120" height="36" rx="6" fill="#f1f5f9"/>
+  <text x="596" y="276" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Manage →</text>
+  
+  <!-- Payment Methods Card -->
+  <rect x="280" y="320" width="440" height="260" rx="12" fill="white" stroke="#e5e7eb"/>
+  <text x="312" y="356" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#0B1220">Accepted Payment Methods</text>
+  
+  <!-- Credit Cards -->
+  <rect x="312" y="380" width="24" height="24" rx="4" fill="#7C7CF2"/>
+  <path d="M318 392 L324 398 L332 386" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="348" y="398" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Credit/Debit Cards</text>
+  <text x="348" y="416" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Visa, Mastercard, Amex</text>
+  
+  <!-- Cash -->
+  <rect x="312" y="440" width="24" height="24" rx="4" fill="#7C7CF2"/>
+  <path d="M318 452 L324 458 L332 446" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="348" y="458" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Cash</text>
+  <text x="348" y="476" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Pay at checkout</text>
+  
+  <!-- Gift Cards -->
+  <rect x="312" y="500" width="24" height="24" rx="4" fill="#7C7CF2"/>
+  <path d="M318 512 L324 518 L332 506" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="348" y="518" font-family="system-ui, sans-serif" font-size="14" fill="#0B1220">Gift Cards</text>
+  <text x="348" y="536" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">NeonO gift cards</text>
+  
+  <!-- Digital Wallets (unchecked) -->
+  <rect x="312" y="556" width="24" height="24" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="348" y="574" font-family="system-ui, sans-serif" font-size="14" fill="#9ca3af">Digital Wallets</text>
+  <text x="348" y="592" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">Apple Pay, Google Pay</text>
+  
+  <!-- Deposits Card -->
+  <rect x="740" y="160" width="420" height="240" rx="12" fill="white" stroke="#e5e7eb"/>
+  <text x="772" y="196" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#0B1220">Booking Deposits</text>
+  <text x="772" y="218" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Require payment to reduce no-shows</text>
+  
+  <!-- Enable Toggle -->
+  <text x="772" y="260" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Require deposits</text>
+  <rect x="1068" y="242" width="52" height="28" rx="14" fill="#7C7CF2"/>
+  <circle cx="1106" cy="256" r="10" fill="white"/>
+  
+  <!-- Deposit Amount -->
+  <text x="772" y="308" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Deposit Amount</text>
+  
+  <rect x="772" y="320" width="120" height="40" rx="8" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2"/>
+  <text x="818" y="346" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#7C7CF2">50%</text>
+  
+  <rect x="900" y="320" width="60" height="40" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="916" y="346" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">$20</text>
+  
+  <rect x="968" y="320" width="60" height="40" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="976" y="346" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">100%</text>
+  
+  <text x="772" y="386" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Collected at time of booking</text>
+  
+  <!-- Tipping Settings Card -->
+  <rect x="740" y="420" width="420" height="180" rx="12" fill="white" stroke="#e5e7eb"/>
+  <text x="772" y="456" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#0B1220">Tipping Options</text>
+  
+  <!-- Tip Percentages -->
+  <text x="772" y="492" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#374151">Suggested Tips</text>
+  
+  <rect x="772" y="506" width="60" height="36" rx="6" fill="white" stroke="#d1d5db"/>
+  <text x="791" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">15%</text>
+  
+  <rect x="840" y="506" width="60" height="36" rx="6" fill="white" stroke="#d1d5db"/>
+  <text x="859" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">18%</text>
+  
+  <rect x="908" y="506" width="60" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2"/>
+  <text x="927" y="530" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#7C7CF2">20%</text>
+  
+  <rect x="976" y="506" width="60" height="36" rx="6" fill="white" stroke="#d1d5db"/>
+  <text x="995" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">25%</text>
+  
+  <rect x="1044" y="506" width="76" height="36" rx="6" fill="white" stroke="#d1d5db"/>
+  <text x="1058" y="530" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Custom</text>
+  
+  <!-- Default Tip -->
+  <text x="772" y="572" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Default: 20% (highlighted during checkout)</text>
+  
+  <!-- Cancellation Fees Card -->
+  <rect x="280" y="600" width="880" height="160" rx="12" fill="white" stroke="#e5e7eb"/>
+  <text x="312" y="636" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#0B1220">Cancellation Policy</text>
+  
+  <!-- Policy Timeline -->
+  <rect x="312" y="660" width="820" height="8" rx="4" fill="#f1f5f9"/>
+  
+  <!-- Free Zone -->
+  <rect x="312" y="660" width="340" height="8" rx="4" fill="#22c55e"/>
+  <text x="312" y="700" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#22c55e">Free cancellation</text>
+  <text x="312" y="716" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">24+ hours before</text>
+  
+  <!-- 50% Zone -->
+  <rect x="652" y="660" width="200" height="8" fill="#fbbf24"/>
+  <text x="652" y="700" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#d97706">50% charge</text>
+  <text x="652" y="716" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">12-24 hours</text>
+  
+  <!-- Full Zone -->
+  <rect x="852" y="660" width="280" height="8" rx="4" fill="#ef4444"/>
+  <text x="932" y="700" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#dc2626">100% charge</text>
+  <text x="932" y="716" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">&lt;12 hrs / No-show</text>
+  
+  <!-- Edit Button -->
+  <rect x="1040" y="620" width="100" height="36" rx="6" fill="#f1f5f9"/>
+  <text x="1066" y="644" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Edit Policy</text>
+</svg>

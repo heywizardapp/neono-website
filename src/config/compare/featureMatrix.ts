@@ -1,4 +1,5 @@
 import { FeatureMatrix, PlanKey } from '@/types/roi';
+import { PRICING, COMPETITORS } from '@/config/pricing';
 
 export const featureMatrix: FeatureMatrix = {
   plans: ['starter', 'growth', 'competitorA'],
@@ -11,7 +12,7 @@ export const featureMatrix: FeatureMatrix = {
         { id: 'calendar_sync', label: 'Calendar sync', values: { starter: true, growth: true, competitorA: false } },
         { id: 'waitlist', label: 'Waitlist management', values: { starter: true, growth: true, competitorA: 'Add-on' } },
         { id: 'recurring', label: 'Recurring appointments', values: { starter: true, growth: true, competitorA: true } },
-        { id: 'staff_scheduling', label: 'Staff scheduling', values: { starter: '2 staff', growth: '5 staff', competitorA: '1 staff' } },
+        { id: 'staff_scheduling', label: 'Staff scheduling', values: { starter: `${PRICING.starter.seats} staff`, growth: `${PRICING.growth.seats} staff`, competitorA: `${COMPETITORS.competitorA.seats} staff` } },
       ],
     },
     {
@@ -32,8 +33,8 @@ export const featureMatrix: FeatureMatrix = {
         { id: 'sms_marketing', label: 'SMS marketing', values: { starter: true, growth: true, competitorA: 'Add-on' } },
         { id: 'email_marketing', label: 'Email campaigns', values: { starter: true, growth: true, competitorA: 'Add-on' } },
         { id: 'review_requests', label: 'Review requests', values: { starter: true, growth: true, competitorA: false } },
-        { id: 'loyalty_program', label: 'Loyalty program', values: { starter: false, growth: true, competitorA: 'Add-on' } },
-        { id: 'referral_tracking', label: 'Referral tracking', values: { starter: false, growth: true, competitorA: false } },
+        { id: 'loyalty_program', label: 'Loyalty program', values: { starter: true, growth: true, competitorA: 'Add-on' } },
+        { id: 'referral_tracking', label: 'Referral tracking', values: { starter: true, growth: true, competitorA: false } },
       ],
     },
     {
@@ -73,13 +74,13 @@ export const featureMatrix: FeatureMatrix = {
 };
 
 export const planLabels: Record<PlanKey, string> = {
-  starter: 'NeonO Starter',
-  growth: 'NeonO Growth',
-  competitorA: 'Competitor A',
+  starter: PRICING.starter.name,
+  growth: PRICING.growth.name,
+  competitorA: COMPETITORS.competitorA.name,
 };
 
 export const planPricing: Record<PlanKey, { price: number; seats: number; note?: string }> = {
-  starter: { price: 29, seats: 2 },
-  growth: { price: 59, seats: 5 },
-  competitorA: { price: 35, seats: 1, note: 'Base plan, add-ons extra' },
+  starter: { price: PRICING.starter.price, seats: PRICING.starter.seats },
+  growth: { price: PRICING.growth.price, seats: PRICING.growth.seats },
+  competitorA: { price: COMPETITORS.competitorA.price, seats: COMPETITORS.competitorA.seats, note: COMPETITORS.competitorA.note },
 };

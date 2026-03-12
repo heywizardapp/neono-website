@@ -2,7 +2,7 @@ import { Hero } from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield, Sparkles } from 'lucide-react';
+import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield, Sparkles, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
@@ -34,11 +34,19 @@ const products = [
   },
   {
     icon: Mail,
-    name: 'Marketing',
-    description: 'SMS and email campaigns that fill your calendar automatically.',
+    name: 'Marketing Suite',
+    description: 'Email, SMS, social media, Google Business—all in one platform.',
     href: '/products/marketing',
     color: 'text-lavender',
-    features: ['Automated campaigns', 'Review management', 'Customer segmentation', 'A/B testing']
+    features: ['Email & SMS campaigns', 'Social scheduling', 'Google Business', 'AI content generation']
+  },
+  {
+    icon: Gift,
+    name: 'Loyalty & Gift Cards',
+    description: 'Reward programs and digital gift cards—included free.',
+    href: '/products/loyalty',
+    color: 'text-primary',
+    features: ['Points per dollar', 'Reward tiers', 'Digital gift cards', 'Achievement badges']
   },
   {
     icon: Sparkles,

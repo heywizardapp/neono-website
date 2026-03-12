@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 
 interface ParallaxLayerProps {
@@ -22,10 +22,10 @@ export function ParallaxLayer({
   opacity = 1,
   rotate = 0,
 }: ParallaxLayerProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) return;
 
@@ -172,10 +172,10 @@ export function Parallax3D({
   intensity = 20,
   mouseTracking = true,
 }: Parallax3DProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!mouseTracking) return;
 
     const handleMouseMove = (e: MouseEvent) => {

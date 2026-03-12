@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Search, ChevronDown } from 'lucide-react'
+import { Menu, X, Search, ChevronDown, GraduationCap, FileText, BookOpen, TrendingUp, HelpCircle } from 'lucide-react'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
 import { useScrollHeader } from '@/hooks/useScrollHeader'
 import { cn } from '@/lib/utils'
@@ -15,14 +15,14 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 const getProductLinks = (t: (key: string) => string) => [
-  { name: t('nav.products.staff'), href: '/products/staff-management', description: t('nav.products.staff.desc') },
   { name: t('nav.products.appointments'), href: '/products/appointments', description: t('nav.products.appointments.desc') },
   { name: t('nav.products.booking'), href: '/products/online-booking', description: t('nav.products.booking.desc') },
-  { name: t('nav.products.marketing'), href: '/products/marketing', description: t('nav.products.marketing.desc') },
   { name: t('nav.products.ai'), href: '/products/ai', description: t('nav.products.ai.desc') },
-  { name: t('nav.products.landing'), href: '/products/landing-page-builder', description: t('nav.products.landing.desc') },
   { name: t('nav.products.analytics'), href: '/products/analytics', description: t('nav.products.analytics.desc') },
+  { name: t('nav.products.marketing'), href: '/products/marketing', description: t('nav.products.marketing.desc') },
   { name: t('nav.products.pos'), href: '/products/pos', description: t('nav.products.pos.desc') },
+  { name: t('nav.products.staff'), href: '/products/staff-management', description: t('nav.products.staff.desc') },
+  { name: t('nav.products.landing'), href: '/products/landing-page-builder', description: t('nav.products.landing.desc') },
 ];
 
 const getSolutionLinks = (t: (key: string) => string) => [
@@ -31,6 +31,14 @@ const getSolutionLinks = (t: (key: string) => string) => [
   { name: t('nav.solutions.spas'), href: '/solutions/spas' },
   { name: t('nav.solutions.aesthetics'), href: '/solutions/aesthetics' },
   { name: t('nav.solutions.nails'), href: '/solutions/nails' },
+];
+
+const compareLinks = [
+  { name: 'vs Fresha', href: '/vs/fresha' },
+  { name: 'vs Vagaro', href: '/vs/vagaro' },
+  { name: 'vs Salon Monster', href: '/vs/salon-monster' },
+  { name: 'vs Squire', href: '/vs/squire' },
+  { name: 'vs Phorest', href: '/vs/phorest' },
 ];
 
 export function Header() {
@@ -121,31 +129,67 @@ export function Header() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-          <TopNav to="/pricing">Pricing</TopNav>
           <DropdownMenu>
             <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
-              Company
+              Compare
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="min-w-[200px]">
-              <DropdownMenuItem asChild>
-                <Link to="/company/about" className="w-full cursor-pointer">
-                  About
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/company/careers" className="w-full cursor-pointer">
-                  Careers
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/contact" className="w-full cursor-pointer">
-                  Contact
+              {compareLinks.map((item) => (
+                <DropdownMenuItem key={item.name} asChild>
+                  <Link to={item.href} className="w-full cursor-pointer">
+                    {item.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+              <DropdownMenuItem asChild className="border-t mt-1 pt-1">
+                <Link to="/comparisons" className="w-full cursor-pointer font-semibold text-primary">
+                  See All Comparisons →
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <TopNav to="/resources">Resources</TopNav>
+          <TopNav to="/pricing">Pricing</TopNav>
+                    <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
+                    Resources
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link to="/academy" className="flex items-center gap-2 w-full cursor-pointer">
+                      <GraduationCap className="h-4 w-4" />
+                      NeonO Academy
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/blog" className="flex items-center gap-2 w-full cursor-pointer">
+                      <FileText className="h-4 w-4" />
+                      Blog
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/resources" className="flex items-center gap-2 w-full cursor-pointer">
+                      <BookOpen className="h-4 w-4" />
+                      Guides & Tutorials
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link to="/case-studies/metro-beauty" className="flex items-center gap-2 w-full cursor-pointer">
+                      <TrendingUp className="h-4 w-4" />
+                      Success Stories
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild className="border-t mt-1 pt-1">
+                    <Link to="/help" className="flex items-center gap-2 w-full cursor-pointer">
+                      <HelpCircle className="h-4 w-4" />
+                      Help Center
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -282,18 +326,35 @@ function MobileDrawer({
         </div>
 
         <div className="space-y-1">
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Compare</h3>
+          {compareLinks.map((item) => (
+            <MobileLink key={item.name} to={item.href} onClose={onClose}>
+              {item.name}
+            </MobileLink>
+          ))}
+          <MobileLink to="/comparisons" onClose={onClose}>
+            <span className="font-semibold text-primary">See All Comparisons →</span>
+          </MobileLink>
+        </div>
+
+        <div className="space-y-1">
           <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
         </div>
 
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Company</h3>
-          <MobileLink to="/company/about" onClose={onClose}>About</MobileLink>
-          <MobileLink to="/company/careers" onClose={onClose}>Careers</MobileLink>
-          <MobileLink to="/contact" onClose={onClose}>Contact</MobileLink>
-        </div>
-
-        <div className="space-y-1">
-          <MobileLink to="/resources" onClose={onClose}>Resources</MobileLink>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Resources</h3>
+          <MobileLink to="/academy" onClose={onClose}>
+            <span className="flex items-center gap-2"><GraduationCap className="h-4 w-4" />NeonO Academy</span>
+          </MobileLink>
+          <MobileLink to="/blog" onClose={onClose}>
+            <span className="flex items-center gap-2"><FileText className="h-4 w-4" />Blog</span>
+          </MobileLink>
+          <MobileLink to="/resources" onClose={onClose}>
+            <span className="flex items-center gap-2"><BookOpen className="h-4 w-4" />Guides & Tutorials</span>
+          </MobileLink>
+          <MobileLink to="/help" onClose={onClose}>
+            <span className="flex items-center gap-2"><HelpCircle className="h-4 w-4" />Help Center</span>
+          </MobileLink>
         </div>
 
         <div className="flex flex-col gap-3 pt-4 mt-auto border-t">

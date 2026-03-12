@@ -1,0 +1,120 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="1000" height="600" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="1000" height="48" rx="12" fill="#252542"/>
+  <rect y="36" width="1000" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="24" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="24" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="24" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="150" y="12" width="700" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="430" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/settings/resources/massage-table-1</text>
+  
+  <!-- Background -->
+  <rect x="0" y="48" width="1000" height="552" fill="#13131f"/>
+  
+  <!-- Header -->
+  <rect x="0" y="48" width="1000" height="70" fill="#1a1a2e"/>
+  
+  <!-- Back Button -->
+  <rect x="30" y="70" width="36" height="36" rx="8" fill="#252542"/>
+  <text x="42" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#888">←</text>
+  
+  <text x="85" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#fff">Massage Table 1</text>
+  <rect x="260" y="76" width="80" height="24" rx="12" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="277" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#60A5FA">Equipment</text>
+  
+  <!-- Tabs -->
+  <rect x="30" y="128" width="80" height="36" rx="6" fill="#252542"/>
+  <text x="52" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Details</text>
+  
+  <rect x="120" y="128" width="90" height="36" rx="6" fill="#7C7CF2"/>
+  <text x="140" y="152" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#fff">Calendar</text>
+  
+  <!-- Calendar Section -->
+  <rect x="30" y="180" width="940" height="400" rx="12" fill="#1e1e36"/>
+  
+  <!-- Week Navigation -->
+  <rect x="50" y="200" width="36" height="36" rx="6" fill="#252542"/>
+  <text x="62" y="224" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">&lt;</text>
+  
+  <text x="480" y="225" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#fff" text-anchor="middle">January 27 - February 2, 2026</text>
+  
+  <rect x="905" y="200" width="36" height="36" rx="6" fill="#252542"/>
+  <text x="917" y="224" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">&gt;</text>
+  
+  <!-- Day Headers -->
+  <text x="140" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7C7CF2" font-weight="600">Mon 27</text>
+  <text x="265" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Tue 28</text>
+  <text x="390" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Wed 29</text>
+  <text x="515" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Thu 30</text>
+  <text x="645" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Fri 31</text>
+  <text x="770" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Sat 1</text>
+  <text x="895" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Sun 2</text>
+  
+  <!-- Time Labels -->
+  <text x="65" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">9 AM</text>
+  <text x="62" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">11 AM</text>
+  <text x="65" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">1 PM</text>
+  <text x="65" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">3 PM</text>
+  <text x="65" y="550" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">5 PM</text>
+  
+  <!-- Grid Lines -->
+  <line x1="100" y1="295" x2="950" y2="295" stroke="#252542" stroke-width="1"/>
+  <line x1="100" y1="355" x2="950" y2="355" stroke="#252542" stroke-width="1"/>
+  <line x1="100" y1="415" x2="950" y2="415" stroke="#252542" stroke-width="1"/>
+  <line x1="100" y1="475" x2="950" y2="475" stroke="#252542" stroke-width="1"/>
+  <line x1="100" y1="535" x2="950" y2="535" stroke="#252542" stroke-width="1"/>
+  
+  <line x1="220" y1="285" x2="220" y2="565" stroke="#252542" stroke-width="1"/>
+  <line x1="345" y1="285" x2="345" y2="565" stroke="#252542" stroke-width="1"/>
+  <line x1="470" y1="285" x2="470" y2="565" stroke="#252542" stroke-width="1"/>
+  <line x1="595" y1="285" x2="595" y2="565" stroke="#252542" stroke-width="1"/>
+  <line x1="720" y1="285" x2="720" y2="565" stroke="#252542" stroke-width="1"/>
+  <line x1="845" y1="285" x2="845" y2="565" stroke="#252542" stroke-width="1"/>
+  
+  <!-- Today Column Highlight -->
+  <rect x="101" y="285" width="118" height="280" fill="#7C7CF2" fill-opacity="0.05"/>
+  
+  <!-- Booking 1 - Monday 10am -->
+  <rect x="110" y="320" width="100" height="55" rx="6" fill="#60A5FA"/>
+  <text x="120" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fff">Emma J.</text>
+  <text x="120" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Swedish Massage</text>
+  <text x="120" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">10:00 - 11:00 AM</text>
+  
+  <!-- Booking 2 - Monday 2pm -->
+  <rect x="110" y="440" width="100" height="55" rx="6" fill="#60A5FA"/>
+  <text x="120" y="460" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fff">Tom S.</text>
+  <text x="120" y="475" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Deep Tissue</text>
+  <text x="120" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">2:00 - 3:00 PM</text>
+  
+  <!-- Booking 3 - Tuesday 9am -->
+  <rect x="235" y="295" width="100" height="70" rx="6" fill="#60A5FA"/>
+  <text x="245" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fff">Lisa C.</text>
+  <text x="245" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Hot Stone</text>
+  <text x="245" y="345" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">9:00 - 10:30 AM</text>
+  
+  <!-- Booking 4 - Wednesday 11am -->
+  <rect x="360" y="355" width="100" height="55" rx="6" fill="#60A5FA"/>
+  <text x="370" y="375" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fff">Maria G.</text>
+  <text x="370" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Swedish Massage</text>
+  <text x="370" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">11:00 - 12:00 PM</text>
+  
+  <!-- Booking 5 - Thursday 3pm -->
+  <rect x="485" y="475" width="100" height="55" rx="6" fill="#60A5FA"/>
+  <text x="495" y="495" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#fff">John D.</text>
+  <text x="495" y="510" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Deep Tissue</text>
+  <text x="495" y="525" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">3:00 - 4:00 PM</text>
+  
+  <!-- Legend -->
+  <rect x="750" y="545" width="180" height="28" rx="6" fill="#252542"/>
+  <rect x="770" y="553" width="12" height="12" rx="2" fill="#60A5FA"/>
+  <text x="790" y="564" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Booked</text>
+  <rect x="860" y="553" width="12" height="12" rx="2" fill="#252542" stroke="#4a4a6a" stroke-width="1"/>
+  <text x="880" y="564" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Available</text>
+</svg>

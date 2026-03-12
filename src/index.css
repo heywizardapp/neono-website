@@ -274,6 +274,12 @@
     50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
   }
 
+  @keyframes scale-in {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
   /* 3D transform utilities */
   .preserve-3d {
     transform-style: preserve-3d;
@@ -351,5 +357,54 @@
   /* Focus ring utilities */
   .focus-ring {
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  }
+
+  /* ============================================
+     Academy Article Prose Styles
+     Matches Fresha Help Center quality
+     ============================================ */
+  .academy-article-prose {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Counter reset for ordered lists */
+  .academy-article-prose ol {
+    counter-reset: step-counter;
+  }
+
+  .academy-article-prose ol > li {
+    counter-increment: step-counter;
+  }
+
+  /* Smooth scroll for TOC links */
+  .academy-article-prose h2,
+  .academy-article-prose h3 {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Selection highlight */
+  .academy-article-prose ::selection {
+    background: hsl(240, 89%, 73%, 0.2);
+  }
+
+  /* Code block syntax highlighting base */
+  .academy-article-prose pre code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  }
+
+  /* Checklist styling for markdown checkboxes */
+  .academy-article-prose input[type="checkbox"] {
+    @apply w-4 h-4 rounded border-gray-300 text-[hsl(240,89%,73%)] focus:ring-[hsl(240,89%,73%)];
+    margin-right: 0.5rem;
+  }
+
+  /* Better spacing for nested lists */
+  .academy-article-prose ul ul,
+  .academy-article-prose ol ol,
+  .academy-article-prose ul ol,
+  .academy-article-prose ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }

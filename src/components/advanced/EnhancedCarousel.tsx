@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef, useState, useCallback } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -29,23 +29,23 @@ export function EnhancedCarousel({
   magneticSnap = true,
   loop = true,
 }: EnhancedCarouselProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-  const velocity = useRef(0);
-  const lastX = useRef(0);
-  const lastTime = useRef(0);
-  const animationFrame = useRef<number>();
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const isDragging = React.useRef(false);
+  const startX = React.useRef(0);
+  const scrollLeft = React.useRef(0);
+  const velocity = React.useRef(0);
+  const lastX = React.useRef(0);
+  const lastTime = React.useRef(0);
+  const animationFrame = React.useRef<number>();
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(autoPlay);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = React.useState(autoPlay);
 
   const totalItems = children.length;
   const maxIndex = Math.max(0, totalItems - itemsToShow);
 
   // Auto-play functionality
-  useEffect(() => {
+  React.useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
@@ -56,7 +56,7 @@ export function EnhancedCarousel({
   }, [isAutoPlaying, autoPlayInterval, maxIndex]);
 
   // Smooth scroll to index
-  const scrollToIndex = useCallback((index: number, smooth = true) => {
+  const scrollToIndex = React.useCallback((index: number, smooth = true) => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
@@ -76,7 +76,7 @@ export function EnhancedCarousel({
   }, [totalItems]);
 
   // Momentum scrolling physics
-  const applyMomentum = useCallback(() => {
+  const applyMomentum = React.useCallback(() => {
     if (!containerRef.current || !momentum) return;
 
     const container = containerRef.current;
@@ -102,7 +102,7 @@ export function EnhancedCarousel({
   }, [momentum, magneticSnap, scrollToIndex, maxIndex, totalItems]);
 
   // Mouse/Touch event handlers
-  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+  const handlePointerDown = React.useCallback((e: React.PointerEvent) => {
     if (!containerRef.current) return;
 
     isDragging.current = true;
@@ -122,7 +122,7 @@ export function EnhancedCarousel({
     containerRef.current.style.userSelect = 'none';
   }, []);
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+  const handlePointerMove = React.useCallback((e: React.PointerEvent) => {
     if (!isDragging.current || !containerRef.current) return;
 
     e.preventDefault();
@@ -144,7 +144,7 @@ export function EnhancedCarousel({
     lastTime.current = currentTime;
   }, []);
 
-  const handlePointerUp = useCallback(() => {
+  const handlePointerUp = React.useCallback(() => {
     if (!containerRef.current) return;
 
     isDragging.current = false;
@@ -166,18 +166,18 @@ export function EnhancedCarousel({
   }, [momentum, magneticSnap, applyMomentum, scrollToIndex, maxIndex, totalItems, autoPlay]);
 
   // Navigation functions
-  const goToPrevious = useCallback(() => {
+  const goToPrevious = React.useCallback(() => {
     const newIndex = currentIndex <= 0 ? (loop ? maxIndex : 0) : currentIndex - 1;
     scrollToIndex(newIndex);
   }, [currentIndex, maxIndex, loop, scrollToIndex]);
 
-  const goToNext = useCallback(() => {
+  const goToNext = React.useCallback(() => {
     const newIndex = currentIndex >= maxIndex ? (loop ? 0 : maxIndex) : currentIndex + 1;
     scrollToIndex(newIndex);
   }, [currentIndex, maxIndex, loop, scrollToIndex]);
 
   // Keyboard navigation
-  useEffect(() => {
+  React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();

@@ -1,0 +1,154 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="800" height="500" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="800" height="44" rx="12" fill="#252542"/>
+  <rect y="32" width="800" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="22" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="22" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="22" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="150" y="10" width="500" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="360" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/calendar</text>
+  
+  <!-- Dimmed Background -->
+  <rect x="0" y="44" width="800" height="456" fill="#13131f" fill-opacity="0.8"/>
+  
+  <!-- Modal -->
+  <rect x="80" y="65" width="640" height="400" rx="16" fill="#1e1e36"/>
+  <rect x="80" y="65" width="640" height="400" rx="16" stroke="#3a3a5a" stroke-width="1"/>
+  
+  <!-- Modal Header -->
+  <text x="400" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#fff" text-anchor="middle">Select Date & Time</text>
+  
+  <!-- Close Button -->
+  <circle cx="690" cy="95" r="14" fill="#252542"/>
+  <text x="686" y="101" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">×</text>
+  
+  <!-- Left Side: Calendar -->
+  <rect x="110" y="125" width="300" height="280" rx="12" fill="#252542"/>
+  
+  <!-- Calendar Header -->
+  <text x="140" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#888">&lt;</text>
+  <text x="260" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">January 2026</text>
+  <text x="375" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#888">&gt;</text>
+  
+  <!-- Day Headers -->
+  <text x="140" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Sun</text>
+  <text x="175" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Mon</text>
+  <text x="213" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Tue</text>
+  <text x="249" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Wed</text>
+  <text x="286" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Thu</text>
+  <text x="327" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Fri</text>
+  <text x="363" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">Sat</text>
+  
+  <!-- Week 1 (partial) - grayed out past dates -->
+  <text x="220" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">1</text>
+  <text x="256" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">2</text>
+  <text x="292" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">3</text>
+  <text x="332" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">4</text>
+  
+  <!-- Week 2 -->
+  <text x="144" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">5</text>
+  <text x="180" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">6</text>
+  <text x="220" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">7</text>
+  <text x="256" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">8</text>
+  <text x="292" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">9</text>
+  <text x="328" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">10</text>
+  <text x="364" y="245" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">11</text>
+  
+  <!-- Week 3 -->
+  <text x="140" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">12</text>
+  <text x="176" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">13</text>
+  <text x="216" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">14</text>
+  <text x="252" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">15</text>
+  <text x="288" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">16</text>
+  <text x="324" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">17</text>
+  <text x="360" y="275" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">18</text>
+  
+  <!-- Week 4 -->
+  <text x="140" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">19</text>
+  <text x="176" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">20</text>
+  <text x="216" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">21</text>
+  <text x="252" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">22</text>
+  <text x="288" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">23</text>
+  <text x="324" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">24</text>
+  <text x="360" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#4a4a6a">25</text>
+  
+  <!-- Week 5 - Current week, 27 selected -->
+  <text x="140" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">26</text>
+  
+  <!-- Selected date (27) with highlight -->
+  <circle cx="183" cy="330" r="16" fill="#7C7CF2"/>
+  <text x="176" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#fff">27</text>
+  
+  <text x="216" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">28</text>
+  <text x="252" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">29</text>
+  <text x="288" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">30</text>
+  <text x="324" y="335" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">31</text>
+  
+  <!-- Today indicator -->
+  <text x="140" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#7C7CF2">● Today: January 27, 2026</text>
+  
+  <!-- Right Side: Time Slots -->
+  <rect x="430" y="125" width="270" height="280" rx="12" fill="#252542"/>
+  
+  <text x="565" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#fff" text-anchor="middle">Available Times</text>
+  
+  <!-- Time Slots Grid -->
+  <!-- Row 1 -->
+  <rect x="450" y="170" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="485" y="193" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">9:00 AM</text>
+  
+  <rect x="530" y="170" width="70" height="36" rx="6" fill="#1e1e36" fill-opacity="0.5"/>
+  <text x="565" y="193" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">9:30 AM</text>
+  
+  <rect x="610" y="170" width="70" height="36" rx="6" fill="#1e1e36" fill-opacity="0.5"/>
+  <text x="645" y="193" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">10:00 AM</text>
+  
+  <!-- Row 2 -->
+  <rect x="450" y="215" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="485" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">10:30 AM</text>
+  
+  <rect x="530" y="215" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="565" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">11:00 AM</text>
+  
+  <rect x="610" y="215" width="70" height="36" rx="6" fill="#1e1e36" fill-opacity="0.5"/>
+  <text x="645" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#4a4a6a" text-anchor="middle">11:30 AM</text>
+  
+  <!-- Row 3 -->
+  <rect x="450" y="260" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="485" y="283" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">1:00 PM</text>
+  
+  <rect x="530" y="260" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="565" y="283" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">1:30 PM</text>
+  
+  <!-- Selected time slot -->
+  <rect x="610" y="260" width="70" height="36" rx="6" fill="#7C7CF2"/>
+  <text x="645" y="283" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#fff" text-anchor="middle">2:00 PM</text>
+  
+  <!-- Row 4 -->
+  <rect x="450" y="305" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="485" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">2:30 PM</text>
+  
+  <rect x="530" y="305" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="565" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">3:00 PM</text>
+  
+  <rect x="610" y="305" width="70" height="36" rx="6" fill="#1e1e36"/>
+  <text x="645" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa" text-anchor="middle">3:30 PM</text>
+  
+  <!-- Duration Info -->
+  <rect x="450" y="355" width="230" height="36" rx="8" fill="#10B981" fill-opacity="0.1"/>
+  <text x="565" y="378" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#10B981" text-anchor="middle">2:00 PM - 2:30 PM (30 min)</text>
+  
+  <!-- Bottom Buttons -->
+  <rect x="110" y="420" width="100" height="38" rx="8" fill="#252542"/>
+  <text x="142" y="444" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Back</text>
+  
+  <rect x="580" y="420" width="120" height="38" rx="8" fill="#7C7CF2"/>
+  <text x="608" y="444" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#fff">Confirm</text>
+</svg>

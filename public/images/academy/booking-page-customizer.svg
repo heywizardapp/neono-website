@@ -1,0 +1,167 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/settings/booking-page</text>
+  
+  <!-- Main Content Split View -->
+  <!-- Left Panel - Customization Controls -->
+  <rect x="1" y="53" width="500" height="746" fill="#f8fafc"/>
+  <line x1="501" y1="53" x2="501" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Panel Header -->
+  <text x="32" y="97" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#0B1220">Customize Booking Page</text>
+  <text x="32" y="120" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Make your booking page match your brand</text>
+  
+  <!-- Logo Section -->
+  <rect x="32" y="150" width="436" height="100" rx="10" fill="white" stroke="#e5e7eb"/>
+  <text x="52" y="178" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151">Logo</text>
+  
+  <!-- Logo Upload Box -->
+  <rect x="52" y="194" width="64" height="64" rx="8" fill="#f8fafc" stroke="#d1d5db" stroke-dasharray="4 4"/>
+  <text x="76" y="234" font-family="system-ui, sans-serif" font-size="20" fill="#9ca3af">+</text>
+  
+  <text x="132" y="218" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Upload your logo</text>
+  <text x="132" y="238" font-family="system-ui, sans-serif" font-size="11" fill="#9ca3af">PNG or JPG, max 2MB</text>
+  
+  <rect x="340" y="210" width="108" height="36" rx="6" fill="#7C7CF2"/>
+  <text x="358" y="234" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="white">Upload Logo</text>
+  
+  <!-- Brand Color Section -->
+  <rect x="32" y="268" width="436" height="120" rx="10" fill="white" stroke="#e5e7eb"/>
+  <text x="52" y="296" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151">Brand Color</text>
+  
+  <!-- Color Swatches -->
+  <circle cx="72" cy="334" r="20" fill="#7C7CF2" stroke="#7C7CF2" stroke-width="3"/>
+  <circle cx="72" cy="334" r="23" fill="none" stroke="#7C7CF2" stroke-width="2"/>
+  <circle cx="124" cy="334" r="20" fill="#ec4899"/>
+  <circle cx="176" cy="334" r="20" fill="#22c55e"/>
+  <circle cx="228" cy="334" r="20" fill="#f97316"/>
+  <circle cx="280" cy="334" r="20" fill="#3b82f6"/>
+  <circle cx="332" cy="334" r="20" fill="#8b5cf6"/>
+  
+  <!-- Custom Color Input -->
+  <rect x="366" y="314" width="82" height="40" rx="6" fill="white" stroke="#d1d5db"/>
+  <rect x="376" y="324" width="20" height="20" rx="4" fill="#7C7CF2"/>
+  <text x="404" y="340" font-family="system-ui, sans-serif" font-size="12" fill="#374151">#7C7CF2</text>
+  
+  <text x="52" y="374" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Selected: Lavender Purple</text>
+  
+  <!-- Cover Photo Section -->
+  <rect x="32" y="406" width="436" height="100" rx="10" fill="white" stroke="#e5e7eb"/>
+  <text x="52" y="434" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151">Cover Photo</text>
+  
+  <rect x="52" y="450" width="120" height="40" rx="6" fill="#f8fafc" stroke="#d1d5db"/>
+  <text x="72" y="476" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Choose file</text>
+  
+  <text x="192" y="476" font-family="system-ui, sans-serif" font-size="12" fill="#9ca3af">1920×600px recommended</text>
+  
+  <!-- About Section -->
+  <rect x="32" y="524" width="436" height="140" rx="10" fill="white" stroke="#e5e7eb"/>
+  <text x="52" y="552" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151">About Your Salon</text>
+  
+  <rect x="52" y="568" width="396" height="76" rx="8" fill="white" stroke="#d1d5db"/>
+  <text x="68" y="592" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Welcome to Bella Salon! With 15 years</text>
+  <text x="68" y="612" font-family="system-ui, sans-serif" font-size="13" fill="#374151">of experience, we specialize in color</text>
+  <text x="68" y="632" font-family="system-ui, sans-serif" font-size="13" fill="#374151">correction and modern cuts...</text>
+  
+  <!-- Display Options -->
+  <rect x="32" y="682" width="436" height="100" rx="10" fill="white" stroke="#e5e7eb"/>
+  <text x="52" y="710" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151">Display Options</text>
+  
+  <!-- Checkboxes -->
+  <rect x="52" y="728" width="20" height="20" rx="4" fill="#7C7CF2"/>
+  <path d="M57 738 L61 742 L67 734" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="82" y="744" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Show reviews</text>
+  
+  <rect x="200" y="728" width="20" height="20" rx="4" fill="#7C7CF2"/>
+  <path d="M205 738 L209 742 L215 734" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="230" y="744" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Show promotions</text>
+  
+  <rect x="370" y="728" width="20" height="20" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="400" y="744" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Instagram feed</text>
+  
+  <!-- Right Panel - Live Preview -->
+  <rect x="501" y="53" width="698" height="746" fill="#f1f5f9"/>
+  
+  <!-- Preview Label -->
+  <rect x="520" y="68" width="100" height="28" rx="6" fill="white" stroke="#e5e7eb"/>
+  <text x="536" y="88" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">LIVE PREVIEW</text>
+  
+  <!-- Mobile Preview Frame -->
+  <rect x="680" y="120" width="340" height="600" rx="24" fill="#0B1220" stroke="#374151" stroke-width="2"/>
+  <rect x="690" y="130" width="320" height="580" rx="20" fill="white"/>
+  
+  <!-- Phone Notch -->
+  <rect x="800" y="134" width="80" height="20" rx="10" fill="#0B1220"/>
+  
+  <!-- Preview Content -->
+  <!-- Header with Logo -->
+  <rect x="690" y="160" width="320" height="80" fill="#7C7CF2"/>
+  <circle cx="850" cy="200" r="20" fill="white" fill-opacity="0.2"/>
+  <text x="838" y="207" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="white">B</text>
+  
+  <!-- Salon Name -->
+  <text x="800" y="270" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#0B1220" text-anchor="middle">Bella Salon &amp; Spa</text>
+  <text x="800" y="290" font-family="system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">123 Queen Street West, Toronto</text>
+  
+  <!-- Rating Stars -->
+  <text x="770" y="316" font-family="system-ui, sans-serif" font-size="12" fill="#fbbf24">★★★★★</text>
+  <text x="826" y="316" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">(128)</text>
+  
+  <!-- Service Categories -->
+  <rect x="710" y="340" width="80" height="32" rx="16" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="732" y="362" font-family="system-ui, sans-serif" font-size="10" font-weight="500" fill="#7C7CF2">All</text>
+  
+  <rect x="798" y="340" width="60" height="32" rx="16" fill="white" stroke="#e5e7eb"/>
+  <text x="814" y="362" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Hair</text>
+  
+  <rect x="866" y="340" width="60" height="32" rx="16" fill="white" stroke="#e5e7eb"/>
+  <text x="880" y="362" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Nails</text>
+  
+  <rect x="934" y="340" width="56" height="32" rx="16" fill="white" stroke="#e5e7eb"/>
+  <text x="950" y="362" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">Spa</text>
+  
+  <!-- Service List Items -->
+  <rect x="710" y="390" width="280" height="60" rx="8" fill="white" stroke="#e5e7eb"/>
+  <text x="726" y="416" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#0B1220">Women's Haircut</text>
+  <text x="726" y="434" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">45 min</text>
+  <text x="960" y="420" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0B1220">$65</text>
+  
+  <rect x="710" y="460" width="280" height="60" rx="8" fill="white" stroke="#e5e7eb"/>
+  <text x="726" y="486" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#0B1220">Full Color Service</text>
+  <text x="726" y="504" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">2 hr</text>
+  <text x="950" y="490" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0B1220">$120+</text>
+  
+  <rect x="710" y="530" width="280" height="60" rx="8" fill="white" stroke="#e5e7eb"/>
+  <text x="726" y="556" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#0B1220">Gel Manicure</text>
+  <text x="726" y="574" font-family="system-ui, sans-serif" font-size="9" fill="#64748b">30 min</text>
+  <text x="960" y="560" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#0B1220">$45</text>
+  
+  <!-- Book Now Button -->
+  <rect x="710" y="620" width="280" height="48" rx="8" fill="#7C7CF2"/>
+  <text x="808" y="650" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="white">Book Appointment</text>
+  
+  <!-- Bottom Navigation -->
+  <rect x="710" y="680" width="280" height="26" fill="#f8fafc" rx="8"/>
+  <rect x="710" y="700" width="280" height="10" rx="0 0 20 20" fill="#f8fafc"/>
+  
+  <!-- Device Toggle -->
+  <rect x="540" y="700" width="120" height="40" rx="8" fill="white" stroke="#e5e7eb"/>
+  <rect x="548" y="708" width="52" height="24" rx="4" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="558" y="726" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#7C7CF2">Mobile</text>
+  <text x="612" y="726" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Desktop</text>
+</svg>

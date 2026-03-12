@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -139,9 +139,9 @@ const openings = [
 const departments = ['All', 'Engineering', 'Product', 'Design', 'Marketing', 'Customer Success', 'Sales'];
 
 export default function Careers() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedDepartment, setSelectedDepartment] = useState('All');
-  const [filteredOpenings, setFilteredOpenings] = useState(openings);
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [selectedDepartment, setSelectedDepartment] = React.useState('All');
+  const [filteredOpenings, setFilteredOpenings] = React.useState(openings);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import * as React from "react";
 import { MessageCircle, X, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,15 +14,15 @@ interface Message {
 }
 
 export function LiveChat() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
-  const [showEmailForm, setShowEmailForm] = useState(false);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [messages, setMessages] = React.useState<Message[]>([]);
+  const [inputValue, setInputValue] = React.useState('');
+  const [showEmailForm, setShowEmailForm] = React.useState(false);
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const { canUseAnalytics } = useConsent();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen && messages.length === 0) {
       // Initial welcome message
       setMessages([{
@@ -34,11 +34,11 @@ export function LiveChat() {
     }
   }, [isOpen, messages.length]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }

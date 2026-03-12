@@ -37,17 +37,33 @@ const Security = lazy(() => import('./pages/Security').then(m => ({ default: m.S
 const Privacy = lazy(() => import('./pages/Privacy').then(m => ({ default: m.Privacy })));
 const Compare = lazy(() => import('./pages/Compare'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
+const Developers = lazy(() => import('./pages/Developers'));
+const Help = lazy(() => import('./pages/Help'));
+const Status = lazy(() => import('./pages/Status'));
 
-// Product pages
-const ProductsIndex = lazy(() => import('./pages/products/Index'));
-const StaffManagement = lazy(() => import('./pages/products/StaffManagement'));
-const Appointments = lazy(() => import('./pages/products/Appointments'));
-const OnlineBooking = lazy(() => import('./pages/products/OnlineBooking'));
-const Marketing = lazy(() => import('./pages/products/Marketing'));
-const AI = lazy(() => import('./pages/products/AI'));
-const LandingPageBuilder = lazy(() => import('./pages/products/LandingPageBuilder'));
-const Analytics = lazy(() => import('./pages/products/Analytics'));
-const Pos = lazy(() => import('./pages/products/Pos'));
+// Academy pages
+const Academy = lazy(() => import('./pages/academy/Academy'));
+const AcademyCategory = lazy(() => import('./pages/academy/Category'));
+const AcademyArticle = lazy(() => import('./pages/academy/Article'));
+const AcademySearch = lazy(() => import('./pages/academy/Search'));
+
+// Product pages - direct imports to avoid React context issues
+import ProductsIndex from './pages/products/Index';
+import StaffManagement from './pages/products/StaffManagement';
+import Appointments from './pages/products/Appointments';
+import OnlineBooking from './pages/products/OnlineBooking';
+import Marketing from './pages/products/Marketing';
+import Loyalty from './pages/products/Loyalty';
+import AI from './pages/products/AI';
+import LandingPageBuilder from './pages/products/LandingPageBuilder';
+import Analytics from './pages/products/Analytics';
+import Pos from './pages/products/Pos';
+
+// POS Hardware pages
+const PosHardware = lazy(() => import('./pages/products/pos/Hardware'));
+const S700 = lazy(() => import('./pages/products/pos/S700'));
+const Wisepos = lazy(() => import('./pages/products/pos/Wisepos'));
+const ContactlessReader = lazy(() => import('./pages/products/pos/ContactlessReader'));
 
 // Solutions pages  
 const SolutionsIndex = lazy(() => import('./pages/solutions/Index'));
@@ -111,12 +127,14 @@ export default function App() {
                     <Route path="/" element={<Index />} />
 
                     {/* Auth */}
-                    <Route path="/signup" element={<div className="p-8">Signup page - coming soon</div>} />
-                    <Route path="/login" element={<div className="p-8">Login page - coming soon</div>} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/onboarding" element={<Onboarding />} />
                     <Route path="/demo" element={<Demo />} />
 
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/developers" element={<Developers />} />
                     <Route path="/roi" element={<Roi />} />
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
@@ -124,6 +142,21 @@ export default function App() {
                     <Route path="/security" element={<Security />} />
                     <Route path="/compare" element={<Compare />} />
                     <Route path="/case-studies" element={<CaseStudies />} />
+                    <Route path="/case-studies/metro-beauty" element={<MetroBeauty />} />
+                    <Route path="/help" element={<Help />} />
+                    <Route path="/status" element={<Status />} />
+                    <Route path="/academy" element={<Academy />} />
+                    <Route path="/academy/search" element={<AcademySearch />} />
+                    <Route path="/academy/:slug" element={<AcademyCategory />} />
+                    <Route path="/academy/:categorySlug/:articleSlug" element={<AcademyArticle />} />
+
+                    {/* Competitor Comparisons */}
+                    <Route path="/comparisons" element={<ComparisonsHub />} />
+                    <Route path="/vs/fresha" element={<FreshaComparison />} />
+                    <Route path="/vs/vagaro" element={<VagaroComparison />} />
+                    <Route path="/vs/salon-monster" element={<SalonMonsterComparison />} />
+                    <Route path="/vs/squire" element={<SquireComparison />} />
+                    <Route path="/vs/phorest" element={<PhorestComparison />} />
 
                     {/* Products */}
                     <Route path="/products" element={<ProductsIndex />} />
@@ -131,10 +164,17 @@ export default function App() {
                     <Route path="/products/appointments" element={<Appointments />} />
                     <Route path="/products/online-booking" element={<OnlineBooking />} />
                     <Route path="/products/marketing" element={<Marketing />} />
+                    <Route path="/products/loyalty" element={<Loyalty />} />
                     <Route path="/products/ai" element={<AI />} />
                     <Route path="/products/landing-page-builder" element={<LandingPageBuilder />} />
                     <Route path="/products/analytics" element={<Analytics />} />
                     <Route path="/products/pos" element={<Pos />} />
+                    
+                    {/* POS Hardware */}
+                    <Route path="/products/pos/hardware" element={<PosHardware />} />
+                    <Route path="/products/pos/hardware/s700" element={<S700 />} />
+                    <Route path="/products/pos/hardware/wisepos" element={<Wisepos />} />
+                    <Route path="/products/pos/hardware/contactless-reader" element={<ContactlessReader />} />
 
                     {/* Solutions */}
                     <Route path="/solutions" element={<SolutionsIndex />} />

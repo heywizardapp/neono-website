@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 import { useInView } from '@/lib/useInView';
 
@@ -22,16 +22,16 @@ export function ScrollAnimation({
   triggerOnce = true
 }: ScrollAnimationProps) {
   const { ref, inView } = useInView<HTMLDivElement>();
-  const [isVisible, setIsVisible] = useState(false);
-  const [offset, setOffset] = useState(0);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [offset, setOffset] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (inView && !isVisible) {
       setTimeout(() => setIsVisible(true), delay);
     }
   }, [inView, delay, isVisible]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (animation === 'parallax') {
       const handleScroll = () => {
         if (ref.current) {
@@ -96,10 +96,10 @@ export function AnimatedCounter({
   suffix = '',
   className
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState(0);
   const { ref, inView } = useInView<HTMLSpanElement>();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!inView) return;
 
     let startTime: number;
@@ -144,9 +144,9 @@ export function StaggeredAnimation({
   className
 }: StaggeredAnimationProps) {
   const { ref, inView } = useInView<HTMLDivElement>();
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [visibleItems, setVisibleItems] = React.useState<Set<number>>(new Set());
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!inView) return;
 
     children.forEach((_, index) => {
@@ -183,8 +183,8 @@ interface MagneticProps {
 }
 
 export function Magnetic({ children, intensity = 0.3, className }: MagneticProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const ref = React.useRef<HTMLDivElement>(null);
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!ref.current) return;
@@ -220,9 +220,9 @@ export function Magnetic({ children, intensity = 0.3, className }: MagneticProps
 
 // Scroll Progress Indicator
 export function ScrollProgress() {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const updateProgress = () => {
       const scrollTop = window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

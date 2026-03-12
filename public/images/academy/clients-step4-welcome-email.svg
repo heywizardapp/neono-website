@@ -1,0 +1,73 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- Dimmed Background -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0B1220" fill-opacity="0.8"/>
+  
+  <!-- Welcome Email Preview -->
+  <rect x="150" y="100" width="900" height="600" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="150" y="100" width="900" height="70" rx="16" fill="#141428"/>
+  <rect x="150" y="154" width="900" height="16" fill="#141428"/>
+  <text x="200" y="145" font-family="system-ui" font-size="20" font-weight="bold" fill="#FFFFFF">✉️ Welcome Email Preview</text>
+  <circle cx="1010" cy="135" r="16" fill="#2D3748"/>
+  <text x="1005" y="141" font-family="system-ui" font-size="18" fill="#A0AEC0">×</text>
+  
+  <!-- Email Preview Container -->
+  <rect x="200" y="195" width="800" height="450" rx="12" fill="#FFFFFF"/>
+  
+  <!-- Email Header -->
+  <rect x="200" y="195" width="800" height="80" rx="12" fill="#7C7CF2"/>
+  <rect x="200" y="263" width="800" height="12" fill="#7C7CF2"/>
+  
+  <circle cx="280" cy="235" r="30" fill="#FFFFFF"/>
+  <text x="265" y="245" font-family="system-ui" font-size="24" font-weight="bold" fill="#7C7CF2">B</text>
+  <text x="330" y="235" font-family="system-ui" font-size="20" font-weight="600" fill="#FFFFFF">Bella Salon</text>
+  <text x="330" y="255" font-family="system-ui" font-size="12" fill="rgba(255,255,255,0.8)">Your appointment awaits!</text>
+  
+  <!-- Email Body -->
+  <text x="250" y="320" font-family="system-ui" font-size="18" font-weight="600" fill="#1a1a2e">Hi Jennifer! 👋</text>
+  
+  <text x="250" y="360" font-family="system-ui" font-size="14" fill="#4A5568">Welcome to Bella Salon! We're thrilled to have you as part of</text>
+  <text x="250" y="382" font-family="system-ui" font-size="14" fill="#4A5568">our community.</text>
+  
+  <text x="250" y="420" font-family="system-ui" font-size="14" fill="#4A5568">Ready to book your first appointment? Click below to browse</text>
+  <text x="250" y="442" font-family="system-ui" font-size="14" fill="#4A5568">our services and find a time that works for you.</text>
+  
+  <!-- CTA Button -->
+  <rect x="350" y="470" width="300" height="56" rx="8" fill="#7C7CF2"/>
+  <text x="430" y="505" font-family="system-ui" font-size="16" font-weight="600" fill="#FFFFFF">Book Now →</text>
+  
+  <!-- Footer -->
+  <text x="250" y="560" font-family="system-ui" font-size="12" fill="#718096">Questions? Reply to this email or call us at (555) 123-4567.</text>
+  
+  <line x1="250" y1="580" x2="750" y2="580" stroke="#E2E8F0"/>
+  
+  <text x="250" y="605" font-family="system-ui" font-size="11" fill="#A0AEC0">123 Main Street, New York, NY 10001</text>
+  <text x="250" y="625" font-family="system-ui" font-size="10" fill="#A0AEC0">Unsubscribe | Privacy Policy</text>
+  
+  <!-- Customize Options -->
+  <rect x="200" y="660" width="800" height="50" rx="10" fill="#0f0f1a"/>
+  <text x="240" y="692" font-family="system-ui" font-size="13" fill="#7C7CF2">✏️ Customize email template →</text>
+  <text x="620" y="692" font-family="system-ui" font-size="13" fill="#A0AEC0">Personalize colors, logo, and message</text>
+</svg>

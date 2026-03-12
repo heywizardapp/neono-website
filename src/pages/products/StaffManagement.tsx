@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { Users, Shield, DollarSign, BarChart3, Calendar, Clock, Award, UserCheck } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function StaffManagement() {
   return (
     <ProductTemplate
       productName="Staff Management"
-      tagline="Empower your team with smart scheduling and performance tracking"
-      description="Manage your entire team from one place. Set permissions, track commissions, optimize schedules, and monitor performance—all while keeping your business running smoothly."
+      tagline="Team Invitations, Authentication, Dashboard & Payroll"
+      description="Complete team management with email invitations, secure team authentication, individual staff dashboards, and integrated payroll with commission tracking. Everything your team needs in one system."
       icon={Users}
       path="/products/staff-management"
       seoKeywords="staff management software, team scheduling, commission tracking, employee performance, role-based access"
+      sections={[
+        {
+          id: "access",
+          eyebrow: "TEAM CONTROLS",
+          title: "Secure access for everyone.",
+          bullets: [
+            "Create custom roles with specific permissions.",
+            "Control exactly what each team member can see.",
+            "Secure authentication and individual dashboards."
+          ],
+          media: {
+            src: "/src/assets/placeholders/team.webp",
+            alt: "Role based access"
+          }
+        },
+        {
+          id: "payroll",
+          eyebrow: "PAYROLL & COMMISSIONS",
+          title: "Payroll made painless.",
+          bullets: [
+            "Automatically calculate commissions on services and retail.",
+            "Track clock-ins, breaks, and overtime accurately.",
+            "Export clean data directly to your payroll provider."
+          ],
+          media: {
+            src: "/src/assets/placeholders/team.webp",
+            alt: "Payroll dashboard"
+          }
+        },
+        {
+          id: "performance",
+          eyebrow: "PERFORMANCE",
+          title: "Motivate your best talent.",
+          bullets: [
+            "Monitor retention, revenue, and conversion metrics.",
+            "Celebrate top performers with built-in leaderboards.",
+            "Build optimized schedules based on team availability."
+          ],
+          media: {
+            src: "/src/assets/placeholders/team.webp",
+            alt: "Staff performance"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Role-Based Access',
@@ -82,8 +127,8 @@ export default function StaffManagement() {
         { name: 'Slack', logo: 'SL' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {

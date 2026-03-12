@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Hero } from '@/components/Hero';
 import { FeatureGrid } from '@/components/FeatureGrid';
 import { RealCustomerLogos } from '@/components/logos/RealCustomerLogos';
@@ -11,7 +12,7 @@ import { ConversionOptimizedCTA } from '@/components/cta/ConversionOptimizedCTA'
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, ArrowRight, Check, PlayCircle } from 'lucide-react';
+import { Star, ArrowRight, Check, PlayCircle, Minus, Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
@@ -22,9 +23,28 @@ import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnima
 import { StickyCompare } from '@/components/compare/StickyCompare';
 import { RoiMini } from '@/components/roi/RoiMini';
 import { useI18n } from '@/hooks/useI18n';
+import { PRICING } from '@/config/pricing';
 
 const Index = () => {
   const { t } = useI18n();
+  const [chairCount, setChairCount] = React.useState(2);
+
+  const pricePerChair = 16.99;
+  const calculateSalonPrice = (chairs: number) => {
+    const billableChairs = Math.min(chairs, 7);
+    return billableChairs * pricePerChair;
+  };
+  const salonTotal = calculateSalonPrice(chairCount);
+  const freeChairs = Math.max(0, chairCount - 7);
+  const savings = freeChairs * pricePerChair;
+
+  const decrementChairs = () => {
+    if (chairCount > 2) setChairCount(chairCount - 1);
+  };
+
+  const incrementChairs = () => {
+    if (chairCount < 50) setChairCount(chairCount + 1);
+  };
 
   const testimonials = [
     {
@@ -106,8 +126,8 @@ const Index = () => {
       <Hero
         title={t('hero.title')}
         subtitle={t('hero.subtitle')}
-        primaryCta={{ text: t('hero.primaryCta'), href: "/signup" }}
-        secondaryCta={{ text: t('hero.secondaryCta'), href: "/demo" }}
+        primaryCta={{ text: t('hero.cta.primary'), href: "/signup" }}
+        secondaryCta={{ text: t('hero.cta.secondary'), href: "/demo" }}
       />
 
       <TrustSignals />
@@ -442,82 +462,197 @@ const Index = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-            {pricingPlans.map((plan, index) => (
-              <OptimizedInView
-                key={plan.name}
-                animation="slide"
-                threshold={0.2}
+            {/* Independent Plan */}
+            <OptimizedInView
+              animation="slide"
+              threshold={0.2}
+            >
+              <InteractiveCard className="h-full">
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle className="text-xl">Independent</CardTitle>
+                      <CardDescription>Solo practitioner</CardDescription>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-3xl font-bold">
+                      {PRICING.independent.priceDisplay}
+                      <span className="text-lg font-normal text-muted-foreground">/mo</span>
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      All features included
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Online booking & scheduling</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Point of sale & payments</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>SMS & email marketing</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Free booking website</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Analytics & reports</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    className="w-full glow-hover" 
+                    variant="outline" 
+                    asChild
+                  >
+                    <Link to="/signup">Start Free Trial</Link>
+                  </Button>
+                </CardContent>
+              </InteractiveCard>
+            </OptimizedInView>
+
+            {/* Salon Plan with Chair Calculator */}
+            <OptimizedInView
+              animation="slide"
+              threshold={0.2}
+            >
+              <InteractiveCard 
+                tilt={true}
+                glow={true}
+                className="h-full ring-2 ring-primary shadow-glow"
               >
-                <InteractiveCard 
-                  tilt={plan.popular}
-                  glow={plan.popular}
-                  className={`h-full ${plan.popular ? 'ring-2 ring-primary shadow-glow' : ''}`}
-                >
-                  <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle className="text-xl">{plan.name}</CardTitle>
-                        <CardDescription>{plan.description}</CardDescription>
-                      </div>
-                      {plan.popular && (
-                        <Badge variant="default" className="shimmer-effect">Most Popular</Badge>
-                      )}
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle className="text-xl">Salon</CardTitle>
+                      <CardDescription>For teams • Chairs 8+ are FREE</CardDescription>
                     </div>
-                    <div className="space-y-1">
-                      <div className="text-3xl font-bold">
-                        ${plan.price}
-                        <span className="text-lg font-normal text-muted-foreground">/mo</span>
+                    <Badge variant="default" className="shimmer-effect">Most Popular</Badge>
+                  </div>
+                  
+                  <div className="pt-8 space-y-6">
+                    {/* Chair Calculator */}
+                    <div className="bg-gradient-card rounded-xl p-6 border border-border/40">
+                      <label className="text-sm font-medium text-muted-foreground mb-4 block">
+                        Number of chairs
+                      </label>
+                      <div className="flex items-center justify-center gap-4">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={decrementChairs}
+                          disabled={chairCount <= 2}
+                          className="h-12 w-12"
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <div className="text-4xl font-bold min-w-[80px] text-center">
+                          {chairCount}
+                        </div>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          onClick={incrementChairs}
+                          disabled={chairCount >= 50}
+                          className="h-12 w-12"
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                        {plan.seats} seats included
+                      <div className="text-sm text-muted-foreground text-center mt-4">
+                        {chairCount <= 7 ? (
+                          <span>${pricePerChair} per chair/month</span>
+                        ) : (
+                          <div className="space-y-1">
+                            <div className="font-medium text-primary">
+                              First 7 chairs: ${pricePerChair}/chair
+                            </div>
+                            <div className="text-green-600 dark:text-green-400 font-semibold">
+                              Chairs 8-{chairCount}: FREE
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <ul className="space-y-2">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
-                          <Check className="h-4 w-4 text-primary" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Button 
-                      className="w-full glow-hover" 
-                      variant={plan.popular ? "default" : "outline"} 
-                      asChild
-                    >
-                      <Link to="/signup">Start Free Trial</Link>
-                    </Button>
-                  </CardContent>
-                </InteractiveCard>
-              </OptimizedInView>
-            ))}
+
+                    {/* Total Price */}
+                    <div className="text-5xl font-bold">
+                      ${salonTotal.toFixed(2)}
+                      <span className="text-xl font-normal text-muted-foreground">/month</span>
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {chairCount <= 7 
+                        ? "All features included • No hidden fees"
+                        : `First 7 chairs billed • ${freeChairs} additional chair${freeChairs > 1 ? 's' : ''} FREE`
+                      }
+                    </div>
+                    
+                    {chairCount > 7 && (
+                      <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                        <p className="text-xs text-green-700 dark:text-green-300 font-medium text-center">
+                          🎉 You're saving ${savings.toFixed(2)}/month with free chairs!
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="space-y-2">
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Multi-chair scheduling</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Staff management & payroll</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Commission tracking</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Advanced analytics</span>
+                    </li>
+                    <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
+                      <Check className="h-4 w-4 text-primary" />
+                      <span>Priority support</span>
+                    </li>
+                  </ul>
+                  <Button 
+                    className="w-full glow-hover" 
+                    variant="default" 
+                    asChild
+                  >
+                    <Link to="/signup">Start Free Trial</Link>
+                  </Button>
+                </CardContent>
+              </InteractiveCard>
+            </OptimizedInView>
           </div>
 
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground mb-4">
-              Additional seats: $9.99/seat/month • No commission on tips
+              14-day free trial • No credit card required • Cancel anytime
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button variant="ghost" asChild>
-                <Link to="/pricing">
-                  See full pricing details <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link to="/roi">
-                  Calculate your savings <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
+            <Button variant="ghost" asChild>
+              <Link to="/pricing">See full pricing details <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
           </div>
         </div>
       </section>
 
       <ConversionOptimizedCTA 
         title="Ready to transform your business?"
-        subtitle="Join 50,000+ beauty professionals who've streamlined operations, increased revenue, and delighted customers with NeonO."
+        subtitle="Join salon professionals coast to coast who've streamlined operations, increased revenue, and delighted customers with NeonO."
         urgency={true}
       />
       </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import * as React from "react";
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -13,9 +13,9 @@ interface TestimonialsCarouselProps {
 
 export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
   const { t } = useI18n();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
   const { ref, inView } = useInView<HTMLElement>('50px');
-  const autoRef = useRef<number | null>(null);
+  const autoRef = React.useRef<number | null>(null);
   
   // Respect user preferences
   const reducedMotion = typeof window !== 'undefined' && 
@@ -39,7 +39,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
   };
 
   // Auto-advance testimonials when in view (respecting user preferences)
-  useEffect(() => {
+  React.useEffect(() => {
     if (!inView || reducedMotion || reducedData) return;
     
     function start() {
@@ -61,8 +61,8 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
   }, [inView, testimonials.length, reducedMotion, reducedData]);
 
   // Swipe handling
-  const startX = useRef<number | null>(null);
-  const deltaX = useRef(0);
+  const startX = React.useRef<number | null>(null);
+  const deltaX = React.useRef(0);
   
   function onPointerDown(e: React.PointerEvent) {
     startX.current = e.clientX;

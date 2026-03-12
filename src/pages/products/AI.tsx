@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { Sparkles, Brain, TrendingUp, MessageSquare, Calendar, DollarSign, Lightbulb, Zap } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function AI() {
   return (
     <ProductTemplate
       productName="AI"
-      tagline="Work smarter with AI that understands your business"
-      description="Let artificial intelligence handle the busy work. From smart scheduling to revenue forecasting, our AI learns your business patterns and makes intelligent recommendations that grow your bottom line."
+      tagline="AI Autopilot: Your Business on Intelligent Automation"
+      description="Put your business on autopilot with AI that works 24/7. From automated scheduling and smart responses to campaign generation and social strategy—our AI learns your business and takes action so you don't have to."
       icon={Sparkles}
       path="/products/ai"
       seoKeywords="AI salon software, predictive analytics, smart scheduling, AI automation, business intelligence"
+      sections={[
+        {
+          id: "automation",
+          eyebrow: "INTELLIGENT AUTOMATION",
+          title: "Your business on autopilot.",
+          bullets: [
+            "AI suggests optimal appointment times automatically.",
+            "Handles common client questions via SMS instantly.",
+            "Personalized reminders reduce no-shows by 50%."
+          ],
+          media: {
+            src: "/src/assets/placeholders/hero-salon.webp",
+            alt: "AI automation"
+          }
+        },
+        {
+          id: "prediction",
+          eyebrow: "PREDICTIVE ANALYTICS",
+          title: "Predict the future.",
+          bullets: [
+            "Forecast revenue and busy periods with high accuracy.",
+            "Identify emerging trends before they happen.",
+            "Optimize pricing for peak and off-peak hours."
+          ],
+          media: {
+            src: "/src/assets/placeholders/hero-salon.webp",
+            alt: "Predictive graph"
+          }
+        },
+        {
+          id: "growth",
+          eyebrow: "SMART GROWTH",
+          title: "Actionable insights.",
+          bullets: [
+            "Smart suggestions for services to promote.",
+            "Maximize revenue from every appointment slot.",
+            "Make data-driven decisions without the guesswork."
+          ],
+          media: {
+           src: "/src/assets/placeholders/hero-salon.webp",
+           alt: "Smart recommendations"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Smart Scheduling',
@@ -75,8 +120,8 @@ export default function AI() {
         { name: 'Stripe', logo: 'ST' },
       ]}
       pricing={{
-        startingPrice: '$59/month',
-        includedIn: ['Growth', 'Pro'],
+        startingPrice: `${PRICING.growth.priceDisplay}/month`,
+        includedIn: ['Growth'],
       }}
       faqs={[
         {

@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { BarChart3, TrendingUp, Users, DollarSign, Download, PieChart, Activity, Target } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function Analytics() {
   return (
     <ProductTemplate
       productName="Analytics"
-      tagline="Make smarter decisions with real-time business insights"
-      description="Stop guessing and start growing. See exactly what's working with role-based dashboards that show revenue trends, staff performance, client behavior, and opportunities—all updated in real-time."
+      tagline="Market Intelligence, Website Analytics & Schedule Insights"
+      description="Go beyond basic reports with market intelligence, website analytics, and schedule analytics. Understand your market, track your online presence, and optimize your operations with data-driven insights."
       icon={BarChart3}
       path="/products/analytics"
       seoKeywords="business analytics, salon reports, beauty business insights, revenue tracking, performance dashboard"
+      sections={[
+        {
+          id: "insights",
+          eyebrow: "MARKET INTELLIGENCE",
+          title: "Know your numbers.",
+          bullets: [
+            "Track revenue by service, staff, location, or time.",
+            "Monitor today's bookings and revenue in real-time.",
+            "Identify your most profitable offerings instantly."
+          ],
+          media: {
+            src: "/src/assets/placeholders/hero-salon.webp",
+            alt: "Analytics dashboard"
+          }
+        },
+        {
+          id: "staff",
+          eyebrow: "TEAM PERFORMANCE",
+          title: "Optimize your operations.",
+          bullets: [
+            "See which team members drive the most revenue.",
+            "Track retention rates and review scores by stylist.",
+            "Set revenue goals and track progress automatically."
+          ],
+          media: {
+            src: "/src/assets/placeholders/hero-salon.webp",
+            alt: "Staff analytics"
+          }
+        },
+        {
+          id: "reporting",
+          eyebrow: "REPORTING",
+          title: "Reports your way.",
+          bullets: [
+            "Build custom reports tailored to your business.",
+            "Export to Excel, PDF, or CSV with one click.",
+            "Schedule automatic report delivery to your inbox."
+          ],
+          media: {
+            src: "/src/assets/placeholders/hero-salon.webp",
+            alt: "Custom reporting"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Revenue Analytics',
@@ -75,8 +120,8 @@ export default function Analytics() {
         { name: 'Tableau', logo: 'TB' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {

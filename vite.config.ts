@@ -14,16 +14,32 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react()
   ],
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
-    force: true
-  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
       "react": path.resolve(__dirname, "./node_modules/react"),
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
-    dedupe: ['react', 'react-dom']
+    dedupe: ['react', 'react-dom', 'react-router-dom']
   },
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'react/jsx-runtime',
+      'react/jsx-dev-runtime'
+    ],
+    force: true
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router-dom']
+        }
+      }
+    }
+  }
 }));

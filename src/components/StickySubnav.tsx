@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 import { useScrollSpy } from '@/lib/useInView';
 
@@ -7,11 +7,11 @@ interface StickySubnavProps {
 }
 
 export function StickySubnav({ sections }: StickySubnavProps) {
-  const [isSticky, setIsSticky] = useState(false);
+  const [isSticky, setIsSticky] = React.useState(false);
   const sectionIds = sections.map(s => s.id);
   const activeSection = useScrollSpy(sectionIds, 100);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       const hero = document.querySelector('[data-hero]');
       if (hero) {

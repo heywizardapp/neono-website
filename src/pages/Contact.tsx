@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormData } from '@/lib/validation/schemas';
 import { handleError } from '@/lib/errors/handlers';
+import { supabase } from '@/lib/supabase';
 import { 
   Mail, 
   Phone, 
@@ -74,8 +75,18 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormData) => {
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Save to Supabase
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([{
+          name: data.name,
+          email: data.email,
+          company: data.company || null,
+          topic: data.topic,
+          message: data.message,
+        }]);
+
+      if (error) throw error;
       
       toast({
         title: "Message sent successfully!",
@@ -84,6 +95,12 @@ export default function Contact() {
       
       reset();
     } catch (error) {
+      console.error('Contact form error:', error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
       handleError(error);
     }
   };

@@ -1,0 +1,169 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="1200" height="52" rx="12" fill="#252542"/>
+  <rect y="40" width="1200" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="26" r="7" fill="#FF5F57"/>
+  <circle cx="48" cy="26" r="7" fill="#FFBD2E"/>
+  <circle cx="72" cy="26" r="7" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="26" rx="6" fill="#1a1a2e"/>
+  <text x="540" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">app.neono.io/calendar</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="52" width="220" height="748" fill="#1e1e36"/>
+  
+  <!-- Logo -->
+  <rect x="20" y="72" width="180" height="40" rx="8" fill="#252542"/>
+  <text x="60" y="98" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#7C7CF2">NeonO</text>
+  
+  <!-- Sidebar Items -->
+  <!-- Calendar (Active) with highlight circle -->
+  <rect x="12" y="132" width="196" height="44" rx="8" fill="#7C7CF2" fill-opacity="0.15"/>
+  <circle cx="110" cy="154" r="28" fill="none" stroke="#7C7CF2" stroke-width="3" stroke-dasharray="5,3"/>
+  <rect x="24" y="144" width="20" height="20" rx="4" fill="#7C7CF2"/>
+  <text x="54" y="159" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#7C7CF2">Calendar</text>
+  
+  <!-- Clients -->
+  <rect x="24" y="196" width="20" height="20" rx="4" fill="#4a4a6a"/>
+  <text x="54" y="211" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9999aa">Clients</text>
+  
+  <!-- Sales -->
+  <rect x="24" y="236" width="20" height="20" rx="4" fill="#4a4a6a"/>
+  <text x="54" y="251" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9999aa">Sales</text>
+  
+  <!-- Reports -->
+  <rect x="24" y="276" width="20" height="20" rx="4" fill="#4a4a6a"/>
+  <text x="54" y="291" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9999aa">Reports</text>
+  
+  <!-- Settings -->
+  <rect x="24" y="316" width="20" height="20" rx="4" fill="#4a4a6a"/>
+  <text x="54" y="331" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#9999aa">Settings</text>
+  
+  <!-- Main Content Area -->
+  <rect x="220" y="52" width="980" height="748" fill="#13131f"/>
+  
+  <!-- Top Toolbar -->
+  <rect x="220" y="52" width="980" height="60" fill="#1a1a2e"/>
+  
+  <!-- Date Navigation -->
+  <text x="250" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#ffffff">January 26 - February 1, 2026</text>
+  
+  <!-- Navigation Arrows -->
+  <rect x="500" y="72" width="32" height="32" rx="6" fill="#252542"/>
+  <text x="511" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#9999aa">&lt;</text>
+  <rect x="540" y="72" width="32" height="32" rx="6" fill="#252542"/>
+  <text x="551" y="94" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#9999aa">&gt;</text>
+  
+  <!-- Today Button -->
+  <rect x="585" y="72" width="60" height="32" rx="6" fill="#252542"/>
+  <text x="597" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Today</text>
+  
+  <!-- View Toggles -->
+  <rect x="670" y="72" width="130" height="32" rx="6" fill="#252542"/>
+  <text x="682" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666">Day</text>
+  <rect x="715" y="76" width="42" height="24" rx="4" fill="#7C7CF2"/>
+  <text x="723" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#fff">Week</text>
+  <text x="768" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666">Month</text>
+  
+  <!-- Staff Filter -->
+  <rect x="820" y="72" width="120" height="32" rx="6" fill="#252542"/>
+  <text x="835" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">All Staff ▼</text>
+  
+  <!-- New Appointment Button -->
+  <rect x="1050" y="72" width="130" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="1065" y="93" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#fff">+ New Appointment</text>
+  
+  <!-- Calendar Grid -->
+  <!-- Time Column -->
+  <rect x="220" y="112" width="60" height="688" fill="#1a1a2e"/>
+  
+  <!-- Time Labels -->
+  <text x="235" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">8 AM</text>
+  <text x="235" y="205" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">9 AM</text>
+  <text x="232" y="255" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">10 AM</text>
+  <text x="232" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">11 AM</text>
+  <text x="232" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">12 PM</text>
+  <text x="235" y="405" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">1 PM</text>
+  <text x="235" y="455" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">2 PM</text>
+  <text x="235" y="505" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">3 PM</text>
+  <text x="235" y="555" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">4 PM</text>
+  <text x="235" y="605" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">5 PM</text>
+  <text x="235" y="655" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">6 PM</text>
+  <text x="235" y="705" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">7 PM</text>
+  <text x="235" y="755" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#666">8 PM</text>
+  
+  <!-- Day Headers -->
+  <rect x="280" y="112" width="920" height="40" fill="#1e1e36"/>
+  <text x="330" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Mon 26</text>
+  <text x="460" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7C7CF2" font-weight="600">Tue 27</text>
+  <text x="590" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Wed 28</text>
+  <text x="720" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Thu 29</text>
+  <text x="850" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Fri 30</text>
+  <text x="980" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Sat 31</text>
+  <text x="1100" y="138" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9999aa">Sun 1</text>
+  
+  <!-- Grid Lines (Horizontal) -->
+  <line x1="280" y1="170" x2="1200" y2="170" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="220" x2="1200" y2="220" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="270" x2="1200" y2="270" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="320" x2="1200" y2="320" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="370" x2="1200" y2="370" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="420" x2="1200" y2="420" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="470" x2="1200" y2="470" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="520" x2="1200" y2="520" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="570" x2="1200" y2="570" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="620" x2="1200" y2="620" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="670" x2="1200" y2="670" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="720" x2="1200" y2="720" stroke="#252542" stroke-width="1"/>
+  <line x1="280" y1="770" x2="1200" y2="770" stroke="#252542" stroke-width="1"/>
+  
+  <!-- Grid Lines (Vertical) -->
+  <line x1="410" y1="152" x2="410" y2="800" stroke="#252542" stroke-width="1"/>
+  <line x1="540" y1="152" x2="540" y2="800" stroke="#252542" stroke-width="1"/>
+  <line x1="670" y1="152" x2="670" y2="800" stroke="#252542" stroke-width="1"/>
+  <line x1="800" y1="152" x2="800" y2="800" stroke="#252542" stroke-width="1"/>
+  <line x1="930" y1="152" x2="930" y2="800" stroke="#252542" stroke-width="1"/>
+  <line x1="1060" y1="152" x2="1060" y2="800" stroke="#252542" stroke-width="1"/>
+  
+  <!-- Today Highlight Column (Tuesday) -->
+  <rect x="411" y="152" width="128" height="648" fill="#7C7CF2" fill-opacity="0.05"/>
+  
+  <!-- Current Time Indicator -->
+  <line x1="280" y1="290" x2="1200" y2="290" stroke="#EF4444" stroke-width="2"/>
+  <circle cx="280" cy="290" r="5" fill="#EF4444"/>
+  
+  <!-- Appointment 1 - Tuesday 10am - Blue (Confirmed) -->
+  <rect x="418" y="238" width="116" height="90" rx="6" fill="#3B82F6"/>
+  <text x="428" y="258" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#fff">Emma Johnson</text>
+  <text x="428" y="274" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Balayage</text>
+  <text x="428" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#93c5fd">10:00 AM - 12:00 PM</text>
+  <text x="428" y="318" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">Sarah M.</text>
+  
+  <!-- Appointment 2 - Tuesday 2pm - Green (Checked In) -->
+  <rect x="418" y="438" width="116" height="50" rx="6" fill="#10B981"/>
+  <text x="428" y="458" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#fff">Lisa Chen</text>
+  <text x="428" y="474" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a7f3d0">Haircut & Style</text>
+  
+  <!-- Appointment 3 - Wednesday 11am - Blue (Confirmed) -->
+  <rect x="548" y="288" width="116" height="45" rx="6" fill="#3B82F6"/>
+  <text x="558" y="308" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#fff">Michael Torres</text>
+  <text x="558" y="324" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Men's Cut</text>
+  
+  <!-- Appointment 4 - Thursday 9am - Blue (Confirmed) -->
+  <rect x="678" y="188" width="116" height="110" rx="6" fill="#3B82F6"/>
+  <text x="688" y="208" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#fff">Sophie Williams</text>
+  <text x="688" y="224" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#bfdbfe">Full Color</text>
+  <text x="688" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#93c5fd">9:00 AM - 11:30 AM</text>
+  <text x="688" y="288" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#93c5fd">Jessica L.</text>
+  
+  <!-- Appointment 5 - Friday 3pm - Gray (Completed) -->
+  <rect x="808" y="488" width="116" height="35" rx="6" fill="#4B5563"/>
+  <text x="818" y="508" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#d1d5db">David Park</text>
+  <text x="818" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#9ca3af">Beard Trim</text>
+</svg>

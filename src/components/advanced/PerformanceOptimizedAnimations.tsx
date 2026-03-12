@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, ReactNode } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 
 // GPU-accelerated smooth animations
@@ -19,11 +19,11 @@ export function GPUAnimation({
   delay = 0,
   paused = false
 }: GPUAnimationProps) {
-  const elementRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
-  const startTimeRef = useRef<number>();
+  const elementRef = React.useRef<HTMLDivElement>(null);
+  const animationRef = React.useRef<number>();
+  const startTimeRef = React.useRef<number>();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (paused || !elementRef.current) return;
 
     const element = elementRef.current;
@@ -106,11 +106,11 @@ export function OptimizedInView({
   rootMargin = '0px',
   triggerOnce = true
 }: OptimizedInViewProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<IntersectionObserver>();
+  const [isVisible, setIsVisible] = React.useState(false);
+  const elementRef = React.useRef<HTMLDivElement>(null);
+  const observerRef = React.useRef<IntersectionObserver>();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
@@ -237,8 +237,8 @@ export function VirtualizedList<T>({
   renderItem,
   className
 }: VirtualizedListProps<T>) {
-  const [scrollTop, setScrollTop] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollTop, setScrollTop] = React.useState(0);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const startIndex = Math.floor(scrollTop / itemHeight);
   const endIndex = Math.min(
@@ -288,10 +288,10 @@ export function VirtualizedList<T>({
 
 // Performance Monitor Component
 export function PerformanceMonitor() {
-  const [fps, setFps] = useState(60);
-  const [memoryUsage, setMemoryUsage] = useState(0);
+  const [fps, setFps] = React.useState(60);
+  const [memoryUsage, setMemoryUsage] = React.useState(0);
   
-  useEffect(() => {
+  React.useEffect(() => {
     let frames = 0;
     let lastTime = Date.now();
     

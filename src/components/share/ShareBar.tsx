@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Copy, Share2, Check } from 'lucide-react';
@@ -18,13 +18,13 @@ export function ShareBar({
   description = "Streamline your beauty business with NeonO - all-in-one appointments, POS, marketing, and more.",
   className = ""
 }: ShareBarProps) {
-  const [copied, setCopied] = useState(false);
-  const [trackingUrl, setTrackingUrl] = useState(url);
+  const [copied, setCopied] = React.useState(false);
+  const [trackingUrl, setTrackingUrl] = React.useState(url);
   const { toast } = useToast();
   const { canUseAnalytics } = useConsent();
 
   // Safe URL creation with SSR check
-  useEffect(() => {
+  React.useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
         const shareUrl = new URL(url);

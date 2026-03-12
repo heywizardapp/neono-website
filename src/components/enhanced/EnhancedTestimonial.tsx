@@ -2,7 +2,7 @@ import { Star } from 'lucide-react';
 import { HoverCard, PulsingDot } from '@/components/interactions/MicroInteractions';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { SmartSkeleton } from '@/components/loading/SmartSkeleton';
-import { useState } from 'react';
+import * as React from "react";
 
 interface TestimonialProps {
   quote: string;
@@ -23,7 +23,7 @@ export function EnhancedTestimonial({
   avatar,
   isLoading = false,
 }: TestimonialProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   if (isLoading) {
     return (

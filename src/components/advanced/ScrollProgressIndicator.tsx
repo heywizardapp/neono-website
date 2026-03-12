@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import * as React from "react";
 import { cn } from '@/lib/utils';
 
 interface ScrollProgressProps {
@@ -14,9 +14,9 @@ export function ScrollProgress({
   color = 'bg-gradient-to-r from-primary to-accent',
   position = 'top'
 }: ScrollProgressProps) {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = React.useState(0);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const updateProgress = () => {
       const scrollTop = window.pageYOffset;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;

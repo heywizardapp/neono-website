@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from "react";
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -17,10 +17,27 @@ import { generateStructuredData } from '@/lib/seo/meta';
 import { Helmet } from 'react-helmet-async';
 
 export default function BlogIndex() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const allPosts = getAllPosts().filter(post => post.status === 'published');
-  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(allPosts);
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [selectedCategory, setSelectedCategory] = React.useState('All');
+  const [allPosts, setAllPosts] = React.useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = React.useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const loadData = async () => {
+      try {
+        const posts = await getAllPosts();
+        const published = posts.filter(post => post.status === 'published');
+        setAllPosts(published);
+        setFilteredPosts(published);
+      } catch (e) {
+        console.error("Failed to load blog posts", e);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);

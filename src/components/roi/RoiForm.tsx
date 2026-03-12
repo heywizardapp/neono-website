@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Button } from '@/components/ui/button';
 import { RoiInput } from '@/types/roi';
 import { DEFAULT_ROI_CONFIG, BUSINESS_TYPE_OPTIONS } from '@/config/roi';
+import { PRICING } from '@/config/pricing';
 
 interface RoiFormProps {
   input: RoiInput;
@@ -88,11 +89,11 @@ export function RoiForm({ input, onChange, onLoadPreset }: RoiFormProps) {
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="starter" id="starter" />
-                <Label htmlFor="starter">Starter ($29/mo)</Label>
+                <Label htmlFor="starter">Starter ({PRICING.starter.priceDisplay}/mo)</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="growth" id="growth" />
-                <Label htmlFor="growth">Growth ($59/mo)</Label>
+                <Label htmlFor="growth">Growth ({PRICING.growth.priceDisplay}/mo)</Label>
               </div>
             </RadioGroup>
           </div>

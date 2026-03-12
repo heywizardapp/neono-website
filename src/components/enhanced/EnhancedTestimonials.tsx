@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import * as React from "react";
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useInView } from '@/lib/useInView';
@@ -24,7 +24,7 @@ const testimonials: EnhancedTestimonial[] = [
     business: "Luxe Hair Studio",
     role: "Salon Owner",
     rating: 5,
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
     stat: "85% increase in bookings",
     businessType: "Hair Salon"
   },
@@ -64,9 +64,9 @@ const testimonials: EnhancedTestimonial[] = [
 ];
 
 export function EnhancedTestimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
   const { ref, inView } = useInView<HTMLElement>('50px');
-  const autoRef = useRef<number | null>(null);
+  const autoRef = React.useRef<number | null>(null);
   
   // Respect user preferences
   const reducedMotion = typeof window !== 'undefined' && 
@@ -86,7 +86,7 @@ export function EnhancedTestimonials() {
   };
 
   // Auto-advance testimonials
-  useEffect(() => {
+  React.useEffect(() => {
     if (!inView || reducedMotion) return;
     
     function start() {

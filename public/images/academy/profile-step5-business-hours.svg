@@ -1,0 +1,131 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="browserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D3748"/>
+      <stop offset="100%" style="stop-color:#1A202C"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Browser Window -->
+  <rect width="1200" height="800" fill="#0B1220"/>
+  <rect x="60" y="40" width="1080" height="720" rx="12" fill="#1a1a2e" filter="url(#shadow)"/>
+  
+  <!-- Browser Chrome -->
+  <rect x="60" y="40" width="1080" height="44" rx="12" fill="url(#browserGrad)"/>
+  <rect x="60" y="72" width="1080" height="12" fill="url(#browserGrad)"/>
+  <circle cx="88" cy="62" r="7" fill="#FF5F56"/>
+  <circle cx="112" cy="62" r="7" fill="#FFBD2E"/>
+  <circle cx="136" cy="62" r="7" fill="#27CA40"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="52" width="400" height="24" rx="4" fill="#0B1220"/>
+  <text x="220" y="69" font-family="system-ui" font-size="12" fill="#718096">app.neono.io/settings/profile</text>
+  
+  <!-- Main Content Area -->
+  <rect x="60" y="84" width="1080" height="676" fill="#0f0f1a"/>
+  
+  <!-- Business Hours Card -->
+  <rect x="120" y="110" width="960" height="560" rx="16" fill="#1a1a2e"/>
+  
+  <!-- Section Header -->
+  <text x="170" y="160" font-family="system-ui" font-size="24" font-weight="bold" fill="#FFFFFF">Business Hours</text>
+  <rect x="170" y="175" width="80" height="3" rx="2" fill="#7C7CF2"/>
+  
+  <!-- Column Headers -->
+  <text x="170" y="220" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">DAY</text>
+  <text x="320" y="220" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">STATUS</text>
+  <text x="480" y="220" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">OPENS</text>
+  <text x="650" y="220" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">CLOSES</text>
+  <text x="820" y="220" font-family="system-ui" font-size="13" font-weight="600" fill="#718096">BREAK</text>
+  
+  <!-- Divider -->
+  <line x1="170" y1="235" x2="1030" y2="235" stroke="#2D3748" stroke-width="1"/>
+  
+  <!-- Monday -->
+  <text x="170" y="270" font-family="system-ui" font-size="15" fill="#FFFFFF">Monday</text>
+  <rect x="320" y="250" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="265" r="11" fill="#FFFFFF"/>
+  <text x="328" y="270" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="250" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="275" font-family="system-ui" font-size="14" fill="#FFFFFF">9:00 AM</text>
+  <rect x="620" y="250" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="645" y="275" font-family="system-ui" font-size="14" fill="#FFFFFF">6:00 PM</text>
+  <rect x="800" y="250" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="275" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Tuesday -->
+  <text x="170" y="320" font-family="system-ui" font-size="15" fill="#FFFFFF">Tuesday</text>
+  <rect x="320" y="300" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="315" r="11" fill="#FFFFFF"/>
+  <text x="328" y="320" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="300" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="325" font-family="system-ui" font-size="14" fill="#FFFFFF">9:00 AM</text>
+  <rect x="620" y="300" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="645" y="325" font-family="system-ui" font-size="14" fill="#FFFFFF">6:00 PM</text>
+  <rect x="800" y="300" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="325" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Wednesday - Late Night -->
+  <text x="170" y="370" font-family="system-ui" font-size="15" fill="#FFFFFF">Wednesday</text>
+  <rect x="320" y="350" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="365" r="11" fill="#FFFFFF"/>
+  <text x="328" y="370" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="350" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="375" font-family="system-ui" font-size="14" fill="#FFFFFF">9:00 AM</text>
+  <rect x="620" y="350" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#7C7CF2" stroke-width="2"/>
+  <text x="645" y="375" font-family="system-ui" font-size="14" fill="#7C7CF2">8:00 PM</text>
+  <rect x="748" y="352" width="70" height="18" rx="4" fill="#7C7CF2"/>
+  <text x="758" y="364" font-family="system-ui" font-size="9" fill="#FFFFFF">Late Night</text>
+  <rect x="800" y="350" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="375" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Thursday - Late Night -->
+  <text x="170" y="420" font-family="system-ui" font-size="15" fill="#FFFFFF">Thursday</text>
+  <rect x="320" y="400" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="415" r="11" fill="#FFFFFF"/>
+  <text x="328" y="420" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="400" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="425" font-family="system-ui" font-size="14" fill="#FFFFFF">9:00 AM</text>
+  <rect x="620" y="400" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="645" y="425" font-family="system-ui" font-size="14" fill="#FFFFFF">8:00 PM</text>
+  <rect x="800" y="400" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="425" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Friday -->
+  <text x="170" y="470" font-family="system-ui" font-size="15" fill="#FFFFFF">Friday</text>
+  <rect x="320" y="450" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="465" r="11" fill="#FFFFFF"/>
+  <text x="328" y="470" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="450" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="475" font-family="system-ui" font-size="14" fill="#FFFFFF">9:00 AM</text>
+  <rect x="620" y="450" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="645" y="475" font-family="system-ui" font-size="14" fill="#FFFFFF">6:00 PM</text>
+  <rect x="800" y="450" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="475" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Saturday -->
+  <text x="170" y="520" font-family="system-ui" font-size="15" fill="#FFFFFF">Saturday</text>
+  <rect x="320" y="500" width="60" height="30" rx="15" fill="#48BB78"/>
+  <circle cx="365" cy="515" r="11" fill="#FFFFFF"/>
+  <text x="328" y="520" font-family="system-ui" font-size="10" fill="#FFFFFF">ON</text>
+  <rect x="450" y="500" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="475" y="525" font-family="system-ui" font-size="14" fill="#FFFFFF">8:00 AM</text>
+  <rect x="620" y="500" width="120" height="36" rx="6" fill="#0f0f1a" stroke="#2D3748"/>
+  <text x="645" y="525" font-family="system-ui" font-size="14" fill="#FFFFFF">5:00 PM</text>
+  <rect x="800" y="500" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.2" stroke="#7C7CF2"/>
+  <text x="822" y="525" font-family="system-ui" font-size="13" fill="#7C7CF2">+ Add</text>
+  
+  <!-- Sunday - Closed -->
+  <text x="170" y="570" font-family="system-ui" font-size="15" fill="#718096">Sunday</text>
+  <rect x="320" y="550" width="60" height="30" rx="15" fill="#4A5568"/>
+  <circle cx="335" cy="565" r="11" fill="#FFFFFF"/>
+  <text x="352" y="570" font-family="system-ui" font-size="10" fill="#FFFFFF">OFF</text>
+  <text x="450" y="572" font-family="system-ui" font-size="14" fill="#718096">Closed</text>
+  
+  <!-- Pro Tip -->
+  <rect x="170" y="610" width="860" height="50" rx="8" fill="#7C7CF2" fill-opacity="0.1" stroke="#7C7CF2" stroke-width="1"/>
+  <text x="200" y="640" font-family="system-ui" font-size="14" fill="#7C7CF2">💡 Pro Tip: Have late nights? Set Wednesday/Thursday to close at 8 PM for clients who work 9-to-5.</text>
+</svg>

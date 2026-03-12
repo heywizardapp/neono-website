@@ -40,7 +40,7 @@ export function Hero({
         <IntersectionAnimation animation="fade-in" className="text-center mb-8">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             <Star className="w-4 h-4 mr-2 fill-yellow-400 text-yellow-400" />
-            Trusted by 50,000+ beauty professionals
+            Trusted by salon professionals coast to coast
           </Badge>
         </IntersectionAnimation>
 
@@ -101,7 +101,7 @@ export function Hero({
                       window.location.href = primaryCta.href;
                     }}
                   >
-                    {primaryCta.text}
+                    Start Free Trial
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </EnhancedButton>
                 </Magnetic>
@@ -115,7 +115,7 @@ export function Hero({
                     }}
                   >
                     <Play className="mr-2 h-4 w-4" />
-                    {secondaryCta.text}
+                    Book a Demo
                   </EnhancedButton>
                 </Magnetic>
               </div>

@@ -1,0 +1,160 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Chrome -->
+  <rect width="1200" height="800" rx="12" fill="#1a1a2e"/>
+  <rect x="1" y="1" width="1198" height="798" rx="11" fill="white" stroke="#e5e7eb"/>
+  
+  <!-- Browser Header -->
+  <rect x="1" y="1" width="1198" height="52" rx="11" fill="#f9fafb"/>
+  <rect x="1" y="40" width="1198" height="13" fill="#f9fafb"/>
+  <line x1="1" y1="53" x2="1199" y2="53" stroke="#e5e7eb"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="24" cy="27" r="6" fill="#ff5f57"/>
+  <circle cx="44" cy="27" r="6" fill="#febc2e"/>
+  <circle cx="64" cy="27" r="6" fill="#28c840"/>
+  
+  <!-- URL Bar -->
+  <rect x="200" y="14" width="800" height="28" rx="6" fill="#ffffff" stroke="#e5e7eb"/>
+  <text x="220" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6b7280">app.neono.io/services</text>
+  
+  <!-- Sidebar -->
+  <rect x="1" y="53" width="240" height="746" fill="#f8fafc"/>
+  <line x1="241" y1="53" x2="241" y2="799" stroke="#e5e7eb"/>
+  
+  <!-- Sidebar Logo -->
+  <rect x="24" y="77" width="36" height="36" rx="8" fill="#7C7CF2"/>
+  <text x="32" y="102" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="white">N</text>
+  <text x="72" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">NeonO</text>
+  
+  <!-- Sidebar Menu Items -->
+  <rect x="12" y="140" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="166" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Dashboard</text>
+  
+  <rect x="12" y="188" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="214" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Calendar</text>
+  
+  <rect x="12" y="236" width="216" height="40" rx="8" fill="#f1f5f9"/>
+  <text x="48" y="262" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Clients</text>
+  
+  <!-- Active Services Item -->
+  <rect x="12" y="284" width="216" height="40" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <rect x="12" y="284" width="4" height="40" rx="2" fill="#7C7CF2"/>
+  <text x="48" y="310" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#7C7CF2">Services</text>
+  
+  <!-- Main Content -->
+  <rect x="241" y="53" width="958" height="746" fill="white"/>
+  
+  <!-- Page Header -->
+  <text x="280" y="105" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#0B1220">Services</text>
+  <text x="280" y="130" font-family="system-ui, sans-serif" font-size="14" fill="#64748b">Manage your service menu and pricing</text>
+  
+  <!-- Add Service Button -->
+  <rect x="1020" y="85" width="140" height="44" rx="8" fill="#7C7CF2"/>
+  <text x="1040" y="113" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="white">+ Add Service</text>
+  
+  <!-- Category Tabs -->
+  <rect x="280" y="160" width="100" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="300" y="183" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#7C7CF2">All (12)</text>
+  
+  <text x="410" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Hair (6)</text>
+  <text x="490" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Nails (3)</text>
+  <text x="570" y="183" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Spa (3)</text>
+  
+  <!-- Search Bar -->
+  <rect x="780" y="155" width="240" height="40" rx="8" fill="white" stroke="#e5e7eb"/>
+  <text x="808" y="181" font-family="system-ui, sans-serif" font-size="13" fill="#9ca3af">Search services...</text>
+  
+  <!-- Services List -->
+  <!-- Service 1 -->
+  <rect x="280" y="220" width="880" height="90" rx="12" fill="white" stroke="#e5e7eb"/>
+  <rect x="300" y="240" width="50" height="50" rx="8" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="316" y="272" font-family="system-ui, sans-serif" font-size="18" fill="#7C7CF2">✂</text>
+  
+  <text x="368" y="262" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">Women's Haircut & Blow Dry</text>
+  <rect x="560" y="248" width="50" height="22" rx="4" fill="#dbeafe"/>
+  <text x="570" y="264" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6">Hair</text>
+  <text x="368" y="286" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">45 min • All stylists</text>
+  
+  <text x="1000" y="262" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">$65</text>
+  <text x="1000" y="282" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Online</text>
+  
+  <rect x="1080" y="250" width="60" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1097" y="272" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Edit</text>
+  
+  <!-- Service 2 -->
+  <rect x="280" y="320" width="880" height="90" rx="12" fill="white" stroke="#e5e7eb"/>
+  <rect x="300" y="340" width="50" height="50" rx="8" fill="#fce7f3"/>
+  <text x="316" y="372" font-family="system-ui, sans-serif" font-size="18" fill="#ec4899">🎨</text>
+  
+  <text x="368" y="362" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">Full Color Service</text>
+  <rect x="520" y="348" width="50" height="22" rx="4" fill="#dbeafe"/>
+  <text x="530" y="364" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6">Hair</text>
+  <text x="368" y="386" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">2 hr • Senior stylists only</text>
+  
+  <text x="980" y="362" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">$120+</text>
+  <text x="1000" y="382" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Online</text>
+  
+  <rect x="1080" y="350" width="60" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1097" y="372" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Edit</text>
+  
+  <!-- Service 3 -->
+  <rect x="280" y="420" width="880" height="90" rx="12" fill="white" stroke="#7C7CF2" stroke-width="2"/>
+  <rect x="284" y="424" width="872" height="82" rx="10" fill="#7C7CF2" fill-opacity="0.03"/>
+  <rect x="300" y="440" width="50" height="50" rx="8" fill="#d1fae5"/>
+  <text x="316" y="472" font-family="system-ui, sans-serif" font-size="18" fill="#22c55e">💅</text>
+  
+  <text x="368" y="462" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">Gel Manicure</text>
+  <rect x="485" y="448" width="50" height="22" rx="4" fill="#fef3c7"/>
+  <text x="495" y="464" font-family="system-ui, sans-serif" font-size="11" fill="#d97706">Nails</text>
+  <text x="368" y="486" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">30 min • Nail technicians</text>
+  
+  <text x="1000" y="462" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">$45</text>
+  <text x="1000" y="482" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Online</text>
+  
+  <rect x="1080" y="450" width="60" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="1097" y="472" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="white">Edit</text>
+  
+  <!-- Service 4 -->
+  <rect x="280" y="520" width="880" height="90" rx="12" fill="white" stroke="#e5e7eb"/>
+  <rect x="300" y="540" width="50" height="50" rx="8" fill="#fef3c7"/>
+  <text x="316" y="572" font-family="system-ui, sans-serif" font-size="18" fill="#f59e0b">✨</text>
+  
+  <text x="368" y="562" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">Spa Pedicure</text>
+  <rect x="480" y="548" width="50" height="22" rx="4" fill="#fef3c7"/>
+  <text x="490" y="564" font-family="system-ui, sans-serif" font-size="11" fill="#d97706">Nails</text>
+  <text x="368" y="586" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">60 min • Nail technicians</text>
+  
+  <text x="1000" y="562" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">$55</text>
+  <text x="1000" y="582" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Online</text>
+  
+  <rect x="1080" y="550" width="60" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1097" y="572" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Edit</text>
+  
+  <!-- Service 5 -->
+  <rect x="280" y="620" width="880" height="90" rx="12" fill="white" stroke="#e5e7eb"/>
+  <rect x="300" y="640" width="50" height="50" rx="8" fill="#e0e7ff"/>
+  <text x="316" y="672" font-family="system-ui, sans-serif" font-size="18" fill="#6366f1">🧖</text>
+  
+  <text x="368" y="662" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">Deep Tissue Massage</text>
+  <rect x="540" y="648" width="40" height="22" rx="4" fill="#f3e8ff"/>
+  <text x="550" y="664" font-family="system-ui, sans-serif" font-size="11" fill="#9333ea">Spa</text>
+  <text x="368" y="686" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">90 min • Licensed therapists</text>
+  
+  <text x="1000" y="662" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0B1220">$95</text>
+  <text x="1000" y="682" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Online</text>
+  
+  <rect x="1080" y="650" width="60" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1097" y="672" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Edit</text>
+  
+  <!-- Pagination -->
+  <text x="280" y="750" font-family="system-ui, sans-serif" font-size="13" fill="#64748b">Showing 1-5 of 12 services</text>
+  
+  <rect x="1040" y="730" width="32" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1052" y="752" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">‹</text>
+  
+  <rect x="1080" y="730" width="32" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="1092" y="752" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="white">1</text>
+  
+  <rect x="1120" y="730" width="32" height="32" rx="6" fill="#f1f5f9"/>
+  <text x="1132" y="752" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">2</text>
+</svg>

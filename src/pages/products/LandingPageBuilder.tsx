@@ -1,15 +1,60 @@
 import { ProductTemplate } from '@/templates/ProductTemplate';
 import { Smartphone, Layout, Share2, Search, Palette, Zap, Image, Link2 } from 'lucide-react';
+import { PRICING } from '@/config/pricing';
 
 export default function LandingPageBuilder() {
   return (
     <ProductTemplate
       productName="Landing Page Builder"
-      tagline="Create a stunning website and link-in-bio in minutes"
-      description="No designer needed. Build a professional website and Instagram-worthy link-in-bio page that showcases your work, accepts bookings, and drives revenue—all without touching code."
+      tagline="Theme System, AI Page Generator & Link-in-Bio"
+      description="Create stunning landing pages with our theme system, generate pages instantly with AI, and build a professional link-in-bio. No designers needed—just beautiful pages that convert visitors into bookings."
       icon={Smartphone}
       path="/products/landing-page-builder"
       seoKeywords="website builder, link in bio, salon website, beauty website builder, no code website"
+      sections={[
+        {
+          id: "design",
+          eyebrow: "NO-CODE DESIGN",
+          title: "Build without boundaries.",
+          bullets: [
+            "Drag & drop builder—no coding or designers needed.",
+            "Upload your logo, colors, and fonts for custom branding.",
+            "Create stunning landing pages in minutes."
+          ],
+          media: {
+           src: "/src/assets/placeholders/website.webp",
+           alt: "Website builder"
+          }
+        },
+        {
+          id: "performance",
+          eyebrow: "PERFORMANCE",
+          title: "Fast, mobile, and found.",
+          bullets: [
+            "Every page looks perfect on any device automatically.",
+            "Built-in SEO helps you rank on Google search.",
+            "Lightning fast loading speeds keep visitors engaged."
+          ],
+          media: {
+           src: "/src/assets/placeholders/website.webp",
+           alt: "Mobile responsiveness"
+          }
+        },
+        {
+          id: "social",
+          eyebrow: "SOCIAL INTEGRATION",
+          title: "Connect your world.",
+          bullets: [
+            "Embed Instagram feeds and 'Book Now' buttons.",
+            "Showcase your portfolio directly from social media.",
+            "Create a professional link-in-bio for your profiles."
+          ],
+          media: {
+           src: "/src/assets/placeholders/website.webp",
+           alt: "Social integration"
+          }
+        }
+      ]}
       features={[
         {
           title: 'Drag & Drop Builder',
@@ -82,8 +127,8 @@ export default function LandingPageBuilder() {
         { name: 'Pinterest', logo: 'PI' },
       ]}
       pricing={{
-        startingPrice: '$29/month',
-        includedIn: ['Starter', 'Growth', 'Pro'],
+        startingPrice: `${PRICING.starter.priceDisplay}/month`,
+        includedIn: ['Starter', 'Growth'],
       }}
       faqs={[
         {

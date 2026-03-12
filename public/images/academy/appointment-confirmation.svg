@@ -1,0 +1,87 @@
+<svg width="1000" height="600" viewBox="0 0 1000 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="1000" height="600" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="1000" height="48" rx="12" fill="#252542"/>
+  <rect y="36" width="1000" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="24" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="24" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="24" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="150" y="12" width="700" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="450" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/calendar</text>
+  
+  <!-- Background -->
+  <rect x="0" y="48" width="1000" height="552" fill="#13131f"/>
+  
+  <!-- Success Modal/Card -->
+  <rect x="280" y="100" width="440" height="340" rx="20" fill="#1e1e36"/>
+  <rect x="280" y="100" width="440" height="340" rx="20" stroke="#10B981" stroke-width="2"/>
+  
+  <!-- Success Icon -->
+  <circle cx="500" cy="170" r="40" fill="#10B981" fill-opacity="0.2"/>
+  <circle cx="500" cy="170" r="30" fill="#10B981"/>
+  <path d="M485 170 L495 180 L518 157" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Success Message -->
+  <text x="500" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#fff" text-anchor="middle">Appointment Booked!</text>
+  
+  <!-- Appointment Details Card -->
+  <rect x="320" y="258" width="360" height="100" rx="12" fill="#252542"/>
+  
+  <circle cx="365" cy="308" r="28" fill="#E879F9"/>
+  <text x="355" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#fff">EJ</text>
+  
+  <text x="405" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#fff">Emma Johnson</text>
+  <text x="405" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">Manicure • 30 min • $45</text>
+  <text x="405" y="332" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#7C7CF2">Today, Jan 27 at 2:00 PM</text>
+  <text x="405" y="352" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">with Sarah Johnson</text>
+  
+  <!-- Confirmation Sent -->
+  <rect x="340" y="370" width="320" height="28" rx="6" fill="#10B981" fill-opacity="0.1"/>
+  <text x="500" y="389" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#10B981" text-anchor="middle">✓ Confirmation sent to emma.j@email.com</text>
+  
+  <!-- Action Buttons -->
+  <rect x="320" y="408" width="160" height="40" rx="8" fill="#252542"/>
+  <text x="400" y="434" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888" text-anchor="middle">Book Another</text>
+  
+  <rect x="500" y="408" width="180" height="40" rx="8" fill="#7C7CF2"/>
+  <text x="590" y="434" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#fff" text-anchor="middle">View on Calendar</text>
+  
+  <!-- Confetti Elements -->
+  <rect x="260" y="120" width="8" height="8" rx="2" fill="#7C7CF2" transform="rotate(15 260 120)"/>
+  <rect x="720" y="140" width="8" height="8" rx="2" fill="#E879F9" transform="rotate(-20 720 140)"/>
+  <rect x="240" y="280" width="6" height="6" rx="1" fill="#10B981" transform="rotate(45 240 280)"/>
+  <rect x="750" y="250" width="6" height="6" rx="1" fill="#F59E0B" transform="rotate(-30 750 250)"/>
+  <rect x="230" y="180" width="5" height="5" rx="1" fill="#60A5FA" transform="rotate(60 230 180)"/>
+  <rect x="770" y="200" width="5" height="5" rx="1" fill="#EF4444" transform="rotate(-45 770 200)"/>
+  <rect x="200" y="350" width="7" height="7" rx="1" fill="#FBBF24" transform="rotate(30 200 350)"/>
+  <rect x="790" y="320" width="7" height="7" rx="1" fill="#7C7CF2" transform="rotate(-15 790 320)"/>
+  
+  <!-- Calendar Preview (bottom right corner showing new appointment) -->
+  <rect x="750" y="470" width="230" height="110" rx="12" fill="#1e1e36"/>
+  <rect x="750" y="470" width="230" height="110" rx="12" stroke="#7C7CF2" stroke-width="2"/>
+  
+  <text x="770" y="495" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">Today's Calendar</text>
+  
+  <!-- Mini calendar time slots -->
+  <text x="770" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">1 PM</text>
+  <rect x="800" y="508" width="160" height="20" rx="4" fill="#252542"/>
+  
+  <text x="770" y="545" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">2 PM</text>
+  <!-- Highlighted new appointment -->
+  <rect x="800" y="533" width="160" height="24" rx="4" fill="#7C7CF2"/>
+  <text x="810" y="549" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#fff">Emma J. - Manicure</text>
+  
+  <!-- Pulse animation on new appointment -->
+  <rect x="800" y="533" width="160" height="24" rx="4" fill="none" stroke="#7C7CF2" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+  </rect>
+  
+  <text x="770" y="570" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#666">3 PM</text>
+  <rect x="800" y="558" width="160" height="20" rx="4" fill="#252542"/>
+</svg>

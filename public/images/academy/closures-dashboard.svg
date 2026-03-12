@@ -1,0 +1,148 @@
+<svg width="1100" height="600" viewBox="0 0 1100 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Browser Window -->
+  <rect width="1100" height="600" rx="12" fill="#1a1a2e"/>
+  
+  <!-- Title Bar -->
+  <rect width="1100" height="48" rx="12" fill="#252542"/>
+  <rect y="36" width="1100" height="12" fill="#252542"/>
+  
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="24" r="6" fill="#FF5F57"/>
+  <circle cx="40" cy="24" r="6" fill="#FFBD2E"/>
+  <circle cx="60" cy="24" r="6" fill="#28CA41"/>
+  
+  <!-- URL Bar -->
+  <rect x="150" y="12" width="800" height="24" rx="6" fill="#1a1a2e"/>
+  <text x="480" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888">app.neono.io/settings/closed-periods</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="48" width="200" height="552" fill="#1e1e36"/>
+  
+  <!-- Logo -->
+  <rect x="16" y="64" width="168" height="36" rx="6" fill="#252542"/>
+  <text x="60" y="88" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#7C7CF2">NeonO</text>
+  
+  <!-- Sidebar Items -->
+  <text x="40" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Calendar</text>
+  <text x="40" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Clients</text>
+  
+  <rect x="16" y="200" width="168" height="36" rx="6" fill="#7C7CF2" fill-opacity="0.15"/>
+  <text x="40" y="224" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#7C7CF2">Settings</text>
+  
+  <text x="56" y="260" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Business Setup</text>
+  <rect x="56" y="272" width="120" height="28" rx="4" fill="#7C7CF2" fill-opacity="0.1"/>
+  <text x="72" y="291" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#7C7CF2">Closed Periods</text>
+  
+  <!-- Main Content -->
+  <rect x="200" y="48" width="900" height="552" fill="#13131f"/>
+  
+  <!-- Page Header -->
+  <rect x="200" y="48" width="900" height="80" fill="#1a1a2e"/>
+  
+  <text x="240" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#fff">Closed Periods</text>
+  <text x="240" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888">Manage holidays, time off, and business closures</text>
+  
+  <!-- Add Closure Button -->
+  <rect x="960" y="78" width="120" height="36" rx="8" fill="#7C7CF2"/>
+  <text x="985" y="102" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#fff">+ Add Closure</text>
+  
+  <!-- Filter Tabs -->
+  <rect x="240" y="148" width="90" height="32" rx="6" fill="#7C7CF2"/>
+  <text x="262" y="169" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#fff">Upcoming</text>
+  
+  <rect x="340" y="148" width="60" height="32" rx="6" fill="#252542"/>
+  <text x="358" y="169" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Past</text>
+  
+  <rect x="410" y="148" width="50" height="32" rx="6" fill="#252542"/>
+  <text x="426" y="169" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">All</text>
+  
+  <!-- Table -->
+  <rect x="240" y="200" width="820" height="370" rx="12" fill="#1e1e36"/>
+  
+  <!-- Table Header -->
+  <rect x="240" y="200" width="820" height="48" rx="12" fill="#252542"/>
+  <rect x="240" y="236" width="820" height="12" fill="#252542"/>
+  
+  <text x="280" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#888">DATE(S)</text>
+  <text x="480" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#888">REASON</text>
+  <text x="720" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#888">TYPE</text>
+  <text x="860" y="230" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#888">AFFECTED STAFF</text>
+  
+  <!-- Row 1 - Christmas -->
+  <line x1="260" y1="308" x2="1040" y2="308" stroke="#252542" stroke-width="1"/>
+  <rect x="280" y="268" width="32" height="32" rx="6" fill="#EF4444" fill-opacity="0.2"/>
+  <text x="288" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#EF4444">25</text>
+  <text x="322" y="283" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Dec 25, 2025</text>
+  <text x="322" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Single day</text>
+  
+  <text x="480" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Christmas Day</text>
+  
+  <rect x="720" y="275" width="75" height="24" rx="12" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="735" y="292" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#7C7CF2">Business</text>
+  
+  <text x="860" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">All Staff</text>
+  <text x="1020" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">⋮</text>
+  
+  <!-- Row 2 - New Year -->
+  <line x1="260" y1="368" x2="1040" y2="368" stroke="#252542" stroke-width="1"/>
+  <rect x="280" y="328" width="32" height="32" rx="6" fill="#EF4444" fill-opacity="0.2"/>
+  <text x="286" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#EF4444">31</text>
+  <text x="322" y="343" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Dec 31 - Jan 1</text>
+  <text x="322" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">2 days</text>
+  
+  <text x="480" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">New Year Holiday</text>
+  
+  <rect x="720" y="335" width="75" height="24" rx="12" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="735" y="352" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#7C7CF2">Business</text>
+  
+  <text x="860" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">All Staff</text>
+  <text x="1020" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">⋮</text>
+  
+  <!-- Row 3 - Staff Vacation -->
+  <line x1="260" y1="428" x2="1040" y2="428" stroke="#252542" stroke-width="1"/>
+  <rect x="280" y="388" width="32" height="32" rx="6" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="286" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#60A5FA">15</text>
+  <text x="322" y="403" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Jan 15-22, 2026</text>
+  <text x="322" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">8 days</text>
+  
+  <text x="480" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Sarah - Vacation</text>
+  
+  <rect x="720" y="395" width="55" height="24" rx="12" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="735" y="412" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#60A5FA">Staff</text>
+  
+  <circle cx="880" cy="408" r="12" fill="#E879F9"/>
+  <text x="874" y="413" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">SM</text>
+  <text x="900" y="413" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">Sarah Martinez</text>
+  <text x="1020" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">⋮</text>
+  
+  <!-- Row 4 - Team Training -->
+  <line x1="260" y1="488" x2="1040" y2="488" stroke="#252542" stroke-width="1"/>
+  <rect x="280" y="448" width="32" height="32" rx="6" fill="#EF4444" fill-opacity="0.2"/>
+  <text x="286" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#EF4444">14</text>
+  <text x="322" y="463" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Feb 14, 2026</text>
+  <text x="322" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Single day</text>
+  
+  <text x="480" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Team Training Day</text>
+  
+  <rect x="720" y="455" width="75" height="24" rx="12" fill="#7C7CF2" fill-opacity="0.2"/>
+  <text x="735" y="472" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#7C7CF2">Business</text>
+  
+  <text x="860" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">All Staff</text>
+  <text x="1020" y="470" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">⋮</text>
+  
+  <!-- Row 5 - Personal Day -->
+  <rect x="280" y="508" width="32" height="32" rx="6" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="290" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#60A5FA">5</text>
+  <text x="322" y="523" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">Mar 5, 2026</text>
+  <text x="322" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888">Single day</text>
+  
+  <text x="480" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fff">James - Personal</text>
+  
+  <rect x="720" y="515" width="55" height="24" rx="12" fill="#60A5FA" fill-opacity="0.2"/>
+  <text x="735" y="532" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#60A5FA">Staff</text>
+  
+  <circle cx="880" cy="528" r="12" fill="#60A5FA"/>
+  <text x="874" y="533" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">JW</text>
+  <text x="900" y="533" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#9999aa">James Wilson</text>
+  <text x="1020" y="530" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#888">⋮</text>
+</svg>
