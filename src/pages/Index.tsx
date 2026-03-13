@@ -196,9 +196,9 @@ const Index = () => {
                     <div className="h-full w-full rounded-xl bg-gradient-to-br from-slate-50 to-white border border-border/20 p-4">
                       <div className="space-y-4">
                         <div className="flex justify-between items-center">
-                          <div className="text-sm font-medium">Today's Schedule</div>
+                          <div className="text-sm font-medium">{t('demo.todaysSchedule')}</div>
                           <div className="text-xs text-muted-foreground bg-green-50 text-green-700 px-2 py-1 rounded">
-                            98% booked
+                            {t('demo.booked')}
                           </div>
                         </div>
                         <div className="space-y-2">
@@ -229,8 +229,8 @@ const Index = () => {
                   
                   {/* Floating notification */}
                   <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg border border-border/20 p-3 max-w-48">
-                    <div className="text-xs font-medium text-green-700 mb-1">New booking!</div>
-                    <div className="text-xs text-muted-foreground">Emma Chen just booked a facial for 2PM</div>
+                    <div className="text-xs font-medium text-green-700 mb-1">{t('demo.newBooking')}</div>
+                    <div className="text-xs text-muted-foreground">{t('demo.newBookingDesc')}</div>
                   </div>
                 </div>
               </div>
@@ -278,30 +278,30 @@ const Index = () => {
                       <div className="space-y-6 text-center">
                         <div>
                           <div className="text-3xl font-bold text-primary mb-1">$127.50</div>
-                          <div className="text-sm text-muted-foreground">Total Amount</div>
+                          <div className="text-sm text-muted-foreground">{t('demo.totalAmount')}</div>
                         </div>
                         
                         <div className="space-y-3 text-left">
                           <div className="flex justify-between text-sm border-b pb-2">
-                            <span>Cut & Style</span>
+                            <span>{t('demo.cutAndStyle')}</span>
                             <span>$85.00</span>
                           </div>
                           <div className="flex justify-between text-sm border-b pb-2">
-                            <span>Deep Conditioning</span>
+                            <span>{t('demo.deepConditioning')}</span>
                             <span>$25.00</span>
                           </div>
                           <div className="flex justify-between text-sm font-medium text-primary">
-                            <span>Tip (15%)</span>
+                            <span>{t('demo.tip')}</span>
                             <span>$17.50</span>
                           </div>
                         </div>
                         
                         <div className="grid grid-cols-2 gap-3">
                           <div className="h-12 bg-gradient-to-r from-primary/20 to-primary/30 rounded-xl flex items-center justify-center border border-primary/30">
-                            <span className="text-sm font-medium">💳 Tap to Pay</span>
+                            <span className="text-sm font-medium">💳 {t('demo.tapToPay')}</span>
                           </div>
                           <div className="h-12 bg-gradient-to-r from-accent/20 to-accent/30 rounded-xl flex items-center justify-center border border-accent/30">
-                            <span className="text-sm font-medium">📱 Digital Wallet</span>
+                            <span className="text-sm font-medium">📱 {t('demo.digitalWallet')}</span>
                           </div>
                         </div>
                       </div>
@@ -310,8 +310,8 @@ const Index = () => {
                   
                   {/* Success notification */}
                   <div className="absolute -bottom-4 -left-4 bg-green-50 border border-green-200 rounded-lg shadow-lg p-3">
-                    <div className="text-xs font-medium text-green-700 mb-1">Payment successful!</div>
-                    <div className="text-xs text-green-600">Tips split automatically</div>
+                    <div className="text-xs font-medium text-green-700 mb-1">{t('demo.paymentSuccess')}</div>
+                    <div className="text-xs text-green-600">{t('demo.tipsSplit')}</div>
                   </div>
                 </div>
               </div>
@@ -405,7 +405,7 @@ const Index = () => {
             <OptimizedInView animation="fade" threshold={0.2}>
               <RoiMini 
                 title={t('roi.quickTitle')}
-                description="Enter your business details for instant savings calculation"
+                description={t('roi.description')}
               />
             </OptimizedInView>
           </div>
@@ -418,13 +418,13 @@ const Index = () => {
           <IntersectionAnimation animation="fade-up">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="mb-4">
-                📊 Feature Comparison
+                📊 {t('home.compare.badge')}
               </Badge>
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Everything included vs. expensive add-ons
+                {t('home.compare.title')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Compare NeonO's all-inclusive platform with typical salon software stacks
+                {t('home.compare.subtitle')}
               </p>
             </div>
           </IntersectionAnimation>
@@ -433,13 +433,13 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <Card className="bg-gradient-card border-primary/20">
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-2xl font-bold mb-4">Ready to see the full comparison?</h3>
+                  <h3 className="text-2xl font-bold mb-4">{t('home.compare.cta.title')}</h3>
                   <p className="text-muted-foreground mb-6 text-lg">
-                    Compare features, pricing, and see exactly what's included with NeonO vs. competitors
+                    {t('home.compare.cta.desc')}
                   </p>
                   <Button size="lg" asChild>
                     <Link to="/compare">
-                      View Full Comparison <ArrowRight className="ml-2 h-4 w-4" />
+                      {t('home.compare.cta.button')} <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -454,10 +454,10 @@ const Index = () => {
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-              Simple, transparent pricing
+              {t('home.pricing.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              No setup fees, no long-term contracts. Start free and scale as you grow.
+              {t('home.pricing.subtitle')}
             </p>
           </div>
 
@@ -471,17 +471,17 @@ const Index = () => {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-xl">Independent</CardTitle>
-                      <CardDescription>Solo practitioner</CardDescription>
+                      <CardTitle className="text-xl">{t('home.pricing.independent')}</CardTitle>
+                      <CardDescription>{t('home.pricing.soloPractitioner')}</CardDescription>
                     </div>
                   </div>
                   <div className="space-y-1">
                     <div className="text-3xl font-bold">
                       {PRICING.independent.priceDisplay}
-                      <span className="text-lg font-normal text-muted-foreground">/mo</span>
+                      <span className="text-lg font-normal text-muted-foreground">{t('home.pricing.month')}</span>
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      All features included
+                      {t('home.pricing.allFeaturesIncluded')}
                     </div>
                   </div>
                 </CardHeader>
@@ -489,23 +489,23 @@ const Index = () => {
                   <ul className="space-y-2">
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Online booking & scheduling</span>
+                      <span>{t('home.pricing.onlineBooking')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Point of sale & payments</span>
+                      <span>{t('home.pricing.pos')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>SMS & email marketing</span>
+                      <span>{t('home.pricing.smsMarketing')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Free booking website</span>
+                      <span>{t('home.pricing.freeWebsite')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Analytics & reports</span>
+                      <span>{t('home.pricing.analyticsReports')}</span>
                     </li>
                   </ul>
                   <Button 
@@ -513,7 +513,7 @@ const Index = () => {
                     variant="outline" 
                     asChild
                   >
-                    <Link to="/signup">Start Free Trial</Link>
+                    <Link to="/signup">{t('home.pricing.startFreeTrial')}</Link>
                   </Button>
                 </CardContent>
               </InteractiveCard>
@@ -532,17 +532,17 @@ const Index = () => {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-xl">Salon</CardTitle>
-                      <CardDescription>For teams • Chairs 8+ are FREE</CardDescription>
+                      <CardTitle className="text-xl">{t('home.pricing.salon')}</CardTitle>
+                      <CardDescription>{t('home.pricing.forTeams')}</CardDescription>
                     </div>
-                    <Badge variant="default" className="shimmer-effect">Most Popular</Badge>
+                    <Badge variant="default" className="shimmer-effect">{t('home.pricing.mostPopular')}</Badge>
                   </div>
                   
                   <div className="pt-8 space-y-6">
                     {/* Chair Calculator */}
                     <div className="bg-gradient-card rounded-xl p-6 border border-border/40">
                       <label className="text-sm font-medium text-muted-foreground mb-4 block">
-                        Number of chairs
+                        {t('home.pricing.numberOfChairs')}
                       </label>
                       <div className="flex items-center justify-center gap-4">
                         <Button
@@ -569,14 +569,14 @@ const Index = () => {
                       </div>
                       <div className="text-sm text-muted-foreground text-center mt-4">
                         {chairCount <= 7 ? (
-                          <span>${pricePerChair} per chair/month</span>
+                          <span>${pricePerChair} {t('home.pricing.perChairMonth')}</span>
                         ) : (
                           <div className="space-y-1">
                             <div className="font-medium text-primary">
-                              First 7 chairs: ${pricePerChair}/chair
+                              {t('home.pricing.firstChairs')}: ${pricePerChair}/{t('home.pricing.perChairMonth').split('/')[0]}
                             </div>
                             <div className="text-green-600 dark:text-green-400 font-semibold">
-                              Chairs 8-{chairCount}: FREE
+                              {t('home.pricing.numberOfChairs')} 8-{chairCount}: {t('home.pricing.chairsFree')}
                             </div>
                           </div>
                         )}
@@ -586,19 +586,19 @@ const Index = () => {
                     {/* Total Price */}
                     <div className="text-5xl font-bold">
                       ${salonTotal.toFixed(2)}
-                      <span className="text-xl font-normal text-muted-foreground">/month</span>
+                      <span className="text-xl font-normal text-muted-foreground">{t('home.pricing.month')}</span>
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      {chairCount <= 7 
-                        ? "All features included • No hidden fees"
-                        : `First 7 chairs billed • ${freeChairs} additional chair${freeChairs > 1 ? 's' : ''} FREE`
+                      {chairCount <= 7
+                        ? t('home.pricing.noHiddenFees')
+                        : `${t('home.pricing.firstChairsBilled')} • ${freeChairs} ${freeChairs > 1 ? t('home.pricing.additionalChairs') : t('home.pricing.additionalChair')} ${t('home.pricing.chairsFree')}`
                       }
                     </div>
                     
                     {chairCount > 7 && (
                       <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                         <p className="text-xs text-green-700 dark:text-green-300 font-medium text-center">
-                          🎉 You're saving ${savings.toFixed(2)}/month with free chairs!
+                          🎉 {t('home.pricing.savingPrefix')} ${savings.toFixed(2)}{t('home.pricing.savingSuffix')}
                         </p>
                       </div>
                     )}
@@ -608,23 +608,23 @@ const Index = () => {
                   <ul className="space-y-2">
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Multi-chair scheduling</span>
+                      <span>{t('home.pricing.multiChair')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Staff management & payroll</span>
+                      <span>{t('home.pricing.staffManagement')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Commission tracking</span>
+                      <span>{t('home.pricing.commission')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Advanced analytics</span>
+                      <span>{t('home.pricing.advancedAnalytics')}</span>
                     </li>
                     <li className="flex items-center space-x-2 text-sm hover-scale gpu-accelerated">
                       <Check className="h-4 w-4 text-primary" />
-                      <span>Priority support</span>
+                      <span>{t('home.pricing.prioritySupport')}</span>
                     </li>
                   </ul>
                   <Button 
@@ -632,7 +632,7 @@ const Index = () => {
                     variant="default" 
                     asChild
                   >
-                    <Link to="/signup">Start Free Trial</Link>
+                    <Link to="/signup">{t('home.pricing.startFreeTrial')}</Link>
                   </Button>
                 </CardContent>
               </InteractiveCard>
@@ -641,18 +641,18 @@ const Index = () => {
 
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground mb-4">
-              14-day free trial • No credit card required • Cancel anytime
+              {t('home.pricing.trialInfo')}
             </p>
             <Button variant="ghost" asChild>
-              <Link to="/pricing">See full pricing details <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/pricing">{t('home.pricing.seeFullPricing')} <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>
         </div>
       </section>
 
-      <ConversionOptimizedCTA 
-        title="Ready to transform your business?"
-        subtitle="Join salon professionals coast to coast who've streamlined operations, increased revenue, and delighted customers with NeonO."
+      <ConversionOptimizedCTA
+        title={t('home.cta.title')}
+        subtitle={t('home.cta.subtitle')}
         urgency={true}
       />
       </div>

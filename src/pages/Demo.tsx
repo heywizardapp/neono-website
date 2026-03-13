@@ -15,29 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { demoFormSchema, type DemoFormData } from '@/lib/validation/schemas';
 import { handleError } from '@/lib/errors/handlers';
 import { supabase } from '@/lib/supabase';
-
-const demoFeatures = [
-  {
-    title: 'Complete Platform Tour',
-    description: 'See all features in action: appointments, POS, marketing, analytics, and more.',
-    duration: '30 minutes'
-  },
-  {
-    title: 'Customized to Your Business',
-    description: 'We\'ll tailor the demo to your specific industry and business needs.',
-    duration: 'Personalized'
-  },
-  {
-    title: 'ROI Calculation',
-    description: 'Calculate potential savings and revenue increase for your business.',
-    duration: '5 minutes'
-  },
-  {
-    title: 'Q&A Session',
-    description: 'Get all your questions answered by our beauty industry experts.',
-    duration: '15 minutes'
-  }
-];
+import { useI18n } from '@/hooks/useI18n';
 
 const timeSlots = [
   '9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM'
@@ -45,6 +23,7 @@ const timeSlots = [
 
 export default function Demo() {
   const { toast } = useToast();
+  const { t } = useI18n();
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<DemoFormData>({
     resolver: zodResolver(demoFormSchema),
     defaultValues: {
@@ -62,6 +41,29 @@ export default function Demo() {
       hearAboutUs: ''
     }
   });
+
+  const demoFeatures = [
+    {
+      title: t('demoPage.platformTour'),
+      description: t('demoPage.platformTourDesc'),
+      duration: t('demoPage.duration30min')
+    },
+    {
+      title: t('demoPage.customized'),
+      description: t('demoPage.customizedDesc'),
+      duration: t('demoPage.durationPersonalized')
+    },
+    {
+      title: t('demoPage.roiCalc'),
+      description: t('demoPage.roiCalcDesc'),
+      duration: t('demoPage.duration5min')
+    },
+    {
+      title: t('demoPage.qaSession'),
+      description: t('demoPage.qaSessionDesc'),
+      duration: t('demoPage.duration15min')
+    }
+  ];
 
   const onSubmit = async (data: DemoFormData) => {
     try {
@@ -81,18 +83,18 @@ export default function Demo() {
         }]);
 
       if (error) throw error;
-      
+
       toast({
-        title: "Demo scheduled successfully!",
-        description: "We'll send you a calendar invite within 15 minutes.",
+        title: t('demoPage.successTitle'),
+        description: t('demoPage.successDesc'),
       });
-      
+
       reset();
     } catch (error) {
       console.error('Demo request error:', error);
       toast({
-        title: "Failed to submit",
-        description: "Please try again or contact us directly.",
+        title: t('demoPage.errorTitle'),
+        description: t('demoPage.errorDesc'),
         variant: "destructive",
       });
       handleError(error);
@@ -110,11 +112,11 @@ export default function Demo() {
 
       <div className="min-h-screen bg-background">
         <div className="container py-8">
-          <Breadcrumbs 
+          <Breadcrumbs
             customCrumbs={[
-              { label: "Home", href: "/" },
-              { label: "Book a Demo", href: "/demo" }
-            ]} 
+              { label: t('common.home'), href: "/" },
+              { label: t('demoPage.breadcrumbDemo'), href: "/demo" }
+            ]}
           />
 
           {/* Hero Section */}
@@ -122,13 +124,13 @@ export default function Demo() {
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4">
                 <Video className="w-4 h-4 mr-2" />
-                Live Demo
+                {t('demoPage.badge')}
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                See NeonO in action
+                {t('demoPage.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Book a personalized demo with our beauty industry experts and discover how NeonO can transform your business operations.
+                {t('demoPage.subtitle')}
               </p>
             </div>
           </OptimizedInView>
@@ -138,17 +140,17 @@ export default function Demo() {
             <ScrollReveal>
               <Card className="p-6 lg:p-8">
                 <CardHeader className="px-0 pt-0">
-                  <CardTitle className="text-2xl font-display">Schedule Your Demo</CardTitle>
+                  <CardTitle className="text-2xl font-display">{t('demoPage.scheduleTitle')}</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll schedule a personalized demo at your convenience.
+                    {t('demoPage.scheduleDesc')}
                   </CardDescription>
                 </CardHeader>
-                
+
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="firstName" className="text-sm font-medium">
-                        First Name *
+                        {t('demoPage.firstName')}
                       </label>
                       <Input
                         id="firstName"
@@ -161,7 +163,7 @@ export default function Demo() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="lastName" className="text-sm font-medium">
-                        Last Name *
+                        {t('demoPage.lastName')}
                       </label>
                       <Input
                         id="lastName"
@@ -177,7 +179,7 @@ export default function Demo() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">
-                        Email *
+                        {t('demoPage.email')}
                       </label>
                       <Input
                         id="email"
@@ -191,7 +193,7 @@ export default function Demo() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="phone" className="text-sm font-medium">
-                        Phone Number
+                        {t('demoPage.phone')}
                       </label>
                       <Input
                         id="phone"
@@ -207,7 +209,7 @@ export default function Demo() {
 
                   <div className="space-y-2">
                     <label htmlFor="businessName" className="text-sm font-medium">
-                      Business Name *
+                      {t('demoPage.businessName')}
                     </label>
                     <Input
                       id="businessName"
@@ -222,19 +224,19 @@ export default function Demo() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="businessType" className="text-sm font-medium">
-                        Business Type *
+                        {t('demoPage.businessType')}
                       </label>
                       <select
                         id="businessType"
                         {...register('businessType')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       >
-                        <option value="salon">Hair Salon</option>
-                        <option value="barbershop">Barbershop</option>
-                        <option value="spa">Spa & Wellness</option>
-                        <option value="aesthetics">Medical Aesthetics</option>
-                        <option value="nails">Nail Salon</option>
-                        <option value="other">Other</option>
+                        <option value="salon">{t('demoPage.salon')}</option>
+                        <option value="barbershop">{t('demoPage.barbershop')}</option>
+                        <option value="spa">{t('demoPage.spaWellness')}</option>
+                        <option value="aesthetics">{t('demoPage.medicalAesthetics')}</option>
+                        <option value="nails">{t('demoPage.nailSalon')}</option>
+                        <option value="other">{t('demoPage.other')}</option>
                       </select>
                       {errors.businessType && (
                         <p className="text-sm text-destructive">{errors.businessType.message}</p>
@@ -242,17 +244,17 @@ export default function Demo() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="teamSize" className="text-sm font-medium">
-                        Team Size *
+                        {t('demoPage.teamSize')}
                       </label>
                       <select
                         id="teamSize"
                         {...register('teamSize')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       >
-                        <option value="1-5">1-5 employees</option>
-                        <option value="6-15">6-15 employees</option>
-                        <option value="16-30">16-30 employees</option>
-                        <option value="31+">31+ employees</option>
+                        <option value="1-5">{t('demoPage.employees15')}</option>
+                        <option value="6-15">{t('demoPage.employees615')}</option>
+                        <option value="16-30">{t('demoPage.employees1630')}</option>
+                        <option value="31+">{t('demoPage.employees31')}</option>
                       </select>
                       {errors.teamSize && (
                         <p className="text-sm text-destructive">{errors.teamSize.message}</p>
@@ -262,12 +264,12 @@ export default function Demo() {
 
                   <div className="space-y-2">
                     <label htmlFor="currentSoftware" className="text-sm font-medium">
-                      Current Software (if any)
+                      {t('demoPage.currentSoftware')}
                     </label>
                     <Input
                       id="currentSoftware"
                       {...register('currentSoftware')}
-                      placeholder="e.g., Fresha, Booksy, Square, etc."
+                      placeholder={t('demoPage.currentSoftwarePlaceholder')}
                     />
                     {errors.currentSoftware && (
                       <p className="text-sm text-destructive">{errors.currentSoftware.message}</p>
@@ -277,7 +279,7 @@ export default function Demo() {
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <label htmlFor="preferredDate" className="text-sm font-medium">
-                        Preferred Date
+                        {t('demoPage.preferredDate')}
                       </label>
                       <Input
                         id="preferredDate"
@@ -291,14 +293,14 @@ export default function Demo() {
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="preferredTime" className="text-sm font-medium">
-                        Preferred Time
+                        {t('demoPage.preferredTime')}
                       </label>
                       <select
                         id="preferredTime"
                         {...register('preferredTime')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       >
-                        <option value="">Select a time</option>
+                        <option value="">{t('demoPage.selectTime')}</option>
                         {timeSlots.map(time => (
                           <option key={time} value={time}>{time}</option>
                         ))}
@@ -311,13 +313,13 @@ export default function Demo() {
 
                   <div className="space-y-2">
                     <label htmlFor="goals" className="text-sm font-medium">
-                      What are your main goals? (Optional)
+                      {t('demoPage.goals')}
                     </label>
                     <Textarea
                       id="goals"
                       {...register('goals')}
                       rows={3}
-                      placeholder="e.g., Increase bookings, reduce no-shows, streamline operations..."
+                      placeholder={t('demoPage.goalsPlaceholder')}
                     />
                     {errors.goals && (
                       <p className="text-sm text-destructive">{errors.goals.message}</p>
@@ -331,10 +333,10 @@ export default function Demo() {
                     className="w-full btn-hero-primary"
                   >
                     {isSubmitting ? (
-                      'Scheduling Demo...'
+                      t('demoPage.scheduling')
                     ) : (
                       <>
-                        Schedule My Demo
+                        {t('demoPage.scheduleMyDemo')}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </>
                     )}
@@ -345,14 +347,14 @@ export default function Demo() {
 
             {/* Demo Information */}
             <div className="space-y-8">
-              
+
               {/* What to Expect */}
               <ScrollReveal>
                 <Card className="p-6">
                   <CardHeader className="px-0 pt-0">
                     <CardTitle className="flex items-center gap-2">
                       <Calendar className="h-5 w-5 text-primary" />
-                      What to Expect
+                      {t('demoPage.whatToExpect')}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="px-0 space-y-4">
@@ -382,15 +384,15 @@ export default function Demo() {
                     <div className="grid grid-cols-2 gap-6 text-center">
                       <div>
                         <div className="text-3xl font-bold text-primary mb-2">92%</div>
-                        <div className="text-sm text-muted-foreground">Choose NeonO after demo</div>
+                        <div className="text-sm text-muted-foreground">{t('demoPage.chooseAfterDemo')}</div>
                       </div>
                       <div>
                         <div className="text-3xl font-bold text-primary mb-2">45min</div>
-                        <div className="text-sm text-muted-foreground">Average demo length</div>
+                        <div className="text-sm text-muted-foreground">{t('demoPage.avgDemoLength')}</div>
                       </div>
                       <div className="col-span-2">
                         <div className="text-3xl font-bold text-primary mb-2">24hrs</div>
-                        <div className="text-sm text-muted-foreground">Average setup time after demo</div>
+                        <div className="text-sm text-muted-foreground">{t('demoPage.avgSetupTime')}</div>
                       </div>
                     </div>
                   </CardContent>
@@ -401,27 +403,27 @@ export default function Demo() {
               <ScrollReveal>
                 <Card className="p-6">
                   <CardHeader className="px-0 pt-0">
-                    <CardTitle>Prefer a Different Format?</CardTitle>
+                    <CardTitle>{t('demoPage.preferDifferent')}</CardTitle>
                   </CardHeader>
                   <CardContent className="px-0 space-y-4">
                     <div className="space-y-3">
                       <Button variant="outline" className="w-full justify-start" asChild>
                         <Link to="/contact">
                           <Phone className="mr-2 h-4 w-4" />
-                          Call to Schedule: (555) 123-4567
+                          {t('demoPage.callToSchedule')}
                         </Link>
                       </Button>
-                      
+
                       <Button variant="outline" className="w-full justify-start" asChild>
                         <Link to="/signup">
                           <Users className="mr-2 h-4 w-4" />
-                          Start Free Trial Instead
+                          {t('demoPage.startTrialInstead')}
                         </Link>
                       </Button>
                     </div>
-                    
+
                     <p className="text-sm text-muted-foreground">
-                      Not ready for a demo? <Link to="/products" className="text-primary hover:underline">Explore our features</Link> or <Link to="/case-studies" className="text-primary hover:underline">read success stories</Link> first.
+                      {t('demoPage.notReady')} <Link to="/products" className="text-primary hover:underline">{t('demoPage.exploreFeatures')}</Link> or <Link to="/case-studies" className="text-primary hover:underline">{t('demoPage.readSuccessStories')}</Link> {t('demoPage.first')}
                     </p>
                   </CardContent>
                 </Card>

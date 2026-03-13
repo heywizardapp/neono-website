@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     fs: {
-      strict: false
+      strict: true
     }
   },
   plugins: [
@@ -33,6 +33,7 @@ export default defineConfig(({ mode }) => ({
     force: true
   },
   build: {
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {

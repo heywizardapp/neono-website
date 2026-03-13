@@ -22,43 +22,44 @@ const independentFeatures = PRICING.independent.features;
 
 const salonFeatures = PRICING.salon.features;
 
-const faqs = [
+const getFaqs = (t: (key: string) => string) => [
   {
-    question: 'What\'s included in both plans?',
-    answer: 'Both Independent and Salon plans include online booking, POS, client management, SMS/email marketing, a free booking website, reports, and mobile app access. Salon plans add multi-chair scheduling, staff management, and commission tracking.'
+    question: t('pricing.page.faq1q'),
+    answer: t('pricing.page.faq1a')
   },
   {
-    question: 'How does the per-chair pricing work?',
+    question: t('pricing.page.faq2q'),
     answer: `Salon plans start at ${PRICING.salon.minChairs} chairs for ${MIN_SALON_PRICE_DISPLAY}/month. Each chair costs ${PRICING.salon.pricePerChairDisplay}/month for the first ${PRICING.salon.maxBillableChairs} chairs. After that, chairs ${PRICING.salon.maxBillableChairs + 1} and beyond are completely FREE—no additional cost as you grow. The maximum you'll ever pay is ${MAX_SALON_PRICE_DISPLAY}/month, regardless of team size.`
   },
   {
-    question: 'Do I really get unlimited chairs after 7?',
+    question: t('pricing.page.faq3q'),
     answer: `Yes! Once you have ${PRICING.salon.maxBillableChairs} chairs, every additional chair is completely free. Whether you have ${PRICING.salon.maxBillableChairs + 1} chairs or ${PRICING.salon.maxChairs} chairs, you pay the same price: ${MAX_SALON_PRICE_DISPLAY}/month. This makes NeonO incredibly cost-effective for growing salons and multi-location businesses.`
   },
   {
-    question: 'Can I switch between Independent and Salon plans?',
-    answer: 'Yes! You can upgrade from Independent to Salon or downgrade anytime. Changes take effect immediately and we\'ll prorate your billing accordingly.'
+    question: t('pricing.page.faq4q'),
+    answer: t('pricing.page.faq4a')
   },
   {
-    question: 'Is there a setup fee?',
-    answer: 'No setup fees, ever. We also include free data migration from your existing system and personalized onboarding.'
+    question: t('pricing.page.faq5q'),
+    answer: t('pricing.page.faq5a')
   },
   {
-    question: 'Do you take a commission on tips?',
-    answer: 'Never. Unlike other platforms, we don\'t take any percentage of tips. Your staff keeps 100% of what they earn.'
+    question: t('pricing.page.faq6q'),
+    answer: t('pricing.page.faq6a')
   },
   {
-    question: 'What payment methods do you accept?',
-    answer: 'We process all major credit cards, debit cards, mobile wallets (Apple Pay, Google Pay), and ACH transfers. Processing fees are industry-standard with no markup.'
+    question: t('pricing.page.faq7q'),
+    answer: t('pricing.page.faq7a')
   },
   {
-    question: 'Is there a long-term contract?',
-    answer: 'No contracts required. You can cancel anytime with 30 days notice. We believe in earning your business every month.'
+    question: t('pricing.page.faq8q'),
+    answer: t('pricing.page.faq8a')
   }
 ];
 
 export default function Pricing() {
   const { t } = useI18n();
+  const faqs = getFaqs(t);
   const [chairCount, setChairCount] = React.useState(PRICING.salon.minChairs);
 
   const independentPrice = PRICING.independent.price;
@@ -114,20 +115,20 @@ export default function Pricing() {
               <Card className="hover-lift border-2 h-full flex flex-col">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="secondary" className="mx-auto mb-4 w-fit">
-                      Solo Practitioner
+                      {t('pricing.page.soloPractitioner')}
                     </Badge>
-                    <CardTitle className="text-3xl mb-2">Independent</CardTitle>
+                    <CardTitle className="text-3xl mb-2">{t('pricing.page.independent')}</CardTitle>
                     <CardDescription className="text-lg">
-                      Everything you need to run your independent business
+                      {t('pricing.page.independentDesc')}
                     </CardDescription>
                     
                     <div className="pt-8">
                       <div className="text-5xl font-bold">
                         ${independentPrice}
-                        <span className="text-xl font-normal text-muted-foreground">/month</span>
+                        <span className="text-xl font-normal text-muted-foreground">{t('pricing.page.month')}</span>
                       </div>
                       <div className="text-sm text-muted-foreground mt-2">
-                        All features included • No hidden fees
+                        {t('pricing.page.allFeaturesNoFees')}
                       </div>
                     </div>
                   </CardHeader>
@@ -135,7 +136,7 @@ export default function Pricing() {
                   <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-sm tracking-wide text-muted-foreground">
-                        Everything included:
+                        {t('pricing.page.everythingIncluded')}
                       </h4>
                       <ul className="space-y-3">
                         {independentFeatures.map((feature) => (
@@ -153,7 +154,7 @@ export default function Pricing() {
                       asChild
                     >
                       <Link to="/signup">
-                        Start Free Trial
+                        {t('pricing.page.startFreeTrial')}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -164,18 +165,18 @@ export default function Pricing() {
               <Card className="hover-lift border-2 h-full flex flex-col">
                   <CardHeader className="text-center pb-8">
                     <Badge variant="default" className="mx-auto mb-4 w-fit">
-                      Most Popular
+                      {t('pricing.page.mostPopular')}
                     </Badge>
-                    <CardTitle className="text-3xl mb-2">Salon</CardTitle>
+                    <CardTitle className="text-3xl mb-2">{t('pricing.page.salon')}</CardTitle>
                     <CardDescription className="text-lg">
-                      Perfect for teams of 2+ • Chairs 8+ are FREE
+                      {t('pricing.page.salonDesc')}
                     </CardDescription>
                     
                     <div className="pt-8 space-y-6">
                       {/* Chair Calculator */}
                       <div className="bg-gradient-card rounded-xl p-6 border border-border/40">
                         <label className="text-sm font-medium text-muted-foreground mb-4 block">
-                          Number of chairs
+                          {t('pricing.page.numberOfChairs')}
                         </label>
                         <div className="flex items-center justify-center gap-4">
                           <Button
@@ -202,14 +203,14 @@ export default function Pricing() {
                         </div>
                         <div className="text-sm text-muted-foreground text-center mt-4">
                           {chairCount <= 7 ? (
-                            <span>${pricePerChair} per chair/month</span>
+                            <span>${pricePerChair} {t('pricing.page.perChairMonth')}</span>
                           ) : (
                             <div className="space-y-1">
                               <div className="font-medium text-primary">
-                                First 7 chairs: ${pricePerChair}/chair
+                                {t('pricing.page.firstChairs')}: ${pricePerChair}/chair
                               </div>
                               <div className="text-green-600 dark:text-green-400 font-semibold">
-                                Chairs 8-{chairCount}: FREE
+                                {t('pricing.page.numberOfChairs')} 8-{chairCount}: {t('pricing.page.chairsFree')}
                               </div>
                             </div>
                           )}
@@ -219,19 +220,19 @@ export default function Pricing() {
                       {/* Total Price */}
                       <div className="text-5xl font-bold">
                         ${salonTotal.toFixed(2)}
-                        <span className="text-xl font-normal text-muted-foreground">/month</span>
+                        <span className="text-xl font-normal text-muted-foreground">{t('pricing.page.month')}</span>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        {chairCount <= 7 
-                          ? "All features included • No hidden fees"
-                          : `First 7 chairs billed • ${freeChairs} additional chair${freeChairs > 1 ? 's' : ''} FREE`
+                        {chairCount <= 7
+                          ? t('pricing.page.allFeaturesNoFees')
+                          : `${t('pricing.page.firstChairsBilled')} • ${freeChairs} ${freeChairs > 1 ? t('pricing.page.additionalChairs') : t('pricing.page.additionalChair')} ${t('pricing.page.chairsFree')}`
                         }
                       </div>
                       
                       {chairCount > 7 && (
                         <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
                           <p className="text-xs text-green-700 dark:text-green-300 font-medium text-center">
-                            🎉 You're saving ${savings.toFixed(2)}/month with free chairs!
+                            {t('pricing.page.savingPrefix')}${savings.toFixed(2)}{t('pricing.page.savingSuffix')}
                           </p>
                         </div>
                       )}
@@ -241,7 +242,7 @@ export default function Pricing() {
                   <CardContent className="space-y-8 flex-1 flex flex-col">
                     <div className="space-y-4">
                       <h4 className="font-semibold text-sm tracking-wide text-muted-foreground">
-                        Everything included:
+                        {t('pricing.page.everythingIncluded')}
                       </h4>
                       <ul className="space-y-3">
                         {salonFeatures.map((feature) => (
@@ -259,7 +260,7 @@ export default function Pricing() {
                       asChild
                     >
                       <Link to="/signup">
-                        Start Free Trial
+                        {t('pricing.page.startFreeTrial')}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -270,7 +271,7 @@ export default function Pricing() {
             {/* Trial Info */}
             <div className="text-center mt-8">
               <p className="text-sm text-muted-foreground">
-                14-day free trial • No credit card required • Cancel anytime
+                {t('pricing.page.trialInfo')}
               </p>
             </div>
           </div>
@@ -281,43 +282,43 @@ export default function Pricing() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Everything you need, included
+                {t('pricing.page.whatsIncludedTitle')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Unlike other platforms, all essential features are built-in at no extra cost.
+                {t('pricing.page.whatsIncludedSubtitle')}
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">No Commission on Tips</CardTitle>
+                  <CardTitle className="text-lg">{t('pricing.page.noCommission')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Your team keeps 100% of their tips. Other platforms take up to 30%.
+                    {t('pricing.page.noCommissionDesc')}
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Free Booking Website</CardTitle>
+                  <CardTitle className="text-lg">{t('pricing.page.freeBooking')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Professional booking site included. Others charge $30-50/month extra.
+                    {t('pricing.page.freeBookingDesc')}
                   </p>
                 </CardContent>
               </Card>
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">SMS & Email Marketing</CardTitle>
+                  <CardTitle className="text-lg">{t('pricing.page.smsMarketing')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Automated campaigns and reminders built-in. No add-on fees.
+                    {t('pricing.page.smsMarketingDesc')}
                   </p>
                 </CardContent>
               </Card>
@@ -330,10 +331,10 @@ export default function Pricing() {
           <div className="container">
             <div className="text-center mb-16">
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Frequently asked questions
+                {t('pricing.page.faqTitle')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Everything you need to know about pricing and plans.
+                {t('pricing.page.faqSubtitle')}
               </p>
             </div>
 
@@ -354,11 +355,11 @@ export default function Pricing() {
 
             <div className="text-center mt-12">
               <p className="text-muted-foreground mb-4">
-                Still have questions?
+                {t('pricing.page.stillHaveQuestions')}
               </p>
               <Button variant="outline" asChild>
                 <Link to="/contact">
-                  Contact Sales
+                  {t('pricing.page.contactSales')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -371,17 +372,17 @@ export default function Pricing() {
           <div className="container">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                See your real savings
+                {t('pricing.page.roiTitle')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Calculate your true monthly cost including all the essentials that competitors charge extra for.
+                {t('pricing.page.roiSubtitle')}
               </p>
             </div>
             
             <div className="max-w-lg mx-auto">
-              <RoiMini 
-                title="Calculate your savings with NeonO"
-                description="Quick estimate based on your business size and usage"
+              <RoiMini
+                title={t('pricing.page.roiCalcTitle')}
+                description={t('pricing.page.roiCalcDesc')}
               />
             </div>
           </div>

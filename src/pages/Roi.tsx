@@ -11,12 +11,14 @@ import { RoiInput } from '@/types/roi';
 import { calcRoi } from '@/lib/calcRoi';
 import { DEFAULT_ROI_CONFIG } from '@/config/roi';
 import { useToast } from '@/hooks/use-toast';
+import { useI18n } from '@/hooks/useI18n';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 
 export default function RoiPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { toast } = useToast();
+  const { t } = useI18n();
 
   // Initialize state from URL params or defaults
   const [roiInput, setRoiInput] = React.useState<RoiInput>(() => {
@@ -121,36 +123,29 @@ export default function RoiPage() {
   };
 
   const handleExport = () => {
-    // Simple print-to-PDF functionality
-    const printStyles = `
-      <style>
-        @media print {
-          .print\\:hidden { display: none !important; }
-          .print\\:break-inside-avoid { break-inside: avoid; }
-          body { font-size: 12pt; }
-          h1 { font-size: 18pt; }
-          h2 { font-size: 16pt; }
-          .card { border: 1px solid #ccc; margin-bottom: 1rem; }
-        }
-      </style>
-    `;
-    
+    // Safe print-to-PDF: render from computed state, not raw DOM innerHTML
+    const fmt = (n: number) => n.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
     const printWindow = window.open('', '_blank');
     if (printWindow) {
-      printWindow.document.write(`
-        <html>
-          <head>
-            <title>NeonO ROI Calculator Results</title>
-            ${printStyles}
-          </head>
-          <body>
-            <h1>NeonO ROI Calculator Results</h1>
-            <p>Generated on ${new Date().toLocaleDateString()}</p>
-            ${document.querySelector('[data-results]')?.innerHTML || ''}
-          </body>
-        </html>
-      `);
-      printWindow.document.close();
+      const doc = printWindow.document;
+      doc.open();
+      doc.write('<!DOCTYPE html><html><head><title>NeonO ROI Calculator Results</title>');
+      doc.write('<style>body{font-family:system-ui,sans-serif;max-width:700px;margin:2rem auto;color:#333}h1{font-size:1.5rem}table{width:100%;border-collapse:collapse;margin:1rem 0}td,th{text-align:left;padding:8px;border-bottom:1px solid #eee}th{font-weight:600}.highlight{color:#4f46e5;font-weight:700;font-size:1.25rem}@media print{body{font-size:12pt}}</style>');
+      doc.write('</head><body>');
+      doc.write('<h1>NeonO ROI Calculator Results</h1>');
+      doc.write(`<p>Generated on ${doc.createTextNode(new Date().toLocaleDateString()).textContent}</p>`);
+      doc.write('<table>');
+      doc.write(`<tr><td>Team Size</td><td>${Number(roiInput.teamSize)}</td></tr>`);
+      doc.write(`<tr><td>Monthly Transactions</td><td>${Number(roiInput.monthlyTx)}</td></tr>`);
+      doc.write(`<tr><td>Plan</td><td>${roiInput.plan === 'starter' ? 'Starter' : 'Growth'}</td></tr>`);
+      doc.write(`<tr><td>NeonO Monthly Cost</td><td>${fmt(roiOutput.neonoTotal)}</td></tr>`);
+      doc.write(`<tr><td>Competitor Monthly Cost</td><td>${fmt(roiOutput.competitorTotal)}</td></tr>`);
+      doc.write(`<tr><td><strong>Monthly Savings</strong></td><td class="highlight">${fmt(roiOutput.monthlySavings)}</td></tr>`);
+      doc.write(`<tr><td><strong>Annual Savings</strong></td><td class="highlight">${fmt(roiOutput.annualSavings)}</td></tr>`);
+      doc.write('</table>');
+      doc.write('</body></html>');
+      doc.close();
       printWindow.print();
     }
   };
@@ -181,9 +176,9 @@ export default function RoiPage() {
             <div className="mx-auto mb-6 h-16 w-16 rounded-2xl bg-gradient-hero flex items-center justify-center">
               <Calculator className="h-8 w-8 text-white" />
             </div>
-            <H1>Calculate your savings with NeonO</H1>
+            <H1>{t('roiPage.title')}</H1>
             <Lead className="max-w-3xl mx-auto">
-              Competitors look cheaper up front, but common essentials add $65–$95/mo. See your real total cost—seats, SMS, website, cart, accounting, and payments.
+              {t('roiPage.subtitle')}
             </Lead>
           </div>
 
@@ -216,23 +211,23 @@ export default function RoiPage() {
           <Card className="bg-gradient-hero text-white border-0 shadow-glow">
             <CardContent className="py-12 text-center">
               <h2 className="text-3xl font-display font-bold mb-4">
-                Ready to start saving?
+                {t('roiPage.ctaTitle')}
               </h2>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                Join thousands of beauty and wellness businesses already using NeonO to streamline operations and reduce costs.
+                {t('roiPage.ctaDesc')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" className="touch-44" asChild>
                   <Link to="/signup">
-                    Start Free Trial <ArrowRight className="ml-2 h-4 w-4" />
+                    {t('roiPage.startFreeTrial')} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="touch-44 border-white/20 text-white hover:bg-white/10" asChild>
-                  <Link to="/demo">Book a Demo</Link>
+                  <Link to="/demo">{t('roiPage.bookDemo')}</Link>
                 </Button>
               </div>
               <p className="text-sm text-white/70 mt-4">
-                No credit card required • 14-day free trial • Cancel anytime
+                {t('roiPage.trialInfo')}
               </p>
             </CardContent>
           </Card>

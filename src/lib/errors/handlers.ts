@@ -91,14 +91,14 @@ function logError(error: Error | AppError): void {
     try {
       const errorLog = JSON.parse(localStorage.getItem('error_log') || '[]');
       errorLog.push({
-        message: error.message,
-        stack: error.stack,
+        message: (error.message || '').slice(0, 200),
+        // Omit stack traces in production to avoid leaking internal paths
         timestamp: new Date().toISOString(),
         type: error instanceof AppError ? error.type : 'GENERIC'
       });
-      localStorage.setItem('error_log', JSON.stringify(errorLog.slice(-50)));
+      localStorage.setItem('error_log', JSON.stringify(errorLog.slice(-10)));
     } catch (e) {
-      console.error('Failed to log error:', e);
+      // Silently fail — avoid exposing error details in production
     }
   }
 }

@@ -46,36 +46,36 @@ export function Header() {
   const [searchOpen, setSearchOpen] = React.useState(false)
   const { isScrolled, isVisible, scrollDirection } = useScrollHeader(20, 150)
   const { t } = useI18n();
-  
+
   const productLinks = getProductLinks(t);
   const solutionLinks = getSolutionLinks(t);
-  
+
   React.useEffect(() => {
-    function onEsc(e: KeyboardEvent) { 
-      if (e.key === 'Escape') setOpen(false) 
+    function onEsc(e: KeyboardEvent) {
+      if (e.key === 'Escape') setOpen(false)
     }
     document.addEventListener('keydown', onEsc)
     return () => document.removeEventListener('keydown', onEsc)
   }, [])
 
   // Lock scroll when mobile menu is open
-  React.useEffect(() => { 
-    document.documentElement.style.overflow = open ? 'hidden' : '' 
+  React.useEffect(() => {
+    document.documentElement.style.overflow = open ? 'hidden' : ''
   }, [open])
 
   return (
-    <header 
+    <header
       className={cn(
         "sticky top-0 z-50 border-b transition-all duration-300 will-change-transform",
-        isScrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-border/50" 
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-lg border-border/50"
           : "bg-background/75 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-transparent",
         isVisible ? "translate-y-0" : "-translate-y-full"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className={cn(
             "flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-all duration-300",
             isScrolled && "scale-95"
@@ -131,7 +131,7 @@ export function Header() {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
-              Compare
+              {t('header.compare')}
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="min-w-[200px]">
@@ -144,16 +144,16 @@ export function Header() {
               ))}
               <DropdownMenuItem asChild className="border-t mt-1 pt-1">
                 <Link to="/comparisons" className="w-full cursor-pointer font-semibold text-primary">
-                  See All Comparisons →
+                  {t('header.seeAllComparisons')}
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <TopNav to="/pricing">Pricing</TopNav>
+          <TopNav to="/pricing">{t('header.pricing')}</TopNav>
                     <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
-                    Resources
+                    {t('header.resources')}
                     <ChevronDown className="h-4 w-4" />
                   </button>
                 </DropdownMenuTrigger>
@@ -161,31 +161,31 @@ export function Header() {
                   <DropdownMenuItem asChild>
                     <Link to="/academy" className="flex items-center gap-2 w-full cursor-pointer">
                       <GraduationCap className="h-4 w-4" />
-                      NeonO Academy
+                      {t('header.academy')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/blog" className="flex items-center gap-2 w-full cursor-pointer">
                       <FileText className="h-4 w-4" />
-                      Blog
+                      {t('header.blog')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/resources" className="flex items-center gap-2 w-full cursor-pointer">
                       <BookOpen className="h-4 w-4" />
-                      Guides & Tutorials
+                      {t('header.guides')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link to="/case-studies/metro-beauty" className="flex items-center gap-2 w-full cursor-pointer">
                       <TrendingUp className="h-4 w-4" />
-                      Success Stories
+                      {t('header.successStories')}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild className="border-t mt-1 pt-1">
                     <Link to="/help" className="flex items-center gap-2 w-full cursor-pointer">
                       <HelpCircle className="h-4 w-4" />
-                      Help Center
+                      {t('header.helpCenter')}
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -204,8 +204,8 @@ export function Header() {
             <Search className="h-4 w-4" />
           </button>
           <LanguageSwitcher className="hidden sm:flex" />
-          <Link 
-            to="/login" 
+          <Link
+            to="/login"
             className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring min-h-[44px] px-4 py-3 inline-flex items-center hover:bg-accent/50 rounded-lg"
           >
             {t('header.signin')}
@@ -226,19 +226,19 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
         >
           <div className="relative h-5 w-5">
-            <span 
+            <span
               className={cn(
                 "absolute h-0.5 w-5 bg-current transition-all duration-300 transform origin-center",
                 open ? "rotate-45 translate-y-0" : "-translate-y-1.5"
               )}
             />
-            <span 
+            <span
               className={cn(
                 "absolute h-0.5 w-5 bg-current transition-all duration-300",
                 open ? "opacity-0" : "opacity-100"
               )}
             />
-            <span 
+            <span
               className={cn(
                 "absolute h-0.5 w-5 bg-current transition-all duration-300 transform origin-center",
                 open ? "-rotate-45 translate-y-0" : "translate-y-1.5"
@@ -248,9 +248,9 @@ export function Header() {
         </button>
       </div>
 
-      <MobileDrawer 
-        open={open} 
-        onClose={() => setOpen(false)} 
+      <MobileDrawer
+        open={open}
+        onClose={() => setOpen(false)}
         productLinks={productLinks}
         solutionLinks={solutionLinks}
         t={t}
@@ -271,14 +271,14 @@ function TopNav({ to, children }: React.PropsWithChildren<{ to: string }>) {
   )
 }
 
-function MobileDrawer({ 
-  open, 
-  onClose, 
-  productLinks, 
+function MobileDrawer({
+  open,
+  onClose,
+  productLinks,
   solutionLinks,
   t
-}: { 
-  open: boolean; 
+}: {
+  open: boolean;
   onClose: () => void;
   productLinks: Array<{ name: string; href: string; description: string }>;
   solutionLinks: Array<{ name: string; href: string }>;
@@ -306,7 +306,7 @@ function MobileDrawer({
           <div className="h-8 w-8 rounded-xl bg-gradient-hero text-white grid place-items-center font-bold">N</div>
           <span className="font-display font-bold">NeonO</span>
         </div>
-        
+
         <div className="space-y-1">
           <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.products')}</h3>
           {productLinks.map((item) => (
@@ -315,7 +315,7 @@ function MobileDrawer({
             </MobileLink>
           ))}
         </div>
-        
+
         <div className="space-y-1">
           <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.solutions')}</h3>
           {solutionLinks.map((item) => (
@@ -326,48 +326,48 @@ function MobileDrawer({
         </div>
 
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Compare</h3>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.compare')}</h3>
           {compareLinks.map((item) => (
             <MobileLink key={item.name} to={item.href} onClose={onClose}>
               {item.name}
             </MobileLink>
           ))}
           <MobileLink to="/comparisons" onClose={onClose}>
-            <span className="font-semibold text-primary">See All Comparisons →</span>
+            <span className="font-semibold text-primary">{t('header.seeAllComparisons')}</span>
           </MobileLink>
         </div>
 
         <div className="space-y-1">
-          <MobileLink to="/pricing" onClose={onClose}>Pricing</MobileLink>
+          <MobileLink to="/pricing" onClose={onClose}>{t('header.pricing')}</MobileLink>
         </div>
 
         <div className="space-y-1">
-          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">Resources</h3>
+          <h3 className="font-semibold text-sm text-muted-foreground px-3 mb-2">{t('header.resources')}</h3>
           <MobileLink to="/academy" onClose={onClose}>
-            <span className="flex items-center gap-2"><GraduationCap className="h-4 w-4" />NeonO Academy</span>
+            <span className="flex items-center gap-2"><GraduationCap className="h-4 w-4" />{t('header.academy')}</span>
           </MobileLink>
           <MobileLink to="/blog" onClose={onClose}>
-            <span className="flex items-center gap-2"><FileText className="h-4 w-4" />Blog</span>
+            <span className="flex items-center gap-2"><FileText className="h-4 w-4" />{t('header.blog')}</span>
           </MobileLink>
           <MobileLink to="/resources" onClose={onClose}>
-            <span className="flex items-center gap-2"><BookOpen className="h-4 w-4" />Guides & Tutorials</span>
+            <span className="flex items-center gap-2"><BookOpen className="h-4 w-4" />{t('header.guides')}</span>
           </MobileLink>
           <MobileLink to="/help" onClose={onClose}>
-            <span className="flex items-center gap-2"><HelpCircle className="h-4 w-4" />Help Center</span>
+            <span className="flex items-center gap-2"><HelpCircle className="h-4 w-4" />{t('header.helpCenter')}</span>
           </MobileLink>
         </div>
 
         <div className="flex flex-col gap-3 pt-4 mt-auto border-t">
-          <Link 
-            to="/login" 
-            onClick={onClose} 
+          <Link
+            to="/login"
+            onClick={onClose}
             className="text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] px-4 py-3 inline-flex items-center justify-center"
           >
             {t('header.signin')}
           </Link>
-          <Link 
-            to="/signup" 
-            onClick={onClose} 
+          <Link
+            to="/signup"
+            onClick={onClose}
             className="inline-flex items-center justify-center rounded-lg min-h-[44px] px-4 py-3 bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
           >
             {t('header.trial')}

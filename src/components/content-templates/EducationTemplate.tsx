@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeSanitize from 'rehype-sanitize';
 import { EducationContent } from '@/types/content';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -195,7 +196,7 @@ export function EducationTemplate({ content }: EducationTemplateProps) {
 
                     {/* Content */}
                     <div className="prose dark:prose-invert max-w-none mb-6">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSanitize, rehypeHighlight]}>
                         {section.content}
                       </ReactMarkdown>
                     </div>
@@ -231,7 +232,7 @@ export function EducationTemplate({ content }: EducationTemplateProps) {
                         </AccordionTrigger>
                         <AccordionContent>
                           <div className="prose dark:prose-invert">
-                            <ReactMarkdown>{faq.answer}</ReactMarkdown>
+                            <ReactMarkdown rehypePlugins={[rehypeSanitize]}>{faq.answer}</ReactMarkdown>
                           </div>
                         </AccordionContent>
                       </AccordionItem>

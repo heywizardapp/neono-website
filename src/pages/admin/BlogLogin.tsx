@@ -8,32 +8,62 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { blogStorage } from '@/lib/blog/storage';
 import { useToast } from '@/hooks/use-toast';
 
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MS = 60_000; // 1 minute lockout after max attempts
+
 export default function BlogLogin() {
   const [password, setPassword] = React.useState('');
   const [loading, setLoading] = React.useState(false);
+  const [attempts, setAttempts] = React.useState(0);
+  const [lockedUntil, setLockedUntil] = React.useState(0);
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const isLocked = Date.now() < lockedUntil;
+
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+    if (isLocked) {
+      const secondsLeft = Math.ceil((lockedUntil - Date.now()) / 1000);
+      toast({
+        variant: 'destructive',
+        title: 'Too many attempts',
+        description: `Please wait ${secondsLeft} seconds before trying again.`
+      });
+      return;
+    }
     setLoading(true);
 
+    // Intentional delay to slow brute-force attempts
+    const delay = Math.min(500 * Math.pow(2, attempts), 8000);
     setTimeout(() => {
       if (blogStorage.authenticate(password)) {
+        setAttempts(0);
         toast({
           title: 'Login Successful',
           description: 'Welcome to the blog admin panel.'
         });
         navigate('/admin/blog');
       } else {
-        toast({
-          variant: 'destructive',
-          title: 'Login Failed',
-          description: 'Invalid password. Please try again.'
-        });
+        const newAttempts = attempts + 1;
+        setAttempts(newAttempts);
+        if (newAttempts >= MAX_ATTEMPTS) {
+          setLockedUntil(Date.now() + LOCKOUT_MS);
+          toast({
+            variant: 'destructive',
+            title: 'Account Locked',
+            description: 'Too many failed attempts. Please wait 1 minute.'
+          });
+        } else {
+          toast({
+            variant: 'destructive',
+            title: 'Login Failed',
+            description: `Invalid password. ${MAX_ATTEMPTS - newAttempts} attempts remaining.`
+          });
+        }
       }
       setLoading(false);
-    }, 500);
+    }, delay);
   };
 
   return (
@@ -72,7 +102,7 @@ export default function BlogLogin() {
               </Button>
 
               <p className="text-xs text-center text-muted-foreground">
-                Demo password: <code className="bg-muted px-2 py-1 rounded">neono2024</code>
+                Contact your administrator for access credentials.
               </p>
             </form>
           </CardContent>

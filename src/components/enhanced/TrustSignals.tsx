@@ -1,31 +1,34 @@
 import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimations';
 import { Badge } from '@/components/ui/badge';
 import { Star, Shield, Award, Users } from 'lucide-react';
+import { useI18n } from '@/hooks/useI18n';
 
 export function TrustSignals() {
+  const { t } = useI18n();
+
   const trustBadges = [
     {
       icon: Star,
-      title: "4.8/5 Rating",
-      subtitle: "10,000+ reviews",
+      title: t('trustSignals.rating'),
+      subtitle: t('trustSignals.reviews'),
       color: "text-yellow-500"
     },
     {
       icon: Shield,
-      title: "Bank-Level Security",
-      subtitle: "PCI DSS Compliant",
+      title: t('trustSignals.security'),
+      subtitle: t('trustSignals.pciCompliant'),
       color: "text-green-500"
     },
     {
       icon: Award,
-      title: "Industry Leader",
-      subtitle: "Best Beauty Software 2024",
+      title: t('trustSignals.leader'),
+      subtitle: t('trustSignals.bestSoftware'),
       color: "text-blue-500"
     },
     {
       icon: Users,
-      title: "50K+ Businesses",
-      subtitle: "Trust NeonO worldwide",
+      title: t('trustSignals.businesses'),
+      subtitle: t('trustSignals.trustWorldwide'),
       color: "text-purple-500"
     }
   ];
@@ -36,13 +39,13 @@ export function TrustSignals() {
         <IntersectionAnimation animation="fade-up">
           <div className="text-center mb-12">
             <Badge variant="secondary" className="mb-4">
-              Trusted Worldwide
+              {t('trustSignals.badge')}
             </Badge>
             <h2 className="text-2xl font-bold mb-4">
-              Join thousands of successful businesses
+              {t('trustSignals.title')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From independent stylists to multi-location chains, beauty professionals worldwide trust NeonO to power their business.
+              {t('trustSignals.subtitle')}
             </p>
           </div>
         </IntersectionAnimation>
@@ -51,9 +54,9 @@ export function TrustSignals() {
           {trustBadges.map((badge, index) => {
             const Icon = badge.icon;
             return (
-              <IntersectionAnimation 
-                key={badge.title}
-                animation="fade-up" 
+              <IntersectionAnimation
+                key={index}
+                animation="fade-up"
                 delay={index * 100}
               >
                 <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
@@ -72,9 +75,9 @@ export function TrustSignals() {
         <IntersectionAnimation animation="fade-up" delay={400}>
           <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground mb-8">
-              Trusted by leading beauty brands and independent professionals
+              {t('trustSignals.trustedByBrands')}
             </p>
-            
+
             <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-50">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <div key={i} className="h-12 bg-slate-200 rounded-lg flex items-center justify-center">

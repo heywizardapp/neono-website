@@ -19,6 +19,7 @@ import { generateEnhancedArticleSchema, generateBlogBreadcrumbSchema } from '@/l
 import { extractHeadings, calculateReadingTime } from '@/lib/blog/tocGenerator';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
 import 'highlight.js/styles/github-dark.css';
 
@@ -226,7 +227,7 @@ export default function BlogPost() {
                   prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-4 prose-blockquote:italic
                   prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8"
                 remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight]}
+                rehypePlugins={[rehypeSanitize, rehypeHighlight]}
                 components={{
                   h2: ({ children, ...props }) => {
                     const text = String(children);

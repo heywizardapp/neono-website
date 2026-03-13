@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { supabase } from '@/lib/supabase';
 import { 
@@ -44,7 +44,9 @@ function highlightText(text: string, query: string): React.ReactNode {
   const words = query.trim().split(/\s+/).filter(w => w.length > 2);
   if (words.length === 0) return text;
   
-  const regex = new RegExp(`(${words.join('|')})`, 'gi');
+  // Escape special regex characters to prevent ReDoS
+  const escapedWords = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
   const parts = text.split(regex);
   
   return parts.map((part, i) => 
@@ -201,9 +203,12 @@ function LoadingSkeleton() {
   );
 }
 
+const MAX_QUERY_LENGTH = 200;
+
 export default function Search() {
   const [searchParams] = useSearchParams();
-  const query = searchParams.get('q') || '';
+  const navigate = useNavigate();
+  const query = (searchParams.get('q') || '').slice(0, MAX_QUERY_LENGTH);
   const [results, setResults] = useState<ArticleResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchInput, setSearchInput] = useState(query);
@@ -279,7 +284,7 @@ export default function Search() {
   function handleSearchSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (searchInput.trim() && searchInput.trim() !== query) {
-      window.location.href = `/academy/search?q=${encodeURIComponent(searchInput.trim())}`;
+      navigate(`/academy/search?q=${encodeURIComponent(searchInput.trim().slice(0, MAX_QUERY_LENGTH))}`);
     }
   }
 

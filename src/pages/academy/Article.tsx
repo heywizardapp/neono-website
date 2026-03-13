@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ReactMarkdown from 'react-markdown';
+import rehypeSanitize from 'rehype-sanitize';
 import remarkGfm from 'remark-gfm';
 import { 
   ChevronRight, 
@@ -418,8 +419,9 @@ export default function Article() {
               
               {/* Article Body with Enhanced Prose Styling */}
               <article className="academy-article-prose mb-12">
-                <ReactMarkdown 
+                <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeSanitize]}
                   components={{
                     // Enhanced heading rendering with IDs for TOC links
                     h2: ({ children }) => {

@@ -12,7 +12,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.appointments.description',
     color: 'text-primary',
     gradient: 'from-primary/20 to-primary/5',
-    stat: '95% booking efficiency'
+    statKey: 'features.grid.appointments.stat'
   },
   {
     icon: CreditCard,
@@ -20,7 +20,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.pos.description',
     color: 'text-accent',
     gradient: 'from-accent/20 to-accent/5',
-    stat: '40% faster checkout'
+    statKey: 'features.grid.pos.stat'
   },
   {
     icon: Mail,
@@ -28,7 +28,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.marketing.description',
     color: 'text-mint',
     gradient: 'from-mint/20 to-mint/5',
-    stat: '3x more bookings'
+    statKey: 'features.grid.marketing.stat'
   },
   {
     icon: Globe,
@@ -36,7 +36,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.website.description',
     color: 'text-lavender',
     gradient: 'from-lavender/20 to-lavender/5',
-    stat: '24/7 online presence'
+    statKey: 'features.grid.website.stat'
   },
   {
     icon: BarChart3,
@@ -44,7 +44,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.analytics.description',
     color: 'text-primary',
     gradient: 'from-primary/20 to-primary/5',
-    stat: 'Data-driven decisions'
+    statKey: 'features.grid.analytics.stat'
   },
   {
     icon: Smartphone,
@@ -52,7 +52,7 @@ const getFeatures = (t: (key: string) => string) => [
     descriptionKey: 'features.grid.ai.description',
     color: 'text-accent',
     gradient: 'from-accent/20 to-accent/5',
-    stat: 'Native app experience'
+    statKey: 'features.grid.ai.stat'
   },
 ];
 
@@ -97,14 +97,14 @@ export function FeatureGrid() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-primary/10 rounded-full px-4 py-2 mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">All-in-one platform</span>
+            <span className="text-sm font-medium text-primary">{t('features.grid.badge')}</span>
           </div>
 
           <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            Everything you need to <span className="text-gradient">run your business</span>
+            {t('features.grid.title.before')} <span className="text-gradient">{t('features.grid.title.highlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            From appointments to analytics, all the tools you need in one integrated platform.
+            {t('features.grid.subtitle')}
           </p>
         </div>
 
@@ -149,7 +149,7 @@ export function FeatureGrid() {
                     <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r ${feature.gradient} border border-current/20`}>
                       <div className={`w-2 h-2 rounded-full ${feature.color} animate-pulse`} />
                       <span className={`text-xs font-medium ${feature.color}`}>
-                        {feature.stat}
+                        {t(feature.statKey)}
                       </span>
                     </div>
 
@@ -171,11 +171,11 @@ export function FeatureGrid() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <p className="text-muted-foreground mb-6">
-            Ready to transform your business? Start with a free trial.
+            {t('features.grid.cta.text')}
           </p>
           <HoverCard effect="lift" intensity="medium">
             <button className="inline-flex items-center gap-2 bg-gradient-hero text-white font-semibold px-8 py-4 rounded-2xl shadow-glow hover:shadow-large transition-all duration-300 hover:-translate-y-1">
-              <span>Get Started Free</span>
+              <span>{t('features.grid.cta.button')}</span>
               <Sparkles className="w-4 h-4" />
             </button>
           </HoverCard>

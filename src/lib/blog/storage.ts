@@ -148,8 +148,13 @@ export const blogStorage = {
   },
 
   authenticate(password: string): boolean {
-    // Simple password check (in production, use proper authentication)
-    if (password === 'neono2024') {
+    // Password sourced from environment variable — never hardcode secrets
+    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+    if (!adminPassword) {
+      console.error('VITE_ADMIN_PASSWORD environment variable is not set');
+      return false;
+    }
+    if (password === adminPassword) {
       localStorage.setItem(ADMIN_KEY, 'authenticated');
       return true;
     }

@@ -9,8 +9,10 @@ import { featureMatrix, planLabels, planPricing } from '@/config/compare/feature
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function ComparePage() {
+  const { t } = useI18n();
   const renderFeatureValue = (value: boolean | string) => {
     if (typeof value === 'boolean') {
       return value ? (
@@ -34,8 +36,8 @@ export default function ComparePage() {
         <div className="container py-8">
           <Breadcrumbs 
             customCrumbs={[
-              { label: "Home", href: "/" },
-              { label: "Compare", href: "/compare" }
+              { label: t('common.home'), href: "/" },
+              { label: t('compare.breadcrumbCompare'), href: "/compare" }
             ]} 
           />
 
@@ -43,10 +45,10 @@ export default function ComparePage() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-12">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Compare Plans & Features
+                {t('compare.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                See exactly what you get with NeonO vs. competitors. No hidden fees, no expensive add-ons—everything you need is included.
+                {t('compare.subtitle')}
               </p>
             </div>
           </OptimizedInView>
@@ -59,11 +61,11 @@ export default function ComparePage() {
                   <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="h-6 w-6 text-green-600" />
                   </div>
-                  <CardTitle>Everything Included</CardTitle>
+                  <CardTitle>{t('compare.everythingIncluded')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    POS, website, marketing, analytics—all in one price. No hidden fees or expensive add-ons.
+                    {t('compare.everythingIncludedDesc')}
                   </p>
                 </CardContent>
               </Card>
@@ -73,11 +75,11 @@ export default function ComparePage() {
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="h-6 w-6 text-blue-600" />
                   </div>
-                  <CardTitle>Better ROI</CardTitle>
+                  <CardTitle>{t('compare.betterRoi')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Save 60% compared to piecing together multiple tools. Get better results with integrated features.
+                    {t('compare.betterRoiDesc')}
                   </p>
                 </CardContent>
               </Card>
@@ -87,11 +89,11 @@ export default function ComparePage() {
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="h-6 w-6 text-purple-600" />
                   </div>
-                  <CardTitle>Superior Support</CardTitle>
+                  <CardTitle>{t('compare.superiorSupport')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Live training, 24/7 support, and dedicated success manager. Others charge extra for basic support.
+                    {t('compare.superiorSupportDesc')}
                   </p>
                 </CardContent>
               </Card>
@@ -101,7 +103,7 @@ export default function ComparePage() {
           {/* Plan Comparison Headers */}
           <ScrollReveal>
             <div className="grid grid-cols-4 gap-4 mb-8">
-              <div className="font-semibold text-muted-foreground">Features</div>
+              <div className="font-semibold text-muted-foreground">{t('compare.features')}</div>
               {featureMatrix.plans.map((plan) => {
                 const pricing = planPricing[plan];
                 const isPopular = plan === 'growth';
@@ -112,13 +114,13 @@ export default function ComparePage() {
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-center gap-2">
                         <CardTitle className="text-lg">{planLabels[plan]}</CardTitle>
-                        {isPopular && <Badge variant="default">Popular</Badge>}
+                        {isPopular && <Badge variant="default">{t('compare.popular')}</Badge>}
                       </div>
                       <CardDescription>
                         <div className="text-3xl font-bold text-foreground">
                           ${pricing.price}<span className="text-sm font-normal">/mo</span>
                         </div>
-                        <div className="text-sm">{pricing.seats} seats included</div>
+                        <div className="text-sm">{pricing.seats} {t('compare.seatsIncluded')}</div>
                         {pricing.note && (
                           <div className="text-xs text-muted-foreground mt-1">{pricing.note}</div>
                         )}
@@ -128,17 +130,17 @@ export default function ComparePage() {
                       {isNeonO ? (
                         <div className="space-y-2">
                           <Button asChild className="w-full" size="sm">
-                            <Link to="/signup">Start Free Trial</Link>
+                            <Link to="/signup">{t('compare.startFreeTrial')}</Link>
                           </Button>
                           <Button asChild variant="outline" className="w-full" size="sm">
                             <Link to={`/roi?plan=${plan}`}>
-                              See ROI <ArrowRight className="ml-1 h-3 w-3" />
+                              {t('compare.seeRoi')} <ArrowRight className="ml-1 h-3 w-3" />
                             </Link>
                           </Button>
                         </div>
                       ) : (
                         <div className="text-xs text-muted-foreground">
-                          Representative competitor
+                          {t('compare.representativeCompetitor')}
                         </div>
                       )}
                     </CardContent>
@@ -165,7 +167,7 @@ export default function ComparePage() {
                     <CardHeader>
                       <CardTitle className="text-xl">{category.label}</CardTitle>
                       <CardDescription>
-                        Compare what's included vs. add-on features
+                        {t('compare.compareIncluded')}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -197,19 +199,19 @@ export default function ComparePage() {
           <ScrollReveal>
             <Card className="mt-12 bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">Ready to switch to NeonO?</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('compare.ctaTitle')}</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
-                  Join thousands of beauty businesses saving time and money with our all-in-one platform.
+                  {t('compare.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild>
-                    <Link to="/signup">Start Free Trial</Link>
+                    <Link to="/signup">{t('compare.startFreeTrial')}</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
-                    <Link to="/roi">Calculate Your ROI</Link>
+                    <Link to="/roi">{t('compare.calculateRoi')}</Link>
                   </Button>
                   <Button size="lg" variant="ghost" className="text-white hover:bg-white/10" asChild>
-                    <Link to="/contact">Talk to Sales</Link>
+                    <Link to="/contact">{t('compare.talkToSales')}</Link>
                   </Button>
                 </div>
               </CardContent>

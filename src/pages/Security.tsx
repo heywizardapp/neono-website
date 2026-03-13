@@ -2,56 +2,59 @@ import { SEOHead } from '@/components/SEO/SEOHead';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Lock, Eye, Users, CheckCircle, Server } from 'lucide-react';
-
-const securityFeatures = [
-  {
-    icon: Shield,
-    title: 'SOC 2 Type II Certified',
-    description: 'Annual audits ensure our security controls meet the highest industry standards for availability, security, and confidentiality.',
-    status: 'Certified'
-  },
-  {
-    icon: Lock,
-    title: 'End-to-End Encryption',
-    description: 'All data is encrypted in transit using TLS 1.3 and at rest using AES-256 encryption with customer-managed keys.',
-    status: 'Active'
-  },
-  {
-    icon: Eye,
-    title: 'HIPAA Compliance',
-    description: 'Full HIPAA compliance for medical spas and healthcare providers, with signed BAAs and audit trails.',
-    status: 'Compliant'
-  },
-  {
-    icon: Users,
-    title: 'Role-Based Access Control',
-    description: 'Granular permissions system ensures users only access data necessary for their role.',
-    status: 'Active'
-  },
-  {
-    icon: CheckCircle,
-    title: 'PCI DSS Level 1',
-    description: 'Highest level of PCI compliance for secure payment processing and cardholder data protection.',
-    status: 'Certified'
-  },
-  {
-    icon: Server,
-    title: 'Infrastructure Security',
-    description: 'Multi-region cloud infrastructure with automated backups, failover, and 99.9% uptime SLA.',
-    status: 'Active'
-  }
-];
-
-const complianceStandards = [
-  { name: 'SOC 2 Type II', status: 'Certified', renewalDate: 'Annual' },
-  { name: 'HIPAA', status: 'Compliant', renewalDate: 'Ongoing' },
-  { name: 'PCI DSS Level 1', status: 'Certified', renewalDate: 'Annual' },
-  { name: 'GDPR', status: 'Compliant', renewalDate: 'Ongoing' },
-  { name: 'CCPA', status: 'Compliant', renewalDate: 'Ongoing' },
-  { name: 'ISO 27001', status: 'In Progress', renewalDate: 'Q2 2025' }
-];
+import { useI18n } from '@/hooks/useI18n';
 
 export function Security() {
+  const { t } = useI18n();
+
+  const securityFeatures = [
+    {
+      icon: Shield,
+      title: t('security.soc2Title'),
+      description: t('security.soc2Desc'),
+      status: t('security.certified')
+    },
+    {
+      icon: Lock,
+      title: t('security.encryptionTitle'),
+      description: t('security.encryptionDesc'),
+      status: t('security.active')
+    },
+    {
+      icon: Eye,
+      title: t('security.hipaaTitle'),
+      description: t('security.hipaaDesc'),
+      status: t('security.compliant')
+    },
+    {
+      icon: Users,
+      title: t('security.rbacTitle'),
+      description: t('security.rbacDesc'),
+      status: t('security.active')
+    },
+    {
+      icon: CheckCircle,
+      title: t('security.pciTitle'),
+      description: t('security.pciDesc'),
+      status: t('security.certified')
+    },
+    {
+      icon: Server,
+      title: t('security.infraTitle'),
+      description: t('security.infraDesc'),
+      status: t('security.active')
+    }
+  ];
+
+  const complianceStandards = [
+    { name: 'SOC 2 Type II', status: t('security.certified'), renewalDate: 'Annual' },
+    { name: 'HIPAA', status: t('security.compliant'), renewalDate: 'Ongoing' },
+    { name: 'PCI DSS Level 1', status: t('security.certified'), renewalDate: 'Annual' },
+    { name: 'GDPR', status: t('security.compliant'), renewalDate: 'Ongoing' },
+    { name: 'CCPA', status: t('security.compliant'), renewalDate: 'Ongoing' },
+    { name: 'ISO 27001', status: t('security.inProgress'), renewalDate: 'Q2 2025' }
+  ];
+
   return (
     <>
       <SEOHead
@@ -59,18 +62,17 @@ export function Security() {
         description="Learn about NeonO's enterprise-grade security measures, compliance certifications, and data protection practices."
         path="/security"
       />
-      
+
       <div className="min-h-screen py-20">
         <div className="container">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">Security & Compliance</Badge>
+            <Badge variant="secondary" className="mb-4">{t('security.badge')}</Badge>
             <h1 className="text-4xl font-display font-bold mb-6">
-              Enterprise-grade security you can trust
+              {t('security.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Your business data and customer information are protected by industry-leading 
-              security measures and compliance certifications.
+              {t('security.subtitle')}
             </p>
           </div>
 
@@ -103,11 +105,10 @@ export function Security() {
           <div className="mb-20">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-display font-bold mb-4">
-                Compliance & Certifications
+                {t('security.complianceTitle')}
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                We maintain the highest standards of compliance to protect your business 
-                and ensure regulatory adherence.
+                {t('security.complianceSubtitle')}
               </p>
             </div>
 
@@ -117,9 +118,9 @@ export function Security() {
                   <table className="w-full">
                     <thead>
                       <tr className="border-b border-border">
-                        <th className="text-left p-4 font-semibold">Standard</th>
-                        <th className="text-left p-4 font-semibold">Status</th>
-                        <th className="text-left p-4 font-semibold">Renewal</th>
+                        <th className="text-left p-4 font-semibold">{t('security.thStandard')}</th>
+                        <th className="text-left p-4 font-semibold">{t('security.thStatus')}</th>
+                        <th className="text-left p-4 font-semibold">{t('security.thRenewal')}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -127,10 +128,10 @@ export function Security() {
                         <tr key={index} className="border-b border-border/50 last:border-0">
                           <td className="p-4 font-medium">{standard.name}</td>
                           <td className="p-4">
-                            <Badge 
+                            <Badge
                               variant={
-                                standard.status === 'Certified' || standard.status === 'Compliant' 
-                                  ? 'default' 
+                                standard.status === t('security.certified') || standard.status === t('security.compliant')
+                                  ? 'default'
                                   : 'secondary'
                               }
                               className="text-xs"
@@ -151,32 +152,32 @@ export function Security() {
           {/* Security Practices */}
           <div className="grid gap-12 lg:grid-cols-2 mb-20">
             <div>
-              <h3 className="text-2xl font-display font-bold mb-6">Data Protection</h3>
+              <h3 className="text-2xl font-display font-bold mb-6">{t('security.dataProtection')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Encryption Everywhere</h4>
+                    <h4 className="font-semibold mb-1">{t('security.encryptionEverywhere')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      TLS 1.3 for data in transit, AES-256 for data at rest
+                      {t('security.encryptionEverywhereDesc')}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Regular Backups</h4>
+                    <h4 className="font-semibold mb-1">{t('security.regularBackups')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      Automated daily backups with 30-day retention
+                      {t('security.regularBackupsDesc')}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Data Residency</h4>
+                    <h4 className="font-semibold mb-1">{t('security.dataResidency')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      Choose where your data is stored and processed
+                      {t('security.dataResidencyDesc')}
                     </p>
                   </div>
                 </div>
@@ -184,32 +185,32 @@ export function Security() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-display font-bold mb-6">Access Security</h3>
+              <h3 className="text-2xl font-display font-bold mb-6">{t('security.accessSecurity')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Multi-Factor Authentication</h4>
+                    <h4 className="font-semibold mb-1">{t('security.mfa')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      Required for all admin accounts and staff access
+                      {t('security.mfaDesc')}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Session Management</h4>
+                    <h4 className="font-semibold mb-1">{t('security.sessionManagement')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      Automatic logout and session timeout controls
+                      {t('security.sessionManagementDesc')}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
                   <div>
-                    <h4 className="font-semibold mb-1">Audit Trails</h4>
+                    <h4 className="font-semibold mb-1">{t('security.auditTrails')}</h4>
                     <p className="text-muted-foreground text-sm">
-                      Complete logging of all user actions and data access
+                      {t('security.auditTrailsDesc')}
                     </p>
                   </div>
                 </div>
@@ -221,25 +222,24 @@ export function Security() {
           <div className="text-center">
             <Card className="max-w-2xl mx-auto">
               <CardHeader>
-                <CardTitle>Security Questions?</CardTitle>
+                <CardTitle>{t('security.questionsTitle')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground">
-                  Our security team is available to answer any questions about our practices, 
-                  compliance, or to provide additional documentation for your evaluation.
+                  {t('security.questionsDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a 
-                    href="mailto:security@neono.com" 
+                  <a
+                    href="mailto:security@neono.com"
                     className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-primary/90 transition-colors"
                   >
-                    Contact Security Team
+                    {t('security.contactTeam')}
                   </a>
-                  <a 
-                    href="/security-whitepaper.pdf" 
+                  <a
+                    href="/security-whitepaper.pdf"
                     className="inline-flex items-center justify-center px-6 py-3 border border-border text-foreground font-semibold rounded-lg hover:bg-accent/5 transition-colors"
                   >
-                    Download Security Whitepaper
+                    {t('security.downloadWhitepaper')}
                   </a>
                 </div>
               </CardContent>

@@ -1,46 +1,49 @@
 import { Shield, Lock, Award, CheckCircle } from 'lucide-react';
-
-const trustBadges = [
-  {
-    icon: Shield,
-    label: 'SOC 2 Type II Certified',
-    description: 'Enterprise-grade security standards'
-  },
-  {
-    icon: Lock,
-    label: 'HIPAA Compliant',
-    description: 'Healthcare data protection'
-  },
-  {
-    icon: Award,
-    label: 'PCI DSS Certified',
-    description: 'Secure payment processing'
-  },
-  {
-    icon: CheckCircle,
-    label: '99.9% Uptime SLA',
-    description: 'Reliable service guarantee'
-  }
-];
+import { useI18n } from '@/hooks/useI18n';
 
 export function TrustBadges() {
+  const { t } = useI18n();
+
+  const trustBadges = [
+    {
+      icon: Shield,
+      label: t('trustBadges.soc2'),
+      description: t('trustBadges.soc2Desc')
+    },
+    {
+      icon: Lock,
+      label: t('trustBadges.hipaa'),
+      description: t('trustBadges.hipaaDesc')
+    },
+    {
+      icon: Award,
+      label: t('trustBadges.pci'),
+      description: t('trustBadges.pciDesc')
+    },
+    {
+      icon: CheckCircle,
+      label: t('trustBadges.uptime'),
+      description: t('trustBadges.uptimeDesc')
+    }
+  ];
+
   return (
     <section className="py-12 border-t border-border/40 bg-gradient-subtle">
       <div className="container">
         <div className="text-center mb-8">
           <h3 className="text-lg font-semibold text-muted-foreground mb-2">
-            Trusted & Secure
+            {t('trustBadges.title')}
           </h3>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            Enterprise-grade security and compliance to protect your business and customer data
+            {t('trustBadges.subtitle')}
           </p>
         </div>
-        
+
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {trustBadges.map((badge, index) => {
             const Icon = badge.icon;
             return (
-              <div 
+              <div
                 key={index}
                 className="text-center group hover:scale-105 transition-transform duration-200"
               >

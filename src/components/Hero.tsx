@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimations';
 import { EnhancedButton, InteractiveCard } from '@/components/advanced/EnhancedInteractiveElements';
 import { AnimatedCounter, Magnetic } from '@/components/advanced/AdvancedScrollAnimations';
+import { useI18n } from '@/hooks/useI18n';
 
 interface HeroProps {
   title: string;
@@ -20,13 +21,15 @@ interface HeroProps {
   showStats?: boolean;
 }
 
-export function Hero({ 
-  title, 
-  subtitle, 
+export function Hero({
+  title,
+  subtitle,
   primaryCta = { text: "Get Started Now", href: "/signup" },
   secondaryCta = { text: "Watch Demo", href: "/demo" },
   showStats = true
 }: HeroProps) {
+  const { t } = useI18n();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background via-slate-50/50 to-background">
       {/* Subtle background elements */}
@@ -34,13 +37,13 @@ export function Hero({
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-accent/5 blur-3xl" />
       </div>
-      
+
       <div className="container relative py-12 lg:py-16">
         {/* Trust indicator */}
         <IntersectionAnimation animation="fade-in" className="text-center mb-8">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             <Star className="w-4 h-4 mr-2 fill-yellow-400 text-yellow-400" />
-            Trusted by salon professionals coast to coast
+            {t('hero.trustBadge')}
           </Badge>
         </IntersectionAnimation>
 
@@ -52,7 +55,7 @@ export function Hero({
                 {title}
               </h1>
             </IntersectionAnimation>
-            
+
             <IntersectionAnimation animation="fade-up" delay={400}>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
                 {subtitle}
@@ -67,13 +70,13 @@ export function Hero({
                     <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
                       <AnimatedCounter end={50} suffix="K+" />
                     </div>
-                    <div className="text-sm text-muted-foreground">Businesses</div>
+                    <div className="text-sm text-muted-foreground">{t('hero.stats.businesses')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
                       <AnimatedCounter end={1} suffix="B+" />
                     </div>
-                    <div className="text-sm text-muted-foreground">Appointments</div>
+                    <div className="text-sm text-muted-foreground">{t('hero.stats.appointments')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl lg:text-3xl font-bold text-foreground mb-1">
@@ -81,7 +84,7 @@ export function Hero({
                     </div>
                     <div className="text-sm text-muted-foreground flex items-center justify-center">
                       <Star className="w-3 h-3 fill-yellow-400 text-yellow-400 mr-1" />
-                      Rating
+                      {t('hero.stats.rating')}
                     </div>
                   </div>
                 </div>
@@ -101,11 +104,11 @@ export function Hero({
                       window.location.href = primaryCta.href;
                     }}
                   >
-                    Start Free Trial
+                    {t('hero.cta.trial')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </EnhancedButton>
                 </Magnetic>
-                
+
                 <Magnetic intensity={0.15}>
                   <EnhancedButton
                     variant="secondary"
@@ -115,7 +118,7 @@ export function Hero({
                     }}
                   >
                     <Play className="mr-2 h-4 w-4" />
-                    Book a Demo
+                    {t('hero.cta.demo')}
                   </EnhancedButton>
                 </Magnetic>
               </div>
@@ -126,15 +129,15 @@ export function Hero({
               <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 text-sm text-muted-foreground justify-center lg:justify-start">
                 <div className="flex items-center">
                   <Users className="w-4 h-4 mr-2" />
-                  Free 14-day trial
+                  {t('hero.trust.freeTrial')}
                 </div>
                 <div className="hidden sm:block">•</div>
                 <div className="flex items-center">
                   <TrendingUp className="w-4 h-4 mr-2" />
-                  No setup fees
+                  {t('hero.trust.noSetupFees')}
                 </div>
                 <div className="hidden sm:block">•</div>
-                <div>Cancel anytime</div>
+                <div>{t('hero.trust.cancelAnytime')}</div>
               </div>
             </IntersectionAnimation>
           </div>
@@ -167,7 +170,7 @@ export function Hero({
                         N
                       </div>
                       <div>
-                        <div className="font-semibold text-sm">NeonO Dashboard</div>
+                        <div className="font-semibold text-sm">{t('hero.dashboard.title')}</div>
                         <div className="text-xs text-muted-foreground">Studio Luxe</div>
                       </div>
                     </div>
@@ -178,25 +181,25 @@ export function Hero({
                   <div className="grid grid-cols-3 gap-3 mb-4">
                     <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
                       <div className="text-lg font-bold text-primary">$2,847</div>
-                      <div className="text-xs text-muted-foreground">Today's Revenue</div>
+                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.todaysRevenue')}</div>
                     </div>
                     <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
                       <div className="text-lg font-bold text-accent">23</div>
-                      <div className="text-xs text-muted-foreground">Appointments</div>
+                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.appointments')}</div>
                     </div>
                     <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
                       <div className="text-lg font-bold text-mint">98%</div>
-                      <div className="text-xs text-muted-foreground">Capacity</div>
+                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.capacity')}</div>
                     </div>
                   </div>
 
                   {/* Calendar preview */}
                   <div className="bg-white rounded-lg border border-border/10 p-4">
                     <div className="flex justify-between items-center mb-3">
-                      <div className="text-sm font-medium">Today's Schedule</div>
+                      <div className="text-sm font-medium">{t('hero.dashboard.todaysSchedule')}</div>
                       <div className="text-xs text-muted-foreground">Dec 15, 2024</div>
                     </div>
-                    
+
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 p-2 bg-primary/10 rounded-lg">
                         <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs">SM</div>
@@ -206,7 +209,7 @@ export function Hero({
                         </div>
                         <div className="text-xs font-medium text-primary">$185</div>
                       </div>
-                      
+
                       <div className="flex items-center gap-3 p-2 bg-accent/10 rounded-lg">
                         <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs">MJ</div>
                         <div className="flex-1">
@@ -215,7 +218,7 @@ export function Hero({
                         </div>
                         <div className="text-xs font-medium text-accent">$45</div>
                       </div>
-                      
+
                       <div className="flex items-center gap-3 p-2 bg-mint/10 rounded-lg">
                         <div className="w-8 h-8 rounded-full bg-mint/20 flex items-center justify-center text-xs">EC</div>
                         <div className="flex-1">

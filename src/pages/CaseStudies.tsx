@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '@/components/navigation/Breadcrumbs';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { OptimizedInView } from '@/components/advanced/PerformanceOptimizedAnimations';
+import { useI18n } from '@/hooks/useI18n';
 
 const caseStudies = [
   {
@@ -92,16 +93,17 @@ const caseStudies = [
   }
 ];
 
-const metrics = [
-  { label: 'Average Revenue Increase', value: '49%', icon: TrendingUp },
-  { label: 'Hours Saved Per Week', value: '18hrs', icon: Clock },
-  { label: 'Customer Retention Boost', value: '+42%', icon: Users },
-  { label: 'ROI Within First Year', value: '312%', icon: DollarSign }
-];
-
 export default function CaseStudiesPage() {
+  const { t } = useI18n();
   const featuredStudy = caseStudies.find(study => study.featured);
   const otherStudies = caseStudies.filter(study => !study.featured);
+
+  const metrics = [
+    { label: t('caseStudies.avgRevenue'), value: '49%', icon: TrendingUp },
+    { label: t('caseStudies.hoursSaved'), value: '18hrs', icon: Clock },
+    { label: t('caseStudies.retention'), value: '+42%', icon: Users },
+    { label: t('caseStudies.roi'), value: '312%', icon: DollarSign }
+  ];
 
   return (
     <>
@@ -115,20 +117,20 @@ export default function CaseStudiesPage() {
         <div className="container py-8">
           <Breadcrumbs 
             customCrumbs={[
-              { label: "Home", href: "/" },
-              { label: "Case Studies", href: "/case-studies" }
+              { label: t('common.home'), href: "/" },
+              { label: t('caseStudies.breadcrumbCaseStudies'), href: "/case-studies" }
             ]} 
           />
 
           {/* Hero Section */}
           <OptimizedInView animation="fade">
             <div className="text-center mb-12">
-              <Badge variant="outline" className="mb-4">Success Stories</Badge>
+              <Badge variant="outline" className="mb-4">{t('caseStudies.badge')}</Badge>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Real Results from Real Businesses
+                {t('caseStudies.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Discover how beauty businesses like yours transformed their operations and increased revenue with NeonO.
+                {t('caseStudies.subtitle')}
               </p>
             </div>
           </OptimizedInView>
@@ -169,7 +171,7 @@ export default function CaseStudiesPage() {
                   </div>
                   <div className="md:w-2/3 p-8">
                     <div className="flex items-center gap-2 mb-4">
-                      <Badge variant="default">Featured</Badge>
+                      <Badge variant="default">{t('caseStudies.featured')}</Badge>
                       <Badge variant="outline">{featuredStudy.industry}</Badge>
                     </div>
                     <h2 className="text-2xl font-bold mb-2">{featuredStudy.title}</h2>
@@ -180,26 +182,26 @@ export default function CaseStudiesPage() {
                       </div>
                       <div className="flex items-center gap-1">
                         <Users className="h-4 w-4" />
-                        {featuredStudy.employees} employees
+                        {featuredStudy.employees} {t('caseStudies.employees')}
                       </div>
                     </div>
                     
                     <div className="grid md:grid-cols-4 gap-4 mb-6">
                       <div className="text-center">
                         <div className="text-2xl font-bold text-green-600">+{featuredStudy.results.revenueIncrease}%</div>
-                        <div className="text-sm text-muted-foreground">Revenue Increase</div>
+                        <div className="text-sm text-muted-foreground">{t('caseStudies.revenueIncrease')}</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-blue-600">{featuredStudy.results.timesSaved}hrs</div>
-                        <div className="text-sm text-muted-foreground">Time Saved/Week</div>
+                        <div className="text-sm text-muted-foreground">{t('caseStudies.timeSavedWeek')}</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-purple-600">+{featuredStudy.results.customerRetention}%</div>
-                        <div className="text-sm text-muted-foreground">Customer Retention</div>
+                        <div className="text-sm text-muted-foreground">{t('caseStudies.clientRetention')}</div>
                       </div>
                       <div className="text-center">
                         <div className="text-2xl font-bold text-orange-600">{featuredStudy.results.onlineBookings}%</div>
-                        <div className="text-sm text-muted-foreground">Online Bookings</div>
+                        <div className="text-sm text-muted-foreground">{t('caseStudies.onlineBookings')}</div>
                       </div>
                     </div>
 
@@ -215,7 +217,7 @@ export default function CaseStudiesPage() {
 
                     <Button asChild>
                       <Link to={`/case-studies/${featuredStudy.id}`}>
-                        Read Full Story <ArrowRight className="ml-2 h-4 w-4" />
+                        {t('caseStudies.readFullStory')} <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   </div>
@@ -252,16 +254,16 @@ export default function CaseStudiesPage() {
                     <div className="grid grid-cols-2 gap-3 mb-4">
                       <div className="text-center">
                         <div className="text-lg font-bold text-green-600">+{study.results.revenueIncrease}%</div>
-                        <div className="text-xs text-muted-foreground">Revenue</div>
+                        <div className="text-xs text-muted-foreground">{t('caseStudies.revenue')}</div>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-bold text-blue-600">{study.results.timesSaved}hrs</div>
-                        <div className="text-xs text-muted-foreground">Time Saved</div>
+                        <div className="text-xs text-muted-foreground">{t('caseStudies.timeSaved')}</div>
                       </div>
                     </div>
                     <Button variant="outline" className="w-full" asChild>
                       <Link to={`/case-studies/${study.id}`}>
-                        Read Story <ArrowRight className="ml-2 h-4 w-4" />
+                        {t('caseStudies.readStory')} <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   </CardContent>
@@ -274,16 +276,16 @@ export default function CaseStudiesPage() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">Ready to write your success story?</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('caseStudies.ctaTitle')}</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
-                  Join hundreds of beauty businesses already growing with NeonO. Start your free trial today.
+                  {t('caseStudies.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild>
-                    <Link to="/signup">Start Free Trial</Link>
+                    <Link to="/signup">{t('caseStudies.startFreeTrial')}</Link>
                   </Button>
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
-                    <Link to="/roi">Calculate Your ROI</Link>
+                    <Link to="/roi">{t('caseStudies.calculateRoi')}</Link>
                   </Button>
                 </div>
               </CardContent>
