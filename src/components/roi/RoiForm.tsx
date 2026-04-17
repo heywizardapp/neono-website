@@ -4,11 +4,10 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+// RadioGroup removed — payment processing section hidden
 import { Button } from '@/components/ui/button';
 import { RoiInput } from '@/types/roi';
 import { DEFAULT_ROI_CONFIG, BUSINESS_TYPE_OPTIONS } from '@/config/roi';
-import { PRICING } from '@/config/pricing';
 
 interface RoiFormProps {
   input: RoiInput;
@@ -78,24 +77,6 @@ export function RoiForm({ input, onChange, onLoadPreset }: RoiFormProps) {
                 ))}
               </SelectContent>
             </Select>
-          </div>
-
-          <div>
-            <Label htmlFor="plan">NeonO Plan</Label>
-            <RadioGroup 
-              value={input.plan} 
-              onValueChange={(value) => updateInput({ plan: value as 'starter' | 'growth' })}
-              className="flex gap-6 mt-2"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="starter" id="starter" />
-                <Label htmlFor="starter">Starter ({PRICING.starter.priceDisplay}/mo)</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="growth" id="growth" />
-                <Label htmlFor="growth">Growth ({PRICING.growth.priceDisplay}/mo)</Label>
-              </div>
-            </RadioGroup>
           </div>
 
           <div>
@@ -285,81 +266,7 @@ export function RoiForm({ input, onChange, onLoadPreset }: RoiFormProps) {
         </CardContent>
       </Card>
 
-      {/* Payment Processing */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Payment Processing</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <Label>NeonO Rate (choose one)</Label>
-            <RadioGroup 
-              value={`${input.neonORate.percent}-${input.neonORate.perTxCents}`}
-              onValueChange={(value) => {
-                const [percent, cents] = value.split('-').map(Number);
-                updateInput({ neonORate: { percent, perTxCents: cents } });
-              }}
-              className="mt-2"
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="2.6-10" id="rate-a" />
-                <Label htmlFor="rate-a">2.6% + 10¢ per transaction</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="2.5-20" id="rate-b" />
-                <Label htmlFor="rate-b">2.5% + 20¢ per transaction</Label>
-              </div>
-            </RadioGroup>
-          </div>
-
-          <div>
-            <Label>Competitor Rate</Label>
-            <div className="grid grid-cols-2 gap-4 mt-2">
-              <div>
-                <Label htmlFor="comp-percent">Percentage</Label>
-                <div className="relative">
-                  <Input
-                    id="comp-percent"
-                    type="number"
-                    value={input.competitorRate.percent}
-                    onChange={(e) => updateInput({ 
-                      competitorRate: { 
-                        ...input.competitorRate, 
-                        percent: parseFloat(e.target.value) || 0 
-                      } 
-                    })}
-                    min="0"
-                    max="10"
-                    step="0.1"
-                    className="pr-8 touch-44"
-                  />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">%</span>
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="comp-cents">Per Transaction</Label>
-                <div className="relative">
-                  <Input
-                    id="comp-cents"
-                    type="number"
-                    value={input.competitorRate.perTxCents}
-                    onChange={(e) => updateInput({ 
-                      competitorRate: { 
-                        ...input.competitorRate, 
-                        perTxCents: parseFloat(e.target.value) || 0 
-                      } 
-                    })}
-                    min="0"
-                    step="1"
-                    className="pr-8 touch-44"
-                  />
-                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">¢</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Note: Payment processing fees excluded from comparison — they apply to all platforms similarly */}
     </div>
   );
 }

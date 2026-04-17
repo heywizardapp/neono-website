@@ -8,6 +8,7 @@ import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { OptimizedImage } from '@/components/OptimizedImage';
+import { useI18n } from '@/hooks/useI18n';
 
 export interface ProductSection {
   id: string;
@@ -101,6 +102,7 @@ export function ProductTemplate({
   path,
   sections,
 }: ProductTemplateProps) {
+  const { t } = useI18n();
   return (
     <>
       <SEOHead
@@ -144,7 +146,7 @@ export function ProductTemplate({
                 {productName}
               </Badge>
               
-              <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-serif font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 {tagline}
               </h1>
               
@@ -155,12 +157,12 @@ export function ProductTemplate({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="btn-hero-primary" asChild>
                   <Link to="/signup">
-                    Start Free Trial
+                    {t('productTemplate.startFreeTrial')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/demo">Watch Demo</Link>
+                  <Link to="/demo">{t('productTemplate.watchDemo')}</Link>
                 </Button>
               </div>
             </div>
@@ -198,11 +200,11 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32 bg-slate-50/50 dark:bg-slate-900/20">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Key Features
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                {t('productTemplate.keyFeatures')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Everything you need in {productName.toLowerCase()}, designed for beauty and wellness businesses.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                {t('productTemplate.keyFeaturesSubtitle').replace('{productName}', productName.toLowerCase())}
               </p>
             </div>
             
@@ -238,8 +240,8 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32 bg-gradient-subtle">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                  See it in action
+                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                  {t('productTemplate.seeItInAction')}
                 </h2>
               </div>
               
@@ -265,11 +267,11 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Business benefits
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                {t('productTemplate.businessBenefits')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Real outcomes you can expect when using {productName}.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                {t('productTemplate.businessBenefitsSubtitle').replace('{productName}', productName)}
               </p>
             </div>
             
@@ -296,11 +298,11 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                  Professional Hardware
+                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                  {t('productTemplate.professionalHardware')}
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Industry-leading terminals for reliable, fast, and secure payments.
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                  {t('productTemplate.professionalHardwareSubtitle')}
                 </p>
               </div>
               
@@ -328,11 +330,11 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32 bg-gradient-subtle">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                  Works with your tools
+                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                  {t('productTemplate.worksWithTools')}
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Seamlessly integrates with the apps you already use.
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                  {t('productTemplate.worksWithToolsSubtitle')}
                 </p>
               </div>
               
@@ -355,8 +357,8 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="max-w-3xl mx-auto text-center space-y-6">
-                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
-                  Simple pricing
+                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl">
+                  {t('productTemplate.simplePricing')}
                 </h2>
                 <p className="text-xl text-muted-foreground">
                   {productName} is included in all NeonO plans starting at {pricing.startingPrice}.
@@ -380,8 +382,8 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container max-w-3xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                Frequently asked questions
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                {t('productTemplate.faq')}
               </h2>
             </div>
             
@@ -394,8 +396,8 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-                  You might also like
+                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                  {t('productTemplate.youMightAlsoLike')}
                 </h2>
               </div>
               
@@ -411,7 +413,7 @@ export function ProductTemplate({
                     <CardContent>
                       <Button variant="ghost" className="w-full" asChild>
                         <Link to={product.href}>
-                          Learn more
+                          {t('productTemplate.learnMore')}
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
                       </Button>
@@ -426,21 +428,21 @@ export function ProductTemplate({
         {/* Final CTA */}
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container text-center">
-            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-              Ready to get started?
+            <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              {t('productTemplate.readyToGetStarted')}
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of beauty and wellness businesses using {productName} to grow faster.
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-serif italic">
+              {t('productTemplate.readyToGetStartedSubtitle').replace('{productName}', productName)}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="btn-hero-primary" asChild>
                 <Link to="/signup">
-                  Start Free Trial
+                  {t('productTemplate.startFreeTrial')}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link to="/contact">Contact Sales</Link>
+                <Link to="/contact">{t('productTemplate.contactSales')}</Link>
               </Button>
             </div>
           </div>

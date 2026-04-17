@@ -14,12 +14,9 @@ import { handleError } from '@/lib/errors/handlers';
 import { supabase } from '@/lib/supabase';
 import {
   Mail,
-  Phone,
   MapPin,
   Clock,
-  MessageCircle,
   Users,
-  Calendar,
   ArrowRight,
   CheckCircle,
   HeadphonesIcon
@@ -41,28 +38,20 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      icon: MessageCircle,
-      title: t('contact.liveChat'),
-      description: t('contact.liveChatDesc'),
-      action: t('contact.startChat'),
-      available: t('contact.liveChatAvail'),
-      color: 'bg-green-500'
-    },
-    {
-      icon: Phone,
-      title: t('contact.phoneSupport'),
-      description: t('contact.phoneSupportDesc'),
-      action: '+1 (555) 123-4567',
-      available: t('contact.phoneSupportAvail'),
-      color: 'bg-blue-500'
-    },
-    {
       icon: Mail,
       title: t('contact.emailSupport'),
       description: t('contact.emailSupportDesc'),
-      action: 'support@neono.com',
+      action: 'support@neono.ca',
       available: t('contact.emailSupportAvail'),
       color: 'bg-purple-500'
+    },
+    {
+      icon: Mail,
+      title: t('contact.liveChat'),
+      description: t('contact.liveChatDesc'),
+      action: 'hello@neono.ca',
+      available: t('contact.liveChatAvail'),
+      color: 'bg-green-500'
     }
   ];
 
@@ -125,7 +114,7 @@ export default function Contact() {
                   <HeadphonesIcon className="w-4 h-4 mr-2" />
                   {t('contact.badge')}
                 </Badge>
-                <h1 className="text-3xl font-display font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+                <h1 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
                   {t('contact.title')}
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
@@ -292,9 +281,7 @@ export default function Contact() {
                       <div className="space-y-2">
                         <p className="font-medium">{t('contact.headquarters')}</p>
                         <p className="text-muted-foreground">
-                          123 Beauty Tech Blvd<br />
-                          Suite 400<br />
-                          San Francisco, CA 94107
+                          Toronto, Ontario, Canada
                         </p>
                       </div>
 

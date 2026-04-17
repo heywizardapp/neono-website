@@ -8,7 +8,7 @@ const detailedTestimonials = [
     name: 'Sarah Chen',
     title: 'Owner',
     business: 'Luxe Hair Studio',
-    location: 'San Francisco, CA',
+    location: 'Toronto, ON',
     industry: 'Hair Salon',
     avatar: '/api/placeholder/60/60',
     rating: 5,

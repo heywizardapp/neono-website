@@ -127,8 +127,8 @@ export default function OnlineBooking() {
         { name: 'TikTok', logo: 'TT' },
       ]}
       pricing={{
-        startingPrice: `${PRICING.starter.priceDisplay}/month`,
-        includedIn: ['Starter', 'Growth'],
+        startingPrice: `${PRICING.independent.priceDisplay}/month`,
+        includedIn: ['Independent', 'Salon'],
       }}
       faqs={[
         {

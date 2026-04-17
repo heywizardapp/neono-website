@@ -2,12 +2,21 @@ import { Hero } from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield, Sparkles, Gift } from 'lucide-react';
+import { Calendar, CreditCard, Mail, Globe, BarChart3, Smartphone, ArrowRight, Users, Zap, Shield, Sparkles, Gift, Palette } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
 
 const products = [
+  {
+    icon: Palette,
+    name: 'Colour Studio',
+    description: 'Track colour costs, manage formulas, and eliminate product waste.',
+    href: '/products/colour-studio',
+    color: 'text-mint',
+    badge: 'Flagship',
+    features: ['Formula management', 'Cost tracking per service', 'Waste reduction', 'Kiosk self-checkout']
+  },
   {
     icon: Users,
     name: 'Staff Management',
@@ -154,10 +163,17 @@ export default function ProductsIndex() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product, index) => (
-              <Card key={product.name} className="feature-card group" style={{ animationDelay: `${index * 100}ms` }}>
+              <Card key={product.name} className={`feature-card group ${('badge' in product) ? 'ring-2 ring-primary/20' : ''}`} style={{ animationDelay: `${index * 100}ms` }}>
                 <CardHeader>
-                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card mb-4 ${product.color}`}>
-                    <product.icon className="h-6 w-6" />
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-card ${product.color}`}>
+                      <product.icon className="h-6 w-6" />
+                    </div>
+                    {('badge' in product) && (
+                      <Badge variant="default" className="bg-primary/10 text-primary border-primary/20">
+                        {(product as any).badge}
+                      </Badge>
+                    )}
                   </div>
                   <CardTitle className="group-hover:text-primary transition-colors">
                     {product.name}

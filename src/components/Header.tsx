@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 const getProductLinks = (t: (key: string) => string) => [
+  { name: t('nav.products.colourStudio'), href: '/products/colour-studio', description: t('nav.products.colourStudio.desc') },
   { name: t('nav.products.appointments'), href: '/products/appointments', description: t('nav.products.appointments.desc') },
   { name: t('nav.products.booking'), href: '/products/online-booking', description: t('nav.products.booking.desc') },
   { name: t('nav.products.ai'), href: '/products/ai', description: t('nav.products.ai.desc') },
@@ -33,12 +34,12 @@ const getSolutionLinks = (t: (key: string) => string) => [
   { name: t('nav.solutions.nails'), href: '/solutions/nails' },
 ];
 
-const compareLinks = [
-  { name: 'vs Fresha', href: '/vs/fresha' },
-  { name: 'vs Vagaro', href: '/vs/vagaro' },
-  { name: 'vs Salon Monster', href: '/vs/salon-monster' },
-  { name: 'vs Squire', href: '/vs/squire' },
-  { name: 'vs Phorest', href: '/vs/phorest' },
+const getCompareLinks = (t: (key: string) => string) => [
+  { name: t('header.vsFresha'), href: '/vs/fresha' },
+  { name: t('header.vsVagaro'), href: '/vs/vagaro' },
+  { name: t('header.vsSalonMonster'), href: '/vs/salon-monster' },
+  { name: t('header.vsSquire'), href: '/vs/squire' },
+  { name: t('header.vsPhorest'), href: '/vs/phorest' },
 ];
 
 export function Header() {
@@ -49,6 +50,7 @@ export function Header() {
 
   const productLinks = getProductLinks(t);
   const solutionLinks = getSolutionLinks(t);
+  const compareLinks = getCompareLinks(t);
 
   React.useEffect(() => {
     function onEsc(e: KeyboardEvent) {
@@ -253,6 +255,7 @@ export function Header() {
         onClose={() => setOpen(false)}
         productLinks={productLinks}
         solutionLinks={solutionLinks}
+        compareLinks={compareLinks}
         t={t}
       />
       <GlobalSearch open={searchOpen} onOpenChange={setSearchOpen} />
@@ -276,12 +279,14 @@ function MobileDrawer({
   onClose,
   productLinks,
   solutionLinks,
+  compareLinks,
   t
 }: {
   open: boolean;
   onClose: () => void;
   productLinks: Array<{ name: string; href: string; description: string }>;
   solutionLinks: Array<{ name: string; href: string }>;
+  compareLinks: Array<{ name: string; href: string }>;
   t: (key: string) => string;
 }) {
   return (

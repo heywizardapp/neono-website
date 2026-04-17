@@ -101,10 +101,10 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
     <section ref={ref} className="py-20 lg:py-32">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-display font-bold tracking-tight mb-4">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight mb-4">
             {t('testimonials.title')}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-serif italic text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('testimonials.subtitle')}
           </p>
         </div>
@@ -152,7 +152,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="text-base sm:text-xl lg:text-2xl font-medium leading-relaxed text-foreground">
+                    <blockquote className="font-serif italic text-base sm:text-xl lg:text-2xl font-medium leading-relaxed text-foreground">
                       "{testimonial.quote}"
                     </blockquote>
 

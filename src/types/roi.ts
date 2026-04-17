@@ -5,7 +5,6 @@ export type PaymentRate = {
 
 export type RoiInput = {
   businessType: "Salon" | "Barbershop" | "Spa" | "Nails" | "Aesthetics";
-  plan: "starter" | "growth";
   teamSize: number;
   aov: number;                 // average order value in $
   monthlyTx: number;           // transactions
@@ -49,7 +48,7 @@ export type Crumb = {
   href: string 
 };
 
-export type PlanKey = "starter" | "growth" | "competitorA";
+export type PlanKey = "independent" | "salon" | "competitorA";
 
 export type FeatureRow = { 
   id: string; 

@@ -135,7 +135,7 @@ export default function Category() {
       <div className="min-h-screen bg-background">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="text-center py-16">
-            <h1 className="text-2xl font-bold mb-4">Category Not Found</h1>
+            <h1 className="text-2xl font-bold mb-4 font-serif">Category Not Found</h1>
             <p className="text-muted-foreground mb-6">
               The category you're looking for doesn't exist.
             </p>
@@ -206,11 +206,11 @@ export default function Category() {
                 <div className="p-3.5 rounded-xl bg-primary/10 text-primary">
                   <CategoryIcon className="w-8 h-8" />
                 </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-[hsl(215,85%,8%)]">
+                <h1 className="text-3xl md:text-4xl font-bold text-[hsl(215,85%,8%)] font-serif">
                   {category.title}
                 </h1>
               </div>
-              <p className="text-lg text-muted-foreground mb-3">
+              <p className="text-lg text-muted-foreground mb-3 font-serif italic">
                 {category.description}
               </p>
               <p className="text-sm text-muted-foreground">

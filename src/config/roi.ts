@@ -1,42 +1,35 @@
 import { RoiInput } from '@/types/roi';
 
 export const DEFAULT_ROI_CONFIG = {
-  // NeonO Plan Pricing (New)
-  independent: {
-    basePrice: 19.99,
-    includedSeats: 1,
+  // NeonO unified pricing: $24.99/seat/month, capped at 7 seats ($174.93 max)
+  neono: {
+    pricePerSeat: 24.99,
+    maxBillableSeats: 7,
+    maxPrice: 174.93,
   },
-  salon: {
-    pricePerChair: 16.99,
-  },
-  // Legacy pricing for ROI calculator (to be updated)
-  starter: {
-    basePrice: 19.99,
-    includedSeats: 1,
-  },
-  growth: {
-    basePrice: 16.99,
-    includedSeats: 1,
-  },
-  extraSeatPrice: 16.99,
 
-  // Default Payment Rates
+  // Default Payment Rates (in-salon)
   paymentRates: {
-    optionA: { percent: 2.6, perTxCents: 10 },
-    optionB: { percent: 2.5, perTxCents: 20 },
+    optionA: { percent: 2.69, perTxCents: 25 },
+    optionB: { percent: 2.99, perTxCents: 30 },
   },
 
-  // Competitor Defaults (editable)
+  // Competitor Defaults (Fresha — most common comparison)
   competitor: {
-    basePrice: 35,
+    basePrice: 29.95,
     includedSeats: 1,
-    seatPrice: 12,
+    seatPrice: 19.95,
     addOns: {
       sms: 20,
-      onlineStore: 15,
+      loyalty: 79.95,
+      insights: 13.95,      // per member
+      googleBoost: 20.95,
       website: 30,
+      onlineStore: 15,
+      forms: 15,
+      photoStorage: 15,
       quickbooks: 40,
-      ai: 15,
+      colourTracking: 99,   // SalonScale 1-3
     },
   },
 

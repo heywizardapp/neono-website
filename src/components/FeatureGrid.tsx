@@ -100,10 +100,10 @@ export function FeatureGrid() {
             <span className="text-sm font-medium text-primary">{t('features.grid.badge')}</span>
           </div>
 
-          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
             {t('features.grid.title.before')} <span className="text-gradient">{t('features.grid.title.highlight')}</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
             {t('features.grid.subtitle')}
           </p>
         </div>

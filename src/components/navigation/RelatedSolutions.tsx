@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { getRelatedSolutions } from '@/config/solutions';
+import { useI18n } from '@/hooks/useI18n';
 
 interface RelatedSolutionsProps {
   currentIndustry: string;
@@ -11,12 +12,15 @@ interface RelatedSolutionsProps {
   description?: string;
 }
 
-export function RelatedSolutions({ 
-  currentIndustry, 
-  title = "Explore related solutions",
-  description = "See how NeonO works for other businesses like yours"
+export function RelatedSolutions({
+  currentIndustry,
+  title,
+  description
 }: RelatedSolutionsProps) {
-  const relatedSolutions = getRelatedSolutions(currentIndustry);
+  const { t } = useI18n();
+  const resolvedTitle = title || t('relatedSolutions.title');
+  const resolvedDescription = description || t('relatedSolutions.subtitle');
+  const relatedSolutions = getRelatedSolutions(currentIndustry, t);
   
   if (relatedSolutions.length === 0) return null;
 
@@ -37,11 +41,11 @@ export function RelatedSolutions({
     <section className="py-16 bg-gradient-subtle">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4">
-            {title}
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight mb-4">
+            {resolvedTitle}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {description}
+          <p className="font-serif italic text-lg text-muted-foreground max-w-2xl mx-auto">
+            {resolvedDescription}
           </p>
         </div>
 
@@ -59,9 +63,9 @@ export function RelatedSolutions({
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 text-sm text-muted-foreground mb-6">
-                  <p>✓ Industry-specific features</p>
-                  <p>✓ Tailored workflows</p>
-                  <p>✓ Same great pricing</p>
+                  <p>✓ {t('relatedSolutions.industryFeatures')}</p>
+                  <p>✓ {t('relatedSolutions.tailoredWorkflows')}</p>
+                  <p>✓ {t('relatedSolutions.sameGreatPricing')}</p>
                 </div>
                 
                 <Button 
@@ -70,7 +74,7 @@ export function RelatedSolutions({
                   className="w-full touch-44 group-hover:border-primary group-hover:text-primary transition-colors"
                 >
                   <Link to={solution.path}>
-                    Explore {solution.industry} <ArrowRight className="ml-2 h-4 w-4" />
+                    {t('solutions.index.explore')} {solution.industry} <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
@@ -80,11 +84,11 @@ export function RelatedSolutions({
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            Don't see your industry? NeonO works for all beauty and wellness businesses.
+            {t('relatedSolutions.dontSeeIndustry')}
           </p>
           <Button variant="ghost" asChild className="touch-44">
             <Link to="/demo">
-              Book a Custom Demo <ArrowRight className="ml-2 h-4 w-4" />
+              {t('relatedSolutions.bookCustomDemo')} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

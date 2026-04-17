@@ -6,6 +6,7 @@ import { IntersectionAnimation } from '@/components/advanced/IntersectionAnimati
 import { EnhancedButton, InteractiveCard } from '@/components/advanced/EnhancedInteractiveElements';
 import { AnimatedCounter, Magnetic } from '@/components/advanced/AdvancedScrollAnimations';
 import { useI18n } from '@/hooks/useI18n';
+import { PhoneShowcase } from '@/components/hero';
 
 interface HeroProps {
   title: string;
@@ -51,7 +52,7 @@ export function Hero({
           {/* Left content - Simplified and focused */}
           <div className="text-center lg:text-left">
             <IntersectionAnimation animation="fade-up" delay={200}>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
+              <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
                 {title}
               </h1>
             </IntersectionAnimation>
@@ -142,100 +143,9 @@ export function Hero({
             </IntersectionAnimation>
           </div>
 
-          {/* Right side - Real product screenshot */}
+          {/* Right side - Interactive phone showcase */}
           <IntersectionAnimation animation="fade-up" delay={400} className="relative">
-            <div className="relative mx-auto max-w-2xl">
-              {/* Main product screenshot container */}
-              <div className="relative rounded-2xl bg-white shadow-2xl border border-border/20 overflow-hidden">
-                {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-slate-50 border-b border-border/20">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                  </div>
-                  <div className="flex-1 text-center">
-                    <div className="text-xs text-muted-foreground bg-white rounded px-3 py-1 inline-block">
-                      salon.neono.app
-                    </div>
-                  </div>
-                </div>
-
-                {/* Realistic NeonO Dashboard */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-slate-50 to-white p-6">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-primary to-accent text-white flex items-center justify-center text-sm font-bold">
-                        N
-                      </div>
-                      <div>
-                        <div className="font-semibold text-sm">{t('hero.dashboard.title')}</div>
-                        <div className="text-xs text-muted-foreground">Studio Luxe</div>
-                      </div>
-                    </div>
-                    <Badge variant="secondary" className="text-xs">Live</Badge>
-                  </div>
-
-                  {/* Today's stats cards */}
-                  <div className="grid grid-cols-3 gap-3 mb-4">
-                    <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
-                      <div className="text-lg font-bold text-primary">$2,847</div>
-                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.todaysRevenue')}</div>
-                    </div>
-                    <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
-                      <div className="text-lg font-bold text-accent">23</div>
-                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.appointments')}</div>
-                    </div>
-                    <div className="bg-white rounded-lg p-3 shadow-sm border border-border/10">
-                      <div className="text-lg font-bold text-mint">98%</div>
-                      <div className="text-xs text-muted-foreground">{t('hero.dashboard.capacity')}</div>
-                    </div>
-                  </div>
-
-                  {/* Calendar preview */}
-                  <div className="bg-white rounded-lg border border-border/10 p-4">
-                    <div className="flex justify-between items-center mb-3">
-                      <div className="text-sm font-medium">{t('hero.dashboard.todaysSchedule')}</div>
-                      <div className="text-xs text-muted-foreground">Dec 15, 2024</div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3 p-2 bg-primary/10 rounded-lg">
-                        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs">SM</div>
-                        <div className="flex-1">
-                          <div className="text-xs font-medium">Sarah Martinez</div>
-                          <div className="text-xs text-muted-foreground">Cut & Color • 9:00 AM</div>
-                        </div>
-                        <div className="text-xs font-medium text-primary">$185</div>
-                      </div>
-
-                      <div className="flex items-center gap-3 p-2 bg-accent/10 rounded-lg">
-                        <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs">MJ</div>
-                        <div className="flex-1">
-                          <div className="text-xs font-medium">Mike Johnson</div>
-                          <div className="text-xs text-muted-foreground">Beard Trim • 10:30 AM</div>
-                        </div>
-                        <div className="text-xs font-medium text-accent">$45</div>
-                      </div>
-
-                      <div className="flex items-center gap-3 p-2 bg-mint/10 rounded-lg">
-                        <div className="w-8 h-8 rounded-full bg-mint/20 flex items-center justify-center text-xs">EC</div>
-                        <div className="flex-1">
-                          <div className="text-xs font-medium">Emma Chen</div>
-                          <div className="text-xs text-muted-foreground">Deep Cleansing • 2:00 PM</div>
-                        </div>
-                        <div className="text-xs font-medium text-mint">$120</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating elements for visual interest */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/10 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-accent/10 rounded-full blur-xl"></div>
-            </div>
+            <PhoneShowcase />
           </IntersectionAnimation>
         </div>
       </div>

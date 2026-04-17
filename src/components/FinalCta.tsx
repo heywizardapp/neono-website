@@ -26,11 +26,11 @@ export function FinalCta({
       <div className="container">
         <div className="text-center max-w-3xl mx-auto space-y-8">
           <div className="space-y-4">
-            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl lg:text-5xl">
               {title}
             </h2>
             {subtitle && (
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="font-serif italic text-xl text-muted-foreground leading-relaxed">
                 {subtitle}
               </p>
             )}

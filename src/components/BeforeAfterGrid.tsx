@@ -1,4 +1,5 @@
 import { X, Check } from 'lucide-react';
+import { useI18n } from '@/hooks/useI18n';
 
 interface BeforeAfterItem {
   before: string;
@@ -10,15 +11,17 @@ interface BeforeAfterGridProps {
 }
 
 export function BeforeAfterGrid({ items }: BeforeAfterGridProps) {
+  const { t } = useI18n();
+
   return (
     <section className="py-20 lg:py-32 bg-accent/5">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            Before & After NeonO
+          <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+            {t('beforeAfter.title')}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            See how NeonO transforms everyday business operations
+          <p className="font-serif italic text-xl text-muted-foreground max-w-2xl mx-auto">
+            {t('beforeAfter.subtitle')}
           </p>
         </div>
 
@@ -35,7 +38,7 @@ export function BeforeAfterGrid({ items }: BeforeAfterGridProps) {
                   <div className="h-8 w-8 rounded-full bg-destructive/10 flex items-center justify-center">
                     <X className="h-4 w-4 text-destructive" />
                   </div>
-                  <span className="font-medium text-muted-foreground">Before</span>
+                  <span className="font-medium text-muted-foreground">{t('beforeAfter.before')}</span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {item.before}
@@ -48,7 +51,7 @@ export function BeforeAfterGrid({ items }: BeforeAfterGridProps) {
                   <div className="h-8 w-8 rounded-full bg-mint/10 flex items-center justify-center">
                     <Check className="h-4 w-4 text-mint" />
                   </div>
-                  <span className="font-medium">With NeonO</span>
+                  <span className="font-medium">{t('beforeAfter.withNeonO')}</span>
                 </div>
                 <p className="text-sm leading-relaxed">
                   {item.after}

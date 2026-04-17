@@ -1,4 +1,4 @@
-import { Users, Calendar, Globe, Mail, Sparkles, Smartphone, BarChart3, CreditCard, LucideIcon } from 'lucide-react';
+import { Users, Calendar, Globe, Mail, Sparkles, Smartphone, BarChart3, CreditCard, Palette, LucideIcon } from 'lucide-react';
 
 export interface ProductConfig {
   id: string;
@@ -10,79 +10,92 @@ export interface ProductConfig {
   description: string;
 }
 
-export const productsConfig: Record<string, ProductConfig> = {
+export const getProductsConfig = (t: (key: string) => string): Record<string, ProductConfig> => ({
+  colourStudio: {
+    id: 'colour-studio',
+    name: t('products.colourStudio.name'),
+    tagline: t('products.colourStudio.tagline'),
+    path: '/products/colour-studio',
+    icon: Palette,
+    color: 'text-mint',
+    description: t('products.colourStudio.description'),
+  },
   staffManagement: {
     id: 'staff-management',
-    name: 'Staff Management',
-    tagline: 'Empower your team with smart scheduling and performance tracking',
+    name: t('products.staffManagement.name'),
+    tagline: t('products.staffManagement.tagline'),
     path: '/products/staff-management',
     icon: Users,
     color: 'text-primary',
-    description: 'Manage schedules, permissions, commissions, and team performance.',
+    description: t('products.staffManagement.description'),
   },
   appointments: {
     id: 'appointments',
-    name: 'Appointments',
-    tagline: 'Smart scheduling that fills your calendar automatically',
+    name: t('products.appointments.name'),
+    tagline: t('products.appointments.tagline'),
     path: '/products/appointments',
     icon: Calendar,
     color: 'text-accent',
-    description: 'Smart scheduling with real-time availability and automated reminders.',
+    description: t('products.appointments.description'),
   },
   onlineBooking: {
     id: 'online-booking',
-    name: 'Online Booking',
-    tagline: 'Book while you sleep with 24/7 online scheduling',
+    name: t('products.onlineBooking.name'),
+    tagline: t('products.onlineBooking.tagline'),
     path: '/products/online-booking',
     icon: Globe,
     color: 'text-mint',
-    description: '24/7 online booking with marketplace exposure.',
+    description: t('products.onlineBooking.description'),
   },
   marketing: {
     id: 'marketing',
-    name: 'Marketing',
-    tagline: 'Fill your calendar with automated campaigns that actually work',
+    name: t('products.marketing.name'),
+    tagline: t('products.marketing.tagline'),
     path: '/products/marketing',
     icon: Mail,
     color: 'text-lavender',
-    description: 'SMS and email campaigns that fill your calendar automatically.',
+    description: t('products.marketing.description'),
   },
   ai: {
     id: 'ai',
-    name: 'AI',
-    tagline: 'Work smarter with AI that understands your business',
+    name: t('products.ai.name'),
+    tagline: t('products.ai.tagline'),
     path: '/products/ai',
     icon: Sparkles,
     color: 'text-primary',
-    description: 'AI-powered automations and intelligent business insights.',
+    description: t('products.ai.description'),
   },
   landingPageBuilder: {
     id: 'landing-page-builder',
-    name: 'Landing Page Builder',
-    tagline: 'Create a stunning website and link-in-bio in minutes',
+    name: t('products.landingPageBuilder.name'),
+    tagline: t('products.landingPageBuilder.tagline'),
     path: '/products/landing-page-builder',
     icon: Smartphone,
     color: 'text-accent',
-    description: 'Build beautiful websites and link-in-bio pages in minutes.',
+    description: t('products.landingPageBuilder.description'),
   },
   analytics: {
     id: 'analytics',
-    name: 'Analytics',
-    tagline: 'Make smarter decisions with real-time business insights',
+    name: t('products.analytics.name'),
+    tagline: t('products.analytics.tagline'),
     path: '/products/analytics',
     icon: BarChart3,
     color: 'text-mint',
-    description: 'Role-based dashboards with real-time business insights.',
+    description: t('products.analytics.description'),
   },
   pos: {
     id: 'pos',
-    name: 'PoS',
-    tagline: 'Lightning-fast checkout with fair tips and instant payouts',
+    name: t('products.pos.name'),
+    tagline: t('products.pos.tagline'),
     path: '/products/pos',
     icon: CreditCard,
     color: 'text-lavender',
-    description: 'Fast payments, tip splitting, and instant payouts.',
+    description: t('products.pos.description'),
   },
-};
+});
 
+export const getProductsList = (t: (key: string) => string) => Object.values(getProductsConfig(t));
+
+// Legacy exports for backward compatibility (uses English defaults)
+export const productsConfig = getProductsConfig((key: string) => key);
 export const productsList = Object.values(productsConfig);

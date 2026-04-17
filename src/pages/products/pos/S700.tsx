@@ -133,7 +133,7 @@ export default function S700() {
                   <CreditCard className="h-3 w-3 mr-1" />
                   Most Popular
                 </Badge>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
                   Stripe Terminal S700
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
@@ -170,10 +170,10 @@ export default function S700() {
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
                 Everything you need for professional checkout
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-muted-foreground font-serif italic">
                 Built for high-volume businesses that demand reliability
               </p>
             </div>
@@ -197,7 +197,7 @@ export default function S700() {
         {/* Technical Specs */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
               Technical Specifications
             </h2>
 
@@ -238,7 +238,7 @@ export default function S700() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
                   Seamlessly integrated with NeonO
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
@@ -306,7 +306,7 @@ export default function S700() {
         {/* FAQs */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
               Frequently Asked Questions
             </h2>
             <FaqAccordion faqs={faqs} />
@@ -316,10 +316,10 @@ export default function S700() {
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Ready to upgrade your checkout?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground mb-8 font-serif italic">
               Order the S700 today and start accepting payments like a pro
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

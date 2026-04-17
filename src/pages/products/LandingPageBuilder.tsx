@@ -127,8 +127,8 @@ export default function LandingPageBuilder() {
         { name: 'Pinterest', logo: 'PI' },
       ]}
       pricing={{
-        startingPrice: `${PRICING.starter.priceDisplay}/month`,
-        includedIn: ['Starter', 'Growth'],
+        startingPrice: `${PRICING.independent.priceDisplay}/month`,
+        includedIn: ['Independent', 'Salon'],
       }}
       faqs={[
         {

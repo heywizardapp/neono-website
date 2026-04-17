@@ -9,63 +9,74 @@ export default function FreshaComparison() {
         tagline: 'Free* (but not really)',
       }}
       seo={{
-        title: 'NeonO vs Fresha: No More $1,000+/Year in Hidden Fees | 2026 Comparison',
-        description: 'Fresha claims to be free but charges $1,000+/year for essential features. See why NeonO\'s transparent pricing saves salons thousands annually.',
+        title: 'NeonO vs Fresha: Save Up to $9,861/Year in Hidden Fees | 2026 Comparison',
+        description: 'Fresha charges $79.95/mo for loyalty, $13.95/member for insights, 20% marketplace fees, and more. NeonO includes everything for $24.99/seat/mo. Compare now.',
       }}
       hero={{
-        headline: 'Say Goodbye to Fresha\'s Hidden Fees',
-        subheadline: 'Get all features included for one simple price. No loyalty program upsells. No SMS add-ons. No surprises.',
+        headline: 'Fresha\'s "Free" Costs You Up to $9,861/Year',
+        subheadline: 'Loyalty add-ons, insight fees, marketplace commissions, and processing surcharges add up fast. NeonO is $24.99/seat/month, all features included, capped at 7 seats.',
         painPoints: [
-          'Fresha charges $1,000+/year for loyalty programs',
-          'SMS marketing costs extra ($10-50/month)',
-          'Limited customization without paid tiers',
-          'Payment processing fees on top of subscription',
+          'Loyalty program costs $79.95/location/month extra',
+          'Business insights add-on: $13.95/bookable team member/month',
+          'Marketplace takes 20% of first booking from new clients (min $6)',
+          'Google Rating Boost: $20.95/location/month extra',
+          'In-person processing: 2.29% + $0.20 + $0.15 tap authorization',
+          'Clients must create a Fresha account to book',
         ],
       }}
       pricing={{
-        neono: '$16.99/chair',
-        competitor: 'Free* + $1,200/year',
-        savingsAnnual: '$1,000+',
+        neono: '$24.99/seat/mo',
+        competitor: 'CA$29.95/mo + add-ons',
+        savingsAnnual: '$2,746–$9,861',
       }}
       features={[
         { name: 'Online Booking', neono: true, competitor: true },
         { name: 'Calendar Management', neono: true, competitor: true },
-        { name: 'SMS Reminders', neono: 'Included', competitor: 'Add-on ($15/mo)', highlight: true },
-        { name: 'Email Marketing', neono: 'Unlimited', competitor: 'Limited' },
-        { name: 'Loyalty Program', neono: 'Included', competitor: '$1,000+/year', highlight: true },
         { name: 'Client Database', neono: 'Unlimited', competitor: 'Unlimited' },
         { name: 'POS System', neono: 'Included', competitor: 'Included' },
-        { name: 'Payment Processing', neono: '2.9% + 30¢', competitor: '2.9% + 30¢' },
-        { name: 'Tip Commissions', neono: '0%', competitor: '1-3%', highlight: true },
-        { name: 'Custom Branding', neono: 'Full control', competitor: 'Limited' },
-        { name: 'Website Builder', neono: 'Included', competitor: 'Add-on ($25/mo)', highlight: true },
         { name: 'Staff Management', neono: 'Unlimited', competitor: 'Limited' },
-        { name: 'Inventory Tracking', neono: 'Included', competitor: 'Add-on' },
-        { name: 'AI Insights', neono: 'Included', competitor: 'Not available' },
-        { name: 'QuickBooks Sync', neono: 'Included', competitor: 'Add-on' },
-        { name: '24/7 Support', neono: true, competitor: 'Business hours only' },
+        { name: 'Loyalty Program', neono: '✅ Included', competitor: '💰 $79.95/location/mo', highlight: true },
+        { name: 'Business Insights', neono: '✅ Included', competitor: '💰 $13.95/member/mo', highlight: true },
+        { name: 'Google Reviews Automation', neono: '✅ Included', competitor: '💰 $20.95/location/mo', highlight: true },
+        { name: 'SMS Marketing', neono: '✅ Included', competitor: '🟡 Limited allowance' },
+        { name: 'Colour Cost Tracking', neono: '✅ Included', competitor: '❌ Not available (need SalonScale $99–199/mo)', highlight: true },
+        { name: 'Website Builder', neono: '✅ Included', competitor: '❌ Not available', highlight: true },
+        { name: 'Online Store', neono: '✅ Included', competitor: '✅ Basic' },
+        { name: 'Tip Commission', neono: '✅ 0%', competitor: '💰 Charged at processing rate', highlight: true },
+        { name: 'Guest Booking (no account)', neono: '✅ Yes', competitor: '❌ Requires Fresha account', highlight: true },
+        { name: 'AI Autopilot', neono: '✅ Included', competitor: '❌ Not available' },
+        { name: 'Distributor Integration', neono: '✅ Metro Beauty', competitor: '❌ Not available' },
+        { name: 'CASL Compliance', neono: '✅ Native', competitor: '❌ GDPR-focused' },
+        { name: 'Landing Page Builder', neono: '✅ Included', competitor: '❌ Not available' },
+        { name: 'Link-in-Bio', neono: '✅ Included', competitor: '❌ Not available' },
+        { name: 'Payment Processing', neono: 'Transparent', competitor: '2.29% + $0.20 + $0.15 tap (in-person) / 2.79% + $0.20 (online)' },
       ]}
       uniqueDifferentiators={[
         {
           icon: '💰',
           title: 'True All-Inclusive Pricing',
-          description: 'Everything is included. No upsells for loyalty, SMS, websites, or other "premium" features.',
+          description: '$24.99/seat/month, capped at 7 seats ($174.93/mo max). Seats 8+ are free. No upsells for loyalty, insights, or Google reviews.',
         },
         {
           icon: '🎯',
           title: 'Zero Tip Commissions',
-          description: 'Your staff keeps 100% of tips. Fresha takes 1-3% off every tip, costing you thousands yearly.',
+          description: 'Your staff keeps 100% of tips. Fresha charges processing fees on every tip transaction.',
         },
         {
           icon: '🚀',
-          title: 'Built for Growth',
-          description: 'Unlimited chairs after 7 for the same price. Scale your business without scaling your costs.',
+          title: 'No Account Needed to Book',
+          description: 'Clients book instantly without creating a Fresha account. Less friction means more bookings.',
+        },
+        {
+          icon: '📊',
+          title: 'Savings by Team Size',
+          description: 'Solo: $2,746/yr saved. 3 staff: $2,900/yr. 7 staff: $5,907/yr. 12 staff: $9,861/yr.',
         },
       ]}
       testimonial={{
-        quote: 'We were paying Fresha over $1,200/year for features that are included in NeonO. The switch saved us money and gave us better tools.',
-        author: 'Sarah Martinez',
-        business: 'Luxe Hair Studio',
+        quote: 'Salons switching from marketplace-based platforms typically save $2,000-5,000/year in marketplace fees and add-on costs while gaining features like colour tracking that aren\'t available on those platforms.',
+        author: 'NeonO cost analysis, March 2026',
+        business: '',
         switchedFrom: 'Fresha',
       }}
     />

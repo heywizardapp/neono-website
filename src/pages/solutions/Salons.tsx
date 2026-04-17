@@ -1,9 +1,13 @@
 import BusinessTemplate from '@/templates/BusinessTemplate';
-import salonsConfig from '@/config/solutions/salons';
+import getSalonsConfig from '@/config/solutions/salons';
 import { SEOHead, SEO_PRESETS } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function SalonsPage() {
+  const { t } = useI18n();
+  const config = getSalonsConfig(t);
+
   return (
     <>
       <SEOHead
@@ -22,7 +26,7 @@ export default function SalonsPage() {
           }
         ]}
       />
-      <BusinessTemplate {...salonsConfig} />
+      <BusinessTemplate {...config} />
     </>
   );
 }

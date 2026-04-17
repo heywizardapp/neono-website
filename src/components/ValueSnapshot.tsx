@@ -1,4 +1,4 @@
-import { CheckCircle, Clock, CreditCard, Globe } from 'lucide-react';
+import { CheckCircle, Clock, CreditCard, Globe, Palette } from 'lucide-react';
 import { SnapshotCard } from '@/templates/types';
 
 interface ValueSnapshotProps {
@@ -6,18 +6,20 @@ interface ValueSnapshotProps {
 }
 
 const getIcon = (title: string) => {
-  if (title.toLowerCase().includes('no-show')) return CheckCircle;
-  if (title.toLowerCase().includes('slow') || title.toLowerCase().includes('hour')) return Clock;
-  if (title.toLowerCase().includes('checkout') || title.toLowerCase().includes('payment')) return CreditCard;
-  if (title.toLowerCase().includes('website')) return Globe;
+  if (title.toLowerCase().includes('no-show') || title.toLowerCase().includes('absence')) return CheckCircle;
+  if (title.toLowerCase().includes('slow') || title.toLowerCase().includes('hour') || title.toLowerCase().includes('heure')) return Clock;
+  if (title.toLowerCase().includes('checkout') || title.toLowerCase().includes('payment') || title.toLowerCase().includes('paiement')) return CreditCard;
+  if (title.toLowerCase().includes('website') || title.toLowerCase().includes('site')) return Globe;
+  if (title.toLowerCase().includes('colour') || title.toLowerCase().includes('color') || title.toLowerCase().includes('couleur')) return Palette;
   return CheckCircle;
 };
 
 export function ValueSnapshot({ items }: ValueSnapshotProps) {
+  const gridCols = items.length >= 5 ? 'md:grid-cols-2 lg:grid-cols-5' : 'md:grid-cols-2 lg:grid-cols-4';
   return (
     <section className="py-16 bg-accent/5">
       <div className="container">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className={`grid gap-6 ${gridCols}`}>
           {items.map((item, index) => (
             <div
               key={index}

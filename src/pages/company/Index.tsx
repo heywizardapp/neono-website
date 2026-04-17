@@ -40,10 +40,10 @@ const companyPages = [
 ];
 
 const quickStats = [
-  { label: 'Businesses Served', value: '2,500+' },
-  { label: 'Team Members', value: '85+' },
-  { label: 'Countries', value: '15+' },
-  { label: 'Founded', value: '2019' }
+  { label: 'Launch Date', value: 'April 2026' },
+  { label: 'Anchor Partner', value: 'Metro Beauty Supply' },
+  { label: 'Built For', value: 'Canadian Salons' },
+  { label: 'Platform', value: 'All-in-One' }
 ];
 
 export default function CompanyIndex() {
@@ -69,12 +69,12 @@ export default function CompanyIndex() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4">Company</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
                 Empowering beauty businesses worldwide
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                From our humble beginnings as salon owners to serving thousands of beauty businesses globally, 
-                discover NeonO's story, meet our team, and explore opportunities to join our mission.
+                Built by salon industry professionals for Canadian beauty businesses.
+                Discover NeonO's story, meet our team, and explore opportunities to join our mission.
               </p>
             </div>
           </OptimizedInView>
@@ -131,7 +131,7 @@ export default function CompanyIndex() {
             <Card className="mb-16 overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2 p-8 lg:p-12">
-                  <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
+                  <h2 className="text-3xl font-serif font-bold mb-6">Get in Touch</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     Whether you're interested in learning more about NeonO, exploring partnership opportunities, 
                     or joining our team, we'd love to hear from you.
@@ -142,21 +142,21 @@ export default function CompanyIndex() {
                       <MapPin className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">Headquarters</div>
-                        <div className="text-sm text-muted-foreground">San Francisco, California</div>
+                        <div className="text-sm text-muted-foreground">Toronto, Ontario, Canada</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">General Inquiries</div>
-                        <div className="text-sm text-muted-foreground">hello@neono.com</div>
+                        <div className="text-sm text-muted-foreground">hello@neono.ca</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-3">
                       <Phone className="h-5 w-5 text-primary" />
                       <div>
                         <div className="font-medium">Support</div>
-                        <div className="text-sm text-muted-foreground">24/7 Live Chat Available</div>
+                        <div className="text-sm text-muted-foreground">support@neono.ca</div>
                       </div>
                     </div>
                   </div>
@@ -182,9 +182,9 @@ export default function CompanyIndex() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">Ready to transform your business?</h2>
+                <h2 className="text-2xl font-serif font-bold mb-4">Ready to transform your business?</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
-                  Join thousands of beauty businesses already using NeonO to streamline operations and grow revenue.
+                  See why NeonO is the all-in-one platform Canadian beauty businesses have been waiting for.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild>

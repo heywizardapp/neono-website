@@ -73,10 +73,10 @@ export default function Status() {
               <AlertCircle className="w-12 h-12 text-yellow-500" />
             )}
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[hsl(215,85%,8%)]">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[hsl(215,85%,8%)] font-serif">
             {allOperational ? t('status.allOperational') : t('status.someDegraded')}
           </h1>
-          <p className="text-xl text-gray-600 mb-6">
+          <p className="text-xl text-gray-600 mb-6 font-serif italic">
             {allOperational
               ? t('status.allRunning')
               : t('status.awareOfIssues')}
@@ -98,7 +98,7 @@ export default function Status() {
       {/* Services List */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)]">
+          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)] font-serif">
             {t('status.serviceStatus')}
           </h2>
 
@@ -131,7 +131,7 @@ export default function Status() {
       {/* Uptime History */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)]">
+          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)] font-serif">
             {t('status.uptimeTitle')}
           </h2>
 
@@ -162,7 +162,7 @@ export default function Status() {
       {/* Incident History */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)]">
+          <h2 className="text-2xl font-bold mb-8 text-[hsl(215,85%,8%)] font-serif">
             {t('status.recentIncidents')}
           </h2>
 
@@ -176,7 +176,7 @@ export default function Status() {
       {/* Subscribe */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4 text-[hsl(215,85%,8%)]">
+          <h2 className="text-2xl font-bold mb-4 text-[hsl(215,85%,8%)] font-serif">
             {t('status.getUpdates')}
           </h2>
           <p className="text-gray-600 mb-6">

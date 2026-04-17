@@ -46,8 +46,8 @@ export const PRICING = {
     id: 'independent',
     name: 'Independent',
     tagline: 'Everything you need to run your independent business',
-    price: 19.99,
-    priceDisplay: '$19.99',
+    price: 24.99,
+    priceDisplay: '$24.99',
     billingPeriod: 'month' as const,
     seats: 1,
     seatsLabel: '1 seat included',
@@ -66,68 +66,21 @@ export const PRICING = {
     ctaHref: '/signup',
   },
 
-  // Starter Plan (Small teams)
-  starter: {
-    id: 'starter',
-    name: 'NeonO Starter',
-    tagline: 'Perfect for small teams getting started',
-    price: 29,
-    priceDisplay: '$29',
-    billingPeriod: 'month' as const,
-    seats: 2,
-    seatsLabel: '2 seats included',
-    features: [
-      'Everything in Independent',
-      'Multi-chair scheduling',
-      'Basic staff management',
-      'Commission tracking',
-      'Team calendar view',
-      'Basic analytics',
-    ],
-    ctaText: 'Start Free Trial',
-    ctaHref: '/signup',
-  },
-
-  // Growth Plan (Growing salons)  
-  growth: {
-    id: 'growth',
-    name: 'NeonO Growth',
-    tagline: 'For growing salons that need more power',
-    price: 59,
-    priceDisplay: '$59',
-    billingPeriod: 'month' as const,
-    seats: 5,
-    seatsLabel: '5 seats included',
-    popular: true,
-    features: [
-      'Everything in Starter',
-      'Advanced staff permissions',
-      'AI insights & forecasting',
-      'Loyalty program',
-      'Referral tracking',
-      'Priority support',
-      'Custom reports',
-      'API access',
-    ],
-    ctaText: 'Start Free Trial',
-    ctaHref: '/signup',
-  },
-
-  // Salon Plan (Per-chair pricing)
+  // Salon Plan (Per-seat pricing)
   salon: {
     id: 'salon',
     name: 'Salon',
-    tagline: 'Perfect for teams of 2+ • Chairs 8+ are FREE',
-    pricePerChair: 16.99,
-    pricePerChairDisplay: '$16.99',
+    tagline: 'For teams of 2+ \u2022 Seats 8+ are FREE',
+    pricePerChair: 24.99,
+    pricePerChairDisplay: '$24.99',
     billingPeriod: 'month' as const,
     minChairs: 2,
-    maxBillableChairs: 7, // Chairs 8+ are free
+    maxBillableChairs: 7, // Seats 8+ are free
     maxChairs: 50,
     features: [
       'Multi-chair scheduling',
       'Staff management & permissions',
-      'Commission & payroll tracking',
+      'Commission tracking, tip distribution & timesheet export',
       'Online booking & scheduling',
       'Point of sale & payments',
       'Client management & history',
@@ -158,13 +111,13 @@ export function calculateSalonPrice(chairs: number): {
   return { total, billableChairs, freeChairs, savings };
 }
 
-// Maximum salon price (7 chairs)
-export const MAX_SALON_PRICE = PRICING.salon.pricePerChair * PRICING.salon.maxBillableChairs; // $118.93
-export const MAX_SALON_PRICE_DISPLAY = `$${MAX_SALON_PRICE.toFixed(2)}`; // '$118.93'
+// Maximum salon price (7 seats)
+export const MAX_SALON_PRICE = 24.99 * 7; // $174.93
+export const MAX_SALON_PRICE_DISPLAY = '$174.93';
 
-// Minimum salon price (2 chairs)
+// Minimum salon price (2 seats)
 export const MIN_SALON_PRICE = PRICING.salon.pricePerChair * PRICING.salon.minChairs;
-export const MIN_SALON_PRICE_DISPLAY = `$${MIN_SALON_PRICE.toFixed(2)}`; // '$33.98'
+export const MIN_SALON_PRICE_DISPLAY = `$${MIN_SALON_PRICE.toFixed(2)}`; // '$49.98'
 
 // ===========================================
 // HARDWARE PRICING
@@ -213,20 +166,59 @@ export const HARDWARE = {
 // ===========================================
 
 export const COMPETITORS = {
-  competitorA: {
-    id: 'competitorA',
-    name: 'Competitor A',
-    price: 35,
-    priceDisplay: '$35',
-    seats: 1,
-    note: 'Base plan, add-ons extra',
-  },
   fresha: {
     id: 'fresha',
     name: 'Fresha',
-    loyaltyProgramCost: 1000, // Per year
-    loyaltyProgramCostDisplay: '$1,000+/year',
-    note: 'Charges separately for loyalty features',
+    independentPrice: 29.95,
+    teamPricePerMember: 19.95,
+    addOns: {
+      loyalty: 79.95,           // per location/month
+      insights: 13.95,          // per bookable team member/month
+      googleRatingBoost: 20.95, // per location/month
+      dataConnector: 305.00,    // per location/month
+    },
+    marketplaceFee: 0.20,       // 20% of first booking
+    marketplaceMinimum: 6.00,   // minimum $6 per new client
+    processing: {
+      inPerson: { percent: 2.29, perTx: 0.20, tapAuth: 0.15 },
+      online: { percent: 2.79, perTx: 0.20 },
+      manualEntry: { percent: 3.30, perTx: 0.20 },
+    },
+    note: 'Add-ons required for loyalty, insights, and reviews',
+  },
+  vagaro: {
+    id: 'vagaro',
+    name: 'Vagaro',
+    basePrice: 35.00,
+    extraCalendarPrice: 10.00,  // per additional calendar
+    addOns: {
+      textMarketing: 20.00,
+      vagaroDrive: 15.00,
+      liveStream: 15.00,
+      forms: 15.00,
+      onlineCart: 15.00,
+      checkInApp: 15.00,
+      getFeatured: 15.00,
+      vagaroMySite: 30.00,
+      quickbooks: 40.00,
+      xero: 30.00,
+      brandedApp: 265.00,
+      dataLake: 40.00,
+    },
+    processing: {
+      startingAt: 2.65,
+    },
+    note: 'Most features are paid add-ons',
+  },
+  salonScale: {
+    id: 'salonScale',
+    name: 'SalonScale',
+    tiers: {
+      small: { stylists: '1-3', price: 99.00 },
+      medium: { stylists: '4-7', price: 149.00 },
+      unlimited: { stylists: 'Unlimited', price: 199.00 },
+    },
+    note: 'Colour tracking only \u2014 no booking, POS, or marketing',
   },
 } as const;
 
@@ -235,55 +227,31 @@ export const COMPETITORS = {
 // ===========================================
 
 export const PROCESSING_FEES = {
-  cardRate: 2.6,
-  cardRateDisplay: '2.6%',
-  perTransaction: 0.10,
-  perTransactionDisplay: '$0.10',
-  smsRate: 0.02,
-  smsRateDisplay: '$0.02',
-  tipCommission: 0, // We never take tips
+  inSalon: { percent: 2.69, perTx: 0.25 },
+  inSalonDisplay: '2.69% + $0.25',
+  online: { percent: 2.99, perTx: 0.30 },
+  onlineDisplay: '2.99% + $0.30',
+  dropship: { percent: 3.20, perTx: 0.30 },
+  dropshipDisplay: '3.20% + $0.30',
+  tipCommission: 0,
   tipCommissionDisplay: '0%',
-} as const;
-
-// ===========================================
-// FEATURE AVAILABILITY BY PLAN
-// ===========================================
-
-export const PLAN_FEATURES = {
-  loyalty: {
-    starter: false,
-    growth: true,
-    enterprise: true,
-  },
-  aiInsights: {
-    starter: false,
-    growth: true,
-    enterprise: true,
-  },
-  customReports: {
-    starter: false,
-    growth: true,
-    enterprise: true,
-  },
-  apiAccess: {
-    starter: false,
-    growth: true,
-    enterprise: true,
-  },
 } as const;
 
 // ===========================================
 // DISPLAY HELPERS
 // ===========================================
 
+// NeonO cost: $24.99/seat, capped at 7 seats ($174.93)
+export function calculateNeonoCost(teamSize: number): number {
+  const billableSeats = Math.min(teamSize, 7);
+  return billableSeats * 24.99;
+}
+
 export function formatPrice(price: number, showDecimals = true): string {
   if (price === 0) return 'Free';
   return showDecimals ? `$${price.toFixed(2)}` : `$${Math.round(price)}`;
 }
 
-export function getPlanByPrice(monthlyPrice: number): string {
-  if (monthlyPrice <= PRICING.independent.price) return 'independent';
-  if (monthlyPrice <= PRICING.starter.price) return 'starter';
-  if (monthlyPrice <= PRICING.growth.price) return 'growth';
-  return 'salon';
+export function getPlanByTeamSize(teamSize: number): string {
+  return teamSize <= 1 ? 'independent' : 'salon';
 }

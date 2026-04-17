@@ -200,8 +200,8 @@ export default function Marketing() {
         { name: 'Klaviyo', logo: 'KL' },
       ]}
       pricing={{
-        startingPrice: `${PRICING.starter.priceDisplay}/month`,
-        includedIn: ['Starter', 'Growth'],
+        startingPrice: `${PRICING.independent.priceDisplay}/month`,
+        includedIn: ['Independent', 'Salon'],
       }}
       faqs={[
         {

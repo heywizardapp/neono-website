@@ -111,10 +111,10 @@ export default function PosHardware() {
               <CreditCard className="h-3 w-3 mr-1" />
               POS Hardware
             </Badge>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Professional Payment Terminals
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 font-serif italic">
               Accept payments anywhere with industry-leading hardware from Stripe Terminal. Choose the right terminal for your business.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -197,8 +197,8 @@ export default function PosHardware() {
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Compare Terminals</h2>
-              <p className="text-lg text-muted-foreground">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Compare Terminals</h2>
+              <p className="text-lg text-muted-foreground font-serif italic">
                 Find the perfect payment solution for your business
               </p>
             </div>
@@ -262,7 +262,7 @@ export default function PosHardware() {
         <section className="py-16 px-4">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose NeonO Hardware</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Why Choose NeonO Hardware</h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
@@ -302,10 +302,10 @@ export default function PosHardware() {
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
               Ready to upgrade your checkout?
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground mb-8 font-serif italic">
               Talk to our team to find the right terminal for your business
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

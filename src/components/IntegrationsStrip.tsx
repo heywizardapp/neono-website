@@ -1,48 +1,39 @@
 import { IntegrationLogo } from '@/templates/types';
-
-interface Integration {
-  label: string;
-  src?: string;
-}
+import { useI18n } from '@/hooks/useI18n';
 
 interface IntegrationsStripProps {
   integrations: IntegrationLogo[];
 }
 
 export function IntegrationsStrip({ integrations }: IntegrationsStripProps) {
+  const { t } = useI18n();
+
   return (
-    <section className="py-20 lg:py-32 bg-accent/5">
+    <section className="py-16">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
-            Integrates with your favorite tools
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Connect NeonO with the tools you already use
+        <div className="text-center mb-10">
+          <h3 className="font-serif text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+            {t('integrations.title')}
+          </h3>
+          <p className="font-serif italic text-muted-foreground">
+            {t('integrations.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+        <div className="flex flex-wrap justify-center gap-4">
           {integrations.map((integration, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-6 bg-card rounded-xl border border-border/40 hover-lift"
-              style={{ animationDelay: `${index * 50}ms` }}
+              className="px-6 py-3 rounded-xl bg-card/50 border border-border/40 hover-lift flex items-center gap-2"
             >
-              <div className="w-16 h-16 bg-gradient-hero/10 rounded-lg flex items-center justify-center">
-                <span className="text-sm font-semibold text-muted-foreground">
-                  {integration.label.substring(0, 2).toUpperCase()}
-                </span>
-              </div>
+              <span className="font-semibold text-sm">{integration.label}</span>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-sm text-muted-foreground">
-            And 50+ more integrations available
-          </p>
-        </div>
+        <p className="text-center text-sm text-muted-foreground mt-6">
+          {t('integrations.moreAvailable')}
+        </p>
       </div>
     </section>
   );

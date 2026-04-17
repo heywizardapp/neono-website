@@ -41,10 +41,10 @@ export function TrustSignals() {
             <Badge variant="secondary" className="mb-4">
               {t('trustSignals.badge')}
             </Badge>
-            <h2 className="text-2xl font-bold mb-4">
+            <h2 className="text-2xl font-bold mb-4 font-serif">
               {t('trustSignals.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto font-serif italic">
               {t('trustSignals.subtitle')}
             </p>
           </div>
@@ -71,20 +71,12 @@ export function TrustSignals() {
           })}
         </div>
 
-        {/* Customer logos */}
+        {/* Partnership */}
         <IntersectionAnimation animation="fade-up" delay={400}>
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground mb-8">
-              {t('trustSignals.trustedByBrands')}
+          <div className="mt-12">
+            <p className="text-sm text-muted-foreground text-center">
+              Built in partnership with Metro Beauty Supply — Canada's leading professional beauty distributor
             </p>
-
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-50">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="h-12 bg-slate-200 rounded-lg flex items-center justify-center">
-                  <div className="text-xs text-slate-400 font-medium">LOGO {i}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </IntersectionAnimation>
       </div>

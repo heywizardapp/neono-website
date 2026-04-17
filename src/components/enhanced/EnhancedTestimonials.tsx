@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Quote, BarChart3 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useInView } from '@/lib/useInView';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
@@ -27,44 +27,44 @@ export function EnhancedTestimonials() {
     {
       id: '1',
       quote: t('enhancedTestimonials.t1.quote'),
-      author: "Sarah Martinez",
-      business: "Luxe Hair Studio",
+      author: t('enhancedTestimonials.t1.author'),
+      business: "",
       role: t('enhancedTestimonials.t1.role'),
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
+      avatar: "https://images.pexels.com/photos/7440054/pexels-photo-7440054.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
       stat: t('enhancedTestimonials.t1.stat'),
       businessType: t('enhancedTestimonials.t1.businessType')
     },
     {
       id: '2',
       quote: t('enhancedTestimonials.t2.quote'),
-      author: "Mike Chen",
-      business: "Urban Cuts Barbershop",
+      author: t('enhancedTestimonials.t2.author'),
+      business: "",
       role: t('enhancedTestimonials.t2.role'),
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      avatar: "https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
       stat: t('enhancedTestimonials.t2.stat'),
       businessType: t('enhancedTestimonials.t2.businessType')
     },
     {
       id: '3',
       quote: t('enhancedTestimonials.t3.quote'),
-      author: "Emma Thompson",
-      business: "Serenity Day Spa",
+      author: t('enhancedTestimonials.t3.author'),
+      business: "",
       role: t('enhancedTestimonials.t3.role'),
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      avatar: "https://images.pexels.com/photos/5069494/pexels-photo-5069494.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
       stat: t('enhancedTestimonials.t3.stat'),
       businessType: t('enhancedTestimonials.t3.businessType')
     },
     {
       id: '4',
       quote: t('enhancedTestimonials.t4.quote'),
-      author: "David Rodriguez",
-      business: "Elite Aesthetics",
+      author: t('enhancedTestimonials.t4.author'),
+      business: "",
       role: t('enhancedTestimonials.t4.role'),
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+      avatar: "https://images.pexels.com/photos/4586741/pexels-photo-4586741.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&dpr=1",
       stat: t('enhancedTestimonials.t4.stat'),
       businessType: t('enhancedTestimonials.t4.businessType')
     }
@@ -115,10 +115,10 @@ export function EnhancedTestimonials() {
     <section ref={ref} className="py-20 lg:py-32 bg-gradient-subtle">
       <div className="container">
         <ScrollReveal animation="fade-up" className="text-center mb-16">
-          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
             {t('enhancedTestimonials.title')}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-serif text-xl text-muted-foreground max-w-2xl mx-auto italic">
             {t('enhancedTestimonials.subtitle')}
           </p>
         </ScrollReveal>
@@ -137,21 +137,8 @@ export function EnhancedTestimonials() {
               </div>
 
               <div className="relative z-10">
-                {/* Rating */}
-                <div className="flex justify-center mb-6">
-                  <div className="flex space-x-1" role="img" aria-label={`${currentTestimonial.rating} out of 5 stars`}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-6 w-6 text-yellow-400 fill-current"
-                        aria-hidden="true"
-                      />
-                    ))}
-                  </div>
-                </div>
-
                 {/* Quote */}
-                <blockquote className="text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground mb-8 max-w-4xl mx-auto">
+                <blockquote className="font-serif italic text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground mb-8 max-w-4xl mx-auto">
                   "{currentTestimonial.quote}"
                 </blockquote>
 
@@ -159,14 +146,8 @@ export function EnhancedTestimonials() {
                 <div className="flex items-center justify-center space-x-6">
                   <div className="flex items-center space-x-4">
                     <div className="relative">
-                      <img
-                        src={currentTestimonial.avatar}
-                        alt={`${currentTestimonial.author} portrait`}
-                        className="w-16 h-16 rounded-full object-cover shadow-medium ring-4 ring-white/50"
-                        loading="lazy"
-                      />
-                      <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                        <Star className="w-3 h-3 text-white fill-white" />
+                      <div className="w-16 h-16 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center shadow-medium">
+                        <BarChart3 className="w-7 h-7 text-primary" />
                       </div>
                     </div>
 
@@ -176,9 +157,6 @@ export function EnhancedTestimonials() {
                       </div>
                       <div className="text-muted-foreground">
                         {currentTestimonial.role}
-                      </div>
-                      <div className="text-sm font-medium text-primary">
-                        {currentTestimonial.business}
                       </div>
                     </div>
                   </div>
@@ -211,33 +189,22 @@ export function EnhancedTestimonials() {
               <ChevronLeft className="h-5 w-5 text-foreground" />
             </button>
 
-            <div className="flex space-x-3" role="tablist" aria-label="Testimonials">
+            <div className="flex space-x-3" role="tablist" aria-label="Expected outcomes">
               {testimonials.map((testimonial, index) => (
                 <button
                   key={testimonial.id}
                   role="tab"
                   aria-selected={index === currentIndex}
-                  aria-label={`Go to testimonial from ${testimonial.author}`}
+                  aria-label={`Go to outcome: ${testimonial.businessType}`}
                   onClick={() => setCurrentIndex(index)}
                   className="group focus-ring p-2 transition-all duration-300"
                 >
-                  <div className="relative">
-                    <img
-                      src={testimonial.avatar}
-                      alt={`${testimonial.author} portrait`}
-                      className={cn(
-                        "w-12 h-12 rounded-full object-cover transition-all duration-300 ring-4",
-                        index === currentIndex
-                          ? "ring-primary scale-110 shadow-medium"
-                          : "ring-border/40 grayscale hover:grayscale-0 hover:scale-105"
-                      )}
-                    />
-                    {index === currentIndex && (
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-primary rounded-full flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full" />
-                      </div>
-                    )}
-                  </div>
+                  <div className={cn(
+                    "w-3 h-3 rounded-full transition-all duration-300",
+                    index === currentIndex
+                      ? "bg-primary scale-125"
+                      : "bg-border/60 hover:bg-primary/40 hover:scale-110"
+                  )} />
                 </button>
               ))}
             </div>

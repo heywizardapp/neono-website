@@ -129,7 +129,7 @@ function EmptySearchState({ query }: { query: string }) {
         <AlertCircle className="w-8 h-8 text-gray-400" />
       </div>
       
-      <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+      <h2 className="text-2xl font-semibold text-gray-900 mb-2 font-serif">
         No results found for "{query}"
       </h2>
       
@@ -339,7 +339,7 @@ export default function Search() {
             {/* Results Header */}
             {query && (
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-serif">
                   Search results for "{query}"
                 </h1>
                 {!loading && (
@@ -352,7 +352,7 @@ export default function Search() {
 
             {!query && (
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 font-serif">
                   Search Academy
                 </h1>
                 <p className="text-gray-600">

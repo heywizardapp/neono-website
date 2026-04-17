@@ -1,9 +1,13 @@
 import BusinessTemplate from '@/templates/BusinessTemplate';
-import aestheticsConfig from '@/config/solutions/aesthetics';
+import getAestheticsConfig from '@/config/solutions/aesthetics';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function AestheticsPage() {
+  const { t } = useI18n();
+  const config = getAestheticsConfig(t);
+
   return (
     <>
       <SEOHead
@@ -23,7 +27,7 @@ export default function AestheticsPage() {
           },
         ]}
       />
-      <BusinessTemplate {...aestheticsConfig} />
+      <BusinessTemplate {...config} />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { X, GitCompare, Check, Minus, ArrowRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useI18n } from '@/hooks/useI18n';
 import { featureMatrix, planLabels, planPricing } from '@/config/compare/featureMatrix';
 import { PlanKey, FeatureRow } from '@/types/roi';
 
@@ -14,6 +15,7 @@ interface StickyCompareProps {
 }
 
 export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solutions/'] }: StickyCompareProps) {
+  const { t } = useI18n();
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeCategory, setActiveCategory] = React.useState(featureMatrix.categories[0].id);
   const location = useLocation();
@@ -35,8 +37,8 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
     // Analytics tracking moved to production service
   };
 
-  const handleRoiDeeplink = (plan: 'starter' | 'growth') => {
-    const roiUrl = `/roi?plan=${plan}`;
+  const handleRoiDeeplink = (plan: 'independent' | 'salon') => {
+    const roiUrl = `/roi?team=${plan === 'independent' ? '1' : '3'}`;
     // Analytics tracking moved to production service
     return roiUrl;
   };
@@ -88,7 +90,7 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
           aria-label="Compare plans and features"
         >
           <GitCompare className="h-5 w-5 mr-2" />
-          Compare Plans
+          {t('stickyCompare.comparePlans')}
         </Button>
       </div>
 
@@ -101,9 +103,9 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
           <DialogHeader className="p-6 border-b">
             <div className="flex items-center justify-between">
               <div>
-                <DialogTitle className="text-2xl">Compare plans and features</DialogTitle>
+                <DialogTitle className="text-2xl">{t('stickyCompare.title')}</DialogTitle>
                 <DialogDescription id="compare-description">
-                  See what's included vs. add-ons elsewhere—then check your ROI.
+                  {t('stickyCompare.subtitle')}
                 </DialogDescription>
               </div>
               <Button
@@ -122,23 +124,23 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
             <div className="p-6">
               {/* Plan Headers */}
               <div className="grid grid-cols-4 gap-4 mb-8">
-                <div className="font-semibold text-muted-foreground">Features</div>
+                <div className="font-semibold text-muted-foreground">{t('stickyCompare.features')}</div>
                 {featureMatrix.plans.map((plan) => {
                   const pricing = planPricing[plan];
-                  const isPopular = plan === 'growth';
+                  const isPopular = plan === 'salon';
                   
                   return (
                     <Card key={plan} className={`text-center ${isPopular ? 'ring-2 ring-primary' : ''}`}>
                       <CardHeader className="pb-3">
                         <div className="flex items-center justify-center gap-2">
                           <CardTitle className="text-lg">{planLabels[plan]}</CardTitle>
-                          {isPopular && <Badge variant="default">Popular</Badge>}
+                          {isPopular && <Badge variant="default">{t('stickyCompare.popular')}</Badge>}
                         </div>
                         <CardDescription>
                           <div className="text-2xl font-bold text-foreground">
                             ${pricing.price}<span className="text-sm font-normal">/mo</span>
                           </div>
-                          <div className="text-sm">{pricing.seats} seats included</div>
+                          <div className="text-sm">{pricing.seats} {t('stickyCompare.seatsIncluded')}</div>
                           {pricing.note && (
                             <div className="text-xs text-muted-foreground mt-1">{pricing.note}</div>
                           )}
@@ -148,17 +150,17 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
                         {plan !== 'competitorA' ? (
                           <div className="space-y-2">
                             <Button asChild className="w-full touch-44" size="sm">
-                              <Link to="/signup">Start Free Trial</Link>
+                              <Link to="/signup">{t('stickyCompare.startFreeTrial')}</Link>
                             </Button>
                             <Button asChild variant="outline" className="w-full touch-44" size="sm">
-                              <Link to={handleRoiDeeplink(plan as 'starter' | 'growth')}>
-                                See ROI <ArrowRight className="ml-1 h-3 w-3" />
+                              <Link to={handleRoiDeeplink(plan as 'independent' | 'salon')}>
+                                {t('stickyCompare.seeRoi')} <ArrowRight className="ml-1 h-3 w-3" />
                               </Link>
                             </Button>
                           </div>
                         ) : (
                           <div className="text-xs text-muted-foreground">
-                            Representative competitor
+                            {t('stickyCompare.representativeCompetitor')}
                           </div>
                         )}
                       </CardContent>
@@ -176,7 +178,7 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
                       value={category.id}
                       className="text-xs touch-44"
                     >
-                      {category.label}
+                      {t(category.label)}
                     </TabsTrigger>
                   ))}
                 </TabsList>
@@ -185,14 +187,14 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
                   <TabsContent key={category.id} value={category.id}>
                     <Card>
                       <CardHeader>
-                        <CardTitle className="text-lg">{category.label}</CardTitle>
+                        <CardTitle className="text-lg">{t(category.label)}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-4">
                           {category.rows.map((row) => (
                             <div key={row.id} className="grid grid-cols-4 gap-4 py-3 border-b last:border-b-0">
                               <div className="flex flex-col">
-                                <span className="font-medium text-sm">{row.label}</span>
+                                <span className="font-medium text-sm">{t(row.label)}</span>
                                 {row.note && (
                                   <span className="text-xs text-muted-foreground mt-1">{row.note}</span>
                                 )}
@@ -214,16 +216,16 @@ export function StickyCompare({ showOnPaths = ['/pricing', '/products/', '/solut
               {/* Bottom CTA */}
               <Card className="mt-8 bg-gradient-hero text-white border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold mb-2">Ready to save with NeonO?</h3>
+                  <h3 className="text-xl font-bold mb-2">{t('stickyCompare.readyToSave')}</h3>
                   <p className="text-white/90 mb-4">
-                    Everything you need is included—no hidden fees, no expensive add-ons.
+                    {t('stickyCompare.everythingIncluded')}
                   </p>
                   <div className="flex gap-3 justify-center">
                     <Button size="lg" variant="secondary" className="touch-44" asChild>
-                      <Link to="/signup">Start Free Trial</Link>
+                      <Link to="/signup">{t('stickyCompare.startFreeTrial')}</Link>
                     </Button>
                     <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 touch-44" asChild>
-                      <Link to="/roi">Calculate ROI</Link>
+                      <Link to="/roi">{t('stickyCompare.calculateRoi')}</Link>
                     </Button>
                   </div>
                 </CardContent>

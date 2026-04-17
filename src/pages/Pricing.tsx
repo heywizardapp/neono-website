@@ -29,11 +29,21 @@ const getFaqs = (t: (key: string) => string) => [
   },
   {
     question: t('pricing.page.faq2q'),
-    answer: `Salon plans start at ${PRICING.salon.minChairs} chairs for ${MIN_SALON_PRICE_DISPLAY}/month. Each chair costs ${PRICING.salon.pricePerChairDisplay}/month for the first ${PRICING.salon.maxBillableChairs} chairs. After that, chairs ${PRICING.salon.maxBillableChairs + 1} and beyond are completely FREE—no additional cost as you grow. The maximum you'll ever pay is ${MAX_SALON_PRICE_DISPLAY}/month, regardless of team size.`
+    answer: t('pricing.page.faq2a')
+      .replace('{minChairs}', String(PRICING.salon.minChairs))
+      .replace('{minPrice}', MIN_SALON_PRICE_DISPLAY)
+      .replace('{pricePerChair}', PRICING.salon.pricePerChairDisplay)
+      .replace('{maxBillableChairs}', String(PRICING.salon.maxBillableChairs))
+      .replace('{maxBillableChairsPlus1}', String(PRICING.salon.maxBillableChairs + 1))
+      .replace('{maxPrice}', MAX_SALON_PRICE_DISPLAY)
   },
   {
     question: t('pricing.page.faq3q'),
-    answer: `Yes! Once you have ${PRICING.salon.maxBillableChairs} chairs, every additional chair is completely free. Whether you have ${PRICING.salon.maxBillableChairs + 1} chairs or ${PRICING.salon.maxChairs} chairs, you pay the same price: ${MAX_SALON_PRICE_DISPLAY}/month. This makes NeonO incredibly cost-effective for growing salons and multi-location businesses.`
+    answer: t('pricing.page.faq3a')
+      .replace('{maxBillableChairs}', String(PRICING.salon.maxBillableChairs))
+      .replace('{maxBillableChairsPlus1}', String(PRICING.salon.maxBillableChairs + 1))
+      .replace('{maxChairs}', String(PRICING.salon.maxChairs))
+      .replace('{maxPrice}', MAX_SALON_PRICE_DISPLAY)
   },
   {
     question: t('pricing.page.faq4q'),
@@ -90,8 +100,8 @@ export default function Pricing() {
             type: 'breadcrumb',
             data: generateStructuredData('breadcrumb', {
               crumbs: [
-                { label: "Home", href: "/" },
-                { label: "Pricing", href: "/pricing" }
+                { label: t('common.home'), href: "/" },
+                { label: t('common.pricing'), href: "/pricing" }
               ]
             })
           }
@@ -281,10 +291,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.whatsIncludedTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
                 {t('pricing.page.whatsIncludedSubtitle')}
               </p>
             </div>
@@ -330,10 +340,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.faqTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
                 {t('pricing.page.faqSubtitle')}
               </p>
             </div>
@@ -371,10 +381,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.roiTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
                 {t('pricing.page.roiSubtitle')}
               </p>
             </div>

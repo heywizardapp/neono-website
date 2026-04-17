@@ -128,7 +128,7 @@ export default function Onboarding() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[hsl(240,89%,73%)] focus:border-transparent"
-                  placeholder="(555) 123-4567"
+                  placeholder="(416) 000-0000"
                 />
               </div>
 

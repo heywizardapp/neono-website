@@ -1,9 +1,13 @@
 import BusinessTemplate from '@/templates/BusinessTemplate';
-import barbersConfig from '@/config/solutions/barbershops';
+import getBarbershopsConfig from '@/config/solutions/barbershops';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function BarbershopsPage() {
+  const { t } = useI18n();
+  const config = getBarbershopsConfig(t);
+
   return (
     <>
       <SEOHead
@@ -23,7 +27,7 @@ export default function BarbershopsPage() {
           },
         ]}
       />
-      <BusinessTemplate {...barbersConfig} />
+      <BusinessTemplate {...config} />
     </>
   );
 }

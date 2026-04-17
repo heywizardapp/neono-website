@@ -1,4 +1,5 @@
 import * as React from 'react';
+import DesktopCalendar from '@/components/demos/InteractiveCalendar/DesktopCalendar';
 
 interface MockupProps {
   variant: string;
@@ -25,91 +26,23 @@ const MockupContainer = ({ children, className = '' }: { children: React.ReactNo
   </div>
 );
 
-// Calendar/Appointments Mockup
+// Calendar/Appointments Mockup — Interactive (no padding, allows internal scroll)
 const CalendarMockup = () => (
-  <MockupContainer>
-    <div className="flex h-full gap-4">
-      {/* Sidebar */}
-      <div className="w-48 flex-shrink-0 space-y-4">
-        <div className="flex items-center gap-2 p-3 bg-primary/10 rounded-lg">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">N</div>
-          <div className="flex-1">
-            <div className="h-3 bg-slate-300 dark:bg-slate-600 rounded w-20" />
-            <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-16 mt-1" />
-          </div>
-        </div>
-        <div className="space-y-2">
-          {['Calendar', 'Clients', 'Services', 'Staff'].map((item, i) => (
-            <div key={item} className={`flex items-center gap-2 p-2 rounded-lg ${i === 0 ? 'bg-primary/10 text-primary' : ''}`}>
-              <div className={`w-5 h-5 rounded ${i === 0 ? 'bg-primary' : 'bg-slate-200 dark:bg-slate-700'}`} />
-              <span className="text-xs font-medium">{item}</span>
-            </div>
-          ))}
-        </div>
-        <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-lg">
-          <div className="text-xs font-medium mb-2">Quick Stats</div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-xs">
-              <span className="text-slate-500">Today</span>
-              <span className="font-bold text-primary">12 appts</span>
-            </div>
-            <div className="flex justify-between text-xs">
-              <span className="text-slate-500">Revenue</span>
-              <span className="font-bold text-green-600">$1,847</span>
-            </div>
-          </div>
-        </div>
+  <div className="relative w-full h-full min-h-[300px] rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden">
+    <div className="flex items-center gap-2 px-4 py-3 bg-slate-50 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+      <div className="flex gap-1.5">
+        <div className="w-3 h-3 rounded-full bg-red-400" />
+        <div className="w-3 h-3 rounded-full bg-yellow-400" />
+        <div className="w-3 h-3 rounded-full bg-green-400" />
       </div>
-      
-      {/* Main calendar area */}
-      <div className="flex-1 space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <button className="p-1.5 hover:bg-slate-100 rounded">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-            </button>
-            <span className="font-semibold text-sm">December 2024</span>
-            <button className="p-1.5 hover:bg-slate-100 rounded">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            </button>
-          </div>
-          <div className="flex gap-2">
-            <button className="px-3 py-1.5 text-xs bg-primary text-white rounded-lg">+ New Booking</button>
-          </div>
-        </div>
-        
-        {/* Calendar grid */}
-        <div className="grid grid-cols-5 gap-1 flex-1">
-          {/* Time column */}
-          <div className="space-y-0">
-            {['9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM'].map(time => (
-              <div key={time} className="h-12 flex items-start justify-end pr-2 text-[10px] text-slate-400">{time}</div>
-            ))}
-          </div>
-          {/* Staff columns */}
-          {['Sarah M.', 'Mike J.', 'Emma C.', 'Alex K.'].map((staff, staffIdx) => (
-            <div key={staff} className="space-y-0 border-l border-slate-100 dark:border-slate-800">
-              <div className="h-6 flex items-center justify-center text-[10px] font-medium bg-slate-50 dark:bg-slate-800 border-b">{staff}</div>
-              {[0, 1, 2, 3, 4, 5].map(slot => {
-                const hasAppt = (staffIdx === 0 && slot === 1) || (staffIdx === 1 && slot === 0) || (staffIdx === 2 && slot === 3) || (staffIdx === 3 && slot === 2);
-                const colors = ['bg-primary/20 border-primary', 'bg-accent/20 border-accent', 'bg-green-100 border-green-500', 'bg-purple-100 border-purple-500'];
-                return (
-                  <div key={slot} className="h-12 border-b border-slate-50 dark:border-slate-800 p-0.5">
-                    {hasAppt && (
-                      <div className={`h-full rounded text-[8px] p-1 border-l-2 ${colors[staffIdx]}`}>
-                        <div className="font-medium truncate">Client Name</div>
-                        <div className="text-slate-500 truncate">Haircut & Style</div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
+      <div className="flex-1 mx-4">
+        <div className="h-6 bg-slate-200 dark:bg-slate-700 rounded-md max-w-xs" />
       </div>
     </div>
-  </MockupContainer>
+    <div className="h-[calc(100%-52px)] overflow-auto">
+      <DesktopCalendar />
+    </div>
+  </div>
 );
 
 // POS Checkout Mockup

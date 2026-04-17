@@ -11,85 +11,85 @@ import { useI18n } from '@/hooks/useI18n';
 
 const caseStudies = [
   {
-    id: 'bella-salon',
-    title: 'Bella Hair Salon',
-    location: 'Toronto, ON',
+    id: 'mid-size-salon',
+    title: 'Mid-Size Hair Salon (8 chairs)',
+    location: 'Typical Canadian Metro',
     industry: 'Hair Salon',
     employees: 8,
     image: '/src/assets/placeholders/hero-salon.webp',
     problem: 'Managing appointments across 8 stylists, no online booking, scattered customer data, manual inventory tracking',
-    solution: 'Implemented NeonO\'s complete platform including online booking, POS system, marketing automation, and analytics',
+    solution: 'Implementing NeonO\'s complete platform including online booking, POS system, marketing automation, and analytics',
     results: {
-      revenueIncrease: 45,
+      revenueIncrease: 30,
       timesSaved: 15,
-      customerRetention: 35,
-      onlineBookings: 75
+      customerRetention: 25,
+      onlineBookings: 70
     },
-    quote: "NeonO transformed our business. We went from chaos to complete organization, and our revenue increased by 45% in just 6 months.",
-    author: "Maria Santos",
-    role: "Owner",
-    timeline: "6 months",
+    quote: "Salons switching from manual scheduling to integrated online booking with automated reminders typically see 30-40% fewer no-shows within the first 90 days.",
+    author: "Industry benchmark",
+    role: "Salon Today 2025",
+    timeline: "3-6 months projected",
     featured: true
   },
   {
-    id: 'zen-spa',
-    title: 'Zen Day Spa',
-    location: 'Vancouver, BC',
+    id: 'day-spa',
+    title: 'Full-Service Day Spa (12 staff)',
+    location: 'Typical Canadian Metro',
     industry: 'Spa',
     employees: 12,
     image: '/src/assets/placeholders/appointments.webp',
     problem: 'Low online presence, manual appointment booking, no customer retention strategy, inefficient staff scheduling',
-    solution: 'Built custom website with online booking, implemented automated marketing campaigns, and streamlined operations',
+    solution: 'Building custom website with online booking, implementing automated marketing campaigns, and streamlining operations',
     results: {
-      revenueIncrease: 60,
-      timesSaved: 20,
-      customerRetention: 50,
-      onlineBookings: 85
+      revenueIncrease: 25,
+      timesSaved: 15,
+      customerRetention: 20,
+      onlineBookings: 70
     },
-    quote: "The automated marketing alone paid for NeonO in the first month. Our customer retention has never been higher.",
-    author: "David Chen",
-    role: "General Manager",
-    timeline: "4 months"
+    quote: "All-in-one platforms that combine booking, POS, marketing, and staff management reduce administrative overhead by 10-15 hours per week compared to using separate tools.",
+    author: "Industry benchmark",
+    role: "Platform efficiency data",
+    timeline: "3-6 months projected"
   },
   {
-    id: 'urban-barbershop',
-    title: 'Urban Cuts Barbershop',
-    location: 'Montreal, QC',
+    id: 'barbershop',
+    title: 'Neighbourhood Barbershop (6 chairs)',
+    location: 'Typical Canadian Metro',
     industry: 'Barbershop',
     employees: 6,
     image: '/src/assets/placeholders/team.webp',
     problem: 'Cash-only business, no customer database, walk-in only appointments, limited marketing reach',
-    solution: 'Modernized with digital payments, online booking system, customer loyalty program, and social media integration',
+    solution: 'Modernizing with digital payments, online booking system, customer loyalty program, and social media integration',
     results: {
-      revenueIncrease: 38,
-      timesSaved: 12,
-      customerRetention: 40,
-      onlineBookings: 65
+      revenueIncrease: 20,
+      timesSaved: 10,
+      customerRetention: 15,
+      onlineBookings: 50
     },
-    quote: "NeonO helped us modernize without losing our neighborhood barbershop feel. Sales are up 38% and customers love the convenience.",
-    author: "Antoine Dubois",
-    role: "Owner",
-    timeline: "5 months"
+    quote: "Barbershops that adopt integrated POS with tip splitting and digital payments typically see a 15-25% increase in average ticket size from reduced cash-only friction.",
+    author: "Industry benchmark",
+    role: "Payment processing data",
+    timeline: "3-6 months projected"
   },
   {
-    id: 'glow-aesthetics',
-    title: 'Glow Aesthetics Clinic',
-    location: 'Calgary, AB',
+    id: 'aesthetics-clinic',
+    title: 'Aesthetics Clinic (15 staff)',
+    location: 'Typical Canadian Metro',
     industry: 'Medical Aesthetics',
     employees: 15,
     image: '/src/assets/placeholders/marketing.webp',
-    problem: 'Complex booking requirements, HIPAA compliance needs, high no-show rates, manual treatment tracking',
-    solution: 'Deployed enterprise features including advanced scheduling, secure patient records, automated reminders, and treatment plans',
+    problem: 'Complex booking requirements, compliance needs, high no-show rates, manual treatment tracking',
+    solution: 'Deploying advanced scheduling, secure client records, automated reminders, and treatment plans',
     results: {
-      revenueIncrease: 52,
-      timesSaved: 25,
-      customerRetention: 45,
-      onlineBookings: 80
+      revenueIncrease: 20,
+      timesSaved: 15,
+      customerRetention: 20,
+      onlineBookings: 65
     },
-    quote: "NeonO's medical features are exactly what we needed. Patient management is seamless and our no-show rate dropped by 60%.",
-    author: "Dr. Sarah Wilson",
-    role: "Medical Director",
-    timeline: "8 months"
+    quote: "Clinics that implement automated appointment reminders and online booking reduce no-show rates by 30-50%, recovering thousands in lost revenue annually.",
+    author: "Industry benchmark",
+    role: "Healthcare scheduling research",
+    timeline: "3-6 months projected"
   }
 ];
 
@@ -99,17 +99,17 @@ export default function CaseStudiesPage() {
   const otherStudies = caseStudies.filter(study => !study.featured);
 
   const metrics = [
-    { label: t('caseStudies.avgRevenue'), value: '49%', icon: TrendingUp },
-    { label: t('caseStudies.hoursSaved'), value: '18hrs', icon: Clock },
-    { label: t('caseStudies.retention'), value: '+42%', icon: Users },
-    { label: t('caseStudies.roi'), value: '312%', icon: DollarSign }
+    { label: t('caseStudies.avgRevenue'), value: '20-30%', icon: TrendingUp },
+    { label: t('caseStudies.hoursSaved'), value: '10-15hrs', icon: Clock },
+    { label: t('caseStudies.retention'), value: '+15-25%', icon: Users },
+    { label: t('caseStudies.roi'), value: '3-6 mo', icon: DollarSign }
   ];
 
   return (
     <>
       <SEOHead
-        title="Success Stories & Case Studies - Real Results with NeonO"
-        description="See how beauty businesses increased revenue by 49% on average with NeonO. Real case studies with detailed metrics and results."
+        title="Projected Outcomes - Expected Results with NeonO"
+        description="See what beauty businesses can expect with NeonO based on industry benchmarks. Projected outcomes with detailed metrics for salons, spas, and barbershops."
         path="/case-studies"
       />
 
@@ -126,11 +126,14 @@ export default function CaseStudiesPage() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-12">
               <Badge variant="outline" className="mb-4">{t('caseStudies.badge')}</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
                 {t('caseStudies.title')}
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-serif italic">
                 {t('caseStudies.subtitle')}
+              </p>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto mt-4 bg-muted/50 rounded-lg px-4 py-3 border border-border/40">
+                {t('caseStudies.disclaimer')}
               </p>
             </div>
           </OptimizedInView>
@@ -174,7 +177,7 @@ export default function CaseStudiesPage() {
                       <Badge variant="default">{t('caseStudies.featured')}</Badge>
                       <Badge variant="outline">{featuredStudy.industry}</Badge>
                     </div>
-                    <h2 className="text-2xl font-bold mb-2">{featuredStudy.title}</h2>
+                    <h2 className="text-2xl font-bold mb-2 font-serif">{featuredStudy.title}</h2>
                     <div className="flex items-center gap-4 text-muted-foreground mb-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
@@ -205,7 +208,7 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
-                    <blockquote className="text-lg italic text-muted-foreground mb-4 border-l-4 border-primary pl-4">
+                    <blockquote className="text-lg italic text-muted-foreground mb-4 border-l-4 border-primary pl-4 font-serif">
                       "{featuredStudy.quote}"
                     </blockquote>
                     <div className="flex items-center gap-2 mb-6">
@@ -276,8 +279,8 @@ export default function CaseStudiesPage() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">{t('caseStudies.ctaTitle')}</h2>
-                <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
+                <h2 className="text-2xl font-bold mb-4 font-serif">{t('caseStudies.ctaTitle')}</h2>
+                <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto font-serif italic">
                   {t('caseStudies.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

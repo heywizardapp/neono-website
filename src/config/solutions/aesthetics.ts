@@ -1,8 +1,8 @@
 import { BusinessTemplateConfig } from "@/templates/types";
 import { PRICING } from "@/config/pricing";
 
-const aestheticsConfig: BusinessTemplateConfig = {
-  industry: "Medical Aesthetics",
+const getAestheticsConfig = (t: (key: string) => string): BusinessTemplateConfig => ({
+  industry: t("solutions.aesthetics.industry"),
   hero: {
     titleKey: "solutions.aesthetics.hero.title",
     subtitleKey: "solutions.aesthetics.hero.subtitle",
@@ -12,100 +12,100 @@ const aestheticsConfig: BusinessTemplateConfig = {
     secondaryHref: "/pricing",
     chipsKeys: [
       "solutions.aesthetics.chips.deposits",
-      "solutions.aesthetics.chips.consults", 
+      "solutions.aesthetics.chips.consults",
       "solutions.aesthetics.chips.compliance"
     ],
-    image: "/assets/placeholders/hero-salon.webp",
+    image: "https://images.pexels.com/photos/4586741/pexels-photo-4586741.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1",
   },
   snapshot: [
-    { title: "Reduce no-shows", desc: "Automated confirmations & reminders.", color: "text-mint" },
-    { title: "Grow repeat visits", desc: "Smart campaigns & memberships.", color: "text-primary" },
-    { title: "Fast checkout", desc: "Tap to pay, split tips, instant payouts.", color: "text-accent" },
-    { title: "Free website", desc: "Clean booking page included.", color: "text-lavender" },
+    { title: t("solutions.aesthetics.snapshot.item1.title"), desc: t("solutions.aesthetics.snapshot.item1.desc"), color: "text-mint" },
+    { title: t("solutions.aesthetics.snapshot.item2.title"), desc: t("solutions.aesthetics.snapshot.item2.desc"), color: "text-primary" },
+    { title: t("solutions.aesthetics.snapshot.item3.title"), desc: t("solutions.aesthetics.snapshot.item3.desc"), color: "text-accent" },
+    { title: t("solutions.aesthetics.snapshot.item4.title"), desc: t("solutions.aesthetics.snapshot.item4.desc"), color: "text-lavender" },
   ],
   sections: [
     {
       id: "appointments",
-      eyebrow: "Appointments & Consents",
-      title: "Scheduling for med-aesthetics.",
+      eyebrow: t("solutions.aesthetics.sections.appointments.eyebrow"),
+      title: t("solutions.aesthetics.sections.appointments.title"),
       bullets: [
-        "Custom service timing & resources",
-        "Waitlist, deposits, and series",
-        "Notes and basic client profiles",
+        t("solutions.aesthetics.sections.appointments.bullets.1"),
+        t("solutions.aesthetics.sections.appointments.bullets.2"),
+        t("solutions.aesthetics.sections.appointments.bullets.3"),
       ],
       media: { src: "/assets/placeholders/appointments.webp", alt: "Appointments UI" },
     },
     {
       id: "pos",
-      eyebrow: "POS & Payments",
-      title: "Smooth checkout.",
+      eyebrow: t("solutions.aesthetics.sections.pos.eyebrow"),
+      title: t("solutions.aesthetics.sections.pos.title"),
       bullets: [
-        "Tap, chip, or phone",
-        "Split bills & tips",
-        "Instant payouts optional",
+        t("solutions.aesthetics.sections.pos.bullets.1"),
+        t("solutions.aesthetics.sections.pos.bullets.2"),
+        t("solutions.aesthetics.sections.pos.bullets.3"),
       ],
       media: { src: "/assets/placeholders/pos.webp", alt: "POS UI" },
       reversed: true,
     },
     {
       id: "marketing",
-      eyebrow: "Marketing & Reviews",
-      title: "Keep calendars full.",
+      eyebrow: t("solutions.aesthetics.sections.marketing.eyebrow"),
+      title: t("solutions.aesthetics.sections.marketing.title"),
       bullets: [
-        "Win-back campaigns",
-        "Review invites",
-        "Promos for quiet times",
+        t("solutions.aesthetics.sections.marketing.bullets.1"),
+        t("solutions.aesthetics.sections.marketing.bullets.2"),
+        t("solutions.aesthetics.sections.marketing.bullets.3"),
       ],
       media: { src: "/assets/placeholders/marketing.webp", alt: "Marketing UI" },
     },
     {
       id: "booking",
-      eyebrow: "Online Booking & Website",
-      title: "Book from anywhere.",
+      eyebrow: t("solutions.aesthetics.sections.booking.eyebrow"),
+      title: t("solutions.aesthetics.sections.booking.title"),
       bullets: [
-        "Free website & link-in-bio",
-        "Google & Instagram links",
-        "Mobile-first flows",
+        t("solutions.aesthetics.sections.booking.bullets.1"),
+        t("solutions.aesthetics.sections.booking.bullets.2"),
+        t("solutions.aesthetics.sections.booking.bullets.3"),
       ],
       media: { src: "/assets/placeholders/website.webp", alt: "Website & booking UI" },
       reversed: true,
     },
     {
       id: "team",
-      eyebrow: "Team & Commissions",
-      title: "Built for modern practices.",
+      eyebrow: t("solutions.aesthetics.sections.team.eyebrow"),
+      title: t("solutions.aesthetics.sections.team.title"),
       bullets: [
-        "Roles for owners and providers",
-        "Flexible commission rules",
-        "Quick onboarding",
+        t("solutions.aesthetics.sections.team.bullets.1"),
+        t("solutions.aesthetics.sections.team.bullets.2"),
+        t("solutions.aesthetics.sections.team.bullets.3"),
       ],
       media: { src: "/assets/placeholders/team.webp", alt: "Team & payroll UI" },
     },
   ],
   beforeAfter: [
-    { before: "Manual reminders", after: "Automated SMS confirmations" },
-    { before: "Paper forms", after: "Simple digital flows" },
-    { before: "Empty weekday afternoons", after: "Smart promos fill the gaps" },
+    { before: t("solutions.aesthetics.beforeAfter.item1.before"), after: t("solutions.aesthetics.beforeAfter.item1.after") },
+    { before: t("solutions.aesthetics.beforeAfter.item2.before"), after: t("solutions.aesthetics.beforeAfter.item2.after") },
+    { before: t("solutions.aesthetics.beforeAfter.item3.before"), after: t("solutions.aesthetics.beforeAfter.item3.after") },
   ],
   testimonials: [
-    { quote: "We grew bookings and cut no-shows in a month.", author: "Renew Aesthetics", rating: 5 },
+    { quote: t("solutions.aesthetics.testimonials.t1.quote"), author: t("solutions.aesthetics.testimonials.t1.author"), rating: 5 },
   ],
   integrations: [
-    { label: "QuickBooks", src: "/assets/placeholders/integration-quickbooks.svg" },
-    { label: "Stripe", src: "/assets/placeholders/integration-stripe.svg" },
-    { label: "Apple Pay", src: "/assets/placeholders/integration-applepay.svg" },
-    { label: "Google Pay", src: "/assets/placeholders/integration-googlepay.svg" },
-    { label: "Instagram", src: "/assets/placeholders/integration-instagram.svg" },
+    { label: "QuickBooks" },
+    { label: "Stripe" },
+    { label: "Apple Pay" },
+    { label: "Google Pay" },
+    { label: "Instagram" },
   ],
   pricing: {
-    blurb: `Starter ${PRICING.starter.priceDisplay}/mo (${PRICING.starter.seats} seats) • Growth ${PRICING.growth.priceDisplay}/mo (${PRICING.growth.seats} seats) • Salon ${PRICING.salon.pricePerChairDisplay}/chair`,
-    sub: "SMS, website, online cart, QuickBooks sync, and AI are included.",
-    cta: { label: "See pricing", href: "/pricing" },
+    blurb: t("solutions.aesthetics.pricing.blurb").replace("{independentPrice}", PRICING.independent.priceDisplay).replace("{independentSeats}", String(PRICING.independent.seats)).replace("{salonPrice}", PRICING.salon.pricePerChairDisplay).replace("{maxBillableChairs}", String(PRICING.salon.maxBillableChairs)),
+    sub: t("solutions.aesthetics.pricing.sub"),
+    cta: { label: t("solutions.aesthetics.pricing.ctaLabel"), href: "/pricing" },
   },
   faqs: [
-    { q: "Do you support deposits?", a: "Yes—optional deposits per service help lock appointments in." },
-    { q: "Can I migrate my clients?", a: "Yes—guided import of clients and services." },
+    { q: t("solutions.aesthetics.faqs.q1.q"), a: t("solutions.aesthetics.faqs.q1.a") },
+    { q: t("solutions.aesthetics.faqs.q2.q"), a: t("solutions.aesthetics.faqs.q2.a") },
   ],
-};
+});
 
-export default aestheticsConfig;
+export default getAestheticsConfig;

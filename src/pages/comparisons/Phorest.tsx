@@ -23,7 +23,7 @@ export default function PhorestComparison() {
         ],
       }}
       pricing={{
-        neono: '$16.99/chair',
+        neono: '$24.99/seat',
         competitor: '$150-300+/mo',
         savingsAnnual: '$2,000+',
       }}
@@ -61,9 +61,9 @@ export default function PhorestComparison() {
         },
       ]}
       testimonial={{
-        quote: 'Phorest wanted $250/month and a 2-year contract. NeonO gave us the same features for $68/month with no commitment.',
-        author: 'Jessica Park',
-        business: 'Bloom Hair Salon',
+        quote: 'Phorest requires 12-24 month contracts starting around $250/month. NeonO offers comparable features at $24.99/seat/month with no long-term commitment and a 7-seat cap ($174.93/mo max).',
+        author: 'Based on Phorest pricing, March 2026',
+        business: '',
         switchedFrom: 'Phorest',
       }}
     />

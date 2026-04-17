@@ -1,8 +1,8 @@
 import { BusinessTemplateConfig } from "@/templates/types";
 import { PRICING } from "@/config/pricing";
 
-const barbersConfig: BusinessTemplateConfig = {
-  industry: "Barbershops",
+const getBarbershopsConfig = (t: (key: string) => string): BusinessTemplateConfig => ({
+  industry: t("solutions.barbershops.industry"),
   hero: {
     titleKey: "solutions.barbershops.hero.title",
     subtitleKey: "solutions.barbershops.hero.subtitle",
@@ -11,102 +11,102 @@ const barbersConfig: BusinessTemplateConfig = {
     primaryHref: "/signup",
     secondaryHref: "/pricing",
     chipsKeys: [
-      "solutions.barbershops.chips.uptime", 
-      "solutions.barbershops.chips.checkout", 
+      "solutions.barbershops.chips.uptime",
+      "solutions.barbershops.chips.checkout",
       "solutions.barbershops.chips.traps"
     ],
-    image: "/assets/placeholders/hero-salon.webp",
+    image: "https://images.pexels.com/photos/1805600/pexels-photo-1805600.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1",
   },
   snapshot: [
-    { title: "Cut no-shows", desc: "Automatic SMS/email confirmations & reminders.", color: "text-mint" },
-    { title: "Keep chairs full", desc: "Win-back and gap-filler campaigns.", color: "text-primary" },
-    { title: "Fast checkout", desc: "Tap to pay, split tips, instant payouts.", color: "text-accent" },
-    { title: "Free website", desc: "Clean booking page + link-in-bio included.", color: "text-lavender" },
+    { title: t("solutions.barbershops.snapshot.item1.title"), desc: t("solutions.barbershops.snapshot.item1.desc"), color: "text-mint" },
+    { title: t("solutions.barbershops.snapshot.item2.title"), desc: t("solutions.barbershops.snapshot.item2.desc"), color: "text-primary" },
+    { title: t("solutions.barbershops.snapshot.item3.title"), desc: t("solutions.barbershops.snapshot.item3.desc"), color: "text-accent" },
+    { title: t("solutions.barbershops.snapshot.item4.title"), desc: t("solutions.barbershops.snapshot.item4.desc"), color: "text-lavender" },
   ],
   sections: [
     {
       id: "appointments",
-      eyebrow: "Appointments & Walk‑ins",
-      title: "Built for barber flow.",
+      eyebrow: t("solutions.barbershops.sections.appointments.eyebrow"),
+      title: t("solutions.barbershops.sections.appointments.title"),
       bullets: [
-        "Walk-ins, waitlist, and quick rebooking",
-        "Chair views with drag-and-drop",
-        "Service menus per barber with timing",
+        t("solutions.barbershops.sections.appointments.bullets.1"),
+        t("solutions.barbershops.sections.appointments.bullets.2"),
+        t("solutions.barbershops.sections.appointments.bullets.3"),
       ],
       media: { src: "/assets/placeholders/appointments.webp", alt: "Appointments UI" },
     },
     {
       id: "pos",
-      eyebrow: "POS & Payments",
-      title: "Faster checkout, zero fuss.",
+      eyebrow: t("solutions.barbershops.sections.pos.eyebrow"),
+      title: t("solutions.barbershops.sections.pos.title"),
       bullets: [
-        "Tap, chip, or phone—no tip commission",
-        "Split bills & tips by service",
-        "Instant payouts optional; clear rates",
+        t("solutions.barbershops.sections.pos.bullets.1"),
+        t("solutions.barbershops.sections.pos.bullets.2"),
+        t("solutions.barbershops.sections.pos.bullets.3"),
       ],
       media: { src: "/assets/placeholders/pos.webp", alt: "POS UI" },
       reversed: true,
     },
     {
       id: "marketing",
-      eyebrow: "Marketing & Reviews",
-      title: "Keep the week packed.",
+      eyebrow: t("solutions.barbershops.sections.marketing.eyebrow"),
+      title: t("solutions.barbershops.sections.marketing.title"),
       bullets: [
-        "SMS/email rebook campaigns",
-        "Review invites after checkout",
-        "Promo codes for quiet times",
+        t("solutions.barbershops.sections.marketing.bullets.1"),
+        t("solutions.barbershops.sections.marketing.bullets.2"),
+        t("solutions.barbershops.sections.marketing.bullets.3"),
       ],
       media: { src: "/assets/placeholders/marketing.webp", alt: "Marketing UI" },
     },
     {
       id: "booking",
-      eyebrow: "Online Booking & Website",
-      title: "Bookable everywhere.",
+      eyebrow: t("solutions.barbershops.sections.booking.eyebrow"),
+      title: t("solutions.barbershops.sections.booking.title"),
       bullets: [
-        "Free website & link-in-bio",
-        "Google & Instagram links",
-        "Mobile-first flows clients love",
+        t("solutions.barbershops.sections.booking.bullets.1"),
+        t("solutions.barbershops.sections.booking.bullets.2"),
+        t("solutions.barbershops.sections.booking.bullets.3"),
       ],
       media: { src: "/assets/placeholders/website.webp", alt: "Website & booking UI" },
       reversed: true,
     },
     {
       id: "team",
-      eyebrow: "Team & Commissions",
-      title: "Built for owners and teams.",
+      eyebrow: t("solutions.barbershops.sections.team.eyebrow"),
+      title: t("solutions.barbershops.sections.team.title"),
       bullets: [
-        "Roles for owners, managers, barbers",
-        "Flexible commission rules",
-        "Quick onboarding",
+        t("solutions.barbershops.sections.team.bullets.1"),
+        t("solutions.barbershops.sections.team.bullets.2"),
+        t("solutions.barbershops.sections.team.bullets.3"),
       ],
       media: { src: "/assets/placeholders/team.webp", alt: "Team & payroll UI" },
     },
   ],
   beforeAfter: [
-    { before: "Manual reminders", after: "Automated SMS confirmations" },
-    { before: "End-of-day tally", after: "Instant reports & payouts" },
-    { before: "Empty weekday afternoons", after: "Smart promos fill the gaps" },
+    { before: t("solutions.barbershops.beforeAfter.item1.before"), after: t("solutions.barbershops.beforeAfter.item1.after") },
+    { before: t("solutions.barbershops.beforeAfter.item2.before"), after: t("solutions.barbershops.beforeAfter.item2.after") },
+    { before: t("solutions.barbershops.beforeAfter.item3.before"), after: t("solutions.barbershops.beforeAfter.item3.after") },
   ],
   testimonials: [
-    { quote: "Checkout is fast and tips are up.", author: "Kings & Fades", rating: 5, stat: "+12% tips" },
-    { quote: "Walk-in flow is finally organized.", author: "Beacon Barbers", rating: 5 },
+    { quote: t("solutions.barbershops.testimonials.t1.quote"), author: t("solutions.barbershops.testimonials.t1.author"), rating: 5, stat: t("solutions.barbershops.testimonials.t1.stat") },
+    { quote: t("solutions.barbershops.testimonials.t2.quote"), author: t("solutions.barbershops.testimonials.t2.author"), rating: 5 },
   ],
   integrations: [
-    { label: "QuickBooks", src: "/assets/placeholders/integration-quickbooks.svg" },
-    { label: "Stripe", src: "/assets/placeholders/integration-stripe.svg" },
-    { label: "Apple Pay", src: "/assets/placeholders/integration-applepay.svg" },
-    { label: "Google Pay", src: "/assets/placeholders/integration-googlepay.svg" },
-    { label: "Instagram", src: "/assets/placeholders/integration-instagram.svg" },
+    { label: "QuickBooks" },
+    { label: "Stripe" },
+    { label: "Apple Pay" },
+    { label: "Google Pay" },
+    { label: "Instagram" },
   ],
   pricing: {
-    blurb: `Starter ${PRICING.starter.priceDisplay}/mo (${PRICING.starter.seats} seats) • Growth ${PRICING.growth.priceDisplay}/mo (${PRICING.growth.seats} seats) • Salon ${PRICING.salon.pricePerChairDisplay}/chair`,
-    sub: "SMS, website, online cart, QuickBooks sync, and AI are included.",
-    cta: { label: "See pricing", href: "/pricing" },
+    blurb: t("solutions.barbershops.pricing.blurb").replace("{independentPrice}", PRICING.independent.priceDisplay).replace("{independentSeats}", String(PRICING.independent.seats)).replace("{salonPrice}", PRICING.salon.pricePerChairDisplay).replace("{maxBillableChairs}", String(PRICING.salon.maxBillableChairs)),
+    sub: t("solutions.barbershops.pricing.sub"),
+    cta: { label: t("solutions.barbershops.pricing.ctaLabel"), href: "/pricing" },
   },
   faqs: [
-    { q: "Can I migrate from my current system?", a: "Yes—import clients, services, and appointments with guided steps." },
-    { q: "Do I need hardware?", a: "You can start without it; add a reader later for faster checkout." },
+    { q: t("solutions.barbershops.faqs.q1.q"), a: t("solutions.barbershops.faqs.q1.a") },
+    { q: t("solutions.barbershops.faqs.q2.q"), a: t("solutions.barbershops.faqs.q2.a") },
   ],
-};
+});
 
-export default barbersConfig;
+export default getBarbershopsConfig;

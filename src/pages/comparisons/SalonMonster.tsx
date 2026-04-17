@@ -23,7 +23,7 @@ export default function SalonMonsterComparison() {
         ],
       }}
       pricing={{
-        neono: '$16.99/chair',
+        neono: '$24.99/seat',
         competitor: '$99-199/mo',
         savingsAnnual: '$1,800+',
       }}
@@ -60,9 +60,9 @@ export default function SalonMonsterComparison() {
         },
       ]}
       testimonial={{
-        quote: 'Salon Monster felt like software from 2010. NeonO is what we needed—modern, fast, and way cheaper.',
-        author: 'Emma Thompson',
-        business: 'Serenity Day Spa',
+        quote: 'Salon Monster lacks modern features like colour cost tracking, AI insights, and integrated marketing automation. NeonO includes all of these at a lower price point with a modern interface.',
+        author: 'NeonO feature comparison, March 2026',
+        business: '',
         switchedFrom: 'Salon Monster',
       }}
     />

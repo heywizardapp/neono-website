@@ -7,14 +7,14 @@ export default function ComparisonsHub() {
     {
       name: 'Fresha',
       url: '/vs/fresha',
-      issue: 'Hidden fees of $1,000+/year',
-      savings: '$1,000+',
+      issue: 'Hidden fees of $2,746–$9,861/year',
+      savings: '$9,861',
     },
     {
       name: 'Vagaro',
       url: '/vs/vagaro',
-      issue: 'Endless add-on costs',
-      savings: '$800+',
+      issue: 'Add-on costs of $95+/month',
+      savings: '$3,349',
     },
     {
       name: 'Salon Monster',
@@ -49,10 +49,10 @@ export default function ComparisonsHub() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white py-20">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
             How NeonO Compares
           </h1>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto">
+          <p className="text-xl opacity-90 max-w-2xl mx-auto font-serif italic">
             See side-by-side feature and pricing comparisons with leading salon software platforms
           </p>
         </div>
@@ -91,10 +91,10 @@ export default function ComparisonsHub() {
       {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-[hsl(215,85%,8%)]">
+          <h2 className="text-3xl font-bold mb-6 text-[hsl(215,85%,8%)] font-serif">
             Ready to Switch?
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 mb-8 font-serif italic">
             Join salons saving thousands by switching to NeonO
           </p>
           <a

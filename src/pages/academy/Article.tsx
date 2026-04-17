@@ -295,7 +295,7 @@ export default function Article() {
       <div className="min-h-screen bg-background">
         <div className="max-w-4xl mx-auto px-4 py-12">
           <div className="text-center py-16">
-            <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
+            <h1 className="text-2xl font-bold mb-4 font-serif">Article Not Found</h1>
             <p className="text-muted-foreground mb-6">
               The article you're looking for doesn't exist or has been moved.
             </p>
@@ -374,7 +374,7 @@ export default function Article() {
                   Featured Article
                 </Badge>
               )}
-              <h1 className="text-3xl md:text-4xl font-bold text-[hsl(215,85%,8%)] mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-[hsl(215,85%,8%)] mb-4 font-serif">
                 {article.title}
               </h1>
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -430,7 +430,7 @@ export default function Article() {
                       return (
                         <h2 
                           id={id} 
-                          className="text-2xl font-semibold mt-10 mb-4 text-[hsl(215,85%,8%)] border-b border-gray-200 pb-3 scroll-mt-24"
+                          className="text-2xl font-semibold mt-10 mb-4 text-[hsl(215,85%,8%)] border-b border-gray-200 pb-3 scroll-mt-24 font-serif"
                         >
                           {children}
                         </h2>
@@ -527,8 +527,8 @@ export default function Article() {
                     img: ({ alt }) => <ImagePlaceholder alt={alt} />,
                     // Enhanced blockquotes
                     blockquote: ({ children }) => (
-                      <blockquote className="bg-gray-50 border-l-4 border-[hsl(240,89%,73%)] py-4 px-6 my-6 rounded-r-lg">
-                        <div className="text-gray-700 italic">
+                      <blockquote className="bg-gray-50 border-l-4 border-[hsl(240,89%,73%)] py-4 px-6 my-6 rounded-r-lg font-serif italic">
+                        <div className="text-gray-700">
                           {children}
                         </div>
                       </blockquote>

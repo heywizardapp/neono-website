@@ -25,7 +25,6 @@ export function RoiMini({
   // Create a basic ROI input with defaults
   const roiInput: RoiInput = {
     businessType: "Salon",
-    plan: "growth",
     teamSize,
     aov: 65,
     monthlyTx,
@@ -57,7 +56,6 @@ export function RoiMini({
       team: teamSize.toString(),
       tx: monthlyTx.toString(),
       sms: smsPerMonth.toString(),
-      plan: roiInput.plan,
     });
     return `/roi?${params.toString()}`;
   };

@@ -120,8 +120,8 @@ export default function AI() {
         { name: 'Stripe', logo: 'ST' },
       ]}
       pricing={{
-        startingPrice: `${PRICING.growth.priceDisplay}/month`,
-        includedIn: ['Growth'],
+        startingPrice: `${PRICING.independent.priceDisplay}/month`,
+        includedIn: ['Independent', 'Salon'],
       }}
       faqs={[
         {

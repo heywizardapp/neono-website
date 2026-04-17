@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Youtube, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { NewsletterForm } from '@/components/newsletter/NewsletterForm';
 import { OrganizationJsonLd } from '@/lib/seo/jsonld';
 import { useI18n } from '@/hooks/useI18n';
@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 
 const footerLinks = {
   products: [
+    { nameKey: 'footer.colourStudio', href: '/products/colour-studio' },
     { nameKey: 'footer.staffManagement', href: '/products/staff-management' },
     { nameKey: 'footer.appointments', href: '/products/appointments' },
     { nameKey: 'footer.onlineBooking', href: '/products/online-booking' },
@@ -78,20 +79,6 @@ export function Footer() {
                 {t('footer.description')}
               </p>
               <NewsletterForm variant="footer" className="mb-6" />
-              <div className="flex space-x-4">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                  <Youtube className="h-5 w-5" />
-                </a>
-              </div>
             </div>
 
             {/* Solutions */}

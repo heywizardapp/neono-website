@@ -3,7 +3,7 @@ import { SearchDoc } from '@/types/roi';
 export const searchIndex: SearchDoc[] = [
   // Pages
   { id: 'home', title: 'Home', path: '/', group: 'Pages', tags: ['salon', 'barbershop', 'business', 'software'], boost: 2 },
-  { id: 'pricing', title: 'Pricing', path: '/pricing', group: 'Pages', tags: ['cost', 'plans', 'starter', 'growth'], boost: 1.5 },
+  { id: 'pricing', title: 'Pricing', path: '/pricing', group: 'Pages', tags: ['cost', 'plans', 'independent', 'salon', 'pricing'], boost: 1.5 },
   { id: 'roi', title: 'ROI Calculator', path: '/roi', group: 'Pages', tags: ['savings', 'calculator', 'compare', 'cost'], boost: 1.5 },
   { id: 'signup', title: 'Sign Up', path: '/signup', group: 'Pages', tags: ['register', 'trial', 'start'] },
   { id: 'login', title: 'Sign In', path: '/login', group: 'Pages', tags: ['login', 'access'] },

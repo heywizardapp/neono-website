@@ -106,7 +106,7 @@ export default function ComparePage() {
               <div className="font-semibold text-muted-foreground">{t('compare.features')}</div>
               {featureMatrix.plans.map((plan) => {
                 const pricing = planPricing[plan];
-                const isPopular = plan === 'growth';
+                const isPopular = plan === 'salon';
                 const isNeonO = plan !== 'competitorA';
                 
                 return (

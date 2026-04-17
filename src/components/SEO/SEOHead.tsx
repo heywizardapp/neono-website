@@ -147,29 +147,29 @@ export const SEO_PRESETS = {
 
   pricing: {
     title: "Pricing — NeonO",
-    description: `Simple, transparent pricing for salon and barbershop software. Start at ${PRICING.starter.priceDisplay}/month with no setup fees or hidden costs.`,
+    description: `Simple, transparent pricing for salon and barbershop software. Start at ${PRICING.independent.priceDisplay}/month with no setup fees or hidden costs.`,
     keywords: "salon software pricing, barbershop software cost, POS pricing, appointment booking pricing",
     structuredData: [
       {
         type: 'product' as const,
         data: {
-          name: "NeonO Starter",
-          description: "Complete salon software for small businesses",
+          name: "NeonO Independent",
+          description: "Complete salon software for solo practitioners",
           url: "https://www.neono.com/pricing",
           image: "https://www.neono.com/og/pricing.png",
-          price: PRICING.starter.price,
-          currency: "USD"
+          price: PRICING.independent.price,
+          currency: "CAD"
         }
       },
       {
         type: 'product' as const,
         data: {
-          name: "NeonO Growth",
-          description: "Advanced salon software for growing businesses",
+          name: "NeonO Salon",
+          description: "All-in-one salon software for teams of 2+",
           url: "https://www.neono.com/pricing",
           image: "https://www.neono.com/og/pricing.png",
-          price: PRICING.growth.price,
-          currency: "USD"
+          price: PRICING.salon.pricePerChair,
+          currency: "CAD"
         }
       }
     ]

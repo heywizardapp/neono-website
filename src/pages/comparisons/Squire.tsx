@@ -23,7 +23,7 @@ export default function SquireComparison() {
         ],
       }}
       pricing={{
-        neono: '$16.99/chair',
+        neono: '$24.99/seat',
         competitor: '$110+/location',
         savingsAnnual: '$1,000+',
       }}
@@ -61,9 +61,9 @@ export default function SquireComparison() {
         },
       ]}
       testimonial={{
-        quote: 'We started as a barbershop but wanted to add spa services. Squire couldn\'t handle it. NeonO let us expand seamlessly.',
-        author: 'David Rodriguez',
-        business: 'Elite Grooming & Spa',
+        quote: 'Squire is barbershop-only. Businesses that want to expand into spa services, aesthetics, or multi-service offerings need a platform that supports all verticals from day one -- without migrating systems.',
+        author: 'NeonO platform analysis, March 2026',
+        business: '',
         switchedFrom: 'Squire',
       }}
     />

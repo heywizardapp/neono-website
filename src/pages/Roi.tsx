@@ -25,11 +25,9 @@ export default function RoiPage() {
     const teamSize = parseInt(searchParams.get('team') || '3');
     const monthlyTx = parseInt(searchParams.get('tx') || '800');
     const smsPerMonth = parseInt(searchParams.get('sms') || '1500');
-    const plan = (searchParams.get('plan') || 'growth') as 'starter' | 'growth';
 
     return {
       businessType: "Salon",
-      plan,
       teamSize,
       aov: 65,
       monthlyTx,
@@ -66,10 +64,8 @@ export default function RoiPage() {
     params.set('team', roiInput.teamSize.toString());
     params.set('tx', roiInput.monthlyTx.toString());
     params.set('sms', roiInput.smsPerMonth.toString());
-    params.set('plan', roiInput.plan);
-    
     setSearchParams(params, { replace: true });
-  }, [roiInput.teamSize, roiInput.monthlyTx, roiInput.smsPerMonth, roiInput.plan, setSearchParams]);
+  }, [roiInput.teamSize, roiInput.monthlyTx, roiInput.smsPerMonth, setSearchParams]);
 
   // Store in localStorage
   React.useEffect(() => {
@@ -138,7 +134,7 @@ export default function RoiPage() {
       doc.write('<table>');
       doc.write(`<tr><td>Team Size</td><td>${Number(roiInput.teamSize)}</td></tr>`);
       doc.write(`<tr><td>Monthly Transactions</td><td>${Number(roiInput.monthlyTx)}</td></tr>`);
-      doc.write(`<tr><td>Plan</td><td>${roiInput.plan === 'starter' ? 'Starter' : 'Growth'}</td></tr>`);
+      doc.write(`<tr><td>Plan</td><td>NeonO ($24.99/seat)</td></tr>`);
       doc.write(`<tr><td>NeonO Monthly Cost</td><td>${fmt(roiOutput.neonoTotal)}</td></tr>`);
       doc.write(`<tr><td>Competitor Monthly Cost</td><td>${fmt(roiOutput.competitorTotal)}</td></tr>`);
       doc.write(`<tr><td><strong>Monthly Savings</strong></td><td class="highlight">${fmt(roiOutput.monthlySavings)}</td></tr>`);
@@ -176,7 +172,7 @@ export default function RoiPage() {
             <div className="mx-auto mb-6 h-16 w-16 rounded-2xl bg-gradient-hero flex items-center justify-center">
               <Calculator className="h-8 w-8 text-white" />
             </div>
-            <H1>{t('roiPage.title')}</H1>
+            <H1 className="font-serif">{t('roiPage.title')}</H1>
             <Lead className="max-w-3xl mx-auto">
               {t('roiPage.subtitle')}
             </Lead>
@@ -210,7 +206,7 @@ export default function RoiPage() {
         <div className="container">
           <Card className="bg-gradient-hero text-white border-0 shadow-glow">
             <CardContent className="py-12 text-center">
-              <h2 className="text-3xl font-display font-bold mb-4">
+              <h2 className="text-3xl font-serif font-bold mb-4">
                 {t('roiPage.ctaTitle')}
               </h2>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">

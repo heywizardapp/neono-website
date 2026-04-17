@@ -29,7 +29,7 @@ const Index = () => {
   const { t } = useI18n();
   const [chairCount, setChairCount] = React.useState(2);
 
-  const pricePerChair = 16.99;
+  const pricePerChair = 24.99;
   const calculateSalonPrice = (chairs: number) => {
     const billableChairs = Math.min(chairs, 7);
     return billableChairs * pricePerChair;
@@ -51,57 +51,29 @@ const Index = () => {
       name: t('testimonials.sarah.name'),
       business: t('testimonials.sarah.business'),
       industry: t('testimonials.sarah.industry'),
-      rating: 5,
+      rating: 0,
       quote: t('testimonials.sarah.quote'),
-      avatar: 'SM'
+      avatar: 'IB'
     },
     {
       name: t('testimonials.marcus.name'),
       business: t('testimonials.marcus.business'),
       industry: t('testimonials.marcus.industry'),
-      rating: 5,
+      rating: 0,
       quote: t('testimonials.marcus.quote'),
-      avatar: 'MJ'
+      avatar: 'IB'
     },
     {
       name: t('testimonials.emily.name'),
       business: t('testimonials.emily.business'),
       industry: t('testimonials.emily.industry'),
-      rating: 5,
+      rating: 0,
       quote: t('testimonials.emily.quote'),
-      avatar: 'EC'
+      avatar: 'IB'
     }
   ];
 
-  const pricingPlans = [
-    {
-      name: t('pricing.starter'),
-      price: 29,
-      seats: 2,
-      description: t('pricing.starterDescription'),
-      features: [
-        `2 ${t('pricing.seats')}`, 
-        t('pricing.onlineBooking'), 
-        t('pricing.basicPos'), 
-        t('pricing.smsEmail'), 
-        t('pricing.freeWebsite')
-      ]
-    },
-    {
-      name: t('pricing.growth'),
-      price: 59,
-      seats: 5,
-      description: t('pricing.growthDescription'),
-      features: [
-        `5 ${t('pricing.seats')}`, 
-        t('pricing.advancedAnalytics'), 
-        t('pricing.marketingAutomation'), 
-        t('pricing.aiInsights'), 
-        t('pricing.prioritySupport')
-      ],
-      popular: true
-    }
-  ];
+  // Pricing plans now use the unified $24.99/seat model — see PRICING config
 
   return (
     <>
@@ -136,6 +108,56 @@ const Index = () => {
 
       <FeatureGrid />
 
+      {/* Built for Canada */}
+      <section className="py-16 lg:py-20">
+        <div className="container">
+          <div className="text-center mb-12">
+            <Badge variant="secondary" className="mb-4">
+              🇨🇦 {t('home.canada.badge')}
+            </Badge>
+            <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              {t('home.canada.title')}
+            </h2>
+            <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+              {t('home.canada.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            {[
+              { title: t('home.canada.casl.title'), desc: t('home.canada.casl.desc') },
+              { title: t('home.canada.tax.title'), desc: t('home.canada.tax.desc') },
+              { title: t('home.canada.privacy.title'), desc: t('home.canada.privacy.desc') },
+              { title: t('home.canada.pricing.title'), desc: t('home.canada.pricing.desc') },
+              { title: t('home.canada.distributor.title'), desc: t('home.canada.distributor.desc') },
+              { title: t('home.canada.data.title'), desc: t('home.canada.data.desc') },
+            ].map((item, i) => (
+              <div key={i} className="p-6 rounded-xl bg-card/50 border border-border/40 hover-lift">
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lifestyle Image Break — cinematic salon moment */}
+      <section className="relative h-[350px] lg:h-[450px] overflow-hidden">
+        <img
+          src="https://images.pexels.com/photos/3993133/pexels-photo-3993133.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1"
+          alt="Modern salon interior with stylists at work"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+        <div className="absolute inset-0 bg-ink/30" />
+        <div className="absolute bottom-12 left-0 right-0 text-center px-6">
+          <p className="font-serif italic text-2xl lg:text-3xl text-white drop-shadow-lg max-w-2xl mx-auto">
+            "{t('home.lifestyleQuote')}"
+          </p>
+        </div>
+      </section>
+
       {/* Enhanced Product Demo Section */}
       <section className="py-12 lg:py-16 bg-gradient-subtle">
         <div className="container">
@@ -145,10 +167,10 @@ const Index = () => {
                 <PlayCircle className="w-4 h-4 mr-2" />
                 {t('demo.badge')}
               </Badge>
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('demo.title')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('demo.subtitle')}
               </p>
             </div>
@@ -333,10 +355,10 @@ const Index = () => {
                 <Star className="w-4 h-4 mr-2" />
                 {t('success.badge')}
               </Badge>
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('success.title')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('success.subtitle')}
               </p>
             </div>
@@ -367,7 +389,7 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <blockquote className="text-lg italic">"{testimonial.quote}"</blockquote>
+                    <blockquote className="font-serif text-lg italic leading-relaxed">"{testimonial.quote}"</blockquote>
                   </CardContent>
                 </InteractiveCard>
               </OptimizedInView>
@@ -392,10 +414,10 @@ const Index = () => {
               <Badge variant="secondary" className="mb-4">
                 {t('roi.badge')}
               </Badge>
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('roi.title')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('roi.subtitle')}
               </p>
             </div>
@@ -420,10 +442,10 @@ const Index = () => {
               <Badge variant="secondary" className="mb-4">
                 📊 {t('home.compare.badge')}
               </Badge>
-              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('home.compare.title')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('home.compare.subtitle')}
               </p>
             </div>
@@ -449,14 +471,29 @@ const Index = () => {
         </div>
       </section>
 
+      {/* No Marketplace Fee */}
+      <section className="py-16 lg:py-20 bg-ink text-white">
+        <div className="container text-center max-w-3xl">
+          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-white">
+            {t('home.noMarketplace.title')}
+          </h2>
+          <p className="text-lg text-white/70 mb-8 leading-relaxed">
+            {t('home.noMarketplace.body')}
+          </p>
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm">
+            {t('home.noMarketplace.stat')}
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Teaser */}
       <section className="py-12 lg:py-16 bg-gradient-subtle">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
+            <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
               {t('home.pricing.title')}
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-serif italic text-xl text-muted-foreground max-w-2xl mx-auto">
               {t('home.pricing.subtitle')}
             </p>
           </div>
@@ -597,7 +634,7 @@ const Index = () => {
                     
                     {chairCount > 7 && (
                       <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                        <p className="text-xs text-green-700 dark:text-green-300 font-medium text-center">
+                        <p className="font-serif italic text-sm text-green-700 dark:text-green-300 font-medium text-center">
                           🎉 {t('home.pricing.savingPrefix')} ${savings.toFixed(2)}{t('home.pricing.savingSuffix')}
                         </p>
                       </div>

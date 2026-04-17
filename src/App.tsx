@@ -49,6 +49,7 @@ const AcademySearch = lazy(() => import('./pages/academy/Search'));
 
 // Product pages - direct imports to avoid React context issues
 import ProductsIndex from './pages/products/Index';
+const ColourStudio = lazy(() => import('./pages/products/ColourStudio'));
 import StaffManagement from './pages/products/StaffManagement';
 import Appointments from './pages/products/Appointments';
 import OnlineBooking from './pages/products/OnlineBooking';
@@ -169,6 +170,7 @@ export default function App() {
                     <Route path="/products/landing-page-builder" element={<LandingPageBuilder />} />
                     <Route path="/products/analytics" element={<Analytics />} />
                     <Route path="/products/pos" element={<Pos />} />
+                    <Route path="/products/colour-studio" element={<ColourStudio />} />
                     
                     {/* POS Hardware */}
                     <Route path="/products/pos/hardware" element={<PosHardware />} />

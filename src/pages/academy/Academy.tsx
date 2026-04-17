@@ -179,10 +179,10 @@ export default function Academy() {
             <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
               Help Center
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
               NeonO Academy
             </h1>
-            <p className="text-xl opacity-90 mb-8">
+            <p className="text-xl opacity-90 mb-8 font-serif italic">
               Learn everything you need to succeed with NeonO
             </p>
 
@@ -228,7 +228,7 @@ export default function Academy() {
           {featuredArticles.length > 0 && (
             <section className="mb-16">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-[hsl(215,85%,8%)]">
+                <h2 className="text-2xl font-bold text-[hsl(215,85%,8%)] font-serif">
                   Featured Articles
                 </h2>
               </div>
@@ -272,7 +272,7 @@ export default function Academy() {
 
           {/* Category Grid */}
           <section className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-[hsl(215,85%,8%)]">
+            <h2 className="text-2xl font-bold mb-6 text-[hsl(215,85%,8%)] font-serif">
               Browse by Category
             </h2>
             
@@ -320,7 +320,7 @@ export default function Academy() {
           {/* Popular Articles */}
           {popularArticles.length > 0 && (
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-[hsl(215,85%,8%)]">
+              <h2 className="text-2xl font-bold mb-6 text-[hsl(215,85%,8%)] font-serif">
                 Popular Articles
               </h2>
               <div className="bg-card rounded-lg border divide-y">

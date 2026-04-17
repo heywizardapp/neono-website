@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { solutionsConfig } from '@/config/solutions';
+import { getSolutionsConfig } from '@/config/solutions';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function SolutionsIndex() {
-  const items = Object.values(solutionsConfig);
+  const { t } = useI18n();
+  const config = getSolutionsConfig(t);
+  const items = Object.values(config);
 
   return (
     <>
@@ -22,8 +25,8 @@ export default function SolutionsIndex() {
 
       <header className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Solutions for every beauty business</h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl">Choose your industry to see a tailored overview with specific features, workflows, and customer stories.</p>
+          <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight">{t('solutions.index.heading')}</h1>
+          <p className="mt-3 font-serif italic text-muted-foreground max-w-2xl">{t('solutions.index.subheading')}</p>
         </div>
       </header>
 
@@ -37,9 +40,9 @@ export default function SolutionsIndex() {
                   <CardDescription>{s.industry}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">{`Specialized features for ${s.industry.toLowerCase()}`}</p>
+                  <p className="text-sm text-muted-foreground mb-4">{t('solutions.index.specializedFor').replace('{industry}', s.industry.toLowerCase())}</p>
                   <Button asChild>
-                    <Link to={s.path} aria-label={`Explore ${s.title}`}>Explore</Link>
+                    <Link to={s.path} aria-label={`${t('solutions.index.explore')} ${s.title}`}>{t('solutions.index.explore')}</Link>
                   </Button>
                 </CardContent>
               </Card>

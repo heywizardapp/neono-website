@@ -126,7 +126,7 @@ export default function Demo() {
                 <Video className="w-4 h-4 mr-2" />
                 {t('demoPage.badge')}
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
                 {t('demoPage.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -155,7 +155,7 @@ export default function Demo() {
                       <Input
                         id="firstName"
                         {...register('firstName')}
-                        placeholder="John"
+                        placeholder={t('demoPage.firstNamePlaceholder')}
                       />
                       {errors.firstName && (
                         <p className="text-sm text-destructive">{errors.firstName.message}</p>
@@ -168,7 +168,7 @@ export default function Demo() {
                       <Input
                         id="lastName"
                         {...register('lastName')}
-                        placeholder="Doe"
+                        placeholder={t('demoPage.lastNamePlaceholder')}
                       />
                       {errors.lastName && (
                         <p className="text-sm text-destructive">{errors.lastName.message}</p>
@@ -185,7 +185,7 @@ export default function Demo() {
                         id="email"
                         type="email"
                         {...register('email')}
-                        placeholder="john@salon.com"
+                        placeholder={t('demoPage.emailPlaceholder')}
                       />
                       {errors.email && (
                         <p className="text-sm text-destructive">{errors.email.message}</p>
@@ -199,7 +199,7 @@ export default function Demo() {
                         id="phone"
                         type="tel"
                         {...register('phone')}
-                        placeholder="(555) 123-4567"
+                        placeholder={t('demoPage.phonePlaceholder')}
                       />
                       {errors.phone && (
                         <p className="text-sm text-destructive">{errors.phone.message}</p>
@@ -214,7 +214,7 @@ export default function Demo() {
                     <Input
                       id="businessName"
                       {...register('businessName')}
-                      placeholder="Your Salon/Spa Name"
+                      placeholder={t('demoPage.businessNamePlaceholder')}
                     />
                     {errors.businessName && (
                       <p className="text-sm text-destructive">{errors.businessName.message}</p>

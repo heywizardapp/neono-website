@@ -127,8 +127,8 @@ export default function Appointments() {
         { name: 'iCal', logo: 'IC' },
       ]}
       pricing={{
-        startingPrice: `${PRICING.starter.priceDisplay}/month`,
-        includedIn: ['Starter', 'Growth'],
+        startingPrice: `${PRICING.independent.priceDisplay}/month`,
+        includedIn: ['Independent', 'Salon'],
       }}
       faqs={[
         {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Check, X, ArrowRight } from 'lucide-react';
+import { useI18n } from '@/hooks/useI18n';
 
 interface Feature {
   name: string;
@@ -52,6 +53,7 @@ export default function ComparisonTemplate({
   testimonial,
   uniqueDifferentiators 
 }: ComparisonProps) {
+  const { t } = useI18n();
   return (
     <>
       <Helmet>
@@ -72,7 +74,7 @@ export default function ComparisonTemplate({
             "offers": {
               "@type": "Offer",
               "price": pricing.neono.replace(/[^0-9.]/g, ''),
-              "priceCurrency": "USD",
+              "priceCurrency": "CAD",
               "availability": "https://schema.org/InStock"
             },
             "aggregateRating": {
@@ -91,10 +93,10 @@ export default function ComparisonTemplate({
             <p className="text-sm font-medium mb-4 opacity-90 uppercase tracking-wide">
               NeonO vs {competitor.name}
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
               {hero.headline}
             </h1>
-            <p className="text-xl opacity-90 mb-8">
+            <p className="text-xl opacity-90 mb-8 font-serif italic">
               {hero.subheadline}
             </p>
             
@@ -113,7 +115,7 @@ export default function ComparisonTemplate({
                 href="/signup"
                 className="inline-flex items-center px-8 py-4 bg-white text-[hsl(240,89%,73%)] rounded-lg font-semibold hover:shadow-2xl hover:-translate-y-1 transition-all"
               >
-                Switch to NeonO Today
+                {t('compareTemplate.switchToNeono')}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </div>
@@ -124,46 +126,46 @@ export default function ComparisonTemplate({
       {/* Pricing Comparison */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)]">
-            Simple Pricing vs Hidden Fees
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+            {t('compareTemplate.pricingTitle')}
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* NeonO Pricing */}
             <div className="border-2 border-[hsl(240,89%,73%)] rounded-2xl p-8 relative">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[hsl(165,82%,49%)] text-white px-4 py-1 rounded-full text-sm font-semibold">
-                Recommended
+                {t('compareTemplate.recommended')}
               </div>
               <h3 className="text-2xl font-bold mb-2">NeonO</h3>
               <div className="text-4xl font-bold text-[hsl(240,89%,73%)] mb-4">
                 {pricing.neono}
               </div>
               <p className="text-gray-600 mb-6">
-                Everything included. No hidden fees.
+                {t('compareTemplate.neonoDesc')}
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-sm">
                   <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
-                  <span>All features included</span>
+                  <span>{t('compareTemplate.allFeaturesIncluded')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
-                  <span>Unlimited chairs after 7</span>
+                  <span>{t('compareTemplate.unlimitedChairs')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
-                  <span>0% tip commissions</span>
+                  <span>{t('compareTemplate.zeroTipCommissions')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
-                  <span>24/7 support included</span>
+                  <span>{t('compareTemplate.supportIncluded')}</span>
                 </li>
               </ul>
               <a
                 href="/signup"
                 className="block w-full text-center bg-[hsl(240,89%,73%)] text-white py-3 rounded-lg font-semibold hover:opacity-90 transition"
               >
-                Start Free Trial
+                {t('compareTemplate.startFreeTrial')}
               </a>
             </div>
 
@@ -174,30 +176,30 @@ export default function ComparisonTemplate({
                 {pricing.competitor}
               </div>
               <p className="text-gray-600 mb-6">
-                Base price. Add-ons cost extra.
+                {t('compareTemplate.competitorDesc')}
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
-                  <span>Many features are paid add-ons</span>
+                  <span>{t('compareTemplate.paidAddons')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
-                  <span>Per-chair pricing can get expensive</span>
+                  <span>{t('compareTemplate.expensivePricing')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
-                  <span>Tip commissions or fees apply</span>
+                  <span>{t('compareTemplate.tipFees')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
-                  <span>Support may cost extra</span>
+                  <span>{t('compareTemplate.supportExtra')}</span>
                 </li>
               </ul>
               {pricing.savingsAnnual && (
                 <div className="bg-[hsl(165,82%,49%)]/10 border border-[hsl(165,82%,49%)]/30 rounded-lg p-4 text-center">
                   <p className="text-sm font-semibold text-[hsl(215,85%,8%)]">
-                    Save {pricing.savingsAnnual}/year with NeonO
+                    {t('compareTemplate.saveWithNeono').replace('{{amount}}', pricing.savingsAnnual || '')}
                   </p>
                 </div>
               )}
@@ -209,15 +211,15 @@ export default function ComparisonTemplate({
       {/* Feature Comparison Table */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)]">
-            Feature-by-Feature Comparison
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+            {t('compareTemplate.featureComparison')}
           </h2>
           
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="text-left p-4 font-semibold">Feature</th>
+                  <th className="text-left p-4 font-semibold">{t('compareTemplate.feature')}</th>
                   <th className="text-center p-4 font-semibold text-[hsl(240,89%,73%)]">NeonO</th>
                   <th className="text-center p-4 font-semibold">{competitor.name}</th>
                 </tr>
@@ -262,8 +264,8 @@ export default function ComparisonTemplate({
       {/* Unique Differentiators */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)]">
-            Why Salons Choose NeonO Over {competitor.name}
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+            {t('compareTemplate.whySalonsChoose').replace('{{competitor}}', competitor.name)}
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -285,7 +287,7 @@ export default function ComparisonTemplate({
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
-              <p className="text-lg md:text-xl text-gray-700 italic mb-6">
+              <p className="text-lg md:text-xl text-gray-700 italic mb-6 font-serif">
                 "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-4">
@@ -295,7 +297,7 @@ export default function ComparisonTemplate({
                 <div>
                   <p className="font-semibold">{testimonial.author}</p>
                   <p className="text-sm text-gray-600">{testimonial.business}</p>
-                  <p className="text-xs text-gray-500">Switched from {testimonial.switchedFrom}</p>
+                  <p className="text-xs text-gray-500">{t('compareTemplate.switchedFrom').replace('{{provider}}', testimonial.switchedFrom)}</p>
                 </div>
               </div>
             </div>
@@ -306,29 +308,29 @@ export default function ComparisonTemplate({
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Make the Switch?
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
+            {t('compareTemplate.readyToSwitch')}
           </h2>
-          <p className="text-xl opacity-90 mb-8">
-            Join thousands of salons who switched from {competitor.name} to NeonO
+          <p className="text-xl opacity-90 mb-8 font-serif italic">
+            {t('compareTemplate.joinThousands').replace('{{competitor}}', competitor.name)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/signup"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-[hsl(240,89%,73%)] rounded-lg font-semibold hover:shadow-2xl transition-all"
             >
-              Start Free Trial
+              {t('compareTemplate.startFreeTrial')}
               <ArrowRight className="ml-2 w-5 h-5" />
             </a>
             <a
               href="/demo"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[hsl(240,89%,73%)] transition-all"
             >
-              Book a Demo
+              {t('compareTemplate.bookDemo')}
             </a>
           </div>
           <p className="text-sm opacity-75 mt-6">
-            Free data migration • 14-day trial • No credit card required
+            {t('compareTemplate.trialInfo')}
           </p>
         </div>
       </section>

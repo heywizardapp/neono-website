@@ -1,9 +1,13 @@
 import BusinessTemplate from '@/templates/BusinessTemplate';
-import spasConfig from '@/config/solutions/spas';
+import getSpasConfig from '@/config/solutions/spas';
 import { SEOHead } from '@/components/SEO/SEOHead';
 import { generateStructuredData } from '@/lib/seo/meta';
+import { useI18n } from '@/hooks/useI18n';
 
 export default function SpasPage() {
+  const { t } = useI18n();
+  const config = getSpasConfig(t);
+
   return (
     <>
       <SEOHead
@@ -23,7 +27,7 @@ export default function SpasPage() {
           },
         ]}
       />
-      <BusinessTemplate {...spasConfig} />
+      <BusinessTemplate {...config} />
     </>
   );
 }
