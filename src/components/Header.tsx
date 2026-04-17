@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Menu, X, Search, ChevronDown, GraduationCap, FileText, BookOpen, TrendingUp, HelpCircle } from 'lucide-react'
 import { GlobalSearch } from '@/components/search/GlobalSearch'
@@ -47,10 +47,22 @@ export function Header() {
   const [searchOpen, setSearchOpen] = React.useState(false)
   const { isScrolled, isVisible, scrollDirection } = useScrollHeader(20, 150)
   const { t } = useI18n();
+  const { pathname } = useLocation();
 
   const productLinks = getProductLinks(t);
   const solutionLinks = getSolutionLinks(t);
   const compareLinks = getCompareLinks(t);
+
+  const isSectionActive = (prefix: string) => pathname.startsWith(prefix);
+  const isProductsActive = isSectionActive('/products');
+  const isSolutionsActive = isSectionActive('/solutions');
+  const isCompareActive = isSectionActive('/vs/') || isSectionActive('/comparisons');
+  const isResourcesActive =
+    isSectionActive('/academy') ||
+    isSectionActive('/blog') ||
+    isSectionActive('/resources') ||
+    isSectionActive('/help') ||
+    isSectionActive('/case-studies');
 
   React.useEffect(() => {
     function onEsc(e: KeyboardEvent) {
@@ -96,7 +108,16 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-6 text-sm sm:text-base" aria-label="Primary">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
+                  <button
+                    className={cn(
+                      "relative flex items-center gap-1 transition-colors text-sm font-medium min-h-[44px] px-3 py-2",
+                      "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all",
+                      isProductsActive
+                        ? "text-foreground after:bg-primary"
+                        : "text-foreground/80 hover:text-foreground after:bg-transparent"
+                    )}
+                    aria-current={isProductsActive ? 'page' : undefined}
+                  >
                     {t('header.products')}
                     <ChevronDown className="h-4 w-4" />
                   </button>
@@ -117,7 +138,16 @@ export function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
           <DropdownMenu>
-            <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
+            <DropdownMenuTrigger
+              className={cn(
+                "relative transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all",
+                isSolutionsActive
+                  ? "text-foreground font-medium after:bg-primary"
+                  : "text-muted-foreground hover:text-foreground after:bg-transparent"
+              )}
+              aria-current={isSolutionsActive ? 'page' : undefined}
+            >
               {t('header.solutions')}
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -132,7 +162,16 @@ export function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>
-            <DropdownMenuTrigger className="hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring text-muted-foreground">
+            <DropdownMenuTrigger
+              className={cn(
+                "relative transition-colors min-h-[44px] px-3 py-2 inline-flex items-center gap-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all",
+                isCompareActive
+                  ? "text-foreground font-medium after:bg-primary"
+                  : "text-muted-foreground hover:text-foreground after:bg-transparent"
+              )}
+              aria-current={isCompareActive ? 'page' : undefined}
+            >
               {t('header.compare')}
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -154,7 +193,16 @@ export function Header() {
           <TopNav to="/pricing">{t('header.pricing')}</TopNav>
                     <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-1 text-foreground/80 hover:text-foreground transition-colors text-sm font-medium">
+                  <button
+                    className={cn(
+                      "relative flex items-center gap-1 transition-colors text-sm font-medium min-h-[44px] px-3 py-2",
+                      "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all",
+                      isResourcesActive
+                        ? "text-foreground after:bg-primary"
+                        : "text-foreground/80 hover:text-foreground after:bg-transparent"
+                    )}
+                    aria-current={isResourcesActive ? 'page' : undefined}
+                  >
                     {t('header.resources')}
                     <ChevronDown className="h-4 w-4" />
                   </button>
@@ -267,7 +315,15 @@ function TopNav({ to, children }: React.PropsWithChildren<{ to: string }>) {
   return (
     <NavLink
       to={to}
-      className={({ isActive }) => `hover:text-foreground transition-colors min-h-[44px] px-3 py-2 inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring ${isActive ? 'text-foreground font-medium' : 'text-muted-foreground'}`}
+      className={({ isActive }) =>
+        cn(
+          "relative transition-colors min-h-[44px] px-3 py-2 inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+          "after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all",
+          isActive
+            ? "text-foreground font-medium after:bg-primary"
+            : "text-muted-foreground hover:text-foreground after:bg-transparent"
+        )
+      }
     >
       {children}
     </NavLink>
@@ -388,7 +444,14 @@ function MobileLink({ to, children, onClose }: React.PropsWithChildren<{ to: str
     <NavLink
       to={to}
       onClick={onClose}
-      className={({ isActive }) => `block rounded-lg px-3 py-3 min-h-[44px] text-sm transition-colors ${isActive ? 'bg-accent text-accent-foreground font-medium' : 'text-foreground hover:bg-accent/50'}`}
+      className={({ isActive }) =>
+        cn(
+          "block rounded-lg px-3 py-3 min-h-[44px] text-sm transition-colors border-l-2",
+          isActive
+            ? "bg-accent text-accent-foreground font-medium border-primary"
+            : "text-foreground hover:bg-accent/50 border-transparent"
+        )
+      }
     >
       {children}
     </NavLink>

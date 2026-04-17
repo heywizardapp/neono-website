@@ -19,13 +19,14 @@ import {
   Users,
   ArrowRight,
   CheckCircle,
-  HeadphonesIcon
+  HeadphonesIcon,
+  Loader2
 } from 'lucide-react';
 
 export default function Contact() {
   const { toast } = useToast();
   const { t } = useI18n();
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormData>({
+  const { register, handleSubmit, formState: { errors, isSubmitting, isSubmitSuccessful }, reset } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: '',
@@ -178,9 +179,11 @@ export default function Contact() {
                           id="name"
                           {...register('name')}
                           placeholder={t('contact.namePlaceholder')}
+                          aria-invalid={errors.name ? 'true' : 'false'}
+                          aria-describedby={errors.name ? 'name-error' : undefined}
                         />
                         {errors.name && (
-                          <p className="text-sm text-destructive">{errors.name.message}</p>
+                          <p id="name-error" role="alert" className="text-sm text-destructive">{errors.name.message}</p>
                         )}
                       </div>
                       <div className="space-y-2">
@@ -192,9 +195,11 @@ export default function Contact() {
                           type="email"
                           {...register('email')}
                           placeholder={t('contact.emailPlaceholder')}
+                          aria-invalid={errors.email ? 'true' : 'false'}
+                          aria-describedby={errors.email ? 'email-error' : undefined}
                         />
                         {errors.email && (
-                          <p className="text-sm text-destructive">{errors.email.message}</p>
+                          <p id="email-error" role="alert" className="text-sm text-destructive">{errors.email.message}</p>
                         )}
                       </div>
                     </div>
@@ -207,9 +212,11 @@ export default function Contact() {
                         id="company"
                         {...register('company')}
                         placeholder={t('contact.businessPlaceholder')}
+                        aria-invalid={errors.company ? 'true' : 'false'}
+                        aria-describedby={errors.company ? 'company-error' : undefined}
                       />
                       {errors.company && (
-                        <p className="text-sm text-destructive">{errors.company.message}</p>
+                        <p id="company-error" role="alert" className="text-sm text-destructive">{errors.company.message}</p>
                       )}
                     </div>
 
@@ -221,13 +228,15 @@ export default function Contact() {
                         id="topic"
                         {...register('topic')}
                         className="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                        aria-invalid={errors.topic ? 'true' : 'false'}
+                        aria-describedby={errors.topic ? 'topic-error' : undefined}
                       >
                         {supportTopics.map((topic, index) => (
                           <option key={index} value={topic}>{topic}</option>
                         ))}
                       </select>
                       {errors.topic && (
-                        <p className="text-sm text-destructive">{errors.topic.message}</p>
+                        <p id="topic-error" role="alert" className="text-sm text-destructive">{errors.topic.message}</p>
                       )}
                     </div>
 
@@ -240,9 +249,11 @@ export default function Contact() {
                         {...register('message')}
                         rows={5}
                         placeholder={t('contact.messagePlaceholder')}
+                        aria-invalid={errors.message ? 'true' : 'false'}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
                       />
                       {errors.message && (
-                        <p className="text-sm text-destructive">{errors.message.message}</p>
+                        <p id="message-error" role="alert" className="text-sm text-destructive">{errors.message.message}</p>
                       )}
                     </div>
 
@@ -251,9 +262,13 @@ export default function Contact() {
                       disabled={isSubmitting}
                       size="lg"
                       className="w-full btn-hero-primary"
+                      aria-busy={isSubmitting}
                     >
                       {isSubmitting ? (
-                        t('contact.sending')
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
+                          {t('contact.sending')}
+                        </>
                       ) : (
                         <>
                           {t('contact.sendButton')}
@@ -261,6 +276,11 @@ export default function Contact() {
                         </>
                       )}
                     </Button>
+
+                    <div role="status" aria-live="polite" className="sr-only">
+                      {isSubmitting && t('contact.sending')}
+                      {isSubmitSuccessful && t('contact.successTitle')}
+                    </div>
                   </form>
                 </Card>
               </OptimizedInView>

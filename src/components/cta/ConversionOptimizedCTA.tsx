@@ -1,7 +1,12 @@
-import { ArrowRight, CheckCircle, Clock, CreditCard } from 'lucide-react';
+import { ArrowRight, CheckCircle, Clock, CreditCard, LucideIcon, Shield, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useI18n } from '@/hooks/useI18n';
+
+export interface CtaBenefit {
+  icon: LucideIcon;
+  text: string;
+}
 
 interface ConversionOptimizedCTAProps {
   title?: string;
@@ -16,6 +21,7 @@ interface ConversionOptimizedCTAProps {
   };
   variant?: 'hero' | 'section' | 'pricing';
   urgency?: boolean;
+  benefits?: CtaBenefit[];
 }
 
 export function ConversionOptimizedCTA({
@@ -24,7 +30,8 @@ export function ConversionOptimizedCTA({
   primaryCta,
   secondaryCta,
   variant = 'section',
-  urgency = false
+  urgency = false,
+  benefits
 }: ConversionOptimizedCTAProps) {
   const { t } = useI18n();
   const resolvedTitle = title || t('conversionCta.defaultTitle');
@@ -32,11 +39,25 @@ export function ConversionOptimizedCTA({
   const resolvedPrimaryCta = primaryCta || { label: t('conversionCta.startFreeTrial'), href: "/signup" };
   const resolvedSecondaryCta = secondaryCta || { label: t('conversionCta.watchDemo'), href: "/demo" };
 
-  const benefits = [
-    { icon: CheckCircle, text: t('home.cta.freeTrial') },
-    { icon: CreditCard, text: t('home.cta.noCreditCard') },
-    { icon: Clock, text: t('home.cta.setupTime') }
-  ];
+  const defaultBenefitsByVariant: Record<'hero' | 'section' | 'pricing', CtaBenefit[]> = {
+    hero: [
+      { icon: CheckCircle, text: t('home.cta.freeTrial') },
+      { icon: CreditCard, text: t('home.cta.noCreditCard') },
+      { icon: Clock, text: t('home.cta.setupTime') },
+    ],
+    section: [
+      { icon: CheckCircle, text: t('home.cta.freeTrial') },
+      { icon: CreditCard, text: t('home.cta.noCreditCard') },
+      { icon: Clock, text: t('home.cta.setupTime') },
+    ],
+    pricing: [
+      { icon: Shield, text: t('home.cta.noCreditCard') },
+      { icon: Sparkles, text: t('home.cta.setupTime') },
+      { icon: CheckCircle, text: t('home.cta.freeTrial') },
+    ],
+  };
+
+  const resolvedBenefits = benefits ?? defaultBenefitsByVariant[variant];
 
   const variantStyles = {
     hero: "py-20 lg:py-32 bg-gradient-hero text-white",
@@ -96,7 +117,7 @@ export function ConversionOptimizedCTA({
 
           {/* Trust signals */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
-            {benefits.map((benefit, index) => {
+            {resolvedBenefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div key={index} className="flex items-center gap-2">
