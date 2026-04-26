@@ -154,10 +154,6 @@ export default function ComparisonTemplate({
                 </li>
                 <li className="flex items-start text-sm">
                   <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
-                  <span>{t('compareTemplate.zeroTipCommissions')}</span>
-                </li>
-                <li className="flex items-start text-sm">
-                  <Check className="w-5 h-5 text-[hsl(165,82%,49%)] mr-2 flex-shrink-0" />
                   <span>{t('compareTemplate.supportIncluded')}</span>
                 </li>
               </ul>
@@ -186,10 +182,6 @@ export default function ComparisonTemplate({
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
                   <span>{t('compareTemplate.expensivePricing')}</span>
-                </li>
-                <li className="flex items-start text-sm">
-                  <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />
-                  <span>{t('compareTemplate.tipFees')}</span>
                 </li>
                 <li className="flex items-start text-sm">
                   <X className="w-5 h-5 text-red-500 mr-2 flex-shrink-0" />

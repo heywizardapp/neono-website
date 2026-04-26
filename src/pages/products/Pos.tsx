@@ -176,12 +176,8 @@ export default function Pos() {
           a: 'We charge 2.6% + $0.10 per transaction for card payments. No monthly fees, setup fees, or hidden charges. That\'s it.',
         },
         {
-          q: 'Do you take a cut of tips?',
-          a: 'Never! Unlike other platforms, we don\'t touch tips. 100% of tips go to your team. We believe tips belong to the people who earned them.',
-        },
-        {
           q: 'How does tip splitting work?',
-          a: 'You set up custom rules (like 70% to stylist, 20% to assistant, 10% to front desk). Tips are automatically split according to your rules at checkout.',
+          a: 'You set up custom rules (like 70% to stylist, 20% to assistant, 10% to front desk). Tips are automatically split according to your rules at checkout. Standard card processing rates apply to the full transaction, including the tip portion.',
         },
         {
           q: 'Can I accept cash payments?',

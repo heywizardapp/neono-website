@@ -330,7 +330,7 @@ SELECT
   'accepting-your-first-payment',
   'Accepting Your First Payment',
   'Learn how to process payments with NeonO POS',
-  E'# Accepting Your First Payment\n\nNeonO makes it easy to accept payments from your clients.\n\n## Supported Payment Methods\n\n- Credit/Debit Cards\n- Apple Pay & Google Pay\n- Cash\n- Gift Cards\n\n## Processing a Payment\n\n1. Complete the appointment\n2. Click "Checkout"\n3. Select payment method\n4. Process the transaction\n\n## Tips & Gratuity\n\nClients can add tips during checkout. 100% of tips go to your staff - we never take a cut.',
+  E'# Accepting Your First Payment\n\nNeonO makes it easy to accept payments from your clients.\n\n## Supported Payment Methods\n\n- Credit/Debit Cards\n- Apple Pay & Google Pay\n- Cash\n- Gift Cards\n\n## Processing a Payment\n\n1. Complete the appointment\n2. Click "Checkout"\n3. Select payment method\n4. Process the transaction\n\n## Tips & Gratuity\n\nClients can add tips during checkout. NeonO automatically splits tips across your team based on rules you define. Standard card-processing rates apply to the full transaction, including the tip portion.',
   1
 FROM academy_categories c
 WHERE c.slug = 'pos-payments'

@@ -42,7 +42,7 @@ export default function FreshaComparison() {
         { name: 'Colour Cost Tracking', neono: '✅ Included', competitor: '❌ Not available (need SalonScale $99–199/mo)', highlight: true },
         { name: 'Website Builder', neono: '✅ Included', competitor: '❌ Not available', highlight: true },
         { name: 'Online Store', neono: '✅ Included', competitor: '✅ Basic' },
-        { name: 'Tip Commission', neono: '✅ 0%', competitor: '💰 Charged at processing rate', highlight: true },
+        { name: 'Automatic Tip Splitting', neono: '✅ Built-in', competitor: '🟡 Limited' },
         { name: 'Guest Booking (no account)', neono: '✅ Yes', competitor: '❌ Requires Fresha account', highlight: true },
         { name: 'AI Autopilot', neono: '✅ Included', competitor: '❌ Not available' },
         { name: 'Distributor Integration', neono: '✅ Metro Beauty', competitor: '❌ Not available' },
@@ -59,8 +59,8 @@ export default function FreshaComparison() {
         },
         {
           icon: '🎯',
-          title: 'Zero Tip Commissions',
-          description: 'Your staff keeps 100% of tips. Fresha charges processing fees on every tip transaction.',
+          title: 'Automatic Tip Splitting',
+          description: 'Built-in tip splitting rules distribute tips across your team at checkout — no spreadsheets, no end-of-week math.',
         },
         {
           icon: '🚀',

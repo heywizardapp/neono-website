@@ -233,8 +233,6 @@ export const PROCESSING_FEES = {
   onlineDisplay: '2.99% + $0.30',
   dropship: { percent: 3.20, perTx: 0.30 },
   dropshipDisplay: '3.20% + $0.30',
-  tipCommission: 0,
-  tipCommissionDisplay: '0%',
 } as const;
 
 // ===========================================

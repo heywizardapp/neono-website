@@ -43,7 +43,7 @@ export default function VagaroComparison() {
         { name: 'AI Insights', neono: '✅ Included', competitor: '❌ Not available' },
         { name: 'Loyalty (Gamified)', neono: '✅ Tiers/badges', competitor: '🟡 Basic points' },
         { name: 'Guest Booking', neono: '✅ No account needed', competitor: '❌ Account required', highlight: true },
-        { name: 'Tip Commission', neono: '✅ 0%', competitor: '💰 Charged at processing rate', highlight: true },
+        { name: 'Automatic Tip Splitting', neono: '✅ Built-in', competitor: '🟡 Limited' },
         { name: 'Distributor Integration', neono: '✅ Metro Beauty', competitor: '❌ Not available' },
         { name: 'CASL Compliance', neono: '✅ Native', competitor: '❌ US-focused' },
         { name: 'Landing Page Builder', neono: '✅ Included', competitor: '❌ Not available' },
@@ -58,8 +58,8 @@ export default function VagaroComparison() {
         },
         {
           icon: '⚡',
-          title: '2-Tap Checkout & Zero Tip Fees',
-          description: 'Faster POS checkout than Vagaro. Plus your staff keeps 100% of tips -- Vagaro charges processing fees on every tip.',
+          title: '2-Tap Checkout & Built-in Tip Splitting',
+          description: 'Faster POS checkout than Vagaro, with automatic tip splitting across your team based on rules you set.',
         },
         {
           icon: '🤖',

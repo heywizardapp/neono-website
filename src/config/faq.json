@@ -10,9 +10,9 @@
     "tags": ["seats", "team", "users", "staff"]
   },
   {
-    "question": "Do you charge commission on tips?",
-    "answer": "No! Unlike many competitors, NeonO never takes commission on tips. Your staff keeps 100% of their tips. Zero tip commissions, ever.",
-    "tags": ["tips", "commission", "payments", "processing"]
+    "question": "How does NeonO handle tips?",
+    "answer": "NeonO includes automatic tip splitting across your team based on rules you set. Tips flow through the same card transaction as the sale, so standard card-processing rates apply to the full amount — we don't add any additional commission on top.",
+    "tags": ["tips", "splitting", "payments", "processing"]
   },
   {
     "question": "Is SMS marketing included?",

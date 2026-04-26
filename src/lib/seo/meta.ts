@@ -45,7 +45,7 @@ const PAGE_SPECIFIC_META: Record<string, Partial<MetaConfig>> = {
   },
   '/pricing': {
     title: 'Pricing Plans - NeonO Business Software',
-    description: 'Simple, transparent pricing for NeonO business software. No setup fees, no contracts, no commission on tips. Start free and scale as you grow.',
+    description: 'Simple, transparent pricing for NeonO business software. No setup fees, no contracts, all features included. Start free and scale as you grow.',
   },
   '/roi': {
     title: 'ROI Calculator - See Your Savings with NeonO',

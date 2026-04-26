@@ -212,7 +212,6 @@ export function RoiResults({ input, output, onShare, onExport }: RoiResultsProps
                   <p>• NeonO: $24.99/seat (max 7 billable, seats 8+ free)</p>
                   <p>• Competitor add-ons: loyalty ($79.95/mo), insights ($13.95/member), Google boost ($20.95/mo), SMS ($20/mo)</p>
                   <p>• Payment processing fees excluded — they apply to all platforms similarly</p>
-                  <p>• Your staff keeps 100% of tips with NeonO — no tip commissions</p>
                 </div>
               </AccordionContent>
             </AccordionItem>
