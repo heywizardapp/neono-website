@@ -132,7 +132,7 @@ export default function ContactlessReader() {
                   <DollarSign className="h-3 w-3 mr-1" />
                   Budget Friendly
                 </Badge>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   Contactless Card Reader
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
@@ -169,10 +169,10 @@ export default function ContactlessReader() {
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 Simple, affordable tap-to-pay
               </h2>
-              <p className="text-lg text-muted-foreground font-serif italic">
+              <p className="text-lg text-muted-foreground font-display">
                 Everything you need to accept contactless payments
               </p>
             </div>
@@ -196,7 +196,7 @@ export default function ContactlessReader() {
         {/* Technical Specs */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Technical Specifications
             </h2>
 
@@ -235,7 +235,7 @@ export default function ContactlessReader() {
         {/* Use Cases */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Who it's perfect for
             </h2>
 
@@ -275,7 +275,7 @@ export default function ContactlessReader() {
           <div className="max-w-5xl mx-auto">
             <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10">
               <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
+                <h2 className="text-2xl md:text-3xl font-display font-bold mb-2">
                   Why choose the Contactless Reader?
                 </h2>
                 <p className="text-muted-foreground">
@@ -362,7 +362,7 @@ export default function ContactlessReader() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
                   Works seamlessly with NeonO
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
@@ -430,7 +430,7 @@ export default function ContactlessReader() {
         {/* FAQs */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Frequently Asked Questions
             </h2>
             <FaqAccordion faqs={faqs} />
@@ -440,10 +440,10 @@ export default function ContactlessReader() {
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Start accepting card payments today
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 font-serif italic">
+            <p className="text-xl text-muted-foreground mb-8 font-display">
               Get the most affordable contactless reader for just {HARDWARE.stripeReaderM2.priceDisplay}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

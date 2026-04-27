@@ -44,10 +44,10 @@ export default function Developers() {
               <Zap className="w-4 h-4" />
               {t('developers.comingSoon')}
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               {t('developers.title')}
             </h1>
-            <p className="text-xl opacity-90 mb-8 font-serif italic">
+            <p className="text-xl opacity-90 mb-8 font-display">
               {t('developers.subtitle')}
             </p>
 
@@ -81,7 +81,7 @@ export default function Developers() {
       {/* Planned Features */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-display">
             {t('developers.whatYoullBuild')}
           </h2>
 
@@ -122,7 +122,7 @@ export default function Developers() {
       {/* Planned API Endpoints */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-display">
             {t('developers.plannedCapabilities')}
           </h2>
 
@@ -140,7 +140,7 @@ export default function Developers() {
       {/* Code Example Preview */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[hsl(215,85%,8%)] font-display">
             {t('developers.apiDesign')}
           </h2>
           <div className="bg-[hsl(215,85%,8%)] text-white p-8 rounded-2xl font-mono text-sm overflow-x-auto">
@@ -168,10 +168,10 @@ POST https://api.neono.ca/v1/appointments
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
             {t('developers.earlyAccess')}
           </h2>
-          <p className="text-xl opacity-90 mb-8 font-serif italic">
+          <p className="text-xl opacity-90 mb-8 font-display">
             {t('developers.earlyAccessDesc')}
           </p>
           <a

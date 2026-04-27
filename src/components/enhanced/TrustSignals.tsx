@@ -41,10 +41,10 @@ export function TrustSignals() {
             <Badge variant="secondary" className="mb-4">
               {t('trustSignals.badge')}
             </Badge>
-            <h2 className="text-2xl font-bold mb-4 font-serif">
+            <h2 className="text-2xl font-bold mb-4 font-display">
               {t('trustSignals.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-serif italic">
+            <p className="text-muted-foreground max-w-2xl mx-auto font-display">
               {t('trustSignals.subtitle')}
             </p>
           </div>

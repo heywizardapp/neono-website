@@ -115,10 +115,10 @@ export function EnhancedTestimonials() {
     <section ref={ref} className="py-20 lg:py-32 bg-gradient-subtle">
       <div className="container">
         <ScrollReveal animation="fade-up" className="text-center mb-16">
-          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
             {t('enhancedTestimonials.title')}
           </h2>
-          <p className="font-serif text-xl text-muted-foreground max-w-2xl mx-auto italic">
+          <p className="font-display text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('enhancedTestimonials.subtitle')}
           </p>
         </ScrollReveal>
@@ -138,7 +138,7 @@ export function EnhancedTestimonials() {
 
               <div className="relative z-10">
                 {/* Quote */}
-                <blockquote className="font-serif italic text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground mb-8 max-w-4xl mx-auto">
+                <blockquote className="font-display text-xl lg:text-2xl font-medium leading-relaxed text-center text-foreground mb-8 max-w-4xl mx-auto">
                   "{currentTestimonial.quote}"
                 </blockquote>
 

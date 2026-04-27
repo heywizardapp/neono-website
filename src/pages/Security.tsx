@@ -68,7 +68,7 @@ export function Security() {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4">{t('security.badge')}</Badge>
-            <h1 className="text-4xl font-serif font-bold mb-6">
+            <h1 className="text-4xl font-display font-bold mb-6">
               {t('security.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -104,10 +104,10 @@ export function Security() {
           {/* Compliance Table */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-serif font-bold mb-4">
+              <h2 className="text-3xl font-display font-bold mb-4">
                 {t('security.complianceTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('security.complianceSubtitle')}
               </p>
             </div>
@@ -152,7 +152,7 @@ export function Security() {
           {/* Security Practices */}
           <div className="grid gap-12 lg:grid-cols-2 mb-20">
             <div>
-              <h3 className="text-2xl font-serif font-bold mb-6">{t('security.dataProtection')}</h3>
+              <h3 className="text-2xl font-display font-bold mb-6">{t('security.dataProtection')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />
@@ -185,7 +185,7 @@ export function Security() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-serif font-bold mb-6">{t('security.accessSecurity')}</h3>
+              <h3 className="text-2xl font-display font-bold mb-6">{t('security.accessSecurity')}</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-primary mt-1" />

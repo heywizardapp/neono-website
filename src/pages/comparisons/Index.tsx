@@ -49,10 +49,10 @@ export default function ComparisonsHub() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white py-20">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 font-display">
             How NeonO Compares
           </h1>
-          <p className="text-xl opacity-90 max-w-2xl mx-auto font-serif italic">
+          <p className="text-xl opacity-90 max-w-2xl mx-auto font-display">
             See side-by-side feature and pricing comparisons with leading salon software platforms
           </p>
         </div>
@@ -91,10 +91,10 @@ export default function ComparisonsHub() {
       {/* CTA */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold mb-6 text-[hsl(215,85%,8%)] font-display">
             Ready to Switch?
           </h2>
-          <p className="text-xl text-gray-600 mb-8 font-serif italic">
+          <p className="text-xl text-gray-600 mb-8 font-display">
             Join salons saving thousands by switching to NeonO
           </p>
           <a

@@ -25,8 +25,8 @@ export default function SolutionsIndex() {
 
       <header className="py-12 md:py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-tight">{t('solutions.index.heading')}</h1>
-          <p className="mt-3 font-serif italic text-muted-foreground max-w-2xl">{t('solutions.index.subheading')}</p>
+          <h1 className="text-3xl md:text-4xl font-display font-bold tracking-tight">{t('solutions.index.heading')}</h1>
+          <p className="mt-3 font-display text-muted-foreground max-w-2xl">{t('solutions.index.subheading')}</p>
         </div>
       </header>
 

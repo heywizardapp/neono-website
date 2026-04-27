@@ -48,11 +48,11 @@ export function ValueProposition() {
                 {t('valueProp.badge')}
               </Badge>
 
-              <h2 className="text-3xl font-bold mb-6 lg:text-4xl font-serif">
+              <h2 className="text-3xl font-bold mb-6 lg:text-4xl font-display">
                 {t('valueProp.title')}
               </h2>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-serif italic">
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed font-display">
                 {t('valueProp.subtitle')}
               </p>
             </IntersectionAnimation>

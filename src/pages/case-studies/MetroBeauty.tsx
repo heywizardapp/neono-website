@@ -29,10 +29,10 @@ export default function MetroBeauty() {
             <p className="text-sm font-medium mb-4 opacity-90">
               CASE STUDY
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               How Metro Beauty Increased Salon Partner Revenue 67% in 90 Days
             </h1>
-            <p className="text-xl opacity-90 mb-8 font-serif italic">
+            <p className="text-xl opacity-90 mb-8 font-display">
               Third-generation beauty distributor modernizes 150+ salon partnerships 
               with NeonO's all-in-one platform.
             </p>
@@ -61,7 +61,7 @@ export default function MetroBeauty() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-[hsl(215,85%,8%)] font-serif">
+              <h2 className="text-3xl font-bold mb-4 text-[hsl(215,85%,8%)] font-display">
                 About Metro Beauty Toronto
               </h2>
               <p className="text-gray-600 mb-4">
@@ -99,7 +99,7 @@ export default function MetroBeauty() {
       {/* The Challenge */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold mb-8 text-[hsl(215,85%,8%)] font-display">
             The Challenge
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -142,7 +142,7 @@ export default function MetroBeauty() {
       {/* The Solution */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold mb-12 text-[hsl(215,85%,8%)] font-display">
             The NeonO Solution
           </h2>
           
@@ -263,7 +263,7 @@ export default function MetroBeauty() {
       {/* Results */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold mb-12 text-center text-[hsl(215,85%,8%)] font-display">
             The Results
           </h2>
           
@@ -335,7 +335,7 @@ export default function MetroBeauty() {
             <div className="flex items-start gap-4">
               <div className="text-6xl text-[hsl(240,89%,73%)] leading-none">"</div>
               <div className="flex-1">
-                <p className="text-lg md:text-xl text-gray-700 mb-6 italic leading-relaxed font-serif">
+                <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed font-display">
                   NeonO transformed how we support our salon partners. The integrated 
                   platform not only increased their revenue by 67% on average, but also 
                   strengthened our relationships. Salon owners now see us as a technology 
@@ -360,10 +360,10 @@ export default function MetroBeauty() {
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
             Ready to Transform Your Salon Business?
           </h2>
-          <p className="text-xl opacity-90 mb-4 font-serif italic">
+          <p className="text-xl opacity-90 mb-4 font-display">
             Join Metro Beauty and 150+ salons growing with NeonO.
           </p>
           <p className="text-lg opacity-75 mb-8">

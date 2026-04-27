@@ -93,10 +93,10 @@ export default function ComparisonTemplate({
             <p className="text-sm font-medium mb-4 opacity-90 uppercase tracking-wide">
               NeonO vs {competitor.name}
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-serif">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-display">
               {hero.headline}
             </h1>
-            <p className="text-xl opacity-90 mb-8 font-serif italic">
+            <p className="text-xl opacity-90 mb-8 font-display">
               {hero.subheadline}
             </p>
             
@@ -126,7 +126,7 @@ export default function ComparisonTemplate({
       {/* Pricing Comparison */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-display">
             {t('compareTemplate.pricingTitle')}
           </h2>
           
@@ -203,7 +203,7 @@ export default function ComparisonTemplate({
       {/* Feature Comparison Table */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-display">
             {t('compareTemplate.featureComparison')}
           </h2>
           
@@ -256,7 +256,7 @@ export default function ComparisonTemplate({
       {/* Unique Differentiators */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-serif">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[hsl(215,85%,8%)] font-display">
             {t('compareTemplate.whySalonsChoose').replace('{{competitor}}', competitor.name)}
           </h2>
           
@@ -279,7 +279,7 @@ export default function ComparisonTemplate({
         <section className="py-16 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white p-8 md:p-12 rounded-2xl shadow-lg">
-              <p className="text-lg md:text-xl text-gray-700 italic mb-6 font-serif">
+              <p className="text-lg md:text-xl text-gray-700 mb-6 font-display">
                 "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-4">
@@ -300,10 +300,10 @@ export default function ComparisonTemplate({
       {/* Final CTA */}
       <section className="py-20 bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-serif">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
             {t('compareTemplate.readyToSwitch')}
           </h2>
-          <p className="text-xl opacity-90 mb-8 font-serif italic">
+          <p className="text-xl opacity-90 mb-8 font-display">
             {t('compareTemplate.joinThousands').replace('{{competitor}}', competitor.name)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

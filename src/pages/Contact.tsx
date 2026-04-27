@@ -115,7 +115,7 @@ export default function Contact() {
                   <HeadphonesIcon className="w-4 h-4 mr-2" />
                   {t('contact.badge')}
                 </Badge>
-                <h1 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+                <h1 className="text-3xl font-display font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4">
                   {t('contact.title')}
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">

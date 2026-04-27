@@ -134,7 +134,7 @@ export default function Wisepos() {
                   <Smartphone className="h-3 w-3 mr-1" />
                   Portable & Wireless
                 </Badge>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
                   Stripe WisePOS E
                 </h1>
                 <p className="text-xl text-muted-foreground mb-8">
@@ -171,10 +171,10 @@ export default function Wisepos() {
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 Take payments anywhere
               </h2>
-              <p className="text-lg text-muted-foreground font-serif italic">
+              <p className="text-lg text-muted-foreground font-display">
                 Everything you need in one portable device
               </p>
             </div>
@@ -198,7 +198,7 @@ export default function Wisepos() {
         {/* Technical Specs */}
         <section className="py-16 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Technical Specifications
             </h2>
 
@@ -237,7 +237,7 @@ export default function Wisepos() {
         {/* Use Cases */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Perfect for mobile professionals
             </h2>
 
@@ -307,7 +307,7 @@ export default function Wisepos() {
               </Card>
 
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
                   Seamlessly integrated with NeonO
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
@@ -345,7 +345,7 @@ export default function Wisepos() {
         {/* FAQs */}
         <section className="py-16 px-4 bg-muted/30">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
               Frequently Asked Questions
             </h2>
             <FaqAccordion faqs={faqs} />
@@ -355,10 +355,10 @@ export default function Wisepos() {
         {/* CTA Section */}
         <section className="py-16 px-4 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
               Take your checkout mobile
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 font-serif italic">
+            <p className="text-xl text-muted-foreground mb-8 font-display">
               Order the WisePOS E and start accepting payments anywhere
             </p>
             <div className="flex flex-wrap gap-4 justify-center">

@@ -80,7 +80,7 @@ export default function Help() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[hsl(240,89%,73%)] to-[hsl(165,82%,49%)] text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-serif mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold font-display mb-6">
             {t('help.title')}
           </h1>
           <p className="text-xl opacity-90 mb-8">
@@ -119,7 +119,7 @@ export default function Help() {
           ) : (
             filteredFAQs.map((category) => (
               <div key={category.category} className="mb-12">
-                <h2 className="text-2xl font-serif font-bold mb-6 text-[hsl(215,85%,8%)]">
+                <h2 className="text-2xl font-display font-bold mb-6 text-[hsl(215,85%,8%)]">
                   {category.category}
                 </h2>
                 <div className="space-y-4">
@@ -163,7 +163,7 @@ export default function Help() {
       {/* Still Need Help CTA */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif font-bold mb-4 text-[hsl(215,85%,8%)]">
+          <h2 className="text-3xl font-display font-bold mb-4 text-[hsl(215,85%,8%)]">
             {t('help.stillNeedHelp')}
           </h2>
           <p className="text-xl text-gray-600 mb-8">

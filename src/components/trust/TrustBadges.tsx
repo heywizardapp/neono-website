@@ -31,10 +31,10 @@ export function TrustBadges() {
     <section className="py-12 border-t border-border/40 bg-gradient-subtle">
       <div className="container">
         <div className="text-center mb-8">
-          <h3 className="text-lg font-semibold text-muted-foreground mb-2 font-serif">
+          <h3 className="text-lg font-semibold text-muted-foreground mb-2 font-display">
             {t('trustBadges.title')}
           </h3>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto font-serif italic">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto font-display">
             {t('trustBadges.subtitle')}
           </p>
         </div>

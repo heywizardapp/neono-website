@@ -15,7 +15,7 @@ export function PricingRibbon({ config }: PricingRibbonProps) {
     <section id="pricing" className="py-20 lg:py-32">
       <div className="container">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-8">
+          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-8">
             {t('pricing.ribbon.title')}
           </h2>
           

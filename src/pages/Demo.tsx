@@ -126,7 +126,7 @@ export default function Demo() {
                 <Video className="w-4 h-4 mr-2" />
                 {t('demoPage.badge')}
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">
                 {t('demoPage.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">

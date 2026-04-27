@@ -291,10 +291,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.whatsIncludedTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('pricing.page.whatsIncludedSubtitle')}
               </p>
             </div>
@@ -340,10 +340,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.faqTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('pricing.page.faqSubtitle')}
               </p>
             </div>
@@ -381,10 +381,10 @@ export default function Pricing() {
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('pricing.page.roiTitle')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('pricing.page.roiSubtitle')}
               </p>
             </div>

@@ -69,7 +69,7 @@ export default function CompanyIndex() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4">Company</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">
                 Empowering beauty businesses worldwide
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -131,7 +131,7 @@ export default function CompanyIndex() {
             <Card className="mb-16 overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2 p-8 lg:p-12">
-                  <h2 className="text-3xl font-serif font-bold mb-6">Get in Touch</h2>
+                  <h2 className="text-3xl font-display font-bold mb-6">Get in Touch</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     Whether you're interested in learning more about NeonO, exploring partnership opportunities, 
                     or joining our team, we'd love to hear from you.
@@ -182,7 +182,7 @@ export default function CompanyIndex() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-serif font-bold mb-4">Ready to transform your business?</h2>
+                <h2 className="text-2xl font-display font-bold mb-4">Ready to transform your business?</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
                   See why NeonO is the all-in-one platform Canadian beauty businesses have been waiting for.
                 </p>

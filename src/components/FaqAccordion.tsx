@@ -18,10 +18,10 @@ export function FaqAccordion({ faqs }: FaqAccordionProps) {
     <section id="faq" className="py-20 lg:py-32 bg-accent/5">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
             {t('faq.title')}
           </h2>
-          <p className="font-serif italic text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-display text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('faq.subtitle')}
           </p>
         </div>

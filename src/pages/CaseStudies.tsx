@@ -126,10 +126,10 @@ export default function CaseStudiesPage() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-12">
               <Badge variant="outline" className="mb-4">{t('caseStudies.badge')}</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 font-display">
                 {t('caseStudies.title')}
               </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-display">
                 {t('caseStudies.subtitle')}
               </p>
               <p className="text-sm text-muted-foreground max-w-2xl mx-auto mt-4 bg-muted/50 rounded-lg px-4 py-3 border border-border/40">
@@ -177,7 +177,7 @@ export default function CaseStudiesPage() {
                       <Badge variant="default">{t('caseStudies.featured')}</Badge>
                       <Badge variant="outline">{featuredStudy.industry}</Badge>
                     </div>
-                    <h2 className="text-2xl font-bold mb-2 font-serif">{featuredStudy.title}</h2>
+                    <h2 className="text-2xl font-bold mb-2 font-display">{featuredStudy.title}</h2>
                     <div className="flex items-center gap-4 text-muted-foreground mb-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="h-4 w-4" />
@@ -208,7 +208,7 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
-                    <blockquote className="text-lg italic text-muted-foreground mb-4 border-l-4 border-primary pl-4 font-serif">
+                    <blockquote className="text-lg text-muted-foreground mb-4 border-l-4 border-primary pl-4 font-display">
                       "{featuredStudy.quote}"
                     </blockquote>
                     <div className="flex items-center gap-2 mb-6">
@@ -279,8 +279,8 @@ export default function CaseStudiesPage() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4 font-serif">{t('caseStudies.ctaTitle')}</h2>
-                <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto font-serif italic">
+                <h2 className="text-2xl font-bold mb-4 font-display">{t('caseStudies.ctaTitle')}</h2>
+                <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto font-display">
                   {t('caseStudies.ctaDesc')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

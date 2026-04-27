@@ -114,8 +114,8 @@ export default function ResourcesHub() {
       {/* Vagaro-style Hero Section */}
       <div className="bg-gradient-to-b from-muted/30 to-background py-16 border-b">
         <div className="container max-w-4xl text-center">
-          <h1 className="text-5xl font-bold mb-4 font-serif">Resources</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed font-serif italic">
+          <h1 className="text-5xl font-bold mb-4 font-display">Resources</h1>
+          <p className="text-xl text-muted-foreground leading-relaxed font-display">
             Explore all the industry insights & business tips for amplified success, 
             all right here! It's your go-to hub for staying in the know & ahead in your field.
           </p>
@@ -148,7 +148,7 @@ export default function ResourcesHub() {
               PRO BLOG
             </Badge>
           </div>
-          <h2 className="text-3xl font-bold font-serif">The Latest Articles</h2>
+          <h2 className="text-3xl font-bold font-display">The Latest Articles</h2>
         </div>
 
         {/* Loading Skeleton */}

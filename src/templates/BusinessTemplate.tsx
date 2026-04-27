@@ -101,10 +101,10 @@ export default function BusinessTemplate(props: BusinessTemplateConfig | Busines
                   <Badge variant="secondary" className="mb-4 bg-white/10 text-white border-white/20">
                     🎨 {section.eyebrow}
                   </Badge>
-                  <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4 text-white">
+                  <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-4 text-white">
                     {section.title}
                   </h2>
-                  <p className="font-serif italic text-lg text-white/60 max-w-2xl mx-auto">
+                  <p className="font-display text-lg text-white/60 max-w-2xl mx-auto">
                     {t('solutions.salons.colour.qualifier')}
                   </p>
                 </div>

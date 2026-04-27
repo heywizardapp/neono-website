@@ -146,7 +146,7 @@ export function ProductTemplate({
                 {productName}
               </Badge>
               
-              <h1 className="text-4xl font-serif font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 {tagline}
               </h1>
               
@@ -200,10 +200,10 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32 bg-slate-50/50 dark:bg-slate-900/20">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('productTemplate.keyFeatures')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('productTemplate.keyFeaturesSubtitle').replace('{productName}', productName.toLowerCase())}
               </p>
             </div>
@@ -240,7 +240,7 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32 bg-gradient-subtle">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                   {t('productTemplate.seeItInAction')}
                 </h2>
               </div>
@@ -267,10 +267,10 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32">
           <div className="container">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('productTemplate.businessBenefits')}
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                 {t('productTemplate.businessBenefitsSubtitle').replace('{productName}', productName)}
               </p>
             </div>
@@ -298,10 +298,10 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                   {t('productTemplate.professionalHardware')}
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   {t('productTemplate.professionalHardwareSubtitle')}
                 </p>
               </div>
@@ -330,10 +330,10 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32 bg-gradient-subtle">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                   {t('productTemplate.worksWithTools')}
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   {t('productTemplate.worksWithToolsSubtitle')}
                 </p>
               </div>
@@ -357,7 +357,7 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="max-w-3xl mx-auto text-center space-y-6">
-                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
                   {t('productTemplate.simplePricing')}
                 </h2>
                 <p className="text-xl text-muted-foreground">
@@ -382,7 +382,7 @@ export function ProductTemplate({
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container max-w-3xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                 {t('productTemplate.faq')}
               </h2>
             </div>
@@ -396,7 +396,7 @@ export function ProductTemplate({
           <section className="py-20 lg:py-32">
             <div className="container">
               <div className="text-center mb-16">
-                <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+                <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
                   {t('productTemplate.youMightAlsoLike')}
                 </h2>
               </div>
@@ -428,10 +428,10 @@ export function ProductTemplate({
         {/* Final CTA */}
         <section className="py-20 lg:py-32 bg-gradient-subtle">
           <div className="container text-center">
-            <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl mb-4">
+            <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl mb-4">
               {t('productTemplate.readyToGetStarted')}
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-serif italic">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-display">
               {t('productTemplate.readyToGetStartedSubtitle').replace('{productName}', productName)}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

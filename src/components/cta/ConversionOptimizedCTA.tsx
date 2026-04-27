@@ -76,13 +76,13 @@ export function ConversionOptimizedCTA({
           )}
           
           <div className="space-y-6">
-            <h2 className={`font-serif font-bold tracking-tight ${
+            <h2 className={`font-display font-bold tracking-tight ${
               variant === 'hero' ? 'text-4xl lg:text-6xl text-white' :
               'text-3xl sm:text-4xl lg:text-5xl'
             }`}>
               {resolvedTitle}
             </h2>
-            <p className={`text-xl leading-relaxed max-w-3xl mx-auto font-serif italic ${
+            <p className={`text-xl leading-relaxed max-w-3xl mx-auto font-display ${
               variant === 'hero' ? 'text-white/90' : 'text-muted-foreground'
             }`}>
               {resolvedSubtitle}

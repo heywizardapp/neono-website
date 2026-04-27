@@ -115,10 +115,10 @@ const Index = () => {
             <Badge variant="secondary" className="mb-4">
               🇨🇦 {t('home.canada.badge')}
             </Badge>
-            <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
               {t('home.canada.title')}
             </h2>
-            <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="font-display text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('home.canada.subtitle')}
             </p>
           </div>
@@ -152,7 +152,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         <div className="absolute inset-0 bg-ink/30" />
         <div className="absolute bottom-12 left-0 right-0 text-center px-6">
-          <p className="font-serif italic text-2xl lg:text-3xl text-white drop-shadow-lg max-w-2xl mx-auto">
+          <p className="font-display text-2xl lg:text-3xl text-white drop-shadow-lg max-w-2xl mx-auto">
             "{t('home.lifestyleQuote')}"
           </p>
         </div>
@@ -167,10 +167,10 @@ const Index = () => {
                 <PlayCircle className="w-4 h-4 mr-2" />
                 {t('demo.badge')}
               </Badge>
-              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('demo.title')}
               </h2>
-              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-display text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('demo.subtitle')}
               </p>
             </div>
@@ -355,10 +355,10 @@ const Index = () => {
                 <Star className="w-4 h-4 mr-2" />
                 {t('success.badge')}
               </Badge>
-              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('success.title')}
               </h2>
-              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-display text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('success.subtitle')}
               </p>
             </div>
@@ -389,7 +389,7 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <blockquote className="font-serif text-lg italic leading-relaxed">"{testimonial.quote}"</blockquote>
+                    <blockquote className="font-display text-lg leading-relaxed">"{testimonial.quote}"</blockquote>
                   </CardContent>
                 </InteractiveCard>
               </OptimizedInView>
@@ -414,10 +414,10 @@ const Index = () => {
               <Badge variant="secondary" className="mb-4">
                 {t('roi.badge')}
               </Badge>
-              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('roi.title')}
               </h2>
-              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-display text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('roi.subtitle')}
               </p>
             </div>
@@ -442,10 +442,10 @@ const Index = () => {
               <Badge variant="secondary" className="mb-4">
                 📊 {t('home.compare.badge')}
               </Badge>
-              <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 {t('home.compare.title')}
               </h2>
-              <p className="font-serif italic text-xl text-muted-foreground max-w-3xl mx-auto">
+              <p className="font-display text-xl text-muted-foreground max-w-3xl mx-auto">
                 {t('home.compare.subtitle')}
               </p>
             </div>
@@ -474,7 +474,7 @@ const Index = () => {
       {/* No Marketplace Fee */}
       <section className="py-16 lg:py-20 bg-ink text-white">
         <div className="container text-center max-w-3xl">
-          <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-white">
+          <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-white">
             {t('home.noMarketplace.title')}
           </h2>
           <p className="text-lg text-white/70 mb-8 leading-relaxed">
@@ -490,10 +490,10 @@ const Index = () => {
       <section className="py-12 lg:py-16 bg-gradient-subtle">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl mb-4">
               {t('home.pricing.title')}
             </h2>
-            <p className="font-serif italic text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-display text-xl text-muted-foreground max-w-2xl mx-auto">
               {t('home.pricing.subtitle')}
             </p>
           </div>
@@ -634,7 +634,7 @@ const Index = () => {
                     
                     {chairCount > 7 && (
                       <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-                        <p className="font-serif italic text-sm text-green-700 dark:text-green-300 font-medium text-center">
+                        <p className="font-display text-sm text-green-700 dark:text-green-300 font-medium text-center">
                           🎉 {t('home.pricing.savingPrefix')} ${savings.toFixed(2)}{t('home.pricing.savingSuffix')}
                         </p>
                       </div>

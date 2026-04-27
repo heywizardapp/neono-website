@@ -172,7 +172,7 @@ export default function RoiPage() {
             <div className="mx-auto mb-6 h-16 w-16 rounded-2xl bg-gradient-hero flex items-center justify-center">
               <Calculator className="h-8 w-8 text-white" />
             </div>
-            <H1 className="font-serif">{t('roiPage.title')}</H1>
+            <H1 className="font-display">{t('roiPage.title')}</H1>
             <Lead className="max-w-3xl mx-auto">
               {t('roiPage.subtitle')}
             </Lead>
@@ -206,7 +206,7 @@ export default function RoiPage() {
         <div className="container">
           <Card className="bg-gradient-hero text-white border-0 shadow-glow">
             <CardContent className="py-12 text-center">
-              <h2 className="text-3xl font-serif font-bold mb-4">
+              <h2 className="text-3xl font-display font-bold mb-4">
                 {t('roiPage.ctaTitle')}
               </h2>
               <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">

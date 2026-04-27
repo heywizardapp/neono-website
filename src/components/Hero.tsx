@@ -52,7 +52,7 @@ export function Hero({
           {/* Left content - Simplified and focused */}
           <div className="text-center lg:text-left">
             <IntersectionAnimation animation="fade-up" delay={200}>
-              <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
+              <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6">
                 {title}
               </h1>
             </IntersectionAnimation>

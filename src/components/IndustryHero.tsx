@@ -42,10 +42,10 @@ export function IndustryHero({
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <div className="flex flex-col space-y-8 animate-fade-in">
             <div className="space-y-6">
-              <h1 className="text-4xl font-serif font-bold tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-display font-bold tracking-tight sm:text-5xl lg:text-6xl">
                 {t(titleKey)}
               </h1>
-              <p className="font-serif italic text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="font-display text-xl text-muted-foreground leading-relaxed max-w-2xl">
                 {t(subtitleKey)}
               </p>
             </div>

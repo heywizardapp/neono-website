@@ -52,7 +52,7 @@ export default function ColourStudio() {
               <Badge className="mb-6 bg-white/10 text-white border-white/20">
                 🎨 {t('colourStudio.hero.badge')}
               </Badge>
-              <h1 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6 text-white leading-tight">
+              <h1 className="font-display text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl mb-6 text-white leading-tight">
                 {t('colourStudio.hero.title')}
               </h1>
               <p className="text-base lg:text-lg text-white/70 mb-8 leading-relaxed max-w-xl">
@@ -92,14 +92,14 @@ export default function ColourStudio() {
       {/* ================================================================ */}
       <section className="py-16 lg:py-24">
         <div className="container max-w-4xl">
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl text-center mb-12">
+          <h2 className="font-display text-3xl font-bold sm:text-4xl text-center mb-12">
             {t('colourStudio.beforeAfter.title')}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* WITHOUT */}
             <div className="rounded-2xl border-2 border-red-200 dark:border-red-900/40 bg-red-50/50 dark:bg-red-950/20 p-6 lg:p-8">
-              <h3 className="font-serif text-lg font-bold mb-5 text-red-600 dark:text-red-400">
+              <h3 className="font-display text-lg font-bold mb-5 text-red-600 dark:text-red-400">
                 {t('colourStudio.beforeAfter.without.title')}
               </h3>
               <ul className="space-y-3">
@@ -114,7 +114,7 @@ export default function ColourStudio() {
 
             {/* WITH */}
             <div className="rounded-2xl border-2 border-emerald-200 dark:border-emerald-900/40 bg-emerald-50/50 dark:bg-emerald-950/20 p-6 lg:p-8">
-              <h3 className="font-serif text-lg font-bold mb-5 text-emerald-600 dark:text-emerald-400">
+              <h3 className="font-display text-lg font-bold mb-5 text-emerald-600 dark:text-emerald-400">
                 {t('colourStudio.beforeAfter.with.title')}
               </h3>
               <ul className="space-y-3">
@@ -137,10 +137,10 @@ export default function ColourStudio() {
         <div className="container max-w-6xl">
           <div className="text-center mb-14">
             <Badge variant="secondary" className="mb-4">How it works</Badge>
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-3">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl mb-3">
               {t('colourStudio.steps.title')}
             </h2>
-            <p className="font-serif italic text-lg text-muted-foreground">
+            <p className="font-display text-lg text-muted-foreground">
               {t('colourStudio.steps.subtitle')}
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function ColourStudio() {
                       <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-white text-lg font-bold">
                         {step.num}
                       </span>
-                      <h3 className="font-serif text-2xl font-bold">
+                      <h3 className="font-display text-2xl font-bold">
                         {t(`colourStudio.steps.${step.key}.title`)}
                       </h3>
                     </div>
@@ -185,10 +185,10 @@ export default function ColourStudio() {
       <section className="py-16 lg:py-24 bg-ink text-white">
         <div className="container max-w-5xl">
           <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-4 text-white">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl mb-4 text-white">
               {t('colourStudio.compare.title')}
             </h2>
-            <p className="font-serif italic text-lg text-white/60">
+            <p className="font-display text-lg text-white/60">
               {t('colourStudio.compare.subtitle')}
             </p>
           </div>
@@ -259,7 +259,7 @@ export default function ColourStudio() {
       <section className="py-16 lg:py-24">
         <div className="container max-w-3xl">
           <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl mb-4">
+            <h2 className="font-display text-3xl font-bold sm:text-4xl mb-4">
               {t('colourStudio.faq.title')}
             </h2>
             <p className="text-sm text-muted-foreground max-w-xl mx-auto">
@@ -279,7 +279,7 @@ export default function ColourStudio() {
             Founding Partner
           </Badge>
 
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl lg:text-5xl mb-6 text-white">
+          <h2 className="font-display text-3xl font-bold sm:text-4xl lg:text-5xl mb-6 text-white">
             {t('colourStudio.cta.title')}
           </h2>
           <p className="text-lg text-white/70 mb-4">

@@ -41,10 +41,10 @@ export function RelatedSolutions({
     <section className="py-16 bg-gradient-subtle">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold tracking-tight mb-4">
             {resolvedTitle}
           </h2>
-          <p className="font-serif italic text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-display text-lg text-muted-foreground max-w-2xl mx-auto">
             {resolvedDescription}
           </p>
         </div>

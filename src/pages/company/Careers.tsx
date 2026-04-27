@@ -195,7 +195,7 @@ export default function Careers() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4">We're Hiring</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">
                 Build the future of beauty business technology
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -209,8 +209,8 @@ export default function Careers() {
           <ScrollReveal>
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif font-bold mb-4">Why Work at NeonO?</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <h2 className="text-3xl font-display font-bold mb-4">Why Work at NeonO?</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   We believe great people deserve great benefits and an environment where they can do their best work.
                 </p>
               </div>
@@ -240,8 +240,8 @@ export default function Careers() {
           <ScrollReveal>
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif font-bold mb-4">Open Positions</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <h2 className="text-3xl font-display font-bold mb-4">Open Positions</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   Find your next opportunity to grow your career and make a meaningful impact.
                 </p>
               </div>
@@ -359,7 +359,7 @@ export default function Careers() {
             <Card className="mb-20 overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2 p-8 lg:p-12">
-                  <h2 className="text-3xl font-serif font-bold mb-6">Our Culture</h2>
+                  <h2 className="text-3xl font-display font-bold mb-6">Our Culture</h2>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     We're a diverse, remote-first team that values collaboration, innovation, and work-life balance. 
                     Our culture is built on trust, transparency, and a shared commitment to helping beauty businesses thrive.
@@ -405,7 +405,7 @@ export default function Careers() {
           <ScrollReveal>
             <Card className="mb-20 text-center">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-serif font-bold mb-4">Don't see the perfect role?</h2>
+                <h2 className="text-2xl font-display font-bold mb-4">Don't see the perfect role?</h2>
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   We're always looking for talented people who are passionate about our mission. 
                   Send us your resume and tell us how you'd like to contribute to NeonO's growth.
@@ -423,7 +423,7 @@ export default function Careers() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-serif font-bold mb-4">Ready to make an impact?</h2>
+                <h2 className="text-2xl font-display font-bold mb-4">Ready to make an impact?</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
                   Join our team and help us build the future of beauty business technology. 
                   Together, we'll empower thousands of entrepreneurs to achieve their dreams.

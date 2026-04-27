@@ -12,10 +12,10 @@ export function IntegrationsStrip({ integrations }: IntegrationsStripProps) {
     <section className="py-16">
       <div className="container">
         <div className="text-center mb-10">
-          <h3 className="font-serif text-2xl font-bold tracking-tight sm:text-3xl mb-2">
+          <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl mb-2">
             {t('integrations.title')}
           </h3>
-          <p className="font-serif italic text-muted-foreground">
+          <p className="font-display text-muted-foreground">
             {t('integrations.subtitle')}
           </p>
         </div>

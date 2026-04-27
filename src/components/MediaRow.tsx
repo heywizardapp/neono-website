@@ -34,7 +34,7 @@ export function MediaRow({
                   {eyebrow}
                 </div>
               )}
-              <h2 className="text-3xl font-serif font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-3xl font-display font-bold tracking-tight sm:text-4xl">
                 {title}
               </h2>
             </div>

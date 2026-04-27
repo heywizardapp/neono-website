@@ -67,7 +67,7 @@ export default function About() {
           <OptimizedInView animation="fade">
             <div className="text-center mb-16">
               <Badge variant="outline" className="mb-4">Our Story</Badge>
-              <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold font-display mb-4">
                 Built by salon owners,<br />for beauty businesses
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -105,8 +105,8 @@ export default function About() {
             <Card className="mb-20 overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2 p-8 lg:p-12">
-                  <h2 className="text-3xl font-serif font-bold mb-6">Our Mission</h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed font-serif italic mb-6">
+                  <h2 className="text-3xl font-display font-bold mb-6">Our Mission</h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed font-display mb-6">
                     To democratize access to powerful business tools for beauty professionals worldwide. 
                     Every salon, barbershop, spa, and aesthetic clinic deserves software that's as beautiful 
                     and intuitive as the services they provide.
@@ -136,8 +136,8 @@ export default function About() {
           <ScrollReveal>
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif font-bold mb-4">Our Values</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <h2 className="text-3xl font-display font-bold mb-4">Our Values</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   The principles that guide everything we do, from product decisions to customer relationships.
                 </p>
               </div>
@@ -167,12 +167,12 @@ export default function About() {
           <ScrollReveal>
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif font-bold mb-4">Our Story</h2>
+                <h2 className="text-3xl font-display font-bold mb-4">Our Story</h2>
               </div>
 
               <div className="max-w-3xl mx-auto">
                 <Card className="p-8">
-                  <p className="text-lg text-muted-foreground leading-relaxed font-serif italic">
+                  <p className="text-lg text-muted-foreground leading-relaxed font-display">
                     NeonO was built by people who understand the beauty industry. We saw salon owners
                     juggling 5+ tools, losing money on unbilled colour, and fighting with software that
                     wasn't built for them. So we built the platform we wished existed — one that includes
@@ -187,8 +187,8 @@ export default function About() {
           <ScrollReveal>
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif font-bold mb-4">Our Team</h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-serif italic">
+                <h2 className="text-3xl font-display font-bold mb-4">Our Team</h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-display">
                   Founded by salon industry professionals who lived the problems we're solving.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export default function About() {
                 <div className="md:w-1/2 p-8 lg:p-12">
                   <div className="flex items-center gap-2 mb-4">
                     <MapPin className="h-5 w-5 text-primary" />
-                    <h2 className="text-3xl font-serif font-bold">Visit Our Office</h2>
+                    <h2 className="text-3xl font-display font-bold">Visit Our Office</h2>
                   </div>
                   <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                     We're based in Toronto, Canada, with team members across the country.
@@ -244,7 +244,7 @@ export default function About() {
           <ScrollReveal>
             <Card className="bg-gradient-hero text-white border-0">
               <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-serif font-bold mb-4">Ready to see NeonO in action?</h2>
+                <h2 className="text-2xl font-display font-bold mb-4">Ready to see NeonO in action?</h2>
                 <p className="text-white/90 mb-6 text-lg max-w-2xl mx-auto">
                   Experience the NeonO difference. Book a demo today and see why we built the all-in-one
                   platform Canadian salons have been waiting for.
